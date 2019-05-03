@@ -1,0 +1,206 @@
+:root {
+  --breakpoint-xs: 0;
+  --breakointt-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+}
+
+$light: #f8f9fa;
+$dark: #343a40;
+$gray: #bdbfc2;
+
+@import 'base';
+
+.navbar {
+  z-index: 810;
+  text-align: center;
+  
+  .nav-link {
+    display: inline-block;
+    color: $light;
+    opacity: .7;
+    padding: 1rem;
+    text-decoration: none;
+    transition: opacity .3s cubic-bezier(0.39, 0.575, 0.565, 1);
+
+    &.active, &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.card {
+  border-radius: .25rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  height: 100%;
+  overflow: hidden;
+  transition: box-shadow .3s cubic-bezier(0.39, 0.575, 0.565, 1);
+
+  &.hoverable:hover {
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+  }
+
+  .card-content {
+    padding: 1rem;
+  }
+
+  .card-header {
+    margin: 0;
+  }
+
+  .card-desc {
+    margin: .25rem 0;
+  }
+}
+
+.btn-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+// Utilities
+
+.text-center {
+  text-align: center;
+}
+
+.social-list {
+  text-align: center;
+  margin: 1rem;
+}
+
+.social-icon {
+  display: inline-block;
+  padding: 0 .5rem;
+  transition: opacity .3s cubic-bezier(0.39, 0.575, 0.565, 1);
+
+  &:hover {
+    opacity: .5;
+  }
+}
+
+.shadow {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.color-light {
+  color: $light;
+}
+
+.color-dark {
+  color: $dark;
+}
+
+.bg-light {
+  background-color: $light;
+}
+
+.bg-dark {
+  background-color: $dark;
+}
+
+.opacity-50 {
+  opacity: .5;
+}
+
+.opacity-70 {
+  opacity: .7;
+}
+
+.stretch-vw {
+  width: 100vw;
+  margin: 0 calc(50% - 50vw);
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.text-deco-none {
+  text-decoration: none;
+}
+
+.text-right {
+  text-align: right;
+}
+
+// ID
+
+#home-header {
+  position: relative;
+  top: -54px;
+  z-index: -810;
+  width: 100vw;
+  margin: 0 calc(50% - 50vw);
+  background-image: url('/assets/images/keyboards.jpg');
+  background-attachment: fixed;
+  background-position: top;
+  background-size: cover;
+
+  .cover {
+    width: 100%;
+    height: 100%;
+    color: $light;
+    background-color: rgba($dark, .7);
+    text-align: center;
+  }
+}
+
+#header-text {
+  display: inline-block;
+  margin: 0 auto;
+  line-height: 100vh;
+  font-size: 3rem;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+#projects {
+  margin-top: 5rem;
+
+  .card-wrapper {
+    margin-top: 1rem;
+
+    .card {
+      margin: 0 auto;
+    }
+  }
+} 
+
+// Followed Boostrap's breakpoints specs
+@media screen and (min-width: 576px) {
+  #header-text {
+    font-size: 5rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #header-text {
+    font-size: 7rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  #projects {
+    margin-top: 7rem;
+  
+    .card-wrapper {
+      margin-top: -4rem;
+      transition: margin-top .3s cubic-bezier(0.39, 0.575, 0.565, 1),
+                  padding-bottom .3s cubic-bezier(0.39, 0.575, 0.565, 1);
+
+      &:hover {
+        margin-top: -5rem;
+        padding-bottom: 1rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #header-text {
+    font-size: 9rem;
+  }
+}

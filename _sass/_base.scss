@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+*::selection {
+  background-color: $gray;
+  color: black;
+}
+
+html {
+  padding: 0;
+  margin: 0;
+  background-color: $light;
+  color: $dark;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 400;
+}
+
+a {
+  color: black;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 2.4rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+h3 {
+  font-size: 1.6rem;
+}
+
+h4 {
+  font-size: 1.4rem;
+}
+
+h5 {
+  font-size: 1.3rem;
+}
+
+h6 {
+  font-size: 1.1rem;
+}
+
+p, code {
+  font-size: 1.1rem;
+}
+
+small {
+  font-size: .8rem;
+}
+
+button, .btn {
+  padding: .5rem 1rem;
+  border-radius: .25rem;
+  color: $dark;
+  background-color: $light;
+  border: 1px solid $gray; 
+  transition: background-color .3s;
+
+  &:hover, &:active {
+    background-color: white;
+  }
+
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0.25rem .5rem rgba(0, 0, 0, 0.125);
+  }
+}
+
+// Followed Boostrap's breakpoints specs
+@media screen and (min-width: 576px) {
+
+}
+
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 3rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+  
+  h3 {
+    font-size: 1.8rem;
+  }
+  
+  h4 {
+    font-size: 1.5rem;
+  }
+  
+  h5 {
+    font-size: 1.3rem;
+  }
+  
+  h6 {
+    font-size: 1.1rem;
+  }
+
+  p, code {
+    font-size: 1.3rem;
+  }
+
+  small {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+
+}
+
+@media screen and (min-width: 1200px) {
+ 
+}

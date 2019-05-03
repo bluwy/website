@@ -1,0 +1,19 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+    <title>{%- if page.title -%} {{ page.title }} | {% endif -%} {{ site.title }}</title>
+    {%- seo title=false -%}
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap-grid.min.css" />
+    <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
+  
+    {%- feed_meta -%}
+
+    {%- if (site.environment == 'production' or jekyll.environment == 'production') and site.google_analytics -%}
+      {%- include google-analytics.html -%}
+    {%- endif -%}
+  </head>
+  

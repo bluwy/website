@@ -1,0 +1,27 @@
+  <div id="loadBtn" class="w-100 mb-5">
+    <button class="w-100 py-3" onclick="loadComments();">Load comments</button>
+  </div>
+  <div id="disqus_thread" class="mb-5"></div>
+  <script>
+    let commentsLoaded = false;
+    function loadComments() {
+      if (commentsLoaded) { return; }
+
+      commentsLoaded = true;
+
+      document.getElementById("loadBtn").hidden = true;
+
+      var disqus_config = function () {
+      this.page.url = '{{ page.url | absolute_url }}';
+      this.page.identifier = '{{ page.url | absolute_url }}';
+      };
+
+      (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://bjornlug-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+      })();
+    }
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>

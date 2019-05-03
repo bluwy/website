@@ -1,0 +1,96 @@
+---
+layout: home
+---
+
+<div id="home-header">
+  <div class="cover">
+    <h1 id="header-text">Bjorn Lu</h1>
+  </div>
+</div>
+  
+<div>
+  <section>
+    <h1>// Hello :]</h1>
+    <p>
+      I'm Bjorn Lu, also known as Blu. I'm a self-taught programmer from Malaysia. 
+      I do front-end and static websites. I also do desktops apps and games occasionally.
+    </p>
+    <p>
+      Living in the fast-paced industry, I'm always eager to learn and discover new technologies. 
+      Moreover, I enjoy problem solving whenever I learn something new.
+    </p>
+  </section>
+  <br>
+  <section>
+    <h2>// Background</h2>
+    <p>
+      I'm 18, living in Kuching, Sarawak with my family, and currently taking foundation studies 
+      on information technology and multimedia at Swinburne Sarawak. I also did countless side projects 
+      during secondary school.
+    </p>
+    <p>
+      I have great passion for electronic music and video games. They allowed me to open new perspective 
+      and to think outside the box.
+    </p>
+  </section>
+  <br>
+  <section>
+    <h2>// Proficiencies</h2>
+    <p>
+      I had fiddled with many kinds of development, including games, softwares and web. As a result, I 
+      speak C#, HTML and CSS well. I also understand languages such as JavaScript, Lua, Python and SQL 
+      thorughout my projects. 
+    </p>
+    <p>
+      I've utilised many IDEs, including Visual Studio and VS Code. I've had extensive use of specialized 
+      softwares, such as Unity, Adobe Photoshop, Inkscape, Blender and MySQL Workbench. In terms of web 
+      frameworks, I am proficient with jQuery, Vue, Jekyll and Hexo. 
+    </p>
+  </section>
+</div>
+
+<div id="projects" class="stretch-vw bg-dark">
+  <div class="container py-5 py-lg-0">
+    <div class="d-lg-none">
+      <p class="text-center my-0 pb-2 color-light">
+        Here's some of my projects.
+      </p>
+    </div>
+    <div class="row justify-content-center">
+      {%- assign card_count = 3 -%}
+      {%- for item in site.data.projects -%}
+        {%- if forloop.index > card_count -%}
+          {%- break -%}
+        {%- endif -%}
+        <a class="col-auto btn-link" href="{{ item.link | relative_url }}">
+          <div class="card-wrapper" style="width: 250px;">
+            <div class="card bg-light">
+              <img src="https://picsum.photos/id/1043/250/250.jpg" alt="placeholder" lazyload loading="lazy">
+              <div class="card-content">
+                <h4 class="card-header">{{ item.name }}</h4>
+                <small class="card-desc">{{ item.desc }}</small>
+              </div>
+            </div>
+          </div>
+        </a>
+      {%- endfor -%}
+    </div>
+    <div class="d-none d-lg-block">
+      <p class="text-center mt-5 color-light">
+        Here's some of my projects.
+      </p>
+    </div>
+    <div class="text-center pt-3 pb-5">
+      <a class="btn text-deco-none" href="{{ '/projects/' | relative_url }}">See all projects</a>
+    </div>
+  </div>
+</div>
+
+<div class="my-5">
+  <section>
+    <h2>// Find Me</h2>
+    <p>
+      Find me on Reddit! All of my projects can be found on Github. 
+    </p>
+  </section>
+</div>

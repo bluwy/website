@@ -1,0 +1,39 @@
+---
+layout: default-page
+---
+
+<article>
+  <header class="mb-3">
+    <h1 class="mb-1">{{ page.title }}</h1>
+    {%- if page.subtitle -%}
+      <h4 class="opacity-70 my-1">{{ page.subtitle }}</h4>
+    {%- endif -%}
+    <div class="opacity-70 mb-1">
+      <time datetime="{{ page.date | date_to_xmlschema }}">
+        {{ page.date | date: site.date_format }}
+      </time>
+        • {{ page.content | number_of_words | divided_by: 180.0 | ceil | append: " min read"}}
+    </div>
+    </div class="mb-2">
+      <a class="share-facebook" title="Share to Facebook"><i class="fab fa-facebook-square fa-2x" style="color: #3b5998"></i></a>
+      <a class="share-twitter" title="Share to Twitter"><i class="fab fa-twitter-square fa-2x" style="color: #38a1f3"></i></a>
+      <a class="share-reddit" title="Share to Reddit"><i class="fab fa-reddit-square fa-2x" style="color: #ff4500"></i></a>
+    </div>
+  </header>
+
+  <hr>
+
+  <div class="mb-5">
+    {{ page.content }}
+  </div>
+
+  <div class="text-right mb-5">
+    <a class="btn text-deco-none" href="{{ '/blog/' | relative_url }}">Read other posts</a>
+  </div>
+
+  {%- if page.comments -%}
+    {%- include disqus_comments.html -%}
+  {%- endif -%}
+</article>
+
+<script src="{{ '/assets/js/share.js' | relative_url }}" data-title="{{ page.title | escape }}"></script>
