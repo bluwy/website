@@ -12,8 +12,10 @@
   
     {%- feed_meta -%}
 
-    {%- if (site.environment == 'production' or jekyll.environment == 'production') and site.google_analytics -%}
+    {%- if site.google_analytics and site.environment == 'production' or jekyll.environment == 'production'  -%}
       {%- include google-analytics.html -%}
     {%- endif -%}
+
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
   
