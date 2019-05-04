@@ -7,23 +7,25 @@ layout: home-w-title
   <h2>Recent Posts</h2>
   <div>
     {%- for post in site.posts -%}
-      <a class="btn-link" href="{{ post.url | relative_url }}">
-        <div class="card hoverable mb-4 w-100">
-          <div class="card-content">
-            <h4 class="card-header">{{ post.title | escape }}</h4>
-            {%- if post.subtitle -%}
-              <h5 class="card-header opacity-70">{{ post.subtitle | escape }}</h5>
-            {%- endif -%}
-            <p class="card-desc">{{ post.excerpt }}</p>
-            <div class="opacity-70">
-              <time datetime="{{ page.date | date_to_xmlschema }}">
-                {{ post.date | date: site.date_format }}
-              </time>
-                • {{ post.content | number_of_words | divided_by: 180.0 | ceil | append: " min read"}}
+      <div class="mb-4">
+        <a class="btn-link" href="{{ post.url | relative_url }}">
+          <div class="card hoverable w-100">
+            <div class="card-content">
+              <h4 class="card-header">{{ post.title | escape }}</h4>
+              {%- if post.subtitle -%}
+                <h5 class="card-header opacity-70">{{ post.subtitle | escape }}</h5>
+              {%- endif -%}
+              <p class="card-desc">{{ post.excerpt }}</p>
+              <div class="opacity-70">
+                <time datetime="{{ page.date | date_to_xmlschema }}">
+                  {{ post.date | date: site.date_format }}
+                </time>
+                  • {{ post.content | number_of_words | divided_by: 180.0 | ceil | append: " min read"}}
+              </div>
             </div>
           </div>
-        </div>
-      </a>
+        </a>
+      </div>
     {%- endfor -%}
   </li>
 </div>

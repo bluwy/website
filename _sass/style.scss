@@ -11,6 +11,7 @@ $dark: #343a40;
 $gray: #bdbfc2;
 
 @import 'base';
+@import 'syntax-highlighting';
 
 .navbar {
   z-index: 810;
@@ -51,6 +52,13 @@ $gray: #bdbfc2;
 
   .card-desc {
     margin: .25rem 0;
+  }
+
+  // Only for /projects/
+  &.card-projects {
+    width: 250px;
+    height: auto;
+    margin: 0 auto;
   }
 }
 
@@ -118,6 +126,10 @@ $gray: #bdbfc2;
   width: 100%;
 }
 
+.h-100 {
+  height: 100%;
+}
+
 .text-deco-none {
   text-decoration: none;
 }
@@ -135,9 +147,12 @@ $gray: #bdbfc2;
   width: 100vw;
   margin: 0 calc(50% - 50vw);
   background-image: url('/assets/images/keyboards.jpg');
-  background-attachment: fixed;
+  background-repeat: no-repeat;
   background-position: top;
   background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
 
   .cover {
     width: 100%;
@@ -171,6 +186,11 @@ $gray: #bdbfc2;
 
 // Followed Boostrap's breakpoints specs
 @media screen and (min-width: 576px) {
+  .card.card-projects {
+    width: auto;
+    height: 200px;
+  }
+
   #header-text {
     font-size: 5rem;
   }
@@ -202,5 +222,12 @@ $gray: #bdbfc2;
 @media screen and (min-width: 1200px) {
   #header-text {
     font-size: 9rem;
+  }
+}
+
+// Check if is desktop, which most support background-attachment: fixed
+@media (pointer: fine) {
+  #home-header {
+    background-attachment: fixed;
   }
 }

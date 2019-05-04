@@ -5,20 +5,22 @@ layout: home-w-title
 
 <div class="mb-5">
   {%- for item in site.data.projects -%}
-    <a class="btn-link w-100" href="{{ item.link | relative_url }}">
-      <div class="card hoverable mb-4 bg-light">
-        <div class="row">
-          <div class="col-auto" style="height: 250px;">
-            <img src="https://picsum.photos/id/1043/250/250.jpg" alt="placeholder" lazyload loading="lazy">
-          </div>
-          <div class="col">
-            <div class="card-content">
-              <h4 class="card-header">{{ item.name }}</h4>
-              <p class="card-desc">{{ item.desc }}</p>
+    <div class="mb-4">
+       <a class="btn-link mb-4 w-100" href="{{ item.link | relative_url }}">
+        <div class="card card-projects hoverable bg-light">
+          <div class="row h-100">
+            <div class="col-auto h-100">
+              <img class="h-100" src="https://picsum.photos/id/1043/250/250.jpg" alt="placeholder" lazyload loading="lazy">
+            </div>
+            <div class="col">
+              <div class="card-content">
+                <h4 class="card-header">{{ item.name }}</h4>
+                <p class="card-desc">{{ item.desc }}</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </a>
+      </a>
+    </div>
   {%- endfor -%}
 </div>

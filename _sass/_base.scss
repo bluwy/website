@@ -82,6 +82,11 @@ button, .btn {
   }
 }
 
+pre {
+  padding: 1rem;
+  margin: 0;
+}
+
 // Followed Boostrap's breakpoints specs
 @media screen and (min-width: 576px) {
 
