@@ -2,17 +2,17 @@
   <div class="container py-1">
     <div class="social-list">
       {%- if site.github_username -%}
-        <a class="social-icon" href="https://github.com/<%- site.github_username %>">
+        <a class="social-icon" href="https://github.com/{{ site.github_username }}">
           <i class="fab fa-github fa-2x color-light"></i>
         </a>
       {%- endif -%}
       {%- if site.reddit_username -%}
-        <a class="social-icon" href="https://reddit.com/u/<%- site.reddit_username %>">
+        <a class="social-icon" href="https://reddit.com/u/{{ site.reddit_username }}">
           <i class="fab fa-reddit fa-2x color-light"></i>
         </a>
       {%- endif -%}
       {%- if site.twitter_username -%}
-        <a class="social-icon" href="https://twitter.com/<%- site.twitter_username %>">
+        <a class="social-icon" href="https://twitter.com/{{ site.twitter_username }}">
           <i class="fab fa-twitter fa-2x color-light"></i>
         </a>
       {%- endif -%}
