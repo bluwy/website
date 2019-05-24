@@ -28,7 +28,7 @@ reddit_username: IamLUG
 
 # Miscellanuous
 date_format: "%b %-d, %Y"
-google_analytics:
+google_analytics: UA-137893328-2
 disqus_src:
   
 # Build settings
