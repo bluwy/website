@@ -26,9 +26,9 @@ Steps:
 This method will “reset” your skins’ layout but will still keep your downloaded skins intact. This means you have to track down the bugged skin afterwards.
 
 Steps:
-1. Press Win+R, type "**%APPDATA%**" (without quotes), and press Enter. File Explorer will open.  
+1. Press `⊞ Win`+`R`, type "**%APPDATA%**" (without quotes), and press Enter. File Explorer will open.  
 
-2. Navigate to **Roaming/Rainmeter** folder and delete the Rainmeter.ini file.
+2. Navigate to **Roaming/Rainmeter** folder and delete the **Rainmeter.ini** file.
 
 3. Restart Rainmeter. It should load the *illustro* skins by default.
 
