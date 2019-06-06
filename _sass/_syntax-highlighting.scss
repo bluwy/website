@@ -2,11 +2,11 @@
 // Theme: Monokai
 
 .highlight {
+  @extend .elevation-2;
   overflow-x: auto;
   background-color: #272822;
   margin: 0;
   border-radius: .25rem;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 
   pre { background-color: #272822; }
   .hll { background-color: #272822; }

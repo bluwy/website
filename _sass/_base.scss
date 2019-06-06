@@ -65,20 +65,22 @@ small {
 }
 
 button, .btn {
+  @extend .elevation-2;
   padding: .5rem 1rem;
   border-radius: .25rem;
   color: $dark;
   background-color: $light;
   border: 1px solid $gray; 
-  transition: background-color .3s;
+  transition: background-color .3s cubic-bezier(0.39, 0.575, 0.565, 1), box-shadow .3s cubic-bezier(0.39, 0.575, 0.565, 1);
 
   &:hover, &:active {
+    @extend .elevation-4;
     background-color: white;
   }
 
   &:focus {
+    @extend .elevation-4;
     outline: 0;
-    box-shadow: 0 0.25rem .5rem rgba(0, 0, 0, 0.125);
   }
 }
 
@@ -88,10 +90,6 @@ pre {
 }
 
 // Followed Boostrap's breakpoints specs
-@media screen and (min-width: 576px) {
-
-}
-
 @media screen and (min-width: 768px) {
   h1 {
     font-size: 3rem;
@@ -124,12 +122,4 @@ pre {
   small {
     font-size: 1rem;
   }
-}
-
-@media screen and (min-width: 992px) {
-
-}
-
-@media screen and (min-width: 1200px) {
- 
 }

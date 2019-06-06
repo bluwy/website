@@ -15,7 +15,12 @@ layout: home-w-title
               {%- if post.subtitle -%}
                 <h5 class="card-header opacity-70">{{ post.subtitle | escape }}</h5>
               {%- endif -%}
-              <p class="card-desc">{{ post.excerpt }}</p>
+              <div class="my-1">
+                {%- for tag in post.tags -%}
+                  {%- include chip.html name=tag -%}
+                {%- endfor -%}
+              </div>
+              {{ post.excerpt }}
               <div class="opacity-70">
                 <time datetime="{{ page.date | date_to_xmlschema }}">
                   {{ post.date | date: site.date_format }}

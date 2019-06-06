@@ -1,5 +1,5 @@
 <header>
-  <nav class="navbar {%- unless include.clear %} bg-dark {%- endunless -%}">
+  <nav class="navbar {%- unless include.clear %} bg-dark elevation-4 {%- endunless -%}">
     {%- for item in site.data.navigation -%}
       <a class="nav-link {%- if page.url == item.link %} active {%- endif -%}" href="{{ item.link | relative_url }}">{{ item.name }}</a>
     {%- endfor -%}

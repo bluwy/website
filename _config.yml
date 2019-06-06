@@ -29,7 +29,7 @@ reddit_username: IamLUG
 # Miscellanuous
 date_format: "%b %-d, %Y"
 google_analytics: UA-137893328-2
-disqus_src:
+disqus_src: https://bjornlu.disqus.com/embed.js
   
 # Build settings
 markdown: kramdown
@@ -52,3 +52,6 @@ exclude:
   - "*.code-workspace"
   - LICENSE
   - README.md
+
+# Uncomment this to test production
+# environment: production

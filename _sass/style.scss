@@ -10,6 +10,7 @@ $light: #f8f9fa;
 $dark: #343a40;
 $gray: #bdbfc2;
 
+@import 'material-shadow';
 @import 'base';
 @import 'syntax-highlighting';
 
@@ -32,14 +33,14 @@ $gray: #bdbfc2;
 }
 
 .card {
+  @extend .elevation-1;
   border-radius: .25rem;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   height: 100%;
   overflow: hidden;
   transition: box-shadow .3s cubic-bezier(0.39, 0.575, 0.565, 1);
 
   &.hoverable:hover {
-    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+    @extend .elevation-6;
   }
 
   .card-content {
@@ -50,15 +51,25 @@ $gray: #bdbfc2;
     margin: 0;
   }
 
-  .card-desc {
-    margin: .25rem 0;
-  }
-
   // Only for /projects/
   &.card-projects {
     width: 250px;
     height: auto;
     margin: 0 auto;
+  }
+}
+
+.chip {
+  display: inline-block;
+  background-color: $light;
+  border: 1px solid $gray;
+  border-radius: .5rem;
+  padding: .05rem .5rem;
+  margin-right: .5rem;
+  transition: background-color .3s cubic-bezier(0.39, 0.575, 0.565, 1);
+
+  &:hover, &:active {
+    background-color: white;
   }
 }
 
@@ -87,10 +98,6 @@ $gray: #bdbfc2;
   &:hover {
     opacity: .5;
   }
-}
-
-.shadow {
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
 .color-light {
