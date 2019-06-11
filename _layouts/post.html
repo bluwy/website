@@ -20,9 +20,12 @@ layout: default-page
         • {{ page.content | number_of_words | divided_by: 180.0 | ceil | append: " min read"}}
     </div>
     </div class="mb-2">
-      <a class="share-facebook" title="Share to Facebook"><i class="fab fa-facebook-square fa-2x" style="color: #3b5998"></i></a>
-      <a class="share-twitter" title="Share to Twitter"><i class="fab fa-twitter-square fa-2x" style="color: #38a1f3"></i></a>
-      <a class="share-reddit" title="Share to Reddit"><i class="fab fa-reddit-square fa-2x" style="color: #ff4500"></i></a>
+      <a class="share-facebook" title="Share to Facebook" href="https://www.facebook.com/sharer.php?u={{ page.url | absolute_url | url_encode }}"
+      ><i class="fab fa-facebook-square fa-2x" style="color: #3b5998"></i></a>
+      <a class="share-twitter" title="Share to Twitter" href="https://twitter.com/intent/tweet?url={{ page.url | absolute_url | url_encode }}&text={{ page.title | url_encode }}"
+      ><i class="fab fa-twitter-square fa-2x" style="color: #38a1f3"></i></a>
+      <a class="share-reddit" title="Share to Reddit" href="https://www.reddit.com/submit?url={{ page.url | absolute_url | url_encode }}&title={{ page.title | url_encode }}"
+      ><i class="fab fa-reddit-square fa-2x" style="color: #ff4500"></i></a>
     </div>
   </header>
 
@@ -40,5 +43,3 @@ layout: default-page
     {%- include disqus_comments.html -%}
   {%- endif -%}
 </article>
-
-<script src="{{ '/assets/js/share.js' | relative_url }}" data-title="{{ page.title | escape }}"></script>

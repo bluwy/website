@@ -10,6 +10,8 @@ Sometimes Rainmeter crashes and you have no idea why. Here's a straightforward g
 
 The methods below should be followed sequentially, if the first method doesn’t work, move on to the next method, and so forth.
 
+&nbsp;
+
 ### Method 1: Delete bugged skin
 
 Whenever Rainmeter crashes, chances are that a skin you loaded was bugged. If you remembered what skin was last loaded that caused Rainmeter to crash, follow the steps below, otherwise move on to the next method.
@@ -20,6 +22,8 @@ Steps:
 2. Within the folder, delete the folder with the name of the bugged skin.
 
 3. Restart Rainmeter.
+
+&nbsp;
 
 ### Method 2: Clear Rainmeter settings cache 
 
@@ -34,6 +38,8 @@ Steps:
 
 4. Load your desired skins again one at a time and see which causes Rainmeter to crash. When found, delete the skin the same way as Method 1.
 
+&nbsp;
+
 ### Method 3: Reinstall Rainmeter 
 
 The last resort. You can backup your skins at **Documents/Rainmeter/Skins** if you wish, but it will very likely bring back the crash again.
@@ -44,6 +50,8 @@ Steps:
 2. Go to the [Rainmeter website][Rainmeter] and download the latest release.
 
 3. Install Rainmeter.
+
+&nbsp;
 
 ## Conclusion
 
