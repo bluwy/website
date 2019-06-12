@@ -3,5 +3,9 @@
   {%- include head.html -%}
   <body>
     {{ content }}
+
+    {%- if site.google_analytics and site.environment == 'production' or jekyll.environment == 'production' -%}
+      {%- include google_analytics.html -%}
+    {%- endif -%}
   </body>
 </html>

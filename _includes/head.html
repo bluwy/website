@@ -1,21 +1,18 @@
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  
-    <link rel="shortcut icon" href="{{ '/favicon.ico' | relative_url }}" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>{%- if page.title -%} {{ page.title }} | {% endif -%} {{ site.title }}</title>
-    {%- seo title=false -%}
+  <link rel="shortcut icon" href="{{ '/favicon.ico' | relative_url }}" type="image/x-icon">
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap-grid.min.css" />
-    <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
-  
-    {%- feed_meta -%}
+  <title>{%- if page.title -%} {{ page.title }} | {% endif -%} {{ site.title }}</title>
+  {%- seo title=false -%}
 
-    {%- if site.google_analytics and site.environment == 'production' or jekyll.environment == 'production' -%}
-      {%- include google_analytics.html -%}
-    {%- endif -%}
-  </head>
-  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito&display=swap"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap-grid.min.css" />
+  <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
+
+  <script src="https://kit.fontawesome.com/43c0d4308e.js"></script>
+
+  {%- feed_meta -%}
+</head>
