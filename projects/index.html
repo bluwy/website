@@ -8,9 +8,9 @@ layout: home-w-title
     <div class="mb-4">
        <a class="btn-link mb-4 w-100" href="{{ item.link | relative_url }}">
         <div class="card card-projects hoverable bg-light">
-          <div class="row h-100">
-            <div class="col-auto h-100">
-              <img class="h-100" src="https://picsum.photos/id/1043/250/250.jpg" alt="placeholder" lazyload loading="lazy">
+          <div class="row">
+            <div class="col-auto">
+              <img src="{{ item.src }}" alt="{{ item.name }} thumbnail"  lazyload loading="lazy">
             </div>
             <div class="col">
               <div class="card-content">

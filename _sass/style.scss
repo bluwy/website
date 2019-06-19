@@ -145,6 +145,10 @@ $gray: #bdbfc2;
   text-align: right;
 }
 
+.vertical-middle {
+  vertical-align: middle;
+}
+
 // ID
 
 #home-header {
@@ -195,7 +199,7 @@ $gray: #bdbfc2;
 @media screen and (min-width: 576px) {
   .card.card-projects {
     width: auto;
-    height: 200px;
+    height: 250px;
   }
 
   #header-text {
