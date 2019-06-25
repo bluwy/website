@@ -1,0 +1,28 @@
+---
+title: Store
+items: 
+
+---
+
+<div class="mb-5">
+  <p>Browse components to be added to your next big project!</p>
+  <div class="card">
+    <div class="card-content">
+      <h3 class="my-1">Categories</h3>
+      <div class="vertical-list">
+        {%- for item in site.data.store -%}
+          <div class="list-item arrow-hover">
+            <a class="btn-link d-inline-block w-100 p-3" href="{{ item.link | relative_url }}">
+              <div class="row">
+                <div class="col">{{ item.name }}</div>
+                <div class="col-auto">
+                  <i class="fas fa-arrow-right arrow"></i>
+                </div>
+              </div>
+            </a>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</div>

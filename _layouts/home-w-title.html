@@ -6,7 +6,16 @@ layout: default
 <main class="container">
   <div id="home-header">
     <div class="cover">
-      <h1 class="m-0 pt-5 pb-4">{{ page.title }}</h1>
+      <h1 class="m-0 pt-5 
+        {% if page.subtitle -%}
+          pb-1
+        {%- else -%}
+          pb-4
+        {%- endif -%}"
+      >{{ page.title }}</h1>
+      {%- if page.subtitle -%}
+        <h5 class="m-0 pb-4">{{ page.subtitle }}</h5>
+      {%- endif -%}
     </div>
   </div>
   {{ content }}

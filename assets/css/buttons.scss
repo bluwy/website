@@ -1,0 +1,232 @@
+---
+---
+
+@import 'variables';
+
+// Transition
+$td: .2s;
+$te: ease-out;
+
+$border-width: 3px;
+
+$directions: "left", "right", "top", "bottom";
+
+// Reset some button style to base
+button {
+  font-size: 1.1rem;
+  margin-bottom: .25rem;
+  width: 150px;
+  color: $dark;
+  background-color: $light;
+  box-shadow: none;
+  transition: none;
+
+  &:hover, &:active {
+    box-shadow: none;
+    background-color: $light;
+  }
+
+  &:focus {
+    box-shadow: none;
+    outline: 0;
+  }
+}
+
+.btn-slide {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  color: $dark;
+  transition: color $td $te;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $accent;
+    transition: transform $td $te;
+  }
+
+  &.left::before {
+    transform: translateX(-100%);
+  }
+  &.right::before {
+    transform: translateX(100%);
+  }
+  &.top::before {
+    transform: translateY(100%);
+  }
+  &.bottom::before {
+    transform: translateY(-100%);
+  }
+
+  &:hover, &:active, &:focus {
+    color: $light;
+
+    &.left::before, &.right::before {
+      transform: translateX(0);
+    }
+    &.top::before, &.bottom::before {
+      transform: translateY(0);
+    }
+  }
+}
+
+.btn-line {
+  position: relative;
+  border: none;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    background-color: $accent;
+    transition: transform $td $te;
+  }
+
+  &.left::after {
+    top: 0;
+    left: 0;
+    width: $border-width;
+    height: 100%;
+    transform: scaleY(0);
+  } 
+  &.right::after {
+    top: 0;
+    right: 0;
+    width: $border-width;
+    height: 100%;
+    transform: scaleY(0);
+  } 
+  &.top::after {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: $border-width;
+    transform: scaleX(0);
+  } 
+  &.bottom::after {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: $border-width;
+    transform: scaleX(0);
+  }
+
+  &:hover, &:active, &:focus {
+    &.left::after, &.right::after {
+      transform: scaleY(1);
+    }
+    &.top::after, &.bottom::after {
+      transform: scaleX(1);
+    }
+  }
+}
+
+.btn-fade {
+  transition: color $td $te, background-color $td $te;
+
+  &:hover, &:active, &:focus {
+    color: $light;
+    background-color: $accent;
+  }
+}
+
+.btn-pulse {
+  position: relative;
+
+  &::before {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $accent;
+  }
+
+  &:hover, &:active, &:focus {
+    &::before {
+      animation-name: pulse;
+      animation-duration: ($td*3);
+      animation-timing-function: $te;
+    }
+  }
+
+  @keyframes pulse {
+    from {
+      transform: scale(1);
+      opacity: 1;
+    }
+    to {
+      transform: scale(1.3);
+      opacity: 0;
+    }
+  }
+}
+
+.btn-pulse-line {
+  position: relative;
+
+  &::before {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid $accent;
+  }
+
+  &:hover, &:active, &:focus {
+    &::before {
+      animation-name: pulse;
+      animation-duration: ($td*3);
+      animation-timing-function: $te;
+    }
+  }
+
+  @keyframes pulse {
+    from {
+      transform: scale(1);
+      opacity: 1;
+    }
+    to {
+      transform: scale(1.3);
+      opacity: 0;
+    }
+  }
+}
+
+.btn-reveal {
+  position: relative;
+
+  .text-1 {
+    opacity: 1;
+    transition: opacity $td $td $te;
+  }
+
+  .text-2 {
+    position: absolute;
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: opacity $td $te;
+  }
+
+  &:hover, &:active, &:focus {
+    .text-1 {
+      opacity: 0;
+      transition: opacity $td $te;
+    }
+
+    .text-2 {
+      opacity: 1;
+      transition: opacity $td $td $te;
+    }
+  }
+}

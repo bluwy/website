@@ -30,7 +30,14 @@ reddit_username: IamLUG
 date_format: "%b %-d, %Y"
 google_analytics: UA-137893328-2
 disqus_src: https://bjornlu.disqus.com/embed.js
-  
+
+# Defaults
+defaults: 
+  - scope:
+      path: ""
+    values: 
+      layout: home-w-title
+
 # Build settings
 markdown: kramdown
 # theme: minima

@@ -1,15 +1,7 @@
-:root {
-  --breakpoint-xs: 0;
-  --breakointt-sm: 576px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 992px;
-  --breakpoint-xl: 1200px;
-}
+// styles.scss
+// Hosts website-wide style and utilities. Base style for all web pages.
 
-$light: #f8f9fa;
-$dark: #343a40;
-$gray: #bdbfc2;
-
+@import 'variables';
 @import 'material-shadow';
 @import 'base';
 @import 'syntax-highlighting';
@@ -17,6 +9,7 @@ $gray: #bdbfc2;
 .navbar {
   z-index: 810;
   text-align: center;
+  white-space: nowrap;
   
   .nav-link {
     display: inline-block;
@@ -26,7 +19,7 @@ $gray: #bdbfc2;
     text-decoration: none;
     transition: opacity .3s cubic-bezier(0.39, 0.575, 0.565, 1);
 
-    &.active, &:hover {
+    &:hover, &:active, &.active {
       opacity: 1;
     }
   }
@@ -50,20 +43,13 @@ $gray: #bdbfc2;
   .card-header {
     margin: 0;
   }
-
-  // Only for /projects/
-  &.card-projects {
-    width: 250px;
-    height: auto;
-    margin: 0 auto;
-  }
 }
 
 .chip {
   display: inline-block;
   background-color: $light;
   border: 1px solid $gray;
-  border-radius: .5rem;
+  border-radius: .25rem;
   padding: .05rem .5rem;
   margin-right: .5rem;
   transition: background-color .3s cubic-bezier(0.39, 0.575, 0.565, 1);
@@ -73,11 +59,39 @@ $gray: #bdbfc2;
   }
 }
 
+.vertical-list {
+  list-style: none;
+
+  .list-item {
+    transition: background-color .2s ease;
+
+    &:hover, &:active, &:focus {
+      background-color: rgba($gray, .5);
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid rgba($gray, .5);
+    }
+  }
+}
+
+.arrow-hover {
+  .arrow {
+    transform: translateX(-8px);
+    transition: transform .2s ease;
+  }
+
+  &:hover, &:active, &:focus {
+    .arrow {
+      transform: translateX(0);
+    }
+  }
+}
+
 .btn-link {
   text-decoration: none;
   color: inherit;
 }
-
 
 // Utilities
 
@@ -149,8 +163,9 @@ $gray: #bdbfc2;
   vertical-align: middle;
 }
 
-// ID
+// ID 
 
+// Used in home-w-title layout
 #home-header {
   position: relative;
   top: -54px;
@@ -171,68 +186,6 @@ $gray: #bdbfc2;
     color: $light;
     background-color: rgba($dark, .7);
     text-align: center;
-  }
-}
-
-#header-text {
-  display: inline-block;
-  margin: 0 auto;
-  line-height: 100vh;
-  font-size: 3rem;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-#projects {
-  margin-top: 5rem;
-
-  .card-wrapper {
-    margin-top: 1rem;
-
-    .card {
-      margin: 0 auto;
-    }
-  }
-} 
-
-// Followed Boostrap's breakpoints specs
-@media screen and (min-width: 576px) {
-  .card.card-projects {
-    width: auto;
-    height: 250px;
-  }
-
-  #header-text {
-    font-size: 5rem;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  #header-text {
-    font-size: 7rem;
-  }
-}
-
-@media screen and (min-width: 992px) {
-  #projects {
-    margin-top: 7rem;
-  
-    .card-wrapper {
-      margin-top: -4rem;
-      transition: margin-top .3s cubic-bezier(0.39, 0.575, 0.565, 1),
-                  padding-bottom .3s cubic-bezier(0.39, 0.575, 0.565, 1);
-
-      &:hover {
-        margin-top: -5rem;
-        padding-bottom: 1rem;
-      }
-    }
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  #header-text {
-    font-size: 9rem;
   }
 }
 

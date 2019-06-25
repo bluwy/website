@@ -1,0 +1,15 @@
+---
+---
+
+.card.card-projects {
+  width: 250px;
+  height: auto;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 576px) {
+  .card.card-projects {
+    width: auto;
+    height: 250px;
+  }
+}

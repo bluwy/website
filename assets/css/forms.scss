@@ -1,0 +1,367 @@
+---
+---
+
+@import 'variables';
+
+// Transition
+$td: .2s;
+$te: ease-out;
+
+$border-width: 2px;
+
+$px: 1rem;
+$py: .5rem;
+
+input {
+  padding: $py $px;
+  border: none;
+  background-color: transparent;
+  
+  &:invalid {
+    box-shadow: none;
+  }
+}
+
+label {
+  color: $dark;
+}
+
+.input-material-outline {
+  position: relative;
+  display: inline-block;
+  
+  label {
+    position: absolute;
+    top: $py;
+    left: ($px/2);
+    padding: 0 ($px/2);
+    background-color: $light;
+    pointer-events: none;
+    transform: translateY(0) scale(1);
+    transform-origin: left center;
+    transition: transform $td $te, color $td $te, top $td $te;
+  }
+
+  input {
+    border-radius: .25rem;
+    border: $border-width solid;
+    border-color: rgba($dark, .5);
+    transition: border-color $td $te;
+
+    &:focus, &:valid {
+      border-color: $accent;
+
+      & ~ label {
+        top: 0;
+        color: $accent;
+        transform: translateY(-50%) scale(.8);
+      }
+    }
+  }
+}
+
+.input-material-flat {
+  position: relative;
+  display: inline-block;
+
+  label {
+    position: absolute;
+    top: $py;
+    left: ($px/2);
+    padding: 0 ($px/2);
+    background-color: $light;
+    pointer-events: none;
+    transform: translateY(0) scale(1);
+    transform-origin: left center;
+    transition: transform $td $te, color $td $te, top $td $te;
+  }
+
+  input {
+    border-bottom: $border-width solid rgba($dark, .5);
+
+    & ~ span {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: $border-width;
+      background-color: $accent;
+      transform: scaleX(0);
+      transition: transform $td $te;
+    }
+
+    &:focus, &:valid {
+      & ~ span {
+        transform: scaleX(1);
+      }
+
+      & ~ label {
+        top: 0;
+        color: $accent;
+        transform: translateY(-50%) scale(.8);
+      }
+    }
+  }
+}
+
+.input-flip {
+  position: relative;
+  display: inline-block;
+
+  label {
+    position: absolute;
+    top: $py;
+    left: ($px/2);
+    padding: 0 ($px/2);
+    pointer-events: none;
+    transform: translateY(0) scale(1);
+    transform-origin: left center;
+    transition: transform $td $te, color $td $te, top $td $te;
+    transition-delay: $td;
+  }
+
+  span {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    perspective: 1000px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba($accent, .5);
+      transform-origin: center bottom;
+      transform: rotate3d(1, 0, 0, 90deg);
+      transition: transform $td $te;
+    }
+  }
+
+  input {
+    border-bottom: $border-width solid;
+    border-bottom-color: rgba($dark, .5);
+    transition: border-bottom-color $td $te;
+
+    &:focus, &:valid {
+      border-bottom-color: transparent;
+      transition-delay: $td;
+
+      & ~ span::before {
+        transform: rotate3d(1, 0, 0, 0deg);
+        transition-delay: $td;
+      }
+
+      & ~ label {
+        top: 0;
+        color: $accent;
+        transform: translateY(-100%) scale(.8);
+        transition-delay: 0s;
+      }
+    }
+  }
+}
+
+.input-open-bars {
+  $contract: 20%;
+  position: relative;
+  display: inline-block;
+
+  label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    pointer-events: none;
+    transform: translateX(-50%) translateY(-50%) scale(1);
+    transition: transform $td $te, top $td $te, color $td $te;
+  }
+
+  span {
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-left: $border-width solid;
+      border-color: rgba($dark, .5);
+      transform: translateX($contract);
+      transition: transform $td $te;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      border-right: $border-width solid;
+      border-color: rgba($dark, .5);
+      transform: translateX(-$contract);
+      transition: transform $td $te, border-color $td $te;
+    }
+  }
+
+  input {
+    text-align: center;
+    
+    &:focus, &:valid {
+      & ~ label {
+        top: 0;
+        color: $accent;
+        transform: translateX(-50%) translateY(-100%) scale(.8);
+      }
+
+      & ~ span {
+        &::before, &::after {
+          transform: translateX(0);
+          border-color: $accent;
+        }
+      }
+    }
+  }
+}
+
+.input-open-box {
+  position: relative;
+  display: inline-block;
+
+  label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    pointer-events: none;
+    transform: translateX(-50%) translateY(-50%) scale(1);
+    transition: transform $td $te, top $td $te, color $td $te;
+  }
+
+  span {
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transition: transform $td $te, border-color $td $te;
+    }
+
+    &::before {
+      border-top: $border-width solid;
+      border-left: $border-width solid;
+      border-color: rgba($dark, .5);
+    }
+
+    &::after {
+      border-bottom: $border-width solid;
+      border-right: $border-width solid;
+      border-color: rgba($dark, .5);
+    }
+  }
+
+  input {
+    text-align: center;
+
+    &:focus, &:valid {
+      & ~ label {
+        top: 0;
+        color: $accent;
+        transform: translateX(-50%) translateY(-100%) scale(.8);
+      }
+
+      & ~ span::before {
+        border-color: $accent;
+        transform: translateX(-($px/2));
+      }
+  
+      & ~ span::after {
+        border-color: $accent;
+        transform: translateX($px/2);
+      }
+    }
+  }
+}
+
+.input-open-line {
+  $expand: 40%;
+  $inputY: 25%;
+  position: relative;
+  display: inline-block;
+
+  label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    pointer-events: none;
+    transform: translateX(-50%) translateY(-50%) scale(1);
+    transition: transform $td $te, top $td $te, color $td $te;
+  }
+
+  span {
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-top: $border-width solid;
+      border-color: rgba($dark, .5);
+      transform: translateY(0);
+      transition: transform $td $te, border-color $td $te;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-bottom: $border-width solid;
+      border-color: rgba($dark, .5);
+      transform: translateY(0);
+      transition: transform $td $te, border-color $td $te;
+    }
+  }
+
+  input {
+    text-align: center;
+    transform: translateY(0);
+    transition: transform $td $te;
+
+    &:focus, &:valid {
+      transform: translateY($inputY);
+
+      & ~ label {
+        top: 0;
+        color: $accent;
+        transform: translateX(-50%) translateY(-50%) scale(.8);
+      }
+
+      & ~ span {
+        &::before {
+          transform: translateY(-$expand);
+          border-color: $accent;
+        }
+
+        &::after {
+          transform: translateY($expand);
+          border-color: $accent;
+        }
+      }
+    }
+  }
+}

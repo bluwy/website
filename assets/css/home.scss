@@ -1,0 +1,53 @@
+---
+---
+
+#header-text {
+  display: inline-block;
+  margin: 0 auto;
+  line-height: 100vh;
+  font-size: 3rem;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+#projects {
+  margin-top: 5rem;
+ 
+  .card {
+    width: 250px;
+    margin: 1rem auto;
+  }
+} 
+
+@media screen and (min-width: 576px) {
+  #header-text {
+    font-size: 5rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #header-text {
+    font-size: 7rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  #projects {
+    margin-top: 7rem;
+  
+    .card {
+      transform: translateY(-4rem);
+      transition: transform .3s cubic-bezier(0.39, 0.575, 0.565, 1);
+
+      &:hover {
+        transform: translateY(-5rem);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #header-text {
+    font-size: 9rem;
+  }
+}

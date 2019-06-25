@@ -54,8 +54,12 @@ h6 {
   font-size: 1.1rem;
 }
 
-p, code {
+p, code, input, label {
   font-size: 1.1rem;
+}
+
+ul, ol {
+  font-size: 1rem;
 }
 
 small {
@@ -69,6 +73,7 @@ button, .btn {
   color: $dark;
   background-color: $light;
   border: 1px solid $gray; 
+  cursor: pointer;
   transition: background-color .3s cubic-bezier(0.39, 0.575, 0.565, 1), box-shadow .3s cubic-bezier(0.39, 0.575, 0.565, 1);
 
   &:hover, &:active {
@@ -113,8 +118,12 @@ pre {
     font-size: 1.1rem;
   }
 
-  p, code {
+  p, code, input, label {
     font-size: 1.3rem;
+  }
+
+  ul, ol {
+    font-size: 1.1rem;
   }
 
   small {
