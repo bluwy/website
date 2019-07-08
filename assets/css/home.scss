@@ -1,13 +1,17 @@
 ---
 ---
 
-#header-text {
-  display: inline-block;
-  margin: 0 auto;
-  line-height: 100vh;
-  font-size: 3rem;
-  white-space: nowrap;
-  overflow: hidden;
+#header-hero-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  #header-hero {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+  }
 }
 
 #projects {
