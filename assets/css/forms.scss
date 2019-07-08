@@ -15,8 +15,13 @@ $py: .5rem;
 input {
   padding: $py $px;
   border: none;
+  border-radius: 0;
   background-color: transparent;
   
+  &:focus {
+    outline: none;
+  }
+
   &:invalid {
     box-shadow: none;
   }
