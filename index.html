@@ -4,14 +4,27 @@ css: home
 ---
 
 <div id="home-header">
-  <div class="cover">
+  <div class="story-container">
+    <div class="nightsky">
+      {%- for i in (1..15) -%}
+        <div class="star"></div>
+      {%- endfor -%}
+    </div>
+    <div class="moon"></div>
+    <p class="story-text">I have a dream</p>
+    <div class="rocket">
+      <div class="rocket-body"></div>
+      <div class="rocket-window"></div>
+      <div class="rocket-wing"></div>
+      <div class="rocket-tail"></div>
+    </div>
     <div id="header-hero-wrapper" class="container">
       <img id="header-hero" src="{{ '/assets/images/name.png' | relative_url }}" alt="Bjorn Lu">
     </div>
   </div>
 </div>
-  
-<div>
+
+<div class="my-5">
   <section>
     <h1>// Hello :]</h1>
     <p>

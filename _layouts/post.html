@@ -2,8 +2,8 @@
 layout: default-page
 ---
 
-<article>
-  <header class="mb-3">
+<article class="my-5 pt-1">
+  <header class="my-3">
     <h1 class="mb-1">{{ page.title }}</h1>
     {%- if page.subtitle -%}
       <h4 class="opacity-70 my-1">{{ page.subtitle }}</h4>
@@ -28,18 +28,17 @@ layout: default-page
       ><i class="fab fa-reddit-square fa-2x" style="color: #ff4500"></i></a>
     </div>
   </header>
-
   <hr>
-
-  <div class="mb-5">
+  <div>
     {{ page.content }}
   </div>
-
-  <div class="text-right mb-5">
+  <br><br>
+  <div class="text-right">
     <a class="btn text-deco-none" href="{{ '/blog/' | relative_url }}">Read other posts</a>
   </div>
 
   {%- if page.comments and site.environment == 'production' or jekyll.environment == 'production' -%}
+    <br><br>
     {%- include disqus_comments.html -%}
   {%- endif -%}
 </article>

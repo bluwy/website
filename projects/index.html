@@ -3,10 +3,10 @@ title: Projects
 css: projects
 ---
 
-<div class="mb-5">
+<div>
   {%- for item in site.data.projects -%}
     <div class="mb-4">
-       <a class="btn-link mb-4 w-100" href="{{ item.link | relative_url }}">
+      <a class="btn-link" href="{{ item.link | relative_url }}">
         <div class="card card-projects hoverable bg-light">
           <div class="row">
             <div class="col-auto">

@@ -1,0 +1,135 @@
+// Prototype
+
+// <div class="koi">
+//   <div class="koi-head"></div>
+//   <div class="koi-tail-0">
+//     <div class="koi-tail-1">
+//       <div class="koi-tail-2">
+//         <div class="koi-tail-3">
+//           <div class="koi-tail-fin"></div>
+//         </div>
+//       </div>
+//     </div>
+//   </div>
+// </div>
+
+$koi-colors: #d7dde5, #ea4504, #d8d215, #d61515, #ff9400, black, #d8d8d8, white;
+
+@function koi-random-color() {
+  @return nth($koi-colors, random(length($koi-colors)));
+}
+
+.koi-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  
+  .koi {
+    position: absolute;
+
+    .koi-head {
+      position: absolute;
+      width: 50px;
+      height: 70px;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      transform: translateX(-50%) translateY(-50%);
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: -10px;
+        border-left: 10px solid transparent;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: -10px;
+        border-right: 10px solid transparent;
+      }
+    }
+
+    @for $i from 0 to 4 {
+      .koi-tail-#{$i} {
+        position: absolute;
+        z-index: -1;
+        width: (50px - $i * 9px);
+        top: -2px;
+        border-left: 4.5px solid transparent;
+        border-right: 4.5px solid transparent;
+        transform-origin: top center;
+        animation: koi-swim 1s linear infinite alternate;
+      }
+    }
+
+    .koi-tail-0 {
+      top: 7px;
+      left: 0;
+      transform: translateX(-50%);
+      animation: none;
+    }
+
+    .koi-tail-fin {
+      position: absolute;
+      z-index: 1;
+      left: 50%;
+      width: 24px;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      transform: translateX(-50%);
+    }
+  }
+
+  @for $i from 1 to 6 {
+    .koi:nth-child(#{$i}) {
+      animation: koi-move-#{$i} 8s linear infinite forwards;
+
+      .koi-head {
+        background-color: koi-random-color();
+
+        &::before, &::after {
+          border-bottom: 20px solid koi-random-color();
+        }
+      }
+
+      $koi-tail-color: koi-random-color();
+
+      @for $i from 0 to 4 {
+        .koi-tail-#{$i} {
+          border-top: 30px solid $koi-tail-color;
+
+        }
+      }
+
+      .koi-tail-fin {
+        border-bottom: 10px solid koi-random-color();
+      }
+    }
+
+    $startX: (random(500) * -1) + px;
+    $startY: (random(500) * -1) + px;
+    $endX: calc(100vw + (#{random(500) + px}));
+    $endY: calc(100vh + (#{random(500) + px}));
+
+    @keyframes koi-move-#{$i} {
+      0% {
+        transform: translate($startX, $startY);
+      }
+      100% {
+        transform: translate($endX, $endY);
+      }
+    }
+  }
+}
+
+@keyframes koi-swim {
+  from {
+    transform: rotate(5deg);
+  }
+  to {
+    transform: rotate(-5deg);
+  }
+}

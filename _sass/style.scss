@@ -7,6 +7,9 @@
 @import 'syntax-highlighting';
 
 .navbar {
+  position: absolute;
+  top: 0;
+  width: 100%;
   z-index: 810;
   text-align: center;
   white-space: nowrap;
@@ -163,13 +166,9 @@
   vertical-align: middle;
 }
 
-// ID 
-
 // Used in home-w-title layout
 #home-header {
   position: relative;
-  top: -54px;
-  z-index: -810;
   width: 100vw;
   margin: 0 calc(50% - 50vw);
   background-image: url('/assets/images/keyboards.jpg');
