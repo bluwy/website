@@ -2,12 +2,13 @@
   <nav class="navbar {%- unless include.clear %} bg-dark elevation-4 {%- endunless -%}">
     {%- for item in site.data.navigation -%}
       <a class="nav-link 
-        {% if item.link == '/' -%}
-          {%- if page.url == item.link -%}
+        {% if item.link == '/' and page.url == '/' -%}
+          active
+        {%- else -%}
+          {%- assign arr = page.url | split: '/' -%}
+          {%- if item.link contains arr[1] -%}
             active
           {%- endif -%}
-        {%- elsif page.url contains item.link -%}
-          active
         {%- endif -%}" 
         href="{{ item.link | relative_url }}">{{ item.name }}</a>
     {%- endfor -%}
