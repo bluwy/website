@@ -13,19 +13,12 @@ $story-text-color: #f8f9fa;
   height: 100%;
   overflow: hidden;
 
-  &:active {
-    .rocket, .story-text {
-      animation-play-state: running;
-    }
-  } 
-
   .rocket {
     position: absolute;
     z-index: 0;
     bottom: 100px;
     left: 50%;
-    animation: rocket-fly 2s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards;
-    animation-play-state: paused;
+    animation: rocket-fly 2s 2s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards;
 
     .rocket-body {
       position: absolute;
@@ -43,6 +36,7 @@ $story-text-color: #f8f9fa;
         background-color: $rocket-color-secondary;
         border-radius: 70%;
         clip-path: ellipse(50% 10% at 50% 10%);
+        -webkit-clip-path: ellipse(50% 10% at 50% 10%);
       }
     }
 
@@ -134,8 +128,7 @@ $story-text-color: #f8f9fa;
     color: $story-text-color;
     text-align: center;
     opacity: 0;
-    animation: story-text-in 1s .8s forwards;
-    animation-play-state: paused;
+    animation: story-text-in 1s 2.8s forwards;
   }
 
   .nightsky {
