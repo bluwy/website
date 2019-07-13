@@ -26,7 +26,7 @@ css: buttons
     <input type="radio" name="slide-direction" value="bottom" id="slide-bottom">
     <label for="slide-bottom">Bottom</label>
   {%- endcapture -%}
-  {%- include store-buttons-box.html content=box_content options=box_options class='btn-slide-options' -%}
+  {%- include store-buttons-box.html content=box_content options=box_options id='btn-slide-options' -%}
 
   {%- capture box_content -%}
     <button class="btn-line left">Line</button>
@@ -41,7 +41,7 @@ css: buttons
     <input type="radio" name="line-position" value="bottom" id="line-bottom">
     <label for="line-bottom">Bottom</label>
   {%- endcapture -%}
-  {%- include store-buttons-box.html content=box_content options=box_options class='btn-line-options' -%}
+  {%- include store-buttons-box.html content=box_content options=box_options id='btn-line-options' -%}
 
   {%- capture box_content -%}
     <button class="btn-fade">Fade</button>
@@ -49,14 +49,13 @@ css: buttons
   {%- include store-buttons-box.html content=box_content -%}
 
   {%- capture box_content -%}
-    <button class="btn-pulse">Pulse</button>
+    <button class="btn-pulse fill">Pulse</button>
   {%- endcapture -%}
-  {%- include store-buttons-box.html content=box_content -%}
-
-  {%- capture box_content -%}
-    <button class="btn-pulse-line">Pulse line</button>
+  {%- capture box_options -%}
+    <input type="checkbox" name="pulse-fill" value="fill" id="pulse-fill" checked>
+    <label for="pulse-fill">Fill</label>
   {%- endcapture -%}
-  {%- include store-buttons-box.html content=box_content -%}
+  {%- include store-buttons-box.html content=box_content options=box_options id='btn-pulse-options' -%}
 
   {%- capture box_content -%}
     <button class="btn-reveal">

@@ -8,7 +8,7 @@
         <button class="box-options-toggle">
           <i class="fas fa-info-circle"></i>
         </button>
-        <div class="box-options {{ include.class }} hide">
+        <div id="{{ include.id }}" class="box-options">
           {{ include.options }}
         </div>
       {%- endif -%}

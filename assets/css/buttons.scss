@@ -152,47 +152,17 @@ button {
     left: 0;
     width: 100%;
     height: 100%;
+    border: 1px solid $accent;
+  }
+
+  &.fill::before {
     background-color: $accent;
   }
 
   &:hover, &:active, &:focus {
     &::before {
       animation-name: pulse;
-      animation-duration: ($td*3);
-      animation-timing-function: $te;
-    }
-  }
-
-  @keyframes pulse {
-    from {
-      transform: scale(1);
-      opacity: 1;
-    }
-    to {
-      transform: scale(1.3);
-      opacity: 0;
-    }
-  }
-}
-
-.btn-pulse-line {
-  position: relative;
-
-  &::before {
-    content: '';
-    z-index: -1;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 1px solid $accent;
-  }
-
-  &:hover, &:active, &:focus {
-    &::before {
-      animation-name: pulse;
-      animation-duration: ($td*3);
+      animation-duration: ($td * 3);
       animation-timing-function: $te;
     }
   }
