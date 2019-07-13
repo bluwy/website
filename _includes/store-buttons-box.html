@@ -1,0 +1,13 @@
+<div class="box col-6 col-md-4 col-lg-3">
+  <div class="box-content">
+    {{ include.content }}
+  </div>
+  {%- if include.options -%}
+    <button class="box-options-toggle">
+      <i class="fas fa-info-circle"></i>
+    </button>
+    <div class="box-options {{ include.class }} elevation-6 hide">
+      {{ include.options }}
+    </div>
+  {%- endif -%}
+</div>

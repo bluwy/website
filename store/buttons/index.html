@@ -4,22 +4,67 @@ subtitle: Store
 css: buttons
 ---
 
-<section class="text-center">
-  <button class="btn-slide left">Slide left</button>
-  <button class="btn-slide right">Slide right</button>
-  <button class="btn-slide top">Slide top</button>
-  <button class="btn-slide bottom">Slide bottom</button>
-  <button class="btn-line left">Line left</button>
-  <button class="btn-line right">Line right</button>
-  <button class="btn-line top">Line top</button>
-  <button class="btn-line bottom">Line bottom</button>
-  <button class="btn-fade">Fade</button>
-  <button class="btn-pulse">Pulse</button>
-  <button class="btn-pulse-line">Pulse Line</button>
-  <button class="btn-reveal">
-    <span class="text-1">Reveal</span>
-    <span class="text-2">Thanks</span>
-  </button>
+<section>
+  <div class="text-right">
+    <a class="btn" href="{{ '/store/' | relative_url }}">Back to store</a>
+  </div>
+  <br>
+  <p>Click/hover the buttons for animations. Click <i class="fas fa-info-circle"></i> for more options!</p>
+</section>
+<br>
+<section class="row">
+  {%- capture box_content -%}
+    <button class="btn-slide left">Slide</button>
+  {%- endcapture -%}
+  {%- capture box_options -%}
+    <input type="radio" name="slide-direction" value="left" id="slide-left" checked>
+    <label for="slide-left">Left</label><br>
+    <input type="radio" name="slide-direction" value="right" id="slide-right">
+    <label for="slide-right">Right</label><br>
+    <input type="radio" name="slide-direction" value="top" id="slide-top">
+    <label for="slide-top">Top</label><br>
+    <input type="radio" name="slide-direction" value="bottom" id="slide-bottom">
+    <label for="slide-bottom">Bottom</label>
+  {%- endcapture -%}
+  {%- include store-buttons-box.html content=box_content options=box_options class='btn-slide-options' -%}
+
+  {%- capture box_content -%}
+    <button class="btn-line left">Line</button>
+  {%- endcapture -%}
+  {%- capture box_options -%}
+    <input type="radio" name="line-position" value="left" id="line-left" checked>
+    <label for="line-left">Left</label><br>
+    <input type="radio" name="line-position" value="right" id="line-right">
+    <label for="line-right">Right</label><br>
+    <input type="radio" name="line-position" value="top" id="line-top">
+    <label for="line-top">Top</label><br>
+    <input type="radio" name="line-position" value="bottom" id="line-bottom">
+    <label for="line-bottom">Bottom</label>
+  {%- endcapture -%}
+  {%- include store-buttons-box.html content=box_content options=box_options class='btn-line-options' -%}
+
+  {%- capture box_content -%}
+    <button class="btn-fade">Fade</button>
+  {%- endcapture -%}
+  {%- include store-buttons-box.html content=box_content -%}
+
+  {%- capture box_content -%}
+    <button class="btn-pulse">Pulse</button>
+  {%- endcapture -%}
+  {%- include store-buttons-box.html content=box_content -%}
+
+  {%- capture box_content -%}
+    <button class="btn-pulse-line">Pulse line</button>
+  {%- endcapture -%}
+  {%- include store-buttons-box.html content=box_content -%}
+
+  {%- capture box_content -%}
+    <button class="btn-reveal">
+      <span class="text-1">Reveal</span>
+      <span class="text-2">Thanks</span>
+    </button>
+  {%- endcapture -%}
+  {%- include store-buttons-box.html content=box_content -%}
 </section>
 <br>
 <section>
@@ -29,3 +74,6 @@ css: buttons
     <li><a href="https://ianlunn.github.io/Hover/">Ian Lunn - Hover.css</a></li>
   </ul>
 </section>
+
+<script src="{{ '/assets/js/box-options.js' | relative_url }}"></script>
+<script src="script.js"></script>

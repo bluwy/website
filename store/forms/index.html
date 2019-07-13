@@ -5,37 +5,68 @@ css: forms
 ---
 
 <section>
+  <div class="text-right">
+    <a class="btn" href="{{ '/store/' | relative_url }}">Back to store</a>
+  </div>
+  <br>
+  <p>Click the input fields for animations. Click <i class="fas fa-info-circle"></i> for more options!</p>
+</section>
+<br>
+<section>
   <h3>Text input</h3>
-  <form class="text-center mt-n5 mx-n3">
-    <div class="input-material-outline mt-5 mx-3">
-      <input type="text" required>
-      <label>Material outline</label>
-    </div>
-    <div class="input-material-flat mt-5 mx-3">
-      <input type="text" required>
-      <span></span>
-      <label>Material flat</label>
-    </div>
-    <div class="input-flip mt-5 mx-3">
-      <input type="text" required>
-      <span></span>
-      <label>Flip</label>
-    </div>
-    <div class="input-open-bars mt-5 mx-3">
-      <input type="text" required>
-      <span></span>
-      <label>Open bars</label>
-    </div>
-    <div class="input-open-box mt-5 mx-3">
-      <input type="text" required>
-      <span></span>
-      <label>Open box</label>
-    </div>
-    <div class="input-open-line mt-5 mx-3">
-      <input type="text" required>
-      <span></span>
-      <label>Open line</label>
-    </div>
+  <form class="row">
+    {%- capture box_content -%}
+      <div class="input-material-outline">
+        <input type="text" required>
+        <label>Material outline</label>
+      </div>
+    {%- endcapture -%}
+    {%- include store-forms-box.html content=box_content -%}
+
+    {%- capture box_content -%}
+      <div class="input-material-flat">
+        <input type="text" required>
+        <span></span>
+        <label>Material flat</label>
+      </div>
+    {%- endcapture -%}
+    {%- include store-forms-box.html content=box_content -%}
+
+    {%- capture box_content -%}
+      <div class="input-flip">
+        <input type="text" required>
+        <span></span>
+        <label>Flip</label>
+      </div>
+    {%- endcapture -%}
+    {%- include store-forms-box.html content=box_content -%}
+
+    {%- capture box_content -%}
+      <div class="input-open-bars">
+        <input type="text" required>
+        <span></span>
+        <label>Open bars</label>
+      </div>
+    {%- endcapture -%}
+    {%- include store-forms-box.html content=box_content -%}
+
+    {%- capture box_content -%}
+      <div class="input-open-box">
+        <input type="text" required>
+        <span></span>
+        <label>Open box</label>
+      </div>
+    {%- endcapture -%}
+    {%- include store-forms-box.html content=box_content -%}
+
+    {%- capture box_content -%}
+      <div class="input-open-line">
+        <input type="text" required>
+        <span></span>
+        <label>Open line</label>
+      </div>
+    {%- endcapture -%}
+    {%- include store-forms-box.html content=box_content -%}
   </form>
 </section>
 <br>
@@ -45,3 +76,5 @@ css: forms
     <li><a href="https://tympanus.net/Development/TextInputEffects/">Codrops - Text Input Effects</a></li>
   </ul>
 </section>
+
+<script src="{{ '/assets/js/box-options.js' | relative_url }}"></script>

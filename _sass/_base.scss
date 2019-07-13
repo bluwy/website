@@ -72,7 +72,8 @@ button, .btn {
   border-radius: .25rem;
   color: $dark;
   background-color: $light;
-  border: 1px solid $gray; 
+  border: 1px solid $gray;
+  text-decoration: none;
   cursor: pointer;
   transition: background-color .3s cubic-bezier(0.39, 0.575, 0.565, 1), box-shadow .3s cubic-bezier(0.39, 0.575, 0.565, 1);
 

@@ -1,0 +1,44 @@
+.box {
+  position: relative;
+  padding: 1.5rem 0;
+  
+  .box-content {
+    text-align: center;
+  }
+
+  .box-options-toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: auto;
+    height: auto;
+    padding: .25rem;
+    border: none;
+    transition: opacity .3s cubic-bezier(0.39, 0.575, 0.565, 1);
+
+    &:hover {
+      opacity: .5;
+    }
+  }
+
+  .box-options {
+    position: absolute;
+    z-index: 810;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    background-color: $light;
+    border-radius: .25rem;
+    border: 1px solid $gray;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity .3s;
+  }
+
+  .box-options.hide {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s, visibility 0s .3s;
+  }
+}

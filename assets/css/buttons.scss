@@ -2,6 +2,7 @@
 ---
 
 @import 'variables';
+@import 'box-options';
 
 // Transition
 $td: .2s;
@@ -31,6 +32,11 @@ button {
     outline: 0;
   }
 }
+
+.input[type=radio] + label {
+  font-size: .8rem;
+}
+
 
 .btn-slide {
   position: relative;
@@ -228,5 +234,11 @@ button {
       opacity: 1;
       transition: opacity $td $td $te;
     }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .input[type=radio] + label {
+    font-size: 1rem;
   }
 }

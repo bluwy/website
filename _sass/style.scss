@@ -66,7 +66,7 @@
   list-style: none;
 
   .list-item {
-    transition: background-color .2s ease;
+    transition: background-color .2s;
 
     &:hover, &:active, &:focus {
       background-color: rgba($gray, .5);
@@ -81,7 +81,7 @@
 .arrow-hover {
   .arrow {
     transform: translateX(-8px);
-    transition: transform .2s ease;
+    transition: transform .2s;
   }
 
   &:hover, &:active, &:focus {
@@ -96,25 +96,29 @@
   color: inherit;
 }
 
+.social-list {
+  text-align: center;
+  margin: 1rem;
+  
+  .social-icon {
+    display: inline-block;
+    padding: 0 .5rem;
+    transition: opacity .3s cubic-bezier(0.39, 0.575, 0.565, 1);
+  
+    &:hover {
+      opacity: .5;
+    }
+  }
+}
+
 // Utilities
 
 .text-center {
   text-align: center;
 }
 
-.social-list {
-  text-align: center;
-  margin: 1rem;
-}
-
-.social-icon {
-  display: inline-block;
-  padding: 0 .5rem;
-  transition: opacity .3s cubic-bezier(0.39, 0.575, 0.565, 1);
-
-  &:hover {
-    opacity: .5;
-  }
+.text-right {
+  text-align: right;
 }
 
 .color-light {
@@ -133,10 +137,6 @@
   background-color: $dark;
 }
 
-.opacity-50 {
-  opacity: .5;
-}
-
 .opacity-70 {
   opacity: .7;
 }
@@ -148,22 +148,6 @@
 
 .w-100 {
   width: 100%;
-}
-
-.h-100 {
-  height: 100%;
-}
-
-.text-deco-none {
-  text-decoration: none;
-}
-
-.text-right {
-  text-align: right;
-}
-
-.vertical-middle {
-  vertical-align: middle;
 }
 
 // Used in home-w-title layout
