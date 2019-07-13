@@ -1,44 +1,57 @@
+@import 'material-shadow';
+
 .box {
   position: relative;
-  padding: 1.5rem 0;
-  
+  height: 100px;
+
   .box-content {
-    text-align: center;
-  }
-
-  .box-options-toggle {
     position: absolute;
-    top: 0;
-    right: 0;
-    width: auto;
-    height: auto;
-    padding: .25rem;
-    border: none;
-    transition: opacity .3s cubic-bezier(0.39, 0.575, 0.565, 1);
-
-    &:hover {
-      opacity: .5;
-    }
-  }
-
-  .box-options {
-    position: absolute;
-    z-index: 810;
-    top: 100%;
-    left: 0;
     width: 100%;
-    padding: 1rem;
-    background-color: $light;
+    min-height: 100%;
+    padding: 1.5rem;
     border-radius: .25rem;
-    border: 1px solid $gray;
-    opacity: 1;
-    visibility: visible;
-    transition: opacity .3s;
-  }
+    background-color: transparent;
+    z-index: 0;
+    transition: box-shadow .3s $ease, background-color .3s $ease, z-index 0s .3s;
 
-  .box-options.hide {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity .3s, visibility 0s .3s;
+    &.active {
+      @extend %elevation-6;
+      background-color: $light;
+      z-index: 810;
+      transition: box-shadow .3s $ease, background-color .3s $ease;
+
+      .box-options {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity .3s;
+      }
+    }
+
+    .box-content-item {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .box-options-toggle {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: auto;
+      height: auto;
+      padding: .25rem;
+      border: none;
+      background-color: transparent;
+      transition: opacity .3s $ease;
+  
+      &:hover {
+        opacity: .5;
+      }
+    }
+  
+    .box-options {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .3s, visibility 0s .3s;
+    }
   }
 }

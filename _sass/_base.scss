@@ -67,7 +67,7 @@ small {
 }
 
 button, .btn {
-  @extend .elevation-2;
+  @extend %elevation-2;
   padding: .5rem 1rem;
   border-radius: .25rem;
   color: $dark;
@@ -75,15 +75,15 @@ button, .btn {
   border: 1px solid $gray;
   text-decoration: none;
   cursor: pointer;
-  transition: background-color .3s cubic-bezier(0.39, 0.575, 0.565, 1), box-shadow .3s cubic-bezier(0.39, 0.575, 0.565, 1);
+  transition: background-color .3s $ease, box-shadow .3s $ease;
 
   &:hover, &:active {
-    @extend .elevation-4;
+    @extend %elevation-4;
     background-color: white;
   }
 
   &:focus {
-    @extend .elevation-4;
+    @extend %elevation-4;
     outline: 0;
   }
 }

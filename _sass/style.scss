@@ -14,13 +14,17 @@
   text-align: center;
   white-space: nowrap;
   
+  &.shadow {
+    @extend %elevation-4;
+  }
+
   .nav-link {
     display: inline-block;
     color: $light;
     opacity: .7;
     padding: 1rem;
     text-decoration: none;
-    transition: opacity .3s cubic-bezier(0.39, 0.575, 0.565, 1);
+    transition: opacity .3s $ease;
 
     &:hover, &:active, &.active {
       opacity: 1;
@@ -29,14 +33,14 @@
 }
 
 .card {
-  @extend .elevation-1;
+  @extend %elevation-1;
   border-radius: .25rem;
   height: 100%;
   overflow: hidden;
-  transition: box-shadow .3s cubic-bezier(0.39, 0.575, 0.565, 1);
+  transition: box-shadow .3s $ease;
 
   &.hoverable:hover {
-    @extend .elevation-6;
+    @extend %elevation-6;
   }
 
   .card-content {
@@ -55,7 +59,7 @@
   border-radius: .25rem;
   padding: .05rem .5rem;
   margin-right: .5rem;
-  transition: background-color .3s cubic-bezier(0.39, 0.575, 0.565, 1);
+  transition: background-color .3s $ease;
 
   &:hover, &:active {
     background-color: white;
@@ -103,12 +107,16 @@
   .social-icon {
     display: inline-block;
     padding: 0 .5rem;
-    transition: opacity .3s cubic-bezier(0.39, 0.575, 0.565, 1);
+    transition: opacity .3s $ease;
   
     &:hover {
       opacity: .5;
     }
   }
+}
+
+.page-footer {
+  @extend %elevation-8;
 }
 
 // Utilities

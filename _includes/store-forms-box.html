@@ -1,13 +1,17 @@
-<div class="box col-12 col-md-6 col-lg-4">
-  <div class="box-content">
-    {{ include.content }}
-  </div>
-  {%- if include.options -%}
-    <button class="box-options-toggle">
-      <i class="fas fa-info-circle"></i>
-    </button>
-    <div class="box-options {{ include.class }} elevation-6 hide">
-      {{ include.options }}
+<div class="col-12 col-md-6 col-lg-4">
+  <div class="box">
+    <div class="box-content">
+      <div class="box-content-item">
+        {{ include.content }}
+      </div>
+      {%- if include.options -%}
+        <button class="box-options-toggle">
+          <i class="fas fa-info-circle"></i>
+        </button>
+        <div class="box-options {{ include.class }} hide">
+          {{ include.options }}
+        </div>
+      {%- endif -%}
     </div>
-  {%- endif -%}
+  </div>
 </div>

@@ -1,10 +1,13 @@
 ---
 ---
 
+@import 'variables';
+
 $story-background: #343a40;
 $rocket-color-primary: #D7CDCC;
 $rocket-color-secondary: #D1603D;
 $rocket-color-window: #C6D8D3;
+$rocket-ease: cubic-bezier(0.55, 0.055, 0.675, 0.19);
 $story-text-color: #f8f9fa;
 
 .story-container {
@@ -18,7 +21,7 @@ $story-text-color: #f8f9fa;
     z-index: 0;
     bottom: 100px;
     left: 50%;
-    animation: rocket-fly 2s 2s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards;
+    animation: rocket-fly 2s 2s $rocket-ease forwards;
 
     .rocket-body {
       position: absolute;
@@ -228,7 +231,7 @@ $story-text-color: #f8f9fa;
   
     .card {
       transform: translateY(-4rem);
-      transition: transform .3s cubic-bezier(0.39, 0.575, 0.565, 1);
+      transition: transform .3s $ease;
 
       &:hover {
         transform: translateY(-5rem);
