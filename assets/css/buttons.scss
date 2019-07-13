@@ -64,10 +64,10 @@ button {
     transform: translateX(100%);
   }
   &.top::before {
-    transform: translateY(100%);
+    transform: translateY(-100%);
   }
   &.bottom::before {
-    transform: translateY(-100%);
+    transform: translateY(100%);
   }
 
   &:hover, &:active, &:focus {
