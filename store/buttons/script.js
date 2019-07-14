@@ -2,7 +2,7 @@
 const slideBtns = document.querySelectorAll('.btn-slide')
 let prevSlideDirection = document.querySelector('#btn-slide-options input[type=radio]:checked').value
 document.querySelectorAll('#btn-slide-options input[type=radio]').forEach(function(radio) {
-  radio.addEventListener('click', function(e) {
+  radio.addEventListener('click', function() {
     slideBtns.forEach(function(btn) {
       btn.classList.remove(prevSlideDirection)
       btn.classList.add(radio.value)
@@ -26,9 +26,8 @@ document.querySelectorAll('#btn-line-options input[type=radio]').forEach(functio
 
 // Pulse button
 const pulseBtns = document.querySelectorAll('.btn-pulse')
-document.querySelector('#btn-pulse-options #pulse-fill').addEventListener('click', function(e) {
-  console.log(e)
+document.querySelector('#btn-pulse-options #pulse-fill').addEventListener('click', function(evt) {
   pulseBtns.forEach(function(btn) {
-    btn.classList.toggle(e.target.value)
+    btn.classList.toggle(evt.target.value)
   })
 })
