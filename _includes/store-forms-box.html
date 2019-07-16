@@ -5,7 +5,7 @@
         {{ include.content }}
       </div>
       {%- if include.options -%}
-        <button class="box-options-toggle">
+        <button class="box-options-toggle" type="button" aria-label="More options">
           <i class="fas fa-info-circle"></i>
         </button>
         <div id="{{ include.id }}" class="box-options">

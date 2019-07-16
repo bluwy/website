@@ -115,6 +115,28 @@ label {
   position: relative;
   display: inline-block;
 
+  &.bottom {
+    span::before {
+      transform-origin: center bottom;
+      transform: rotateX(90deg);
+    }
+
+    input {
+      border-bottom: $border-width solid rgba($dark, .5);
+    }
+  }
+
+  &.top {
+    span::before {
+      transform-origin: center top;
+      transform: rotateX(-90deg);
+    }
+
+    input {
+      border-top: $border-width solid rgba($dark, .5);
+    }
+  }
+
   label {
     position: absolute;
     top: $py;
@@ -139,28 +161,23 @@ label {
     &::before {
       content: '';
       position: absolute;
-      bottom: 0;
+      top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       background-color: rgba($accent, .5);
-      transform-origin: center bottom;
-      transform: rotate3d(1, 0, 0, 90deg);
       transition: transform $td $te;
     }
   }
 
   input {
-    border-bottom: $border-width solid;
-    border-bottom-color: rgba($dark, .5);
-    transition: border-bottom-color $td $te;
+    transition: border-color $td $td $te;
 
     &:focus, &:valid {
-      border-bottom-color: transparent;
-      transition-delay: $td;
+      border-color: transparent;
 
       & ~ span::before {
-        transform: rotate3d(1, 0, 0, 0deg);
+        transform: rotateX(0deg);
         transition-delay: $td;
       }
 

@@ -84,8 +84,15 @@
 
 .arrow-hover {
   .arrow {
-    transform: translateX(-8px);
     transition: transform .2s;
+
+    &.left {
+      transform: translateX(8px);
+    }
+
+    &.right {
+      transform: translateX(-8px);
+    }
   }
 
   &:hover, &:active, &:focus {

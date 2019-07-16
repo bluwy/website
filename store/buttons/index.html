@@ -6,7 +6,10 @@ css: buttons
 
 <section>
   <div class="text-right">
-    <a class="btn" href="{{ '/store/' | relative_url }}">Back to store</a>
+    <a class="btn-link arrow-hover" href="{{ '/store/' | relative_url }}">
+      <i class="fas fa-arrow-left arrow left mr-3"></i>
+      Back
+    </a>
   </div>
   <br>
   <p>Click/hover the buttons for animations. Click <i class="fas fa-info-circle"></i> for more options!</p>
@@ -64,6 +67,54 @@ css: buttons
     </button>
   {%- endcapture -%}
   {%- include store-buttons-box.html content=box_content -%}
+
+  {%- capture box_content -%}
+    <button class="btn-highlight">
+      Highlight
+      <span></span>
+    </button>
+  {%- endcapture -%}
+  {%- include store-buttons-box.html content=box_content -%}
+
+  {%- capture box_content -%}
+    <button class="btn-shiny">
+      Shiny
+    </button>
+  {%- endcapture -%}
+  {%- include store-buttons-box.html content=box_content -%}
+
+  {%- capture box_content -%}
+    <button class="btn-tilt left">
+      Tilt
+    </button>
+  {%- endcapture -%}
+  {%- capture box_options -%}
+    <input type="radio" name="tilt-direction" value="left" id="tilt-left" checked>
+    <label for="tilt-left">Left</label><br>
+    <input type="radio" name="tilt-direction" value="right" id="tilt-right">
+    <label for="tilt-right">Right</label><br>
+  {%- endcapture -%}
+  {%- include store-buttons-box.html content=box_content options=box_options id='btn-tilt-options' -%}
+
+  {%- capture box_content -%}
+    <button class="btn-loading-line top">
+      Loading line
+    </button>
+  {%- endcapture -%}
+  {%- capture box_options -%}
+    <input type="radio" name="loading-line-position" value="top" id="loading-line-top" checked>
+    <label for="loading-line-top">Top</label><br>
+    <input type="radio" name="loading-line-position" value="bottom" id="loading-line-bottom">
+    <label for="loading-line-bottom">Bottom</label><br>
+  {%- endcapture -%}
+  {%- include store-buttons-box.html content=box_content options=box_options id='btn-loading-line-options' -%}
+
+  {%- capture box_content -%}
+    <button class="btn-levitate">
+      Levitate
+    </button>
+  {%- endcapture -%}
+  {%- include store-buttons-box.html content=box_content -%}
 </section>
 <br>
 <section>
@@ -75,4 +126,5 @@ css: buttons
 </section>
 
 <script src="{{ '/assets/js/box-options.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/box-utility.js' | relative_url }}"></script>
 <script src="script.js"></script>

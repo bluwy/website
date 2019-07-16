@@ -10,8 +10,6 @@ $te: ease-out;
 
 $border-width: 3px;
 
-$directions: "left", "right", "top", "bottom";
-
 // Reset some button style to base
 button {
   font-size: 1.1rem;
@@ -32,11 +30,6 @@ button {
     outline: 0;
   }
 }
-
-.input[type=radio] + label {
-  font-size: .8rem;
-}
-
 
 .btn-slide {
   position: relative;
@@ -161,9 +154,7 @@ button {
 
   &:hover, &:active, &:focus {
     &::before {
-      animation-name: pulse;
-      animation-duration: ($td * 3);
-      animation-timing-function: $te;
+      animation: pulse ($td * 3) $te;
     }
   }
 
@@ -203,6 +194,149 @@ button {
     .text-2 {
       opacity: 1;
       transition: opacity $td $td $te;
+    }
+  }
+}
+
+.btn-highlight {
+  position: relative;
+  overflow: hidden;
+
+  span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    box-shadow: 0 0 50px 50px rgba($accent, .5);
+    transition: opacity $td $te;
+  }
+}
+
+.btn-shiny {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: 0;
+    width: 20%;
+    height: 140%;
+    background-color: rgba($accent, .5);
+    box-shadow: 0 0 15px $accent;
+    transform: translateX(-200%) skew(-30deg);
+  }
+
+  &:hover, &:active, &:focus {
+    &::after {
+      animation: shiny ($td * 3) $te;
+    }
+  }
+
+  @keyframes shiny {
+    from {
+      transform: translateX(-200%) skew(-30deg);
+      left: 0;
+    }
+    to {
+      transform: translateX(200%) skew(-30deg);
+      left: 100%;
+    }
+  }
+}
+
+.btn-tilt {
+  transition: transform $td $te;
+
+  &:hover, &:active, &:focus {
+    &.left {
+      transform: rotate(-10deg);
+    }
+    &.right {
+      transform: rotate(10deg);
+    }
+  }
+}
+
+.btn-loading-line {
+  position: relative;
+  overflow: hidden;
+
+  &.top::after, &.bottom::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: $border-width;
+    background-color: $accent;
+    transform: translateX(-60%) scaleX(.2);
+  }
+
+  &.top::after {
+    top: 0;
+  }
+
+  &.bottom::after {
+    bottom: 0;
+  }
+
+  &:hover, &:active, &:focus {
+    &.top::after, &.bottom::after {
+      animation: loading-line ($td * 5) linear infinite;
+    }
+  }
+
+  @keyframes loading-line {
+    from, 20% {
+      transform: translateX(-60%) scaleX(.2);
+    }
+    50% {
+      transform: scaleX(.7);
+    }
+    80%, to {
+      transform: translateX(60%) scaleX(.2);
+    }
+  }
+}
+
+.btn-levitate {
+  position: relative;
+  transform-style: preserve-3d;
+
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 120%;
+    left: 50%;
+    box-shadow: 0 0 50px 50px rgba($dark, .5);
+    transform: translateX(-50%) translateY(0) rotateX(85deg) scale(1);
+  }
+
+  &:hover, &:active, &:focus {
+    animation: levitate ($td * 7) ease-in-out alternate infinite;
+
+    &::before {
+      animation: levitate-shadow ($td * 7) ease-in-out alternate infinite;
+    }
+  }
+
+  @keyframes levitate {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes levitate-shadow {
+    from {
+      transform: translateX(-50%) translateY(0) rotateX(85deg) scale(1);
+    }
+    to {
+      transform: translateX(-50%) translateY(10px) rotateX(85deg) scale(.8);
     }
   }
 }

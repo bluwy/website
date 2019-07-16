@@ -6,7 +6,10 @@ css: forms
 
 <section>
   <div class="text-right">
-    <a class="btn" href="{{ '/store/' | relative_url }}">Back to store</a>
+    <a class="btn-link arrow-hover" href="{{ '/store/' | relative_url }}">
+      <i class="fas fa-arrow-left arrow left mr-3"></i>
+      Back
+    </a>
   </div>
   <br>
   <p>Click the input fields for animations. Click <i class="fas fa-info-circle"></i> for more options!</p>
@@ -33,13 +36,19 @@ css: forms
     {%- include store-forms-box.html content=box_content -%}
 
     {%- capture box_content -%}
-      <div class="input-flip">
+      <div class="input-flip bottom">
         <input type="text" required>
         <span></span>
         <label>Flip</label>
       </div>
     {%- endcapture -%}
-    {%- include store-forms-box.html content=box_content -%}
+    {%- capture box_options -%}
+      <input type="radio" name="flip-from" value="top" id="flip-top">
+      <label for="flip-top">Top</label><br>
+      <input type="radio" name="flip-from" value="bottom" id="flip-bottom" checked>
+      <label for="flip-bottom">Bottom</label>
+    {%- endcapture -%}
+    {%- include store-forms-box.html content=box_content options=box_options id='input-flip-options' -%}
 
     {%- capture box_content -%}
       <div class="input-open-bars">
@@ -78,3 +87,5 @@ css: forms
 </section>
 
 <script src="{{ '/assets/js/box-options.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/box-utility.js' | relative_url }}"></script>
+<script src="script.js"></script>

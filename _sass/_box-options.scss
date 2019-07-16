@@ -40,10 +40,12 @@
       height: auto;
       padding: .25rem;
       border: none;
+      font-size: 1.1rem;
       background-color: transparent;
+      box-shadow: none;
       transition: opacity .3s $ease;
   
-      &:hover {
+      &:hover, &:active, &:focus {
         opacity: .5;
       }
     }
@@ -52,6 +54,10 @@
       opacity: 0;
       visibility: hidden;
       transition: opacity .3s, visibility 0s .3s;
+
+      input {
+        width: auto;
+      }
     }
   }
 }
