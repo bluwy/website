@@ -1,13 +1,11 @@
-<div class="col-6 col-md-4 col-lg-3">
+<div class="{{ box_col_class }}">
   <div class="box">
-    <div class="box-content">
+    <div class="box-content" {%- if include.options -%} tabindex="0" {%- endif -%}>
       <div class="box-content-item">
         {{ include.content }}
       </div>
       {%- if include.options -%}
-        <button class="box-options-toggle" type="button" aria-label="More options">
-          <i class="fas fa-info-circle"></i>
-        </button>
+        <i class="far fa-lightbulb box-options-indicator"></i>
         <div id="{{ include.id }}" class="box-options">
           {{ include.options }}
         </div>

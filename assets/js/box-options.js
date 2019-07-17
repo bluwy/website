@@ -1,13 +1,16 @@
-const boxes = document.querySelectorAll('.box .box-content')
+const boxes = document.querySelectorAll('.box .box-content[tabindex="0"]')
 
 boxes.forEach(function(box) {
-  const toggle = box.querySelector('.box-options-toggle')
-
-  if (toggle !== null) {
-    toggle.addEventListener('click', function() {
-      box.classList.toggle('active')
-    })
-  }
+  box.addEventListener('click', function(evt) {
+    if (evt.target === box) {
+      box.classList.add('active')
+    }
+  })
+  box.addEventListener('keyup', function(evt) {
+    if (evt.keyCode === 13) {
+      box.click()
+    }
+  })
 })
 
 document.addEventListener('click', function(evt) {

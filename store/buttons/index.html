@@ -12,10 +12,12 @@ css: buttons
     </a>
   </div>
   <br>
-  <p>Click/hover the buttons for animations. Click <i class="fas fa-info-circle"></i> for more options!</p>
+  <p>Click/hover the buttons for animations. Click <i class="far fa-lightbulb"></i> for more options!</p>
 </section>
 <br>
 <section class="row">
+  {%- assign box_col_class = 'col-6 col-md-4 col-lg-3' -%}
+
   {%- capture box_content -%}
     <button class="btn-slide left">Slide</button>
   {%- endcapture -%}
@@ -29,7 +31,7 @@ css: buttons
     <input type="radio" name="slide-direction" value="bottom" id="slide-bottom">
     <label for="slide-bottom">Bottom</label>
   {%- endcapture -%}
-  {%- include store-buttons-box.html content=box_content options=box_options id='btn-slide-options' -%}
+  {%- include store-box.html content=box_content options=box_options id='btn-slide-options' -%}
 
   {%- capture box_content -%}
     <button class="btn-line left">Line</button>
@@ -44,12 +46,12 @@ css: buttons
     <input type="radio" name="line-position" value="bottom" id="line-bottom">
     <label for="line-bottom">Bottom</label>
   {%- endcapture -%}
-  {%- include store-buttons-box.html content=box_content options=box_options id='btn-line-options' -%}
+  {%- include store-box.html content=box_content options=box_options id='btn-line-options' -%}
 
   {%- capture box_content -%}
     <button class="btn-fade">Fade</button>
   {%- endcapture -%}
-  {%- include store-buttons-box.html content=box_content -%}
+  {%- include store-box.html content=box_content -%}
 
   {%- capture box_content -%}
     <button class="btn-pulse fill">Pulse</button>
@@ -58,7 +60,7 @@ css: buttons
     <input type="checkbox" name="pulse-fill" value="fill" id="pulse-fill" checked>
     <label for="pulse-fill">Fill</label>
   {%- endcapture -%}
-  {%- include store-buttons-box.html content=box_content options=box_options id='btn-pulse-options' -%}
+  {%- include store-box.html content=box_content options=box_options id='btn-pulse-options' -%}
 
   {%- capture box_content -%}
     <button class="btn-reveal">
@@ -66,7 +68,7 @@ css: buttons
       <span class="text-2">Thanks</span>
     </button>
   {%- endcapture -%}
-  {%- include store-buttons-box.html content=box_content -%}
+  {%- include store-box.html content=box_content -%}
 
   {%- capture box_content -%}
     <button class="btn-highlight">
@@ -74,14 +76,14 @@ css: buttons
       <span></span>
     </button>
   {%- endcapture -%}
-  {%- include store-buttons-box.html content=box_content -%}
+  {%- include store-box.html content=box_content -%}
 
   {%- capture box_content -%}
     <button class="btn-shiny">
       Shiny
     </button>
   {%- endcapture -%}
-  {%- include store-buttons-box.html content=box_content -%}
+  {%- include store-box.html content=box_content -%}
 
   {%- capture box_content -%}
     <button class="btn-tilt left">
@@ -94,7 +96,7 @@ css: buttons
     <input type="radio" name="tilt-direction" value="right" id="tilt-right">
     <label for="tilt-right">Right</label><br>
   {%- endcapture -%}
-  {%- include store-buttons-box.html content=box_content options=box_options id='btn-tilt-options' -%}
+  {%- include store-box.html content=box_content options=box_options id='btn-tilt-options' -%}
 
   {%- capture box_content -%}
     <button class="btn-loading-line top">
@@ -107,14 +109,14 @@ css: buttons
     <input type="radio" name="loading-line-position" value="bottom" id="loading-line-bottom">
     <label for="loading-line-bottom">Bottom</label><br>
   {%- endcapture -%}
-  {%- include store-buttons-box.html content=box_content options=box_options id='btn-loading-line-options' -%}
+  {%- include store-box.html content=box_content options=box_options id='btn-loading-line-options' -%}
 
   {%- capture box_content -%}
     <button class="btn-levitate">
       Levitate
     </button>
   {%- endcapture -%}
-  {%- include store-buttons-box.html content=box_content -%}
+  {%- include store-box.html content=box_content -%}
 </section>
 <br>
 <section>

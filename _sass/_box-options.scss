@@ -14,49 +14,47 @@
     z-index: 0;
     transition: box-shadow .3s $ease, background-color .3s $ease, z-index 0s .3s;
 
+    .box-content-item {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .box-options-indicator {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 1.5rem;
+      height: 1.5rem;
+      text-align: center;
+      line-height: 1.5rem;
+      pointer-events: none;
+      transition: opacity .3s $ease;
+    }
+
+    .box-options {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .3s $ease, visibility 0s .3s;
+
+      input {
+        width: auto;
+      }
+    }
+
     &.active {
       @extend %elevation-6;
       background-color: $light;
       z-index: 810;
       transition: box-shadow .3s $ease, background-color .3s $ease;
 
+      .box-options-indicator {
+        opacity: 0;
+      }
+
       .box-options {
         opacity: 1;
         visibility: visible;
         transition: opacity .3s;
-      }
-    }
-
-    .box-content-item {
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-
-    .box-options-toggle {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: auto;
-      height: auto;
-      padding: .25rem;
-      border: none;
-      font-size: 1.1rem;
-      background-color: transparent;
-      box-shadow: none;
-      transition: opacity .3s $ease;
-  
-      &:hover, &:active, &:focus {
-        opacity: .5;
-      }
-    }
-  
-    .box-options {
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity .3s, visibility 0s .3s;
-
-      input {
-        width: auto;
       }
     }
   }

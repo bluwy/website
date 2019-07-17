@@ -35,7 +35,6 @@ label {
 
 .input-material-outline {
   position: relative;
-  display: inline-block;
   
   label {
     position: absolute;
@@ -69,7 +68,6 @@ label {
 
 .input-material-flat {
   position: relative;
-  display: inline-block;
 
   label {
     position: absolute;
@@ -113,7 +111,6 @@ label {
 
 .input-flip {
   position: relative;
-  display: inline-block;
 
   &.bottom {
     span::before {
@@ -194,7 +191,6 @@ label {
 .input-open-bars {
   $contract: 20%;
   position: relative;
-  display: inline-block;
 
   label {
     position: absolute;
@@ -257,7 +253,6 @@ label {
 
 .input-open-box {
   position: relative;
-  display: inline-block;
 
   label {
     position: absolute;
@@ -320,7 +315,6 @@ label {
   $expand: 40%;
   $inputY: 25%;
   position: relative;
-  display: inline-block;
 
   label {
     position: absolute;

@@ -12,19 +12,21 @@ css: forms
     </a>
   </div>
   <br>
-  <p>Click the input fields for animations. Click <i class="fas fa-info-circle"></i> for more options!</p>
+  <p>Click the input fields for animations. Click <i class="far fa-lightbulb"></i> for more options!</p>
 </section>
 <br>
 <section>
   <h3>Text input</h3>
   <form class="row">
+    {%- assign box_col_class = 'col-12 col-md-6 col-lg-4' -%}
+
     {%- capture box_content -%}
       <div class="input-material-outline">
         <input type="text" required>
         <label>Material outline</label>
       </div>
     {%- endcapture -%}
-    {%- include store-forms-box.html content=box_content -%}
+    {%- include store-box.html content=box_content -%}
 
     {%- capture box_content -%}
       <div class="input-material-flat">
@@ -33,7 +35,7 @@ css: forms
         <label>Material flat</label>
       </div>
     {%- endcapture -%}
-    {%- include store-forms-box.html content=box_content -%}
+    {%- include store-box.html content=box_content -%}
 
     {%- capture box_content -%}
       <div class="input-flip bottom">
@@ -48,7 +50,7 @@ css: forms
       <input type="radio" name="flip-from" value="bottom" id="flip-bottom" checked>
       <label for="flip-bottom">Bottom</label>
     {%- endcapture -%}
-    {%- include store-forms-box.html content=box_content options=box_options id='input-flip-options' -%}
+    {%- include store-box.html content=box_content options=box_options id='input-flip-options' -%}
 
     {%- capture box_content -%}
       <div class="input-open-bars">
@@ -57,7 +59,7 @@ css: forms
         <label>Open bars</label>
       </div>
     {%- endcapture -%}
-    {%- include store-forms-box.html content=box_content -%}
+    {%- include store-box.html content=box_content -%}
 
     {%- capture box_content -%}
       <div class="input-open-box">
@@ -66,7 +68,7 @@ css: forms
         <label>Open box</label>
       </div>
     {%- endcapture -%}
-    {%- include store-forms-box.html content=box_content -%}
+    {%- include store-box.html content=box_content -%}
 
     {%- capture box_content -%}
       <div class="input-open-line">
@@ -75,7 +77,7 @@ css: forms
         <label>Open line</label>
       </div>
     {%- endcapture -%}
-    {%- include store-forms-box.html content=box_content -%}
+    {%- include store-box.html content=box_content -%}
   </form>
 </section>
 <br>
