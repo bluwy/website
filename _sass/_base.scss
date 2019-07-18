@@ -67,7 +67,6 @@ small {
 }
 
 button, .btn {
-  @extend %elevation-2;
   padding: .5rem 1rem;
   border-radius: .25rem;
   color: $dark;
@@ -75,21 +74,38 @@ button, .btn {
   border: 1px solid $gray;
   text-decoration: none;
   cursor: pointer;
-  transition: background-color .3s $ease, box-shadow .3s $ease;
+  transition: all .3s $ease;
 
-  &:hover, &:active {
-    @extend %elevation-4;
-    background-color: white;
+  &.hoverable {
+    @extend %elevation-2;
+
+    &:hover, &:active {
+      @extend %elevation-4;
+    }
+  }
+  
+  &.flat {
+    background-color: transparent;
+    border: none;
+
+    &:hover, &:active, &:focus {
+      background-color: rgba($light, .5);
+      outline: 0;
+    }
   }
 
-  &:focus {
-    @extend %elevation-4;
+  &:hover, &:active, &:focus {
+    background-color: white;
     outline: 0;
   }
 }
 
-pre {
+figure {
+  margin: 0;
   padding: 1rem;
+}
+
+pre {
   margin: 0;
 }
 

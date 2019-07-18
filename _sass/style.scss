@@ -102,6 +102,19 @@
   }
 }
 
+.code-block {
+  @extend %elevation-2;
+  border-radius: .25rem;
+  overflow: hidden;
+  background-color: $dark;
+  color: $light;
+
+  .highlight {
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
 .btn-link {
   text-decoration: none;
   color: inherit;
