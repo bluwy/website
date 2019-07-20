@@ -5,7 +5,7 @@
 
   <link rel="shortcut icon" href="{{ '/favicon.ico' | relative_url }}" type="image/x-icon">
 
-  <title>{%- if page.title -%} {{ page.title }} | {% endif -%} {{ site.title }}</title>
+  <title>{%- if page.title -%} {{ page.title }} {% if page.subtitle -%} - {{ page.subtitle }} {% endif -%} | {% endif -%} {{ site.title }}</title>
   {%- seo title=false -%}
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito&display=swap">

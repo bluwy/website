@@ -1,0 +1,132 @@
+---
+---
+
+.paper-plane-container {
+  $plane-color: #efefef;
+  $body-width: 30px;
+  $body-height: 100px;
+  $body-fold-angle: 80deg;
+  $body-tilt-angle: 10deg;
+  $wing-width: 40px;
+  $wing-height: 104.4px;
+  $wing-flap-angle: 90deg;
+  $wing-tilt-angle: 16.7deg;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 250px;
+  background-color: lightblue;
+  overflow: hidden;
+  perspective: 1000px;
+
+  &:hover, &:active, &:focus {
+    background-color: lightblue;
+
+    .wind::before, .paper-plane {
+      animation-play-state: running;
+    }
+  }
+
+  div {
+    transform-style: preserve-3d;
+  }
+
+  .wind {
+    position: absolute;
+
+    @for $i from 1 to 11 {
+      &:nth-child(#{$i}) {
+        transform: translate3d(((random(400) - 200) + px), ((random(400) - 200) + px), ((random(400) - 200) + px)) rotateY(random(360) + deg);
+      }
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      height: 50px;
+      width: 5px;
+      background-color: lightpink;
+      animation: wind 3s linear infinite;
+      animation-play-state: paused;
+    }
+  }
+
+  .paper-plane {
+    position: relative;
+    animation: fly 15s linear infinite;
+    animation-play-state: paused;
+  
+    .paper-plane-body-left {
+      position: absolute;
+      top: (-$body-height / 2);
+      right: 0;
+      width: 0;
+      height: 0;
+      border-left: $body-width solid transparent;
+      border-bottom: $body-height solid darken($plane-color, 5);
+      transform-origin: center right;
+      transform: rotateX($body-tilt-angle) rotateY(-$body-fold-angle);
+
+      .paper-plane-wing-left {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 0;
+        height: 0;
+        border-left: $wing-width solid transparent;
+        border-bottom: $wing-height solid $plane-color;
+        transform-origin: top right;
+        transform: rotateZ($wing-tilt-angle) rotateY($wing-flap-angle);
+      }
+    }
+
+    .paper-plane-body-right {
+      position: absolute;
+      top: (-$body-height / 2);
+      left: 0;
+      width: 0;
+      height: 0;
+      border-right: $body-width solid transparent;
+      border-bottom: $body-height solid darken($plane-color, 5);
+      transform-origin: center left;
+      transform: rotateX($body-tilt-angle) rotateY($body-fold-angle);
+
+      .paper-plane-wing-right {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-right: $wing-width solid transparent;
+        border-bottom: $wing-height solid $plane-color;
+        transform-origin: top left;
+        transform: rotateZ(-$wing-tilt-angle) rotateY(-$wing-flap-angle);
+      }
+    }
+  }
+
+  @keyframes fly {
+    from {
+      transform: rotateX(-120deg) rotateZ(0);
+    }
+    to {
+      transform: rotateX(-120deg) rotate(360deg);
+    }
+  }
+  
+  @keyframes wind {
+    from {
+      transform: translateY(-300px);
+      opacity: 0;
+    }
+    30%, 70% {
+      opacity: 1;
+    }
+    to {
+      transform: translateY(200px);
+      opacity: 0;
+    }
+  }
+}

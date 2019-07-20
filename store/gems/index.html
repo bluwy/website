@@ -1,0 +1,50 @@
+---
+title: Gems
+subtitle: Store
+css: gems
+---
+
+<section>
+  <div class="text-right">
+    <a class="btn-link arrow-hover" href="{{ '/store/' | relative_url }}">
+      <i class="fas fa-arrow-left arrow left mr-3"></i>
+      Back
+    </a>
+  </div>
+  <br>
+  <p>
+    A random collection of unique stuff that looks really nice. 
+    Click <i class="far fa-lightbulb"></i> for more options!
+  </p>
+</section>
+<br>
+<section>
+  {%- assign box_col_class = 'col-12 col-md-6 col-lg-4' -%}
+
+  {%- capture box_content -%}
+    <button class="paper-plane-container">
+      <div class="paper-plane">
+        {%- for i in (1..10) -%}
+          <div class="wind"></div>
+        {%- endfor -%}
+        <div class="paper-plane-body-left">
+          <div class="paper-plane-wing-left"></div>
+        </div>
+        <div class="paper-plane-body-right">
+          <div class="paper-plane-wing-right"></div>
+        </div>
+      </div>
+    </button>
+  {%- endcapture -%}
+  {%- include store-box.html content=box_content -%}
+  
+</section>
+<br>
+<section>
+  <h3>Inspirations</h3>
+  <ul>
+    <li><a href="https://codepen.io/YusukeNakaya/pen/BwBgvq">Yusuke Nakaya - Only CSS: Paper bird</a></li>
+  </ul>
+</section>
+
+<script src="{{ '/assets/js/box-options.js' | relative_url }}"></script>
