@@ -2,6 +2,10 @@
   desc: A website to create rounded boxes and shadows
   src: /assets/images/create-box.png
   link: /projects/create-box
+- name: Material Shadow Preview
+  desc: Visualize Material Design's elevations
+  src: /assets/images/material-shadow-preview.jpg
+  link: /projects/material-shadow-preview
 - name: Store
   desc: Find designs fresh from the oven
   src: https://picsum.photos/id/810/250/250.jpg

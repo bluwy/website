@@ -222,6 +222,10 @@ $story-text-color: #f8f9fa;
   .card {
     width: 250px;
     margin: 1rem auto;
+
+    .card-image {
+      height: 250px;
+    }
   }
 } 
 

@@ -9,8 +9,8 @@ css: projects
       <a class="btn-link" href="{{ item.link | relative_url }}">
         <div class="card card-projects hoverable bg-light">
           <div class="row">
-            <div class="col-auto">
-              <img src="{{ item.src }}" alt="{{ item.name }} thumbnail"  lazyload loading="lazy">
+            <div class="col-auto card-image-wrapper">
+              <img class="card-image" src="{{ item.src }}" alt="{{ item.name }} thumbnail"  lazyload loading="lazy">
             </div>
             <div class="col">
               <div class="card-content">

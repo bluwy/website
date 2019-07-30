@@ -5,11 +5,20 @@
   width: 250px;
   height: auto;
   margin: 0 auto;
+
+  .card-image-wrapper, .card-image {
+    height: 250px;
+    overflow: hidden;
+  }
 }
 
 @media screen and (min-width: 576px) {
   .card.card-projects {
     width: auto;
     height: 250px;
+
+    .card-image-wrapper {
+      width: 250px;
+    }
   }
 }
