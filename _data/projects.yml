@@ -1,7 +1,7 @@
-- name: Create Box
-  desc: A website to create rounded boxes and shadows
-  src: /assets/images/create-box.png
-  link: /projects/create-box
+- name: PENN Todo
+  desc: A todo app built on the PENN stack
+  src: /assets/images/penn-todo.jpg
+  link: /projects/penn-todo
 - name: Material Shadow Preview
   desc: Visualize Material Design's elevations
   src: /assets/images/material-shadow-preview.jpg
@@ -10,4 +10,7 @@
   desc: Find designs fresh from the oven
   src: https://picsum.photos/id/810/250/250.jpg
   link: /projects/store
-  
+- name: Create Box
+  desc: A website to create rounded boxes and shadows
+  src: /assets/images/create-box.png
+  link: /projects/create-box
