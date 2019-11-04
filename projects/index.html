@@ -9,9 +9,7 @@ css: projects
       <a class="btn-link" href="{{ item.link | relative_url }}">
         <div class="card card-projects hoverable bg-light">
           <div class="row">
-            <div class="col-auto card-image-wrapper">
-              <img class="card-image" src="{{ item.src }}" alt="{{ item.name }} thumbnail" loading="lazy" height="250">
-            </div>
+            <img class="col-auto card-image" src="{{ item.src }}" alt="{{ item.name }} thumbnail" loading="lazy" height="250">
             <div class="col">
               <div class="card-content">
                 <h4 class="card-header">{{ item.name }}</h4>

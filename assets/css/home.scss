@@ -224,7 +224,9 @@ $story-text-color: #f8f9fa;
     margin: 1rem auto;
 
     .card-image {
+      width: 100%;
       height: 250px;
+      object-fit: cover;
     }
   }
 } 
