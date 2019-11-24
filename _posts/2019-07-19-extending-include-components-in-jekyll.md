@@ -129,4 +129,4 @@ Do note that it's not recommended to overuse the `include` tag as mentioned in t
 I hope you enjoy reading!
 
 [include-docs]: https://jekyllrb.com/docs/includes/
-[store-page]: {{ '/store' | relative_url }}
+[store-page]: {% link store/index.html %}

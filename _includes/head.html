@@ -3,7 +3,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <link rel="shortcut icon" href="{{ '/favicon.ico' | relative_url }}" type="image/x-icon">
+  <link rel="shortcut icon" href="{% link favicon.ico %}" type="image/x-icon">
 
   <title>{%- if page.title.size > 0 -%} {{ page.title }} {% if page.subtitle.size > 0 -%} - {{ page.subtitle }} {% endif -%} | {% endif -%} {{ site.title }}</title>
   {%- seo title=false -%}
@@ -13,7 +13,7 @@
   {%- if page.css -%}
     <link rel="stylesheet" href="{{ '/assets/css/' | append: page.css | append: '.css' | relative_url }}">
   {%- else -%}
-    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    <link rel="stylesheet" href="{% link assets/css/main.scss %}">
   {%- endif -%}
 
   <script src="https://kit.fontawesome.com/43c0d4308e.js"></script>

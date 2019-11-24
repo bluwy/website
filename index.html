@@ -19,7 +19,7 @@ css: home
       <div class="rocket-tail"></div>
     </div>
     <div id="header-hero-wrapper" class="container">
-      <img id="header-hero" src="{{ '/assets/images/name.png' | relative_url }}" alt="Bjorn Lu">
+      <img id="header-hero" src="{% link assets/images/name.png %}" alt="Bjorn Lu">
     </div>
   </div>
 </div>
@@ -90,7 +90,7 @@ css: home
       </p>
     </div>
     <div class="text-center py-5">
-      <a class="btn hoverable" href="{{ '/projects/' | relative_url }}">See all projects</a>
+      <a class="btn hoverable" href="{% link projects/index.html %}">See all projects</a>
     </div>
   </div>
 </div>

@@ -6,7 +6,7 @@ css: buttons
 
 <section>
   <div class="text-right">
-    <a class="btn-link arrow-hover" href="{{ '/store/' | relative_url }}">
+    <a class="btn-link arrow-hover" href="{% link store/index.html %}">
       <i class="fas fa-arrow-left arrow left mr-3"></i>
       Back
     </a>
@@ -127,6 +127,6 @@ css: buttons
   </ul>
 </section>
 
-<script src="{{ '/assets/js/box-options.js' | relative_url }}"></script>
-<script src="{{ '/assets/js/box-utility.js' | relative_url }}"></script>
+<script src="{% link assets/js/box-options.js %}"></script>
+<script src="{% link assets/js/box-utility.js %}"></script>
 <script src="script.js"></script>
