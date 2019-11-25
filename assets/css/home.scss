@@ -3,206 +3,91 @@
 
 @import 'style';
 
-$story-background: #343a40;
-$rocket-color-primary: #D7CDCC;
-$rocket-color-secondary: #D1603D;
-$rocket-color-window: #C6D8D3;
-$rocket-ease: cubic-bezier(0.55, 0.055, 0.675, 0.19);
-$story-text-color: #f8f9fa;
+$name: (
+	"b": 297.1285705566406,
+	"j": 150.64950561523438,
+	"o": 250.4888458251953,
+	"r": 225.0975341796875,
+	"n": 242.292236328125,
+	"l": 151.68516540527344,
+	"u": 234.8412322998047
+);
 
-.story-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+$hex-color: #181818;
+$glow-color: #7dbbfa;
+$name-color: #efefef;
 
-  .rocket {
-    position: absolute;
-    z-index: 0;
-    bottom: 100px;
-    left: 50%;
-    animation: rocket-fly 2s 2s $rocket-ease forwards;
-
-    .rocket-body {
-      position: absolute;
-      width: 40px;
-      height: 120px;
-      background-color: $rocket-color-primary;
-      border-radius: 70%;
-      transform: translateX(-50%) translateY(-50%);
-
-      &::after {
-        content: '';
-        position: absolute;
-        width: 40px;
-        height: 120px;
-        background-color: $rocket-color-secondary;
-        border-radius: 70%;
-        clip-path: ellipse(50% 10% at 50% 10%);
-        -webkit-clip-path: ellipse(50% 10% at 50% 10%);
-      }
-    }
-
-    .rocket-window {
-      position: absolute;
-      width: 26px;
-      height: 26px;
-      background-color: $rocket-color-window;
-      border-radius: 50%;
-      border: 3px solid gray;
-      transform: translateX(-50%) translateY(-50%);
-    }
-
-    .rocket-wing {
-      position: relative;
-      top: 50px;
-
-      &::before, &::after {
-        content: '';
-        position: absolute;
-        z-index: -1;
-        bottom: 5%;
-        border-bottom: 40px solid $rocket-color-secondary;
-      }
-
-      &::before {
-        left: 5px;
-        border-left: 50px solid transparent;
-        border-top-left-radius: 50%;
-        transform: translateX(-100%) rotate(-40deg);
-      }
-
-      &::after {
-        right: 5px;
-        border-right: 50px solid transparent;
-        border-top-right-radius: 50%;
-        transform: translateX(100%) rotate(40deg);
-      }
-    }
-
-    .rocket-tail {
-      position: absolute;
-      width: 16px;
-      top: 58px;
-      border-bottom: 5px solid $rocket-color-secondary;
-      border-left: 2px solid transparent;
-      border-right: 2px solid transparent;
-      transform: translateX(-50%);
-    }
-  }
-
-  .moon {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    width: 810px;
-    height: 810px;
-    border-radius: 50%;
-    background-color: $rocket-color-primary;
-    transform: translateX(-50%) translateY(-50px);
-
-    &::before {
-      content: '';
-      position: absolute;
-      top: 25px;
-      left: calc(50% - 100px);
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background-color: darken($rocket-color-primary, 5);
-    }
-
-    &::after {
-      content: '';
-      position: absolute;
-      top: 15px;
-      left: calc(50% + 20px);
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background-color: darken($rocket-color-primary, 5);
-    }
-  }
-
-  .story-text {
-    position: absolute;
-    bottom: 10%;
-    width: 100%;
-    color: $story-text-color;
-    text-align: center;
-    opacity: 0;
-    animation: story-text-in 1s 2.8s forwards;
-  }
-
-  .nightsky {
-    position: relative;
-
-    .star {
-      position: absolute;
-      width: 3px;
-      height: 3px;
-      border-radius: 50%;
-      background-color: white;
-      box-shadow: 0 0 3px 1px white;
-      opacity: 0;
-
-      @for $i from 1 to 16 {
-        &:nth-child(#{$i}) {
-          top: (random(100) + vh);
-          left: (random(100) + vw);
-          animation: starlight (random(5) + 5 + s) (random(5) + s) infinite alternate;
-        }
-      }
-    }
-  }
-}
-
-@keyframes rocket-fly {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(calc(-100vh - 100px));
-  }
-}
-
-@keyframes starlight {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: .8;
-  }
-}
-
-@keyframes story-text-in {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+$start-delay: 2;
+$hex-down-duration: .3;
+$hex-down-delay: .1;
+$hex-final-duration: $hex-down-duration + $hex-down-delay * 5;
+$name-stroke-duration: 1;
+$name-fill-duration: 1;
+$all-up-duration: 1.5;
 
 #home-header {
-  background: $story-background;
+  position: relative;
+  display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 calc(50% - 50vw);
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  background-image: none;
+	background-color: $glow-color;
 }
 
-#header-hero-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+#hex {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	fill: $hex-color;
+}
 
-  #header-hero {
-    max-width: 100%;
-    width: auto;
-    height: auto;
-    opacity: 0;
-    animation: hero-fade 1s .5s forwards;
-  }
+#name {
+  position: relative;
+  z-index: 2;
+	width: 50%;
+	min-width: 280px;
+}
+
+@for $i from 1 through 5 {
+	#step-#{$i} {
+		transform-origin: center;
+		transform-box: fill-box;
+		transform: perspective(1000px) translateZ(50px);
+		animation: step-#{$i}-scale #{$hex-down-duration}s #{$i * $hex-down-delay + $start-delay}s ease forwards;
+	}
+	
+	@keyframes step-#{$i}-scale {
+		from { transform: perspective(1000px) translateZ(50px); }
+		to { transform: perspective(1000px) translateZ(0); }
+	}
+}
+
+@each $char, $length in $name {
+	##{$char} {
+		stroke: $name-color;
+		stroke-width: 3px;
+		stroke-dasharray: $length;
+		stroke-dashoffset: $length;
+		fill: transparent;
+		animation: #{$char}-stroke #{$name-stroke-duration}s #{$start-delay + $hex-final-duration}s ease forwards, #{$char}-fill #{$name-fill-duration}s #{$start-delay + $hex-final-duration + $name-stroke-duration}s ease forwards;
+	}
+	
+	@keyframes #{$char}-stroke {
+		from { stroke-dashoffset: $length; }
+		to { stroke-dashoffset: 0; }
+	}
+
+	@keyframes #{$char}-fill {
+		from { fill: transparent; }
+		to { fill: $name-color; stroke-opacity: 0; }
+	}
 }
 
 @keyframes hero-fade {
