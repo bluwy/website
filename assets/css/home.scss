@@ -57,16 +57,14 @@ $all-up-duration: 1.5;
 
 @for $i from 1 through 5 {
 	#step-#{$i} {
-		transform-origin: center;
-		transform-box: fill-box;
-		transform: perspective(1000px) translateZ(50px);
-		animation: step-#{$i}-scale #{$hex-down-duration}s #{$i * $hex-down-delay + $start-delay}s ease forwards;
+		transform: scale(1.05);
+		animation: step-scale #{$hex-down-duration}s #{$i * $hex-down-delay + $start-delay}s ease forwards;
 	}
-	
-	@keyframes step-#{$i}-scale {
-		from { transform: perspective(1000px) translateZ(50px); }
-		to { transform: perspective(1000px) translateZ(0); }
-	}
+}
+
+@keyframes step-scale {
+	from { transform: scale(1.05); }
+	to { transform: scale(1); }
 }
 
 @each $char, $length in $name {
