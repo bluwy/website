@@ -13,18 +13,17 @@ css: gems
   </div>
   <br>
   <p>
-    A random collection of unique stuff that looks really nice. 
-    Click <i class="far fa-lightbulb"></i> for more options!
+    A random collection of unique stuff that looks really nice.
   </p>
 </section>
 <br>
-<section>
+<section class="row">
   {%- assign box_col_class = 'col-12 col-md-6 col-lg-4' -%}
 
   {%- capture box_content -%}
-    <button class="paper-plane-container">
+    <div class="paper-plane-container" tabindex="0">
       <div class="paper-plane">
-        {%- for i in (1..10) -%}
+        {%- for i in (1..5) -%}
           <div class="wind"></div>
         {%- endfor -%}
         <div class="paper-plane-body-left">
@@ -34,10 +33,27 @@ css: gems
           <div class="paper-plane-wing-right"></div>
         </div>
       </div>
-    </button>
+    </div>
   {%- endcapture -%}
   {%- include store-box.html content=box_content -%}
-  
+
+  {%- capture box_content -%}
+  <div class="rocket-container" tabindex="0">
+    <div class="nightsky">
+      {%- for i in (1..10) -%}
+        <div class="star"></div>
+      {%- endfor -%}
+    </div>
+    <div class="moon"></div>
+    <div class="rocket">
+      <div class="rocket-body"></div>
+      <div class="rocket-window"></div>
+      <div class="rocket-wing"></div>
+      <div class="rocket-tail"></div>
+    </div>
+  </div>
+  {%- endcapture -%}
+  {%- include store-box.html content=box_content -%}
 </section>
 <br>
 <section>
