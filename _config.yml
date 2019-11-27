@@ -17,7 +17,7 @@ title: Bjorn Lu
 subtitle: A personal website for portfolio and blogs
 description: Bjorn Lu is a tech enthusiast working with various projects of interest.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://bjornlu.netlify.com" # the base hostname & protocol for your site, e.g. http://example.com
+url: https://bjornlu.netlify.com # the base hostname & protocol for your site, e.g. http://example.com
 author: Bjorn Lu
 
 # Social
