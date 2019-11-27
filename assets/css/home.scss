@@ -17,13 +17,17 @@ $hex-color: $dark;
 $glow-color: $primary-300;
 $name-color: $gray-100;
 
-$start-delay: 2;
+$start-delay: 0;
 $hex-down-duration: .3;
 $hex-down-delay: .1;
 $hex-final-duration: $hex-down-duration + $hex-down-delay * 5;
 $name-stroke-duration: 1;
 $name-fill-duration: 1;
 $all-up-duration: 1.5;
+
+:root {
+	--story-play-state: paused;
+}
 
 #home-header {
   position: relative;
@@ -59,6 +63,7 @@ $all-up-duration: 1.5;
 	#step-#{$i} {
 		transform: scale(1.05);
 		animation: step-scale #{$hex-down-duration}s #{$i * $hex-down-delay + $start-delay}s ease forwards;
+		animation-play-state: var(--story-play-state);
 	}
 }
 
@@ -74,18 +79,19 @@ $all-up-duration: 1.5;
 		stroke-dasharray: $length;
 		stroke-dashoffset: $length;
 		fill: transparent;
-		animation: #{$char}-stroke #{$name-stroke-duration}s #{$start-delay + $hex-final-duration}s ease forwards, #{$char}-fill #{$name-fill-duration}s #{$start-delay + $hex-final-duration + $name-stroke-duration}s ease forwards;
+		animation: #{$char}-stroke #{$name-stroke-duration}s #{$start-delay + $hex-final-duration}s ease forwards, char-fill #{$name-fill-duration}s #{$start-delay + $hex-final-duration + $name-stroke-duration}s ease forwards;
+		animation-play-state: var(--story-play-state);
 	}
 	
 	@keyframes #{$char}-stroke {
 		from { stroke-dashoffset: $length; }
 		to { stroke-dashoffset: 0; }
 	}
+}
 
-	@keyframes #{$char}-fill {
-		from { fill: transparent; }
-		to { fill: $name-color; stroke-opacity: 0; }
-	}
+@keyframes char-fill {
+	from { fill: transparent; }
+	to { fill: $name-color; stroke-opacity: 0; }
 }
 
 @keyframes hero-fade {

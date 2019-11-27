@@ -179,3 +179,13 @@ css: home
     </p>
   </section>
 </div>
+
+<script>
+  window.addEventListener('load', () => {
+    new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        document.documentElement.style.setProperty('--story-play-state', entry.isIntersecting ? 'running' : 'paused')
+      })
+    }).observe(document.getElementById('home-header'))
+  })
+</script>
