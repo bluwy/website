@@ -1,8 +1,5 @@
 // Used by stores only
 
-@import 'variables';
-@import 'material-shadow';
-
 .box {
   position: relative;
   height: 100px;
@@ -46,7 +43,7 @@
 
     &.active {
       @extend %elevation-6;
-      background-color: $light;
+      background-color: var(--gray-300);
       z-index: 810;
       transition: box-shadow .3s $ease, background-color .3s $ease;
 

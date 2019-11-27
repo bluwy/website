@@ -7,7 +7,7 @@ css: projects
   {%- for item in site.data.projects -%}
     <div class="mb-4">
       <a class="btn-link" href="{{ item.link | relative_url }}">
-        <div class="card card-projects hoverable bg-light">
+        <div class="card card-projects hoverable">
           <div class="row">
             <img class="col-auto card-image" src="{{ item.src }}" alt="{{ item.name }} thumbnail" loading="lazy" height="250">
             <div class="col">

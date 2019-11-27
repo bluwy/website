@@ -7,20 +7,23 @@
 @import 'syntax-highlighting';
 
 .navbar {
+  @extend %elevation-4;
   position: absolute;
   top: 0;
   width: 100%;
   z-index: 810;
   text-align: center;
   white-space: nowrap;
-  
-  &.shadow {
-    @extend %elevation-4;
+  background-color: $gray-800;
+
+  &.clear {
+    background-color: transparent;
+    box-shadow: none;
   }
 
   .nav-link {
     display: inline-block;
-    color: $light;
+    color: $gray-100;
     opacity: .7;
     padding: 1rem;
     text-decoration: none;
@@ -37,10 +40,12 @@
   border-radius: .25rem;
   height: 100%;
   overflow: hidden;
-  transition: box-shadow .3s $ease;
+  transition: box-shadow .3s $ease, background-color .3s $ease;
+  background-color: var(--gray-100);
 
   &.hoverable:hover {
     @extend %elevation-6;
+    background-color: var(--gray-200);
   }
 
   .card-content {
@@ -54,15 +59,15 @@
 
 .chip {
   display: inline-block;
-  background-color: $light;
-  border: 1px solid $gray;
+  background-color: var(--gray-100);
+  border: 1px solid var(--gray-500);
   border-radius: .25rem;
   padding: .05rem .5rem;
   margin-right: .5rem;
   transition: background-color .3s $ease;
 
   &:hover, &:active {
-    background-color: white;
+    background-color: var(--light);
   }
 }
 
@@ -73,11 +78,11 @@
     transition: background-color .2s;
 
     &:hover, &:active, &:focus {
-      background-color: rgba($gray, .5);
+      background-color: var(--gray-300);
     }
 
     &:not(:last-child) {
-      border-bottom: 1px solid rgba($gray, .5);
+      border-bottom: 1px solid var(--gray-400);
     }
   }
 }
@@ -130,7 +135,8 @@
     display: inline-block;
     padding: 0 .5rem;
     transition: opacity .3s $ease;
-  
+    color: $gray-100;
+
     &:hover {
       opacity: .5;
     }
@@ -139,6 +145,8 @@
 
 .page-footer {
   @extend %elevation-8;
+  background-color: $gray-800;
+  color: $gray-100;
 }
 
 // Utilities
@@ -151,29 +159,8 @@
   text-align: right;
 }
 
-.color-light {
-  color: $light;
-}
-
-.color-dark {
-  color: $dark;
-}
-
-.bg-light {
-  background-color: $light;
-}
-
-.bg-dark {
-  background-color: $dark;
-}
-
 .opacity-70 {
   opacity: .7;
-}
-
-.stretch-vw {
-  width: 100vw;
-  margin: 0 calc(50% - 50vw);
 }
 
 .w-100 {
@@ -203,5 +190,19 @@
 @media (pointer: fine) {
   #home-header {
     background-attachment: fixed;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  img {
+    opacity: .8;
+  }
+
+  .card {
+    background-color: $gray-800;
+
+    &.hoverable:hover {
+      background-color: $gray-700;
+    }
   }
 }

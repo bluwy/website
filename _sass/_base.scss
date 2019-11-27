@@ -1,20 +1,36 @@
-@import 'variables';
-@import 'material-shadow';
-
 *, *::after, *::before {
   box-sizing: border-box;
 }
 
 *::selection {
-  background-color: $gray;
-  color: black;
+  background-color: $gray-300;
+  color: $primary-900;
+}
+
+@media (prefers-color-scheme: dark) {
+  $color-scrollbar: #1c1e1f;
+  $color-scrollbar-thumb: #2a2c2e;
+
+  * {
+    scrollbar-color: $color-scrollbar-thumb $color-scrollbar;
+    scrollbar-color: dark;
+    -webkit-scrollbar-color: dark;
+  }
+
+  ::-webkit-scrollbar {
+    background-color: $color-scrollbar;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: $color-scrollbar-thumb;
+  }
 }
 
 html {
   padding: 0;
   margin: 0;
-  background-color: $light;
-  color: $dark;
+  background-color: var(--gray-100);
+  color: var(--gray-900);
 }
 
 body {
@@ -26,7 +42,7 @@ body {
 }
 
 a {
-  color: black;
+  color: var(--gray-900);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -72,9 +88,9 @@ small {
 button, .btn {
   padding: .5rem 1rem;
   border-radius: .25rem;
-  color: $dark;
-  background-color: $light;
-  border: 1px solid $gray;
+  color: var(--gray-900);
+  background-color: var(--gray-200);
+  border: 1px solid var(--gray-200);
   text-decoration: none;
   cursor: pointer;
   transition: all .3s $ease;
@@ -98,7 +114,7 @@ button, .btn {
   }
 
   &:hover, &:active, &:focus {
-    background-color: white;
+    background-color: var(--light);
     outline: 0;
   }
 }

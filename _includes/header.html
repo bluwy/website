@@ -1,5 +1,5 @@
 <header>
-  <nav class="navbar {%- unless include.clear %} bg-dark shadow {%- endunless -%}">
+  <nav class="navbar {%- if include.clear %} clear {%- endif -%}">
     {%- for item in site.data.navigation -%}
       <a class="nav-link 
         {% if item.link == '/' and page.url == '/' -%}

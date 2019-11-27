@@ -140,10 +140,10 @@ css: home
   </section>
 </div>
 
-<div id="projects" class="stretch-vw bg-dark">
+<div id="projects">
   <div class="container-fluid pt-5 pt-lg-0">
     <div class="d-lg-none">
-      <p class="text-center my-0 pb-2 color-light">
+      <p class="text-center my-0 pb-2">
         Here's some of my projects.
       </p>
     </div>
@@ -154,7 +154,7 @@ css: home
           {%- break -%}
         {%- endif -%}
         <a class="col-auto btn-link mt-3 mt-lg-0" href="{{ item.link | relative_url }}">
-          <div class="card bg-light">
+          <div class="card">
             <img class="card-image" src="{{ item.src }}" alt="{{ item.name }} thumbnail" loading="lazy" height="250">
             <div class="card-content">
               <h4 class="card-header">{{ item.name }}</h4>
@@ -165,7 +165,7 @@ css: home
       {%- endfor -%}
     </div>
     <div class="d-none d-lg-block">
-      <p class="text-center my-0 color-light">
+      <p class="text-center my-0">
         Here's some of my projects.
       </p>
     </div>

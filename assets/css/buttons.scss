@@ -15,19 +15,16 @@ button {
   font-size: 1.1rem;
   margin-bottom: .25rem;
   width: 100%;
-  color: $dark;
-  background-color: $light;
+  color: var(--gray-900);
+  background-color: var(--gray-200);
+  border: none;;
   box-shadow: none;
   transition: none;
 
-  &:hover, &:active {
+  &:hover, &:active, &:focus {
     box-shadow: none;
-    background-color: $light;
-  }
-
-  &:focus {
-    box-shadow: none;
-    outline: 0;
+    outline: none;;
+    background-color: var(--gray-200);
   }
 }
 
@@ -35,7 +32,7 @@ button {
   position: relative;
   z-index: 0;
   overflow: hidden;
-  color: $dark;
+  color: var(--dark);
   transition: color $td $te;
   
   &::before {
@@ -46,7 +43,7 @@ button {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: $accent;
+    background-color: $primary-500;
     transition: transform $td $te;
   }
 
@@ -82,7 +79,7 @@ button {
   &::after {
     content: '';
     position: absolute;
-    background-color: $accent;
+    background-color: $primary-500;
     transition: transform $td $te;
   }
 
@@ -130,7 +127,7 @@ button {
 
   &:hover, &:active, &:focus {
     color: $light;
-    background-color: $accent;
+    background-color: $primary-500;
   }
 }
 
@@ -145,11 +142,11 @@ button {
     left: 0;
     width: 100%;
     height: 100%;
-    border: 1px solid $accent;
+    border: 1px solid $primary-500;
   }
 
   &.fill::before {
-    background-color: $accent;
+    background-color: $primary-500;
   }
 
   &:hover, &:active, &:focus {
@@ -207,7 +204,7 @@ button {
     top: 0;
     left: 0;
     opacity: 0;
-    box-shadow: 0 0 50px 50px rgba($accent, .5);
+    box-shadow: 0 0 50px 50px rgba($primary-500, .5);
     transition: opacity $td $te;
   }
 }
@@ -223,8 +220,8 @@ button {
     left: 0;
     width: 20%;
     height: 140%;
-    background-color: rgba($accent, .5);
-    box-shadow: 0 0 15px $accent;
+    background-color: rgba($primary-500, .5);
+    box-shadow: 0 0 15px $primary-500;
     transform: translateX(-200%) skew(-30deg);
   }
 
@@ -269,7 +266,7 @@ button {
     left: 0;
     width: 100%;
     height: $border-width;
-    background-color: $accent;
+    background-color: $primary-500;
     transform: translateX(-60%) scaleX(.2);
   }
 

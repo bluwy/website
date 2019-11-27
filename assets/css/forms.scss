@@ -30,7 +30,7 @@ input {
 }
 
 label {
-  color: $dark;
+  color: var(--dark);
 }
 
 .input-material-outline {
@@ -41,7 +41,7 @@ label {
     top: $py;
     left: ($px/2);
     padding: 0 ($px/2);
-    background-color: $light;
+    background-color: var(--gray-100);
     pointer-events: none;
     transform: translateY(0) scale(1);
     transform-origin: left center;
@@ -51,15 +51,15 @@ label {
   input {
     border-radius: .25rem;
     border: $border-width solid;
-    border-color: rgba($dark, .5);
+    border-color: var(--gray-500);
     transition: border-color $td $te;
 
     &:focus, &:valid {
-      border-color: $accent;
+      border-color: $primary-500;
 
       & ~ label {
         top: 0;
-        color: $accent;
+        color: $primary-500;
         transform: translateY(-50%) scale(.8);
       }
     }
@@ -74,7 +74,6 @@ label {
     top: $py;
     left: ($px/2);
     padding: 0 ($px/2);
-    background-color: $light;
     pointer-events: none;
     transform: translateY(0) scale(1);
     transform-origin: left center;
@@ -82,7 +81,7 @@ label {
   }
 
   input {
-    border-bottom: $border-width solid rgba($dark, .5);
+    border-bottom: $border-width solid var(--gray-500);
 
     & ~ span {
       position: absolute;
@@ -90,7 +89,7 @@ label {
       left: 0;
       width: 100%;
       height: $border-width;
-      background-color: $accent;
+      background-color: $primary-500;
       transform: scaleX(0);
       transition: transform $td $te;
     }
@@ -102,7 +101,7 @@ label {
 
       & ~ label {
         top: 0;
-        color: $accent;
+        color: $primary-500;
         transform: translateY(-50%) scale(.8);
       }
     }
@@ -119,7 +118,7 @@ label {
     }
 
     input {
-      border-bottom: $border-width solid rgba($dark, .5);
+      border-bottom: $border-width solid var(--gray-500);
     }
   }
 
@@ -130,7 +129,7 @@ label {
     }
 
     input {
-      border-top: $border-width solid rgba($dark, .5);
+      border-top: $border-width solid var(--gray-500);
     }
   }
 
@@ -162,7 +161,7 @@ label {
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba($accent, .5);
+      background-color: rgba($primary-500, .5);
       transition: transform $td $te;
     }
   }
@@ -180,7 +179,7 @@ label {
 
       & ~ label {
         top: 0;
-        color: $accent;
+        color: $primary-500;
         transform: translateY(-100%) scale(.8);
         transition-delay: 0s;
       }
@@ -211,7 +210,7 @@ label {
       width: 100%;
       height: 100%;
       border-left: $border-width solid;
-      border-color: rgba($dark, .5);
+      border-color: var(--gray-500);
       transform: translateX($contract);
       transition: transform $td $te;
     }
@@ -225,7 +224,7 @@ label {
       width: 100%;
       height: 100%;
       border-right: $border-width solid;
-      border-color: rgba($dark, .5);
+      border-color: var(--gray-500);
       transform: translateX(-$contract);
       transition: transform $td $te, border-color $td $te;
     }
@@ -237,14 +236,14 @@ label {
     &:focus, &:valid {
       & ~ label {
         top: 0;
-        color: $accent;
+        color: $primary-500;
         transform: translateX(-50%) translateY(-100%) scale(.8);
       }
 
       & ~ span {
         &::before, &::after {
           transform: translateX(0);
-          border-color: $accent;
+          border-color: $primary-500;
         }
       }
     }
@@ -278,13 +277,13 @@ label {
     &::before {
       border-top: $border-width solid;
       border-left: $border-width solid;
-      border-color: rgba($dark, .5);
+      border-color: var(--gray-500);
     }
 
     &::after {
       border-bottom: $border-width solid;
       border-right: $border-width solid;
-      border-color: rgba($dark, .5);
+      border-color: var(--gray-500);
     }
   }
 
@@ -294,17 +293,17 @@ label {
     &:focus, &:valid {
       & ~ label {
         top: 0;
-        color: $accent;
+        color: $primary-500;
         transform: translateX(-50%) translateY(-100%) scale(.8);
       }
 
       & ~ span::before {
-        border-color: $accent;
+        border-color: $primary-500;
         transform: translateX(-($px/2));
       }
   
       & ~ span::after {
-        border-color: $accent;
+        border-color: $primary-500;
         transform: translateX($px/2);
       }
     }
@@ -335,7 +334,7 @@ label {
       width: 100%;
       height: 100%;
       border-top: $border-width solid;
-      border-color: rgba($dark, .5);
+      border-color: var(--gray-500);
       transform: translateY(0);
       transition: transform $td $te, border-color $td $te;
     }
@@ -349,7 +348,7 @@ label {
       width: 100%;
       height: 100%;
       border-bottom: $border-width solid;
-      border-color: rgba($dark, .5);
+      border-color: var(--gray-500);
       transform: translateY(0);
       transition: transform $td $te, border-color $td $te;
     }
@@ -365,19 +364,19 @@ label {
 
       & ~ label {
         top: 0;
-        color: $accent;
+        color: $primary-500;
         transform: translateX(-50%) translateY(-50%) scale(.8);
       }
 
       & ~ span {
         &::before {
           transform: translateY(-$expand);
-          border-color: $accent;
+          border-color: $primary-500;
         }
 
         &::after {
           transform: translateY($expand);
-          border-color: $accent;
+          border-color: $primary-500;
         }
       }
     }
