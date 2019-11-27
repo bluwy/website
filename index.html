@@ -142,32 +142,27 @@ css: home
 
 <div id="projects">
   <div class="container-fluid pt-5 pt-lg-0">
-    <div class="d-lg-none">
+    <div class="row flex-column flex-lg-column-reverse">
       <p class="text-center my-0 pb-2">
         Here's some of my projects.
       </p>
-    </div>
-    <div class="row justify-content-center">
-      {%- assign card_count = 3 -%}
-      {%- for item in site.data.projects -%}
-        {%- if forloop.index > card_count -%}
-          {%- break -%}
-        {%- endif -%}
-        <a class="col-auto btn-link mt-3 mt-lg-0" href="{{ item.link | relative_url }}">
-          <div class="card">
-            <img class="card-image" src="{{ item.src }}" alt="{{ item.name }} thumbnail" loading="lazy" height="250">
-            <div class="card-content">
-              <h4 class="card-header">{{ item.name }}</h4>
-              <small class="card-desc">{{ item.desc }}</small>
+      <div class="row justify-content-center">
+        {%- assign card_count = 3 -%}
+        {%- for item in site.data.projects -%}
+          {%- if forloop.index > card_count -%}
+            {%- break -%}
+          {%- endif -%}
+          <a class="col-auto btn-link mt-3 mt-lg-0" href="{{ item.link | relative_url }}">
+            <div class="card">
+              <img class="card-image" src="{{ item.src }}" alt="{{ item.name }} thumbnail" loading="lazy" height="250">
+              <div class="card-content">
+                <h4 class="card-header">{{ item.name }}</h4>
+                <small class="card-desc">{{ item.desc }}</small>
+              </div>
             </div>
-          </div>
-        </a>
-      {%- endfor -%}
-    </div>
-    <div class="d-none d-lg-block">
-      <p class="text-center my-0">
-        Here's some of my projects.
-      </p>
+          </a>
+        {%- endfor -%}
+      </div>
     </div>
     <div class="text-center py-5">
       <a class="btn hoverable" href="{% link projects/index.html %}">See all projects</a>

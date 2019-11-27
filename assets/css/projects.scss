@@ -3,10 +3,11 @@
 
 @import 'style';
 
-.card.card-projects {
+.card {
   width: 250px;
   height: auto;
   margin: 0 auto;
+  max-width: 700px;
 
   .card-image {
     width: 100%;
@@ -16,7 +17,7 @@
 }
 
 @media screen and (min-width: 576px) {
-  .card.card-projects {
+  .card {
     width: auto;
     height: 250px;
 
