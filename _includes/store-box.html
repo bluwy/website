@@ -4,8 +4,8 @@
       <div class="box-content-item">
         {{ include.content }}
       </div>
-      {%- if include.options -%}
-        <i class="far fa-lightbulb box-options-indicator"></i>
+      {%- if include.options and include.options != empty -%}
+        <i class="far fa-lightbulb box-options-indicator" aria-hidden="true"></i>
         <div id="{{ include.id }}" class="box-options">
           {{ include.options }}
         </div>

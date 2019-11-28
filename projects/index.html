@@ -3,22 +3,20 @@ title: Projects
 css: projects
 ---
 
-<div>
-  {%- for item in site.data.projects -%}
-    <div class="mb-4">
-      <a class="btn-link" href="{{ item.link | relative_url }}">
-        <div class="card hoverable">
-          <div class="row">
-            <img class="col-auto card-image" src="{{ item.src | relative_url }}" alt="{{ item.name }} thumbnail" loading="lazy" height="250">
-            <div class="col">
-              <div class="card-content">
-                <h4 class="card-header">{{ item.name }}</h4>
-                <p class="card-desc">{{ item.desc }}</p>
-              </div>
+{%- for item in site.data.projects -%}
+  <div class="mb-4">
+    <a class="btn-link" href="{{ item.link | relative_url }}" aria-label="Read about {{ item.name }} project">
+      <div class="card hoverable">
+        <div class="row">
+          <img class="col-auto card-image" src="{{ item.src | relative_url }}" alt="{{ item.name }} thumbnail" loading="lazy" height="250">
+          <div class="col">
+            <div class="card-content">
+              <h4 class="card-header">{{ item.name }}</h4>
+              <p class="card-desc">{{ item.desc }}</p>
             </div>
           </div>
         </div>
-      </a>
-    </div>
-  {%- endfor -%}
-</div>
+      </div>
+    </a>
+  </div>
+{%- endfor -%}

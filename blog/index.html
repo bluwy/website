@@ -6,13 +6,13 @@ title: Blog
   <h2>Recent Posts</h2>
   <div>
     {%- for post in site.posts -%}
-      <div class="mb-4">
-        <a class="btn-link" href="{{ post.url | relative_url }}">
+      <article class="mb-4">
+        <a class="btn-link" href="{{ post.url | relative_url }}" aria-label="Read about {{ post.title | downcase }}">
           <div class="card hoverable w-100">
             <div class="card-content">
-              <h4 class="card-header">{{ post.title | escape }}</h4>
-              {%- if post.subtitle -%}
-                <h5 class="card-header opacity-70">{{ post.subtitle | escape }}</h5>
+              <h4 class="card-header">{{ post.title }}</h4>
+              {%- if post.subtitle and post.subtitle != empty -%}
+                <h5 class="card-header opacity-70">{{ post.subtitle }}</h5>
               {%- endif -%}
               <div class="my-1">
                 {%- for tag in post.tags -%}
@@ -31,7 +31,7 @@ title: Blog
             </div>
           </div>
         </a>
-      </div>
+      </article>
     {%- endfor -%}
-  </li>
+    </div>
 </div>

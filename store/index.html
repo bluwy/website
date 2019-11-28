@@ -8,20 +8,20 @@ css: store
   <div class="card mx-auto">
     <div class="card-content">
       <h3 class="my-1">Categories</h3>
-      <div class="vertical-list">
+      <ul class="vertical-list">
         {%- for item in site.data.store -%}
-          <div class="list-item arrow-hover">
-            <a class="btn-link d-inline-block w-100 p-3" href="{{ item.link | relative_url }}">
+          <li class="list-item arrow-hover">
+            <a class="btn-link d-inline-block w-100 p-3" href="{{ item.link | relative_url }}" aria-label="Browse {{ item.name | downcase }}">
               <div class="row">
                 <div class="col">{{ item.name }}</div>
                 <div class="col-auto">
-                  <i class="fas fa-arrow-right arrow right"></i>
+                  <i class="fas fa-arrow-right arrow right" aria-hidden="true"></i>
                 </div>
               </div>
             </a>
-          </div>
+          </li>
         {%- endfor -%}
-      </div>
+        </ul>
     </div>
   </div>
 </div>

@@ -5,7 +5,7 @@ layout: default-page
 <article class="my-5 pt-1">
   <header class="my-3">
     <h1 class="mb-1">{{ page.title }}</h1>
-    {%- if page.subtitle -%}
+    {%- if page.subtitle and page.subtitle != empty -%}
       <h4 class="opacity-70 my-1">{{ page.subtitle }}</h4>
     {%- endif -%}
     <div class="mb-3">
@@ -21,11 +21,11 @@ layout: default-page
     </div>
     </div class="mb-2">
       <a title="Share to Facebook" href="https://www.facebook.com/sharer.php?u={{ page.url | absolute_url | url_encode }}"
-      ><i class="fab fa-facebook-square fa-2x" style="color: #3b5998"></i></a>
+      ><i class="fab fa-facebook-square fa-2x" style="color: #3b5998" aria-hidden="true"></i></a>
       <a title="Share to Twitter" href="https://twitter.com/intent/tweet?url={{ page.url | absolute_url | url_encode }}&text={{ page.title | url_encode }}"
-      ><i class="fab fa-twitter-square fa-2x" style="color: #38a1f3"></i></a>
+      ><i class="fab fa-twitter-square fa-2x" style="color: #38a1f3" aria-hidden="true"></i></a>
       <a title="Share to Reddit" href="https://www.reddit.com/submit?url={{ page.url | absolute_url | url_encode }}&title={{ page.title | url_encode }}"
-      ><i class="fab fa-reddit-square fa-2x" style="color: #ff4500"></i></a>
+      ><i class="fab fa-reddit-square fa-2x" style="color: #ff4500" aria-hidden="true"></i></a>
     </div>
   </header>
   <hr>

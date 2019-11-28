@@ -3,7 +3,7 @@ layout: home
 css: home
 ---
 
-<div id="home-header">
+<div id="home-header" aria-hidden="true">
   <svg id="hex" xmlns="http://www.w3.org/2000/svg" viewBox="129.90375 77 1262.4325 770" preserveAspectRatio="xMidYMid slice">
     <g transform="translate(761.12 462)">
       <g id="step-1">
@@ -152,7 +152,7 @@ css: home
           {%- if forloop.index > card_count -%}
             {%- break -%}
           {%- endif -%}
-          <a class="col-auto btn-link mt-3 mt-lg-0" href="{{ item.link | relative_url }}">
+          <a class="col-auto btn-link mt-3 mt-lg-0" href="{{ item.link | relative_url }}" aria-label="Read about {{ item.name | downcase }} project">
             <div class="card">
               <img class="card-image" src="{{ item.src | relative_url }}" alt="{{ item.name }} thumbnail" loading="lazy" height="250">
               <div class="card-content">

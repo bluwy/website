@@ -1,5 +1,5 @@
 <div class="code-block">
-  {%- if include.title -%}
+  {%- if include.title and include.title != empty -%}
     <div class="code-block-header px-3 py-2">
       <h6 class="m-0">{{ include.title }}</h6>
     </div>
