@@ -19,7 +19,9 @@ title: Blog
                   {%- include chip.html name=tag -%}
                 {%- endfor -%}
               </div>
-              {{ post.excerpt }}
+              <p>
+                {{ post.excerpt | strip_html }}
+              </p>
               <div class="opacity-70">
                 <time datetime="{{ page.date | date_to_xmlschema }}">
                   {{ post.date | date: site.date_format }}
