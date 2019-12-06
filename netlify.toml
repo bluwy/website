@@ -2,4 +2,4 @@
   from = "https://bjornlu.netlify.com/*"
   to = "https://bjornlu.com/:splat"
   status = 301
-  force = false
+  force = true
