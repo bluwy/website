@@ -9,10 +9,12 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
+    "lint:vue": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "lint:css": "stylelint --ignore-path .gitignore \"assets/**/*.css\" \"{components,layouts,pages}/**/*.vue\"",
+    "lint": "npm run lint:vue && npm run lint:css"
   },
   "lint-staged": {
-    "*.{js,vue}": "eslint"
+    "*.{js,vue,css}": "npm run lint"
   },
   "husky": {
     "hooks": {
@@ -35,6 +37,7 @@
     "husky": "^2.6.0",
     "lint-staged": "^8.2.1",
     "prettier": "^1.16.4",
-    "stylelint": "^10.1.0"
+    "stylelint": "^10.1.0",
+    "stylelint-config-recommended": "^3.0.0"
   }
 }
