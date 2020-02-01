@@ -49,7 +49,7 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: [],
+  modules: ['portal-vue/nuxt'],
   /*
    ** Build configuration
    */
