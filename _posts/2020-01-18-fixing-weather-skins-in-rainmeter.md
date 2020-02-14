@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Fixing Weather Skins in Rainmeter?
-date: 2020-01-18 20:10:00 +0800
+date: '2020-01-18 20:10:00 +0800'
 tags: rainmeter
 comments: true
 ---
@@ -10,6 +10,10 @@ Another day, another weather service down. Here's the steps to fix broken weathe
 
 Note: this is not a full tutorial on how to fix weather skins, but rather to give you an idea on what needs to be done. I'll only be showing basic regex techniques that needs to be done. There's too much to be done to fit in this blog post.
 
+### Update 14/2/2020
+
+While this post talks about using an API, JSMorley presented [a web scraping alternative](https://forum.rainmeter.net/viewtopic.php?t=34470) which in most cases can be much easier to set up. I **highly recommend** checking it out before continuing on this post.
+
 <br>
 
 > **TL;DR**: While it may seem that you have to just swap the API endpoint and regex, there's a high chance that the API provides different formats of data that causes more work that needs to be done.
@@ -17,6 +21,16 @@ Note: this is not a full tutorial on how to fix weather skins, but rather to giv
 > **Alternate TL;DR**: It's tedious to fix a weather skin unless it's a really simple one.
 
 <div class="text-center opacity-70 my-5">•••</div>
+
+### Table of Contents
+
+* [Getting Ready](#getting-ready)
+* [In Search of a new Weather API](#in-search-of-a-new-weather-api)
+* [Using our new API](#using-our-new-api)
+  * [Changing the API Endpoint](#changing-the-api-endpoint)
+  * [Changing the RegExp](#changing-the-regexp)
+* [And There's More](#and-theres-more)
+* [Conclusion](#conclusion)
 
 ### Getting Ready
 
