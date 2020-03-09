@@ -25,10 +25,10 @@ matures.
 
 - [Background](#background)
 - [Apollo Server](#apollo-server)
-- [Apollo + Nexus + Prisma 2](#apollo%20%2B%20nexus%20%2B%20prisma%202)
+- [Apollo + Nexus + Prisma 2](#apollo--nexus--prisma-2)
 - [Hasura](#hasura)
-- [Apollo + Nexus + TypeORM](#apollo%20%2B%20nexus%20%2B%20typeorm)
-- [Apollo + Nexus + Objection.js](#apollo%20%2B%20nexus%20%2B%20objection.js)
+- [Apollo + Nexus + TypeORM](#apollo--nexus--typeorm)
+- [Apollo + Nexus + Objection.js](#apollo--nexus--objectionjs)
 - [Honorable Mentions](#honorable-mentions)
 - [Conclusion](#conclusion)
 
