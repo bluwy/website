@@ -1,9 +1,17 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "bjorn-lu",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Bjorn Lu's website",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Bjorn Lu",
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
   "dependencies": {
     "gatsby": "^2.20.12",
     "gatsby-image": "^2.3.1",
@@ -20,25 +28,5 @@
   },
   "devDependencies": {
     "prettier": "^1.19.1"
-  },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
   }
 }
