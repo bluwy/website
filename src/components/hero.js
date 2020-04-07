@@ -3,16 +3,16 @@ import style from "./hero.module.css"
 
 const Hero = () => {
   return (
-    <div class="inline-block">
-      <div class={style.hero}>
-        <div class={style.heroCircle1} />
-        <div class={style.heroCircle2} />
-        <div class={style.heroText}>
-          <div class={style.heroTextHello}>Hello, I'm</div>
-          <div class={style.heroTextName} data-name="Bjorn Lu">
+    <div className="inline-block">
+      <div className={style.hero}>
+        <div className={style.heroCircle1} />
+        <div className={style.heroCircle2} />
+        <div className={style.heroText}>
+          <div className={style.heroTextHello}>Hello, I'm</div>
+          <div className={style.heroTextName} data-name="Bjorn Lu">
             Bjorn Lu
           </div>
-          <div class={style.heroTextWelcome}>Welcome</div>
+          <div className={style.heroTextWelcome}>Welcome</div>
         </div>
       </div>
     </div>
