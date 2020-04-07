@@ -19,13 +19,16 @@ const IndexPage = () => (
       </p>
       <div className="flex flex-col sm:flex-row -mx-3">
         {skills.map(skill => (
-          <section className="sm:w-1/3 p-4 m-3 rounded-lg border border-primary-200 box-glow-full-primary-500">
+          <section
+            className="sm:w-1/3 p-4 m-3 rounded-lg border border-primary-200 box-glow-full-primary-500"
+            key={skill.title}
+          >
             <div className="font-bold text-primary-300 text-xl mb-1">
               {skill.title}
             </div>
             <ul>
               {skill.topics.map(topic => (
-                <li>{topic}</li>
+                <li key={topic}>{topic}</li>
               ))}
             </ul>
           </section>
