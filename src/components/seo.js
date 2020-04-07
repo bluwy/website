@@ -23,7 +23,7 @@ function SEO({ description, lang, meta, title }) {
   const metas = [
     {
       name: `author`,
-      content: site.siteMetadata.author
+      content: site.siteMetadata.author,
     },
     {
       name: `description`,
@@ -51,7 +51,10 @@ function SEO({ description, lang, meta, title }) {
       defaultTitle={site.siteMetadata.title}
       meta={metas}
     >
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&family=Source+Sans+Pro:wght@400;700&display=swap" /> 
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Pacifico&family=Source+Sans+Pro:wght@400;700&display=swap"
+      />
     </Helmet>
   )
 }
