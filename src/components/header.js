@@ -1,42 +1,61 @@
+import React from "react"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import React from "react"
+import Hero from "./hero"
+import style from "./header.module.css"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
+const Header = ({ siteTitle }) => {
+  const links = [
+    {
+      label: `Home`,
+      to: `/`
+    },
+    {
+      label: `Projects`,
+      to: `/projects`
+    },
+    {
+      label: `Blog`,
+      to: `/blog`
+    },
+    {
+      label: `Contact`,
+      to: `/contact`
+    }
+  ]
+
+  return (
+    <header className={style.bgBrick}>
+      <nav className="text-center">
+        <ul className="inline-block">
+          {
+            links.map(link => (
+              <li className="inline-block mx-4 my-2" key={link.label}>
+                <Link
+                  className="text-xl lg:text-2xl font-cursive text-primary-200 text-glow-primary-500"
+                  activeClassName="text-secondary-200 text-glow-secondary-500"
+                  to={link.to}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+      <div className="text-center py-6">
+        {
+          siteTitle
+            ? <h1 className="text-4xl lg:text-5xl font-cursive text-primary-200 text-glow-primary-500">{siteTitle}</h1>
+            : <Hero />
+        }
+      </div>
+    </header>
+  )
+}
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
 }
 
 export default Header

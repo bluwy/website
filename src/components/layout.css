@@ -3,3 +3,8 @@
 @tailwind components;
 
 @tailwind utilities;
+
+html {
+  color: theme('colors.primary.100');
+  background-color: theme('colors.dark.500');
+}
