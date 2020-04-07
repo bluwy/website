@@ -8,15 +8,11 @@ const Hero = () => {
         <div class={style.heroCircle1} />
         <div class={style.heroCircle2} />
         <div class={style.heroText}>
-          <div class={style.heroTextHello}>
-            Hello, I'm
-        </div>
+          <div class={style.heroTextHello}>Hello, I'm</div>
           <div class={style.heroTextName} data-name="Bjorn Lu">
             Bjorn Lu
-        </div>
-          <div class={style.heroTextWelcome}>
-            Welcome
-        </div>
+          </div>
+          <div class={style.heroTextWelcome}>Welcome</div>
         </div>
       </div>
     </div>

@@ -28,18 +28,18 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 690,
-            }
+            },
           },
           `gatsby-remark-autolink-headers`,
-          `gatsby-remark-prismjs`
-        ]
-      }
+          `gatsby-remark-prismjs`,
+        ],
+      },
     },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: `UA-137893328-2`
-      }
+        trackingId: `UA-137893328-2`,
+      },
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
@@ -69,7 +69,7 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-purgecss',
+      resolve: "gatsby-plugin-purgecss",
       options: {
         tailwindcss: true,
       },

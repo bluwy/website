@@ -9,10 +9,10 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   if (node.internal.type === `MarkdownRemark`) {
     // Gets the post slug, e.g. "/2020-06-23-happy-birthday/"
     let slug = createFilePath({ node, getNode, basePath: postsInputDir })
-    
+
     // Replace the first 3 "-" to "/", e.g. "/2020/06/23/happy-birthday/"
     for (let i = 0; i < 3; i++) {
-      slug = slug.replace('-', '/')
+      slug = slug.replace(`-`, `/`)
     }
 
     // Posts are in "blog" directory
