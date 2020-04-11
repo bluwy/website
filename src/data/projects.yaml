@@ -1,0 +1,63 @@
+- title: Release for Reddit
+  slug: release-for-reddit
+  hero: release-for-reddit.png
+  link: https://github.com/BjornLuG/release-for-reddit-action
+  desc: Automate submitting a release post to Reddit
+  overview: A GitHub Action to automate submitting a Reddit post of a release
+  learned: 
+  - This was my submission for <a href="https://githubhackathon.com/" target="_blank">GitHub Hackathon</a>
+    . I had previous experience with GitHub Actions by helping with prebuilt
+    binaries in <a href="https://github.com/ranisalt/node-argon2/pull/242" target="_blank">node-argon2</a>
+    , but building an action from scratch gave me a great insight on GitHub's
+    approach to CI/CD, which is highly flexible and extensible compared to
+    other solutions.
+  
+- title: PENN Todo
+  slug: penn-todo
+  hero: penn-todo.png
+  link: https://github.com/BjornLuG/penn-todo
+  desc: A todo app built on the PENN stack
+  overview: 
+    A todo app built on the PENN stack (PostgreSQL, Express, Nuxt, Node.js).
+    It provides custom email authentication and simple todos management.
+  learned: 
+  - After having much experience with frontend work, this project provided
+    some great insight on how backend communicates with the client and how
+    it works with a database.
+  - Moreover, I also wrote tests using Jest to familiarize myself with
+    Test-driven development (TDD). Besides, I practiced documenting the
+    README more, which will help in the long run.
+    
+- title: Material Shadow Preview
+  slug: material-shadow-preview
+  hero: material-shadow-preview.png
+  link: https://github.com/BjornLuG/material-shadow-preview
+  desc: Visualize Material Design's elevations
+  overview: 
+    A single page app (SPA) to visualize Material Design's elevations
+    (shadows) and dynamically generate its CSS
+  learned: 
+  - This was my first serious project with Vue. I initially started off
+    without a UI framework, but as the components get more complex, it
+    became time-consuming to re-invent the wheel so I opt for
+    <a href="https://vuetifyjs.com" target="_blank">Vuetify</a> instead.
+  - The trickiest part was to display the highlighted code and to enable
+    copy and download functionality. Alas, they are solved with
+    <a href="https://highlightjs.org" target="_blank">Highlight.js</a> and
+    some JavaScript sorcery.
+    
+- title: LuaTween for Rainmeter
+  slug: luatween-for-rainmeter
+  hero: luatween-for-rainmete.png
+  link: https://github.com/BjornLuG/LuaTween-for-Rainmeter
+  desc: Animate stuff in Rainmeter easily
+  overview: 
+    A Lua library that works with Rainmeter to easily tween meters. It uses
+    <a href="https://github.com/kikito/tween.lua" target="_blank">tween.lua</a>
+    , a Lua tweening library to bind into usage in Rainmeter.
+  learned: 
+  - This was the first time I had to use a dynamically-typed language.
+    Before this, I only ever used C# for Unity development.
+  - It was easy to adopt at first, but once the library grew substantially,
+    it needed lots of refactoring and documenting to be able to safely add
+    extra functionalities.

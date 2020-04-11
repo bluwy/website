@@ -29,34 +29,55 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
   const postTemplate = path.resolve(`src/templates/blog-post.js`)
+  const projectTemplate = path.resolve(`src/templates/project.js`)
 
   const result = await graphql(`
     query {
       allMarkdownRemark {
-        edges {
-          node {
-            fields {
-              slug
-            }
+        nodes {
+          fields {
+            slug
           }
+        }
+      }
+      allProjectsYaml {
+        nodes {
+          desc
+          hero
+          learned
+          link
+          overview
+          slug
+          title
         }
       }
     }
   `)
 
   if (result.errors) {
-    reporter.panicOnBuild(`Unable to query blog posts`)
+    reporter.panicOnBuild(`Unable to query blog posts or projects`)
     return
   }
 
-  const postEdges = result.data.allMarkdownRemark.edges
+  const posts = result.data.allMarkdownRemark.nodes
+  const projects = result.data.allProjectsYaml.nodes
 
-  postEdges.forEach(({ node }) => {
+  posts.forEach(post => {
     createPage({
-      path: node.fields.slug,
+      path: post.fields.slug,
       component: postTemplate,
       context: {
-        slug: node.fields.slug,
+        slug: post.fields.slug,
+      },
+    })
+  })
+
+  projects.forEach(project => {
+    createPage({
+      path: `projects/${project.slug}`,
+      component: projectTemplate,
+      context: {
+        project,
       },
     })
   })

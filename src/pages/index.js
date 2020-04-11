@@ -1,5 +1,5 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -12,15 +12,23 @@ const Home = () => {
           topics
         }
       }
+      allProjectsYaml(limit: 3) {
+        nodes {
+          desc
+          slug
+          title
+        }
+      }
     }
   `)
 
   const skills = data.allSkillsYaml.nodes
+  const projects = data.allProjectsYaml.nodes
 
   return (
     <Layout>
       <SEO />
-      <article className="container">
+      <article className="container mb-12">
         <h1>Hello</h1>
         <p>
           I'm Bjorn Lu, a full-stack web developer from Malaysia who enjoys
@@ -46,6 +54,21 @@ const Home = () => {
                 ))}
               </ul>
             </section>
+          ))}
+        </div>
+        <h2>Projects</h2>
+        <div className="flex flex-col sm:flex-row -mx-3">
+          {projects.map(project => (
+            <Link
+              className="sm:w-1/3 p-4 m-3 rounded-lg border border-primary-200 box-glow-full-primary-500"
+              key={project.title}
+              to={`projects/${project.slug}`}
+            >
+              <div className="font-bold text-primary-300 text-lg mb-1">
+                {project.title}
+              </div>
+              <div className="opacity-75">{project.desc}</div>
+            </Link>
           ))}
         </div>
       </article>
