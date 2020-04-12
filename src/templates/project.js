@@ -3,6 +3,7 @@ import React from "react"
 // import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Header from "../components/header"
 import { markdownToReact } from "../utils/markdown"
 
 export default ({ pageContext: { project } }) => {
@@ -19,8 +20,9 @@ export default ({ pageContext: { project } }) => {
   // `)
 
   return (
-    <Layout siteTitle={project.title}>
-      <SEO title={project.title} />
+    <Layout>
+      <SEO title={`${project.title} - Project`} />
+      <Header title={project.title} />
       <article className="container my-12">
         <a href={project.link} target="_blank" rel="noopener noreferrer">
           {project.link}

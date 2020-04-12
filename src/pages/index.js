@@ -2,6 +2,8 @@ import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Header from "../components/header"
+import Hero from "../components/hero"
 
 const Home = () => {
   const data = useStaticQuery(graphql`
@@ -28,6 +30,9 @@ const Home = () => {
   return (
     <Layout>
       <SEO />
+      <Header>
+        <Hero />
+      </Header>
       <article className="container mb-12">
         <h1>Hello</h1>
         <p>
