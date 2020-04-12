@@ -3,6 +3,7 @@ import React from "react"
 // import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import { markdownToReact } from "../utils/markdown"
 
 export default ({ pageContext: { project } }) => {
   // const heroImgData = useStaticQuery(graphql`
@@ -20,23 +21,17 @@ export default ({ pageContext: { project } }) => {
   return (
     <Layout siteTitle={project.title}>
       <SEO title={project.title} />
-      <article className="container mb-12">
-        <h1>{project.title}</h1>
-        <a href={project.link} target="_blank">
+      <article className="container my-12">
+        <a href={project.link} target="_blank" rel="noopener noreferrer">
           {project.link}
         </a>
-        <p dangerouslySetInnerHTML={{ __html: project.overview }} />
+        {markdownToReact(project.overview)}
         {/* <Img
           alt={`Preview of ${project.title}`}
           fluid={heroImgData.file.childImageSharp.fluid}
         /> */}
         <h2>What I've Learned</h2>
-        {project.learned.map(learnedParagraph => (
-          <p
-            key={learnedParagraph}
-            dangerouslySetInnerHTML={{ __html: learnedParagraph }}
-          />
-        ))}
+        {markdownToReact(project.learned)}
       </article>
     </Layout>
   )
