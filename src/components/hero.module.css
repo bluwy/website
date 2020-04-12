@@ -42,7 +42,7 @@
 }
 
 .heroCircle1::before {
-  @apply box-glow-full-secondary-500;
+  @apply box-glow-full-secondary-500-md;
   content: "";
   z-index: -1;
 }

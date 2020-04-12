@@ -8,7 +8,7 @@ const Header = ({ children, title }) => (
     <Nav />
     <div className="text-center py-6">
       {title ? (
-        <h1 className="text-4xl lg:text-5xl m-0 font-cursive text-primary-200 text-glow-primary-500">
+        <h1 className="text-4xl lg:text-5xl m-0 font-cursive text-primary-200 text-glow-primary-500-sm">
           {title}
         </h1>
       ) : (
