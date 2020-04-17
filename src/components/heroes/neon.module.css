@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
 /* Portrait mode uses vw as scale */
 .hero {
   position: relative;
@@ -34,32 +36,34 @@
 }
 
 .heroCircle1 {
-  @apply border-secondary-200;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  border-color: #ffc4f3;
 }
 
 .heroCircle1::before {
-  @apply box-glow-full-secondary-500-md;
   content: "";
   z-index: -1;
+  box-shadow: 0 0 2px #fe13cd, inset 0 0 2px #fe13cd, 0 0 6px #fe13cd,
+    inset 0 0 6px #fe13cd, 0 0 12px #fe13cd, inset 0 0 12px #fe13cd;
 }
 
 .heroCircle2 {
-  @apply border-primary-200;
   top: 4vw;
   left: 4vw;
   width: calc(100% - 8vw);
   height: calc(100% - 8vw);
+  color: #cbfdff;
 }
 
 .heroCircle2::before {
-  @apply box-glow-full-primary-500;
   content: "";
   z-index: -1;
   mix-blend-mode: screen;
+  box-shadow: 0 0 2px #2df5ff, inset 0 0 2px #2df5ff, 0 0 6px #2df5ff,
+    inset 0 0 6px #2df5ff, 0 0 12px #2df5ff, inset 0 0 12px #2df5ff;
 }
 
 .heroText {
@@ -70,30 +74,38 @@
 }
 
 .heroTextHello {
-  @apply text-secondary-200 text-glow-secondary-500-lg font-cursive;
+  font-family: Pacifico, cursive;
   font-size: 5vw;
   transform: translateY(4vw) rotateZ(-5deg);
+  color: #ffc4f3;
+  text-shadow: 0 0 2px #fe13cd, 0 0 6px #fe13cd, 0 0 12px #fe13cd,
+    0 0 20px #fe13cd, 0 0 30px #fe13cd;
 }
 
 .heroTextName {
-  @apply text-primary-300 font-cursive;
-  white-space: nowrap;
+  font-family: Pacifico, cursive;
   font-size: 19vw;
+  white-space: nowrap;
   transform: translateY(-3vw) rotateZ(-5deg);
+  color: #abfbff;
 }
 
 .heroTextName::before {
-  @apply text-glow-primary-500-lg;
   content: attr(data-name);
   position: absolute;
   font-size: 19vw;
   mix-blend-mode: screen;
+  text-shadow: 0 0 2px #2df5ff, 0 0 6px #2df5ff, 0 0 12px #2df5ff,
+    0 0 20px #2df5ff, 0 0 30px #2df5ff;
 }
 
 .heroTextWelcome {
-  @apply text-secondary-200 text-glow-secondary-500-lg font-cursive;
+  font-family: Pacifico, cursive;
   font-size: 5vw;
   transform: translateX(1vw) translateY(-4vw) rotateZ(-5deg);
+  color: #ffc4f3;
+  text-shadow: 0 0 2px #fe13cd, 0 0 6px #fe13cd, 0 0 12px #fe13cd,
+    0 0 20px #fe13cd, 0 0 30px #fe13cd;
 }
 
 /* Landscape mode uses vh as scale */

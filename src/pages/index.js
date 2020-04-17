@@ -3,7 +3,7 @@ import { Link, useStaticQuery, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Header from "../components/header"
-import Hero from "../components/hero"
+import Hero from "../components/heroes/neon"
 
 const Home = () => {
   const data = useStaticQuery(graphql`
@@ -47,12 +47,10 @@ const Home = () => {
         <div className="flex flex-col sm:flex-row -mx-3">
           {skills.map(skill => (
             <section
-              className="sm:w-1/3 p-4 m-3 rounded-lg border border-primary-200 box-glow-full-primary-500"
+              className="sm:w-1/3 p-4 m-3 rounded-lg border"
               key={skill.title}
             >
-              <div className="font-bold text-primary-300 text-xl mb-1">
-                {skill.title}
-              </div>
+              <div className="font-bold text-xl mb-1">{skill.title}</div>
               <ul>
                 {skill.topics.map(topic => (
                   <li key={topic}>{topic}</li>
@@ -65,13 +63,11 @@ const Home = () => {
         <div className="flex flex-col sm:flex-row -mx-3">
           {projects.map(project => (
             <Link
-              className="sm:w-1/3 p-4 m-3 rounded-lg border border-primary-200 box-glow-full-primary-500"
+              className="sm:w-1/3 p-4 m-3 rounded-lg border"
               key={project.title}
               to={`projects/${project.slug}`}
             >
-              <div className="font-bold text-primary-300 text-lg mb-1">
-                {project.title}
-              </div>
+              <div className="font-bold text-lg mb-1">{project.title}</div>
               <div className="opacity-75">{project.desc}</div>
             </Link>
           ))}

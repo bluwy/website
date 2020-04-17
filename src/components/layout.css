@@ -5,11 +5,11 @@
 @tailwind utilities;
 
 html {
-  @apply text-lg text-primary-100 bg-dark-500;
+  @apply text-lg;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  @apply font-bold text-primary-300;
+  @apply font-bold;
 }
 
 h1 {
