@@ -1,5 +1,5 @@
 import React from "react"
-import style from "./hero.module.css"
+import style from "./neon.module.css"
 
 const Hero = () => (
   <div className="inline-block">
