@@ -29,7 +29,9 @@ const Home = () => {
   return (
     <Layout>
       <SEO />
-      <Hero />
+      <div className="w-full h-screen overflow-hidden">
+        <Hero />
+      </div>
       <article className="container mb-12">
         <h1>Hello</h1>
         <p>

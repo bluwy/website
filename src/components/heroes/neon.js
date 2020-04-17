@@ -2,7 +2,7 @@ import React from "react"
 import style from "./neon.module.css"
 
 const Hero = () => (
-  <div className="inline-block">
+  <div className={style.wrapper}>
     <div className={style.hero}>
       <div className={style.heroCircle1} />
       <div className={style.heroCircle2} />
