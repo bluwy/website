@@ -33,11 +33,27 @@ const Home = () => {
         <Hero />
       </div>
       <article className="container mb-12">
-        <h1>Hello</h1>
-        <p>
-          I'm Bjorn Lu, a full-stack web developer from Malaysia who enjoys
-          problem-solving and creative-thinking.
-        </p>
+        <section>
+          <div className="flex flex-row justify-between max-w-md p-3 mx-auto mt-12 border-4 rounded-lg border-primary-400 bg-primary-500 bg-opacity-25">
+            <div className="flex-shrink mr-3">
+              <img
+                src="/logo.svg"
+                alt="Bjorn Lu logo"
+                style={{ width: "300px", height: "100%" }}
+              />
+            </div>
+            <div className="flex-shrink">
+              <h1 className="text-3xl mt-0">Hello, I'm Bjorn</h1>
+              <p>
+                A full-stack web developer from Malaysia. Loves open source.
+                Writes on various topics of interest. Nice to meet you.
+              </p>
+            </div>
+          </div>
+          <div className="max-w-md mx-auto">
+            <div className="h-16 mx-16 border-l-12 border-r-12 border-primary-600" />
+          </div>
+        </section>
         <h2>Skills</h2>
         <p>
           A picked up many skills in various area of development during my

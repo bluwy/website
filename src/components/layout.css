@@ -4,12 +4,8 @@
 
 @tailwind utilities;
 
-html {
-  @apply text-lg;
-}
-
 h1, h2, h3, h4, h5, h6 {
-  @apply font-bold;
+  @apply font-medium;
 }
 
 h1 {
@@ -25,7 +21,7 @@ h3, h4, h5, h6 {
 }
 
 p {
-  @apply mb-3;
+  @apply text-lg mb-3;
 }
 
 @screen lg {
