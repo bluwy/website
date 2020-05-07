@@ -4,6 +4,10 @@
 
 @tailwind utilities;
 
+::selection {
+  @apply bg-primary-600 text-white;
+}
+
 html {
   @apply text-black bg-white;
 }
@@ -34,6 +38,18 @@ p {
 
 .btn:hover, .btn:focus {
   @apply border-primary-800 bg-primary-700;
+}
+
+.card {
+  @apply p-3 rounded-lg border-2 border-primary-400 bg-primary-300 transition-colors duration-200;
+}
+
+.card:hover, .card:focus {
+  @apply bg-primary-400 border-primary-500;
+}
+
+.markdown a {
+  @apply font-semibold border-b border-black;
 }
 
 @screen lg {

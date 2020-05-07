@@ -9,7 +9,7 @@ module.exports = {
         sm: "1rem",
         md: "2rem",
         lg: "6rem",
-        xl: "10rem",
+        xl: "12rem",
       },
     },
     colors: {

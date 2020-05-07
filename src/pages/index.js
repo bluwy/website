@@ -77,20 +77,20 @@ const Home = () => {
               <h2 className="m-0">Featured Projects</h2>
             </div>
             <div>
-              <Link className="btn text-sm" to="projects">View all</Link>
+              <Link className="btn text-sm" to="/projects">
+                View all
+              </Link>
             </div>
           </div>
           <div className="flex flex-col flex-wrap sm:flex-row -mx-2">
             {projects.map(project => (
               <div className="w-full sm:w-1/2 p-2">
                 <Link
-                  className="block p-3 rounded-lg border-2 border-primary-400 bg-primary-300 transition-colors duration-200 hover:bg-primary-400 hover:border-primary-500 focus:bg-primary-400 focus:border-primary-500"
+                  className="card block"
                   key={project.title}
-                  to={`projects/${project.slug}`}
+                  to={`/projects/${project.slug}`}
                 >
-                  <div className="text-md font-semibold">
-                    {project.title}
-                  </div>
+                  <div className="text-md font-semibold">{project.title}</div>
                   <div className="text-sm opacity-75">{project.desc}</div>
                 </Link>
               </div>
