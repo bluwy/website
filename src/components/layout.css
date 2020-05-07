@@ -28,6 +28,14 @@ p {
   @apply text-lg mb-3;
 }
 
+.btn {
+  @apply inline-block text-white px-2 py-1 rounded-md border-2 border-primary-700 bg-primary-600 transition-colors duration-200;
+}
+
+.btn:hover, .btn:focus {
+  @apply border-primary-800 bg-primary-700;
+}
+
 @screen lg {
   html {
     @apply text-xl;

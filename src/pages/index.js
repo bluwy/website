@@ -30,7 +30,7 @@ const Home = () => {
       <SEO />
       <article>
         <section className="container">
-          <div className="flex flex-row justify-between max-w-md p-3 mx-auto mt-12 border-4 rounded-lg border-primary-400 bg-primary-500 bg-opacity-25">
+          <div className="flex flex-row justify-between max-w-md p-3 mx-auto mt-12 border-4 rounded-lg border-primary-400 bg-primary-300">
             <div className="flex-shrink mr-3">
               <img
                 src="/logo.svg"
@@ -50,7 +50,7 @@ const Home = () => {
             <div className="h-16 mx-16 border-l-12 border-r-12 border-primary-600" />
           </div>
         </section>
-        <section className="border-t-4 border-b-4 border-primary-600 bg-primary-500 bg-opacity-75">
+        <section className="border-t-4 border-b-4 border-primary-600 bg-primary-400">
           <div className="container pt-2 pb-10">
             <h2>Check Me Out</h2>
             <p>
@@ -71,19 +71,32 @@ const Home = () => {
             </table>
           </div>
         </section>
-        <h2>Projects</h2>
-        <div className="flex flex-col sm:flex-row -mx-3">
-          {projects.map(project => (
-            <Link
-              className="sm:w-1/3 p-4 m-3 rounded-lg border"
-              key={project.title}
-              to={`projects/${project.slug}`}
-            >
-              <div className="font-bold text-lg mb-1">{project.title}</div>
-              <div className="opacity-75">{project.desc}</div>
-            </Link>
-          ))}
-        </div>
+        <section className="container mt-8">
+          <div className="flex flex-row justify-between items-center">
+            <div>
+              <h2 className="m-0">Featured Projects</h2>
+            </div>
+            <div>
+              <Link className="btn text-sm" to="projects">View all</Link>
+            </div>
+          </div>
+          <div className="flex flex-col flex-wrap sm:flex-row -mx-2">
+            {projects.map(project => (
+              <div className="w-full sm:w-1/2 p-2">
+                <Link
+                  className="block p-3 rounded-lg border-2 border-primary-400 bg-primary-300 transition-colors duration-200 hover:bg-primary-400 hover:border-primary-500 focus:bg-primary-400 focus:border-primary-500"
+                  key={project.title}
+                  to={`projects/${project.slug}`}
+                >
+                  <div className="text-md font-semibold">
+                    {project.title}
+                  </div>
+                  <div className="text-sm opacity-75">{project.desc}</div>
+                </Link>
+              </div>
+            ))}
+          </div>
+        </section>
       </article>
     </Layout>
   )
