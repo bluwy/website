@@ -4,6 +4,10 @@
 
 @tailwind utilities;
 
+html {
+  @apply text-black bg-white;
+}
+
 h1, h2, h3, h4, h5, h6 {
   @apply font-medium;
 }

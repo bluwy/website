@@ -1,9 +1,13 @@
 - title: Frontend
   topics:
-    - HTML, CSS, JavaScript
+    - HTML
+    - CSS
+    - JavaScript
     - TypeScript
-    - Vue, Nuxt
-    - Jekyll, Gatsby
+    - Vue
+    - Nuxt
+    - Jekyll
+    - Gatsby
 - title: Backend
   topics:
     - NodeJS
@@ -11,12 +15,17 @@
     - GraphQL
     - Nexus
     - Objection.js
-    - PostgreSQL, MySQL
-- title: Miscellaneous
+    - PostgreSQL
+    - MySQL
+- title: Deployment
+  topics:
+    - GitHub Pages
+    - Netlify
+    - Heroku
+- title: Others
   topics:
     - Git
     - Docker
-    - Jest, Mocha, Chai
-    - GitHub Pages, Netlify, Heroku
-    - Blender
-    - Unity
+    - Jest
+    - Mocha
+    - Chai

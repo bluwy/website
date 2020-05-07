@@ -7,7 +7,7 @@ import "./layout.css"
 const Layout = ({ children }) => (
   <>
     <Nav />
-    <main>{children}</main>
+    <main className="pt-24">{children}</main>
     <Footer />
   </>
 )
