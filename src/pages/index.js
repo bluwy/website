@@ -12,18 +12,24 @@ const Home = () => {
           topics
         }
       }
-      allProjectsYaml(limit: 3) {
+      allMarkdownRemark(
+        filter: {
+          fields: { collection: { eq: "projects" } }
+          frontmatter: { featured: { eq: true } }
+        }
+      ) {
         nodes {
-          desc
-          slug
-          title
+          frontmatter {
+            title
+            desc
+          }
         }
       }
     }
   `)
 
   const skills = data.allSkillsYaml.nodes
-  const projects = data.allProjectsYaml.nodes
+  const projects = data.allMarkdownRemark.nodes.map(v => v.frontmatter)
 
   return (
     <Layout>

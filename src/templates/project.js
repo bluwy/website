@@ -1,38 +1,36 @@
 import React from "react"
-// import { useStaticQuery, graphql } from "gatsby"
-// import Img from "gatsby-image"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { markdownToReact } from "../utils/markdown"
 
-export default ({ pageContext: { project } }) => {
-  // const heroImgData = useStaticQuery(graphql`
-  //   query {
-  //     file(relativePath: { eq: "gatsby-astronaut.png" }) {
-  //       childImageSharp {
-  //         fluid(maxWidth: 600) {
-  //           ...GatsbyImageSharpFluid
-  //         }
-  //       }
-  //     }
-  //   }
-  // `)
+export default ({ data }) => {
+  const project = data.markdownRemark
+
+  const seoTitle = `${project.frontmatter.title} - Project`
 
   return (
     <Layout>
-      <SEO title={`${project.title} - Project`} />
-      <article className="container my-12">
-        <a href={project.link} target="_blank" rel="noopener noreferrer">
-          {project.link}
-        </a>
-        {markdownToReact(project.overview)}
-        {/* <Img
-          alt={`Preview of ${project.title}`}
-          fluid={heroImgData.file.childImageSharp.fluid}
-        /> */}
-        <h2>What I've Learned</h2>
-        {markdownToReact(project.learned)}
+      <SEO title={seoTitle} />
+      <article className="container">
+        <h1 className="m-0">{project.frontmatter.title}</h1>
+        <div dangerouslySetInnerHTML={{ __html: project.html }} />
       </article>
     </Layout>
   )
 }
+
+export const query = graphql`
+  query($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      html
+      frontmatter {
+        title
+        desc
+        links {
+          label
+          link
+        }
+      }
+    }
+  }
+`
