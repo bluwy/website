@@ -42,7 +42,9 @@ const Nav = () => {
               alt="Bjorn Lu logo"
               style={{ height: "24px" }}
             />
-            <span className="font-semibold text-lg hidden sm:block">Bjorn Lu</span>
+            <span className="font-semibold text-lg hidden sm:block">
+              Bjorn Lu
+            </span>
           </Link>
           <ul>
             {navLinks.map(link => (
