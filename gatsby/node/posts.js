@@ -19,7 +19,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     }
 
     // Posts are in "blog" directory
-    slug = path.join(postsOutputDir, slug)
+    slug = `/` + path.join(postsOutputDir, slug)
 
     createNodeField({
       node,

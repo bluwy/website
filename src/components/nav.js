@@ -26,7 +26,7 @@ const Nav = () => {
   return (
     <nav
       className={[
-        "fixed w-full bg-white h-24 transition-all duration-300 ease-out",
+        "fixed z-30 w-full bg-white h-24 transition-all duration-300 ease-out",
         shrink && "shadow",
       ]
         .filter(Boolean)

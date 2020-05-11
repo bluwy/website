@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 export default ({ data }) => {
-  const project = data.markdownRemark
+  const project = data.project
 
   const seoTitle = `${project.frontmatter.title} - Project`
 
@@ -21,7 +21,7 @@ export default ({ data }) => {
 
 export const query = graphql`
   query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    project: markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
         title

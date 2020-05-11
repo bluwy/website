@@ -1,6 +1,7 @@
 ---
 title: Release for Reddit
-desc: Automate submitting a release post to Reddit
+desc: Automate Reddit release post
+icon: github-action.svg
 featured: true
 links:
   - label: Repository

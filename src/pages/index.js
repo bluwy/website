@@ -1,35 +1,11 @@
 import React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const Home = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      allSkillsYaml {
-        nodes {
-          title
-          topics
-        }
-      }
-      allMarkdownRemark(
-        filter: {
-          fields: { collection: { eq: "projects" } }
-          frontmatter: { featured: { eq: true } }
-        }
-      ) {
-        nodes {
-          frontmatter {
-            title
-            desc
-          }
-        }
-      }
-    }
-  `)
-
-  const skills = data.allSkillsYaml.nodes
-  const projects = data.allMarkdownRemark.nodes.map(v => v.frontmatter)
+const Home = ({ data }) => {
+  const skills = data.skills.nodes
+  const projects = data.projects.nodes
 
   return (
     <Layout>
@@ -90,14 +66,28 @@ const Home = () => {
           </div>
           <div className="flex flex-col flex-wrap sm:flex-row -mx-2">
             {projects.map(project => (
-              <div className="w-full sm:w-1/2 p-2">
-                <Link
-                  className="card block"
-                  key={project.title}
-                  to={`/projects/${project.slug}`}
-                >
-                  <div className="text-md font-semibold">{project.title}</div>
-                  <div className="text-sm opacity-75">{project.desc}</div>
+              <div
+                className="w-full sm:w-1/2 p-2"
+                key={project.frontmatter.title}
+              >
+                <Link className="card flex" to={project.fields.slug}>
+                  <div>
+                    <img
+                      className="rounded-lg border-2 border-primary-400 overflow-hidden mr-3"
+                      src={require(`../images/project-icons/${project.frontmatter.icon}`)}
+                      alt={`${project.frontmatter.title} icon`}
+                      width="60"
+                      height="60"
+                    />
+                  </div>
+                  <div>
+                    <div className="text-md font-semibold">
+                      {project.frontmatter.title}
+                    </div>
+                    <div className="text-sm opacity-75">
+                      {project.frontmatter.desc}
+                    </div>
+                  </div>
                 </Link>
               </div>
             ))}
@@ -107,5 +97,34 @@ const Home = () => {
     </Layout>
   )
 }
+
+export const query = graphql`
+  query {
+    skills: allSkillsYaml {
+      nodes {
+        title
+        topics
+      }
+    }
+    projects: allMarkdownRemark(
+      filter: {
+        fields: { collection: { eq: "projects" } }
+        frontmatter: { featured: { eq: true } }
+      }
+      sort: { fields: frontmatter___title }
+    ) {
+      nodes {
+        fields {
+          slug
+        }
+        frontmatter {
+          title
+          desc
+          icon
+        }
+      }
+    }
+  }
+`
 
 export default Home

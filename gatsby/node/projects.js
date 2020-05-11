@@ -14,7 +14,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     let slug = createFilePath({ node, getNode, basePath: projectsInputDir })
 
     // Projects are in "projects" directory
-    slug = path.join(projectsOutputDir, slug)
+    slug = `/` + path.join(projectsOutputDir, slug)
 
     createNodeField({
       node,

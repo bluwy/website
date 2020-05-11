@@ -1,6 +1,7 @@
 ---
 title: PENN Todo
 desc: A todo app built on the PENN stack
+icon: penn-todo.svg
 featured: true
 links:
   - label: Repository

@@ -1,6 +1,7 @@
 ---
 title: Material Shadow Preview
-desc: Visualize Material Design's elevations
+desc: Visualize Material Design elevations
+icon: material-design.svg
 featured: true
 links:
   - label: Repository
