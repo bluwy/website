@@ -52,6 +52,11 @@ p {
   @apply font-semibold border-b border-black;
 }
 
+/* Header autolink */
+.markdown a.anchor {
+  @apply border-0;
+}
+
 @screen lg {
   html {
     @apply text-xl;

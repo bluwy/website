@@ -12,7 +12,10 @@ export default ({ data }) => {
       <article className="container">
         <h1 className="m-0">{post.frontmatter.title}</h1>
         <small>{post.frontmatter.date}</small>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div
+          className="markdown"
+          dangerouslySetInnerHTML={{ __html: post.html }}
+        />
       </article>
     </Layout>
   )

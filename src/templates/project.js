@@ -13,7 +13,10 @@ export default ({ data }) => {
       <SEO title={seoTitle} />
       <article className="container">
         <h1 className="m-0">{project.frontmatter.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: project.html }} />
+        <div
+          className="markdown"
+          dangerouslySetInnerHTML={{ __html: project.html }}
+        />
       </article>
     </Layout>
   )
