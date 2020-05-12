@@ -10,7 +10,7 @@ links:
     link: https://penn-todo.herokuapp.com/
 ---
 
-A todo app built on the PENN stack (PostgreSQL, Express, Nuxt, Node.js). It provides custom email authentication and simple todos management.
+A todo app built on the PENN stack (PostgreSQL, Express, Nuxt, Node.js). It offers custom email authentication and simple todos management.
 
 ## What I've Learned
 
