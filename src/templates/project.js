@@ -12,7 +12,18 @@ export default ({ data }) => {
     <Layout>
       <SEO title={seoTitle} />
       <article className="container">
-        <h1 className="m-0">{project.frontmatter.title}</h1>
+        <h1 className="text-center m-0">{project.frontmatter.title}</h1>
+        <div className="text-center mb-6 space-x-3">
+          {project.frontmatter.links.map(link => (
+            <a
+              key={link.label}
+              className="btn btn--sm btn--translucent"
+              href={link.link}
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
         <div
           className="markdown"
           dangerouslySetInnerHTML={{ __html: project.html }}

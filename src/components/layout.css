@@ -12,7 +12,12 @@ html {
   @apply text-black bg-white;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   @apply font-medium;
 }
 
@@ -24,7 +29,10 @@ h2 {
   @apply text-2xl mt-6;
 }
 
-h3, h4, h5, h6 {
+h3,
+h4,
+h5,
+h6 {
   @apply text-xl mt-4;
 }
 
@@ -33,18 +41,34 @@ p {
 }
 
 .btn {
-  @apply inline-block text-white px-2 py-1 rounded-md border-2 border-primary-700 bg-primary-600 transition-colors duration-200;
+  @apply inline-block text-white px-2 py-1 rounded-md border-2 border-primary-700 bg-primary-600 transition-all duration-200;
 }
 
-.btn:hover, .btn:focus {
+.btn:hover,
+.btn:focus {
   @apply border-primary-800 bg-primary-700;
+}
+
+.btn--sm {
+  @apply text-sm;
+  padding: 0.125rem 0.5rem;
+}
+
+.btn--translucent {
+  @apply text-black bg-opacity-25 border-opacity-25;
+}
+
+.btn--translucent:hover,
+.btn--translucent:focus {
+  @apply bg-opacity-50 border-opacity-50;
 }
 
 .card {
   @apply p-3 rounded-lg border-2 border-primary-400 bg-primary-300 transition-colors duration-200;
 }
 
-.card:hover, .card:focus {
+.card:hover,
+.card:focus {
   @apply bg-primary-400 border-primary-500;
 }
 
@@ -70,7 +94,10 @@ p {
     @apply text-3xl mt-8;
   }
 
-  h3, h4, h5, h6 {
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply text-2xl mt-6;
   }
 }
