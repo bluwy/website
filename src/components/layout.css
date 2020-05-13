@@ -72,6 +72,20 @@ p {
   @apply bg-primary-400 border-primary-500;
 }
 
+.tag {
+  @apply inline-block text-sm rounded-md bg-primary-300 bg-opacity-25 duration-200;
+  padding: 0.125rem 0.5rem;
+  transition-property: color opacity;
+}
+
+.tag--active {
+  @apply bg-opacity-75;
+}
+
+.tag--disabled {
+  @apply bg-gray-400 bg-opacity-25;
+}
+
 .markdown a {
   @apply font-semibold border-b border-black;
 }
