@@ -8,9 +8,13 @@ links:
     link: https://github.com/BjornLuG/release-for-reddit-action
   - label: Marketplace
     link: https://github.com/marketplace/actions/release-for-reddit
+tags:
+  - GitHub Action
 ---
 
 A GitHub Action to automate submitting a release post on Reddit. This was also my submission for [GitHub Hackathon](https://githubhackathon.com/).
+
+<!-- endexcerpt -->
 
 ## What I've Learned
 

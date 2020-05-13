@@ -8,9 +8,16 @@ links:
     link: https://github.com/BjornLuG/penn-todo
   - label: Website
     link: https://penn-todo.herokuapp.com/
+tags:
+ - Vue
+ - Nuxt
+ - Express
+ - PostgreSQL
 ---
 
-A todo app built on the PENN stack (PostgreSQL, Express, Nuxt, Node.js). It offers custom email authentication and simple todos management.
+A todo app built with PostgreSQL, Express and Nuxt. It offers custom email authentication and simple todos management.
+
+<!-- endexcerpt -->
 
 ## What I've Learned
 

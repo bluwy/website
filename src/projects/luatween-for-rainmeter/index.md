@@ -6,9 +6,13 @@ featured: true
 links:
   - label: Repository
     link: https://github.com/BjornLuG/LuaTween-for-Rainmeter
+tags:
+  - Rainmeter
 ---
 
 A Lua library for Rainmeter to easily tween meters and measures. It uses [tween.lua](https://github.com/kikito/tween.lua), a Lua tweening library to bind into usage in Rainmeter.
+
+<!-- endexcerpt -->
 
 ## What I've Learned
 

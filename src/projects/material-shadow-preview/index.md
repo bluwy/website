@@ -7,10 +7,14 @@ links:
   - label: Repository
     link: https://github.com/BjornLuG/material-shadow-preview
   - label: Website
-    link: https://material-shadow-preview.netlify.com/
+    link: https://material-shadow-preview.netlify.app/
+tags:
+  - Vue
 ---
 
 An app to visualize Material Design elevations (shadows) and dynamically generate its CSS.
+
+<!-- endexcerpt -->
 
 ## What I've Learned
 
