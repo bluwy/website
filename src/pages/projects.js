@@ -2,7 +2,7 @@ import React, { useState, useMemo } from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import ToggleTag from "../components/toggle-tag"
+import ToggleTagSelect from "../components/toggle-tag-select"
 
 const Projects = ({ data }) => {
   const projects = data.projects.nodes
@@ -41,18 +41,11 @@ const Projects = ({ data }) => {
             placeholder="Filter projects..."
             onChange={e => setSearch(e.target.value)}
           />
-          <div>
-            {tags.map(tag => (
-              <ToggleTag
-                className="mr-2 mb-2"
-                key={tag}
-                onTrue={() => setFilterTags(filterTags.concat([tag]))}
-                onFalse={() => setFilterTags(filterTags.filter(v => v !== tag))}
-              >
-                {tag}
-              </ToggleTag>
-            ))}
-          </div>
+          <ToggleTagSelect
+            tags={tags}
+            selectedTags={filterTags}
+            onChange={setFilterTags}
+          />
         </section>
         <section className="space-y-5 sm:-mx-4">
           {filteredProjects.map(project => (
