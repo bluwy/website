@@ -12,15 +12,15 @@ const Home = ({ data }) => {
       <SEO />
       <article>
         <section className="container">
-          <div className="flex flex-row justify-between max-w-md p-3 mx-auto mt-12 border-4 rounded-lg border-primary-400 bg-primary-300">
-            <div className="flex-shrink mr-3">
+          <div className="flex flex-row justify-between max-w-md p-3 mx-auto mt-12 border-4 rounded-lg border-primary-400 bg-primary-200">
+            <div className="hidden sm:block mr-3">
               <img
                 src="/logo.svg"
                 alt="Bjorn Lu logo"
-                style={{ width: "300px", height: "100%" }}
+                style={{ width: "260px", height: "100%" }}
               />
             </div>
-            <div className="flex-shrink">
+            <div>
               <h1 className="text-3xl mt-0">Hello, I'm Bjorn</h1>
               <p>
                 A full-stack web developer from Malaysia. Loves open source.
@@ -32,7 +32,7 @@ const Home = ({ data }) => {
             <div className="h-16 mx-16 border-l-12 border-r-12 border-primary-600" />
           </div>
         </section>
-        <section className="border-t-4 border-b-4 border-primary-600 bg-primary-400">
+        <section className="border-t-4 border-b-4 border-primary-600 bg-primary-300">
           <div className="container pt-2 pb-10">
             <h2>Check Me Out</h2>
             <p>
@@ -43,7 +43,7 @@ const Home = ({ data }) => {
               <tbody className="space-y-10">
                 {skills.map(skill => (
                   <tr key={skill.title}>
-                    <th className="font-semibold text-left align-top mr-3">
+                    <th className="font-semibold text-left align-top pr-3">
                       {skill.title}
                     </th>
                     <td className="pb-4">{skill.topics.join(", ")}</td>
@@ -71,13 +71,11 @@ const Home = ({ data }) => {
                 key={project.frontmatter.title}
               >
                 <Link className="card flex" to={project.fields.slug}>
-                  <div>
+                  <div className="flex-shrink-0">
                     <img
-                      className="rounded-lg border-2 border-primary-400 overflow-hidden mr-3"
+                      className="rounded-lg border-2 h-12 border-primary-400 overflow-hidden mr-3"
                       src={require(`../images/project-icons/${project.frontmatter.icon}`)}
                       alt={`${project.frontmatter.title} icon`}
-                      width="60"
-                      height="60"
                     />
                   </div>
                   <div>

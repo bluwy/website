@@ -35,11 +35,10 @@ const Projects = ({ data }) => {
         <h1 className="text-center m-0">Projects</h1>
         <section className="my-6">
           <input
-            className="px-3 py-1 mb-4 rounded-md placeholder-black bg-gray-300 bg-opacity-25 border-2 border-gray-500 transition-all duration-300 hover:bg-opacity-50 focus:bg-opacity-50 hover:bg-primary-300 focus:bg-primary-300 hover:border-primary-500 focus:border-primary-500"
+            className="px-3 py-1 mb-4 w-full sm:max-w-sm rounded-md placeholder-black bg-gray-300 bg-opacity-25 border-2 border-gray-500 transition-all duration-300 hover:bg-opacity-50 focus:bg-opacity-50 hover:bg-primary-300 focus:bg-primary-300 hover:border-primary-500 focus:border-primary-500"
             type="text"
             value={search}
             placeholder="Filter projects..."
-            size="30"
             onChange={e => setSearch(e.target.value)}
           />
           <div>

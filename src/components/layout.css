@@ -18,7 +18,7 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-medium;
+  @apply font-semibold;
 }
 
 h1 {
@@ -41,12 +41,12 @@ p {
 }
 
 .btn {
-  @apply inline-block text-white px-2 py-1 rounded-md border-2 border-primary-700 bg-primary-600 transition-all duration-200;
+  @apply inline-block px-2 py-1 rounded-md border-2 border-primary-600 bg-primary-500 bg-opacity-50 transition-colors duration-200;
 }
 
 .btn:hover,
 .btn:focus {
-  @apply border-primary-800 bg-primary-700;
+  @apply bg-opacity-75;
 }
 
 .btn--sm {
@@ -64,16 +64,16 @@ p {
 }
 
 .card {
-  @apply p-3 rounded-lg border-2 border-primary-400 bg-primary-300 transition-colors duration-200;
+  @apply p-3 rounded-lg border-2 border-primary-600 bg-primary-500 bg-opacity-25 border-opacity-25 transition-colors duration-200;
 }
 
 .card:hover,
 .card:focus {
-  @apply bg-primary-400 border-primary-500;
+  @apply bg-opacity-50 border-opacity-75;
 }
 
 .tag {
-  @apply inline-block text-sm rounded-md bg-primary-300 bg-opacity-25 duration-200;
+  @apply inline-block border text-sm rounded-md bg-primary-300 border-primary-500 bg-opacity-25 duration-200;
   padding: 0.125rem 0.5rem;
   transition-property: color opacity;
 }
@@ -83,7 +83,7 @@ p {
 }
 
 .tag--disabled {
-  @apply bg-gray-400 bg-opacity-25;
+  @apply bg-gray-400 border-gray-500 bg-opacity-25;
 }
 
 .markdown a {
@@ -97,7 +97,16 @@ p {
 
 @screen lg {
   html {
-    @apply text-xl;
+    @apply text-lg;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-medium;
   }
 
   h1 {
