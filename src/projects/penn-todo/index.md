@@ -9,10 +9,10 @@ links:
   - label: Website
     link: https://penn-todo.herokuapp.com/
 tags:
- - Vue
- - Nuxt
- - Express
- - PostgreSQL
+  - Vue
+  - Nuxt
+  - Express
+  - PostgreSQL
 ---
 
 A todo app built with PostgreSQL, Express and Nuxt. It offers custom email authentication and simple todos management.
