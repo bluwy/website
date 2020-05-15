@@ -6,7 +6,7 @@ const Nav = () => {
     query {
       allNavLinksYaml {
         nodes {
-          label
+          title
           to
         }
       }
@@ -48,9 +48,9 @@ const Nav = () => {
           </Link>
           <ul>
             {navLinks.map(link => (
-              <li className="inline-block mx-3 sm:mx-4 my-2" key={link.label}>
+              <li className="inline-block mx-3 sm:mx-4 my-2" key={link.title}>
                 <Link className="text-lg" to={link.to}>
-                  {link.label}
+                  {link.title}
                 </Link>
               </li>
             ))}

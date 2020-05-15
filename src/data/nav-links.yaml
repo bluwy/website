@@ -1,6 +1,6 @@
-- label: Projects
+- title: Projects
   to: /projects
-- label: Blog
+- title: Blog
   to: /blog
-- label: Contact
+- title: Contact
   to: /contact
