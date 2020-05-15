@@ -9,7 +9,7 @@
 }
 
 html {
-  @apply text-black bg-white;
+  @apply text-gray-900 bg-gray-100;
 }
 
 h1,

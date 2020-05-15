@@ -50,7 +50,7 @@ const Projects = ({ data }) => {
         <section className="space-y-5 sm:-mx-4">
           {filteredProjects.map(project => (
             <Link
-              className="flex flex-col sm:flex-row p-4 rounded-lg bg-opacity-25 transition-all duration-200 hover:bg-opacity-50 focus:bg-opacity-50 hover:bg-primary-300 focus:bg-primary-300"
+              className="card flex flex-col sm:flex-row"
               key={project.frontmatter.title}
               to={project.fields.slug}
             >
@@ -72,7 +72,7 @@ const Projects = ({ data }) => {
                 </div>
                 <div className="space-x-2">
                   {project.frontmatter.tags.map(tag => (
-                    <div className="tag" key={tag}>
+                    <div className="tag tag--disabled opacity-75" key={tag}>
                       {tag}
                     </div>
                   ))}
