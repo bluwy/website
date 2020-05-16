@@ -72,7 +72,7 @@ const Projects = ({ data }) => {
                 </div>
                 <div className="space-x-2">
                   {project.frontmatter.tags.map(tag => (
-                    <div className="tag tag--disabled opacity-75" key={tag}>
+                    <div className="ftag ftag--disabled opacity-75" key={tag}>
                       {tag}
                     </div>
                   ))}

@@ -13,8 +13,8 @@ const ToggleTag = ({ className, children, initialState, onTrue, onFalse }) => {
     <button
       className={
         state
-          ? `${className} tag tag--active`
-          : `${className} tag tag--disabled`
+          ? `${className} ftag ftag--active`
+          : `${className} ftag ftag--disabled`
       }
       onClick={toggleState}
     >

@@ -53,6 +53,7 @@ module.exports = {
               maxWidth: 800,
             },
           },
+          `gatsby-remark-code-titles`,
           `gatsby-remark-autolink-headers`,
           `gatsby-remark-prismjs`,
         ],

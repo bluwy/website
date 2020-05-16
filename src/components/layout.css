@@ -40,6 +40,10 @@ p {
   @apply text-lg mb-3;
 }
 
+pre[class*="language-"], code[class*="language-"] {
+  @apply text-lg;
+}
+
 input,
 textarea {
   @apply px-2 py-1 rounded-md bg-gray-300 bg-opacity-25 border-2 border-gray-500 transition-colors duration-300;
@@ -95,22 +99,43 @@ button:focus,
   @apply bg-opacity-50 border-opacity-75;
 }
 
-.tag {
+.ftag {
   @apply inline-block border text-sm rounded-md bg-primary-300 border-primary-500 bg-opacity-25 duration-200;
   padding: 0.125rem 0.5rem;
   transition-property: color opacity;
 }
 
-.tag--active {
+.ftag--active {
   @apply bg-opacity-75;
 }
 
-.tag--disabled {
+.ftag--disabled {
   @apply bg-gray-400 border-gray-500 bg-opacity-25;
 }
 
+.gatsby-highlight-code-line {
+  @apply block bg-white bg-opacity-25 border-white -mx-4 pl-3 pr-4 border-white border-opacity-75;
+  border-left-width: 0.25rem;
+}
+
+.gatsby-highlight {
+  @apply overflow-auto rounded-lg my-5;
+}
+
+.gatsby-highlight pre[class*="language-"] {
+  @apply m-0 p-4;
+} 
+
+.gatsby-code-title {
+  @apply mt-5 px-4 py-1 font-semibold bg-gray-800 text-white rounded-t-lg;
+}
+
+.gatsby-code-title ~ .gatsby-highlight {
+  @apply mt-0 rounded-t-none;
+}
+
 .markdown a {
-  @apply font-semibold border-b border-black;
+  @apply  font-semibold border-b border-black;
 }
 
 /* Header autolink */
