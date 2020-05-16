@@ -1,7 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from "@/components/layout"
+import SEO from "@/components/seo"
 
 const Home = ({ data }) => {
   const skills = data.skills.nodes
@@ -74,7 +74,7 @@ const Home = ({ data }) => {
                   <div className="flex-shrink-0">
                     <img
                       className="rounded-lg border-2 h-12 border-primary-400 overflow-hidden mr-3"
-                      src={require(`../images/project-icons/${project.frontmatter.icon}`)}
+                      src={require(`@/images/project-icons/${project.frontmatter.icon}`)}
                       alt={`${project.frontmatter.title} icon`}
                     />
                   </div>

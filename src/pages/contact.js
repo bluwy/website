@@ -1,7 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from "@/components/layout"
+import SEO from "@/components/seo"
 
 const Contact = () => {
   const data = useStaticQuery(graphql`

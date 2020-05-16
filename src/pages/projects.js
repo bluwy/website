@@ -1,8 +1,8 @@
 import React, { useState, useMemo } from "react"
 import { Link, graphql } from "gatsby"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import ToggleTagSelect from "../components/toggle-tag-select"
+import Layout from "@/components/layout"
+import SEO from "@/components/seo"
+import ToggleTagSelect from "@/components/toggle-tag-select"
 
 const Projects = ({ data }) => {
   const projects = data.projects.nodes
@@ -57,7 +57,7 @@ const Projects = ({ data }) => {
               <div className="flex-shrink-0 hidden sm:block">
                 <img
                   className="rounded-lg overflow-hidden mr-4"
-                  src={require(`../images/project-icons/${project.frontmatter.icon}`)}
+                  src={require(`@/images/project-icons/${project.frontmatter.icon}`)}
                   alt={`${project.frontmatter.title} icon`}
                   width="160"
                   height="160"
