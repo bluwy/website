@@ -143,6 +143,21 @@ button:focus,
   @apply border-0;
 }
 
+.markdown ol {
+  @apply text-lg;
+  list-style-type: decimal;
+}
+
+.markdown ul {
+  @apply text-lg;
+  list-style-type: disc;
+}
+
+.markdown li {
+  @apply ml-6 mb-1 pl-6;
+}
+
+
 @screen lg {
   html {
     @apply text-lg;

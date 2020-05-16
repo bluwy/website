@@ -10,8 +10,10 @@ export default ({ data }) => {
     <Layout>
       <SEO title={post.frontmatter.title} />
       <article className="container">
-        <h1 className="m-0">{post.frontmatter.title}</h1>
-        <small>{post.frontmatter.date}</small>
+        <header className="mb-6">
+          <h1 className="m-0">{post.frontmatter.title}</h1>
+          <div>{post.frontmatter.date}</div>
+        </header>
         <div
           className="markdown"
           dangerouslySetInnerHTML={{ __html: post.html }}

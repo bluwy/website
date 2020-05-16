@@ -11,23 +11,21 @@ const Blog = ({ data }) => {
       <SEO title="Blog" />
       <div className="container">
         <h1 className="text-center m-0 mb-6">Blog Posts</h1>
-        <section className="flex flex-row flex-wrap -mx-2">
+        <section className="space-y-5 sm:-mx-4">
           {posts.map(post => (
-            <div className="w-full sm:w-1/2 p-2">
-              <Link
-                className="card block"
-                key={post.frontmatter.title}
-                to={post.fields.slug}
-              >
-                <div className="text-xl font-semibold">
-                  {post.frontmatter.title}
-                </div>
-                <div className="mb-3 opacity-75">{post.excerpt}</div>
-                <div className="text-sm opacity-50">
-                  {post.frontmatter.date} - {post.timeToRead} min read
-                </div>
-              </Link>
-            </div>
+            <Link
+              className="card block"
+              key={post.frontmatter.title}
+              to={post.fields.slug}
+            >
+              <div className="text-xl font-semibold">
+                {post.frontmatter.title}
+              </div>
+              <div className="mb-3 opacity-75">{post.excerpt}</div>
+              <div className="text-sm opacity-50">
+                {post.frontmatter.date} - {post.timeToRead} min read
+              </div>
+            </Link>
           ))}
         </section>
       </div>
