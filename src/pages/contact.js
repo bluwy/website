@@ -49,7 +49,7 @@ const Contact = () => {
               netlify
             >
               <label className="block mb-3" for="name">
-                <div>Name</div>
+                <div className="mb-1">Name</div>
                 <input
                   id="name"
                   name="name"
@@ -60,7 +60,7 @@ const Contact = () => {
                 />
               </label>
               <label className="block mb-3" for="question">
-                <div>Question</div>
+                <div className="mb-1">Question</div>
                 <input
                   id="question"
                   name="question"
@@ -71,7 +71,7 @@ const Contact = () => {
                 />
               </label>
               <label className="block mb-3" for="message">
-                <div>Message (optional)</div>
+                <div className="mb-1">Message (optional)</div>
                 <textarea
                   id="message"
                   name="message"

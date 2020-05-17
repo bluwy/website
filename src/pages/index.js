@@ -12,7 +12,7 @@ const Home = ({ data }) => {
       <SEO />
       <article>
         <section className="container">
-          <div className="flex flex-row justify-between max-w-md p-3 mx-auto mt-12 border-4 rounded-lg border-primary-400 bg-primary-200">
+          <div className="flex flex-row justify-between max-w-md p-3 mx-auto mt-12 border-4 rounded-lg border-primary-400 dark:border-primary-700 bg-primary-500 bg-opacity-20">
             <div className="hidden sm:block mr-3">
               <img
                 src="/logo.svg"
@@ -29,10 +29,10 @@ const Home = ({ data }) => {
             </div>
           </div>
           <div className="max-w-md mx-auto">
-            <div className="h-16 mx-16 border-l-12 border-r-12 border-primary-600" />
+            <div className="h-16 mx-16 border-l-12 border-r-12 border-primary-600 dark:border-primary-800" />
           </div>
         </section>
-        <section className="border-t-4 border-b-4 border-primary-600 bg-primary-300">
+        <section className="border-t-4 border-b-4 border-primary-600 bg-primary-500 bg-opacity-50 dark:border-primary-900 dark:bg-primary-700 dark:bg-opacity-20">
           <div className="container pt-2 pb-10">
             <h2>Check Me Out</h2>
             <p>
@@ -82,7 +82,7 @@ const Home = ({ data }) => {
                     <div className="text-md font-semibold">
                       {project.frontmatter.title}
                     </div>
-                    <div className="text-sm opacity-75">
+                    <div className="text-sm opacity-80">
                       {project.frontmatter.desc}
                     </div>
                   </div>

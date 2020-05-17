@@ -68,11 +68,11 @@ const Projects = ({ data }) => {
                   <div className="text-xl font-semibold mb-1">
                     {project.frontmatter.title}
                   </div>
-                  <div className="mb-3 opacity-75">{project.excerpt}</div>
+                  <div className="mb-3 opacity-80">{project.excerpt}</div>
                 </div>
                 <div className="space-x-2">
                   {project.frontmatter.tags.map(tag => (
-                    <div className="ftag ftag--disabled opacity-75" key={tag}>
+                    <div className="ftag ftag--disabled opacity-80" key={tag}>
                       {tag}
                     </div>
                   ))}

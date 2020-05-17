@@ -21,7 +21,7 @@ const Blog = ({ data }) => {
               <div className="text-xl font-semibold">
                 {post.frontmatter.title}
               </div>
-              <div className="mb-3 opacity-75">{post.excerpt}</div>
+              <div className="mb-3 opacity-80">{post.excerpt}</div>
               <div className="text-sm opacity-50">
                 {post.frontmatter.date} - {post.timeToRead} min read
               </div>

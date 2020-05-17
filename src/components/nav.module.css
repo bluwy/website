@@ -1,0 +1,18 @@
+.nav {
+  @apply fixed z-30 w-full bg-gray-100 h-24 transition-all duration-300 ease-out;
+}
+
+.navShrink {
+  @apply shadow;
+  height: 56px;
+}
+
+@screen dark {
+  .nav {
+    @apply bg-gray-900;
+  }
+
+  .navShrink {
+    @apply shadow-none bg-gray-800;
+  }
+}

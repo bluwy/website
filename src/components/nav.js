@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
+import style from "./nav.module.css"
 
 const Nav = () => {
   const data = useStaticQuery(graphql`
@@ -24,15 +25,7 @@ const Nav = () => {
   })
 
   return (
-    <nav
-      className={[
-        "fixed z-30 w-full bg-gray-100 h-24 transition-all duration-300 ease-out",
-        shrink && "shadow",
-      ]
-        .filter(Boolean)
-        .join(" ")}
-      style={shrink ? { height: "56px" } : {}}
-    >
+    <nav className={[style.nav, shrink && style.navShrink].filter(Boolean).join(" ")}>
       <div className="container h-full">
         <div className="flex flex-row flex-no-wrap justify-between items-center h-full">
           <Link className="flex flex-row flex-no-wrap items-center" to="/">
