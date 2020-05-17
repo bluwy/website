@@ -140,7 +140,16 @@ button:focus,
 
 /* Header autolink */
 .markdown a.anchor {
-  @apply border-0;
+  @apply text-primary-700 opacity-75 transition-opacity duration-200;
+  transform: translateY(4px);
+}
+
+.markdown a.anchor:hover, .markdown.anchor:focus {
+  @apply opacity-100;
+}
+
+.markdown a.anchor svg {
+  @apply visible;
 }
 
 .markdown ol {
@@ -187,6 +196,17 @@ button:focus,
 .markdown .toc a:hover::before,
 .markdown .toc a:focus::before {
   transform: translateY(-50%) translateX(4px) rotate(45deg);
+}
+
+@screen sm {
+  .markdown a.anchor {
+    position: absolute;
+    top: calc(50% + 1px);
+    right: 100%;
+    padding-left: 0;
+    padding-right: 4px;
+    transform: translateY(-50%);
+  }
 }
 
 @screen lg {
