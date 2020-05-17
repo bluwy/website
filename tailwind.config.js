@@ -30,6 +30,17 @@ module.exports = {
         800: "#997085",
         900: "#805e6f",
       },
+      warning: {
+        100: "#fff7dc",
+        200: "#ffefb9",
+        300: "#ffe696",
+        400: "#ffde73",
+        500: "#ffd650",
+        600: "#e6c148",
+        700: "#b39638",
+        800: "#806b28",
+        900: "#4c4018",
+      },
     },
     opacity: {
       "0": "0",
@@ -54,6 +65,7 @@ module.exports = {
         sans: ['"Source Sans Pro"', "sans-serif"],
       },
       borderWidth: {
+        "6": "6px",
         "10": "10px",
         "12": "12px",
       },

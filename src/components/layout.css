@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 ::selection {
-  @apply bg-primary-600 text-white;
+  @apply text-black bg-primary-500;
 }
 
 html {
@@ -139,7 +139,7 @@ button:focus,
 }
 
 :not(pre) > code[class*="language-"] {
-	@apply text-primary-900 bg-gray-300 bg-opacity-40;
+  @apply text-primary-900 bg-gray-300 bg-opacity-40;
 }
 
 .markdown a {
@@ -173,6 +173,14 @@ button:focus,
   @apply ml-6 mb-1 pl-6;
 }
 
+.markdown blockquote {
+  @apply p-4 mb-3 border-l-6 border-warning-500 bg-warning-300 bg-opacity-20;
+}
+
+.markdown blockquote p:last-child {
+  @apply m-0;
+}
+
 .markdown .toc p {
   @apply m-0;
 }
@@ -196,6 +204,7 @@ button:focus,
   right: calc(100% + 16px);
   width: 8px;
   height: 8px;
+  opacity: 0.7;
   border-top: 2px solid theme("colors.gray.800");
   border-right: 2px solid theme("colors.gray.800");
   transform: translateY(-50%) rotate(45deg);
@@ -249,6 +258,10 @@ button:focus,
 }
 
 @screen dark {
+  ::selection {
+    @apply text-white bg-primary-800;
+  }
+
   html {
     @apply bg-gray-900 text-gray-100;
   }
@@ -296,5 +309,10 @@ button:focus,
 
   :not(pre) > code[class*="language-"] {
     @apply text-primary-100 bg-white bg-opacity-20;
+  }
+
+  .markdown .toc a::before {
+    border-top: 2px solid theme("colors.gray.200");
+    border-right: 2px solid theme("colors.gray.200");
   }
 }
