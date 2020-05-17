@@ -6,10 +6,7 @@ import SEO from "@/components/seo"
 export default ({ data }) => {
   const post = data.post
 
-  const tableOfContents = `
-    <h2>Table of Contents</h2>
-    <div class="toc">${post.tableOfContents}</div>
-  `
+  const tableOfContents = `<div class="toc">${post.tableOfContents}</div>`
 
   const rawHtml = post.html.replace(`<!-- toc -->`, tableOfContents)
 
@@ -38,7 +35,7 @@ export const query = graphql`
         title
         date(formatString: "D MMMM YYYY")
       }
-      tableOfContents(absolute: false)
+      tableOfContents(absolute: false, heading: "Table of Contents")
     }
   }
 `

@@ -13,6 +13,8 @@ Another day, another weather service down. Here's the steps to fix broken weathe
 
 **Update 14/2/2020**: While this post talks about using an API, JSMorley (One of the developers of Rainmeter) presented [a web scraping alternative](https://forum.rainmeter.net/viewtopic.php?t=34470) which in most cases can be much easier to set up. I **highly recommend** checking it out before continuing on this post.
 
+## Table of Contents
+
 <!-- toc -->
 
 ## Getting Ready

@@ -11,6 +11,8 @@ In this post, I'll talk about some key findings of the various tech stacks I've 
 
 [Apollo][apollo-server], [Nexus][nexus], [Objection.js][objection], [TypeScript][typescript] and [PostgreSQL][postgres]. And [Prisma 2][prisma2] once it matures.
 
+## Table of Contents
+
 <!-- toc -->
 
 ## Background
