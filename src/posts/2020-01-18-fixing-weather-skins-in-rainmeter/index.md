@@ -65,7 +65,8 @@ Looking at the code, the `Url` `wxdata.weather.com` is deprecated, so we need to
 Measure=Plugin
 Plugin=WebParser.dll
 UpdateRate=900
-Url=https://api.openweathermap.org/data/2.5/weather?appid=<your-api-key>&id=#Location#&units=#Unit#&mode=xml // highlight-line
+// highlight-next-line
+Url=https://api.openweathermap.org/data/2.5/weather?appid=<your-api-key>&id=#Location#&units=#Unit#&mode=xml
 RegExp="(?siU)<head>.*<ut>(.*)</ut>.*<dnam>(.*),.*</dnam>.*<tmp>(.*)</tmp>.*<t>(.*)</t>.*<icon>(.*)</icon>"
 ```
 
