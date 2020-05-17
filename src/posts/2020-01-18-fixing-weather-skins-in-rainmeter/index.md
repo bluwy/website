@@ -13,15 +13,7 @@ Another day, another weather service down. Here's the steps to fix broken weathe
 
 **Update 14/2/2020**: While this post talks about using an API, JSMorley (One of the developers of Rainmeter) presented [a web scraping alternative](https://forum.rainmeter.net/viewtopic.php?t=34470) which in most cases can be much easier to set up. I **highly recommend** checking it out before continuing on this post.
 
-## Table of Contents
-
-* [Getting Ready](#getting-ready)
-* [In Search of a new Weather API](#in-search-of-a-new-weather-api)
-* [Using our new API](#using-our-new-api)
-  * [Changing the API Endpoint](#changing-the-api-endpoint)
-  * [Changing the RegExp](#changing-the-regexp)
-* [And There's More](#and-theres-more)
-* [Conclusion](#conclusion)
+<!-- toc -->
 
 ## Getting Ready
 
@@ -33,7 +25,7 @@ Next, we will change to the skin's API endpoint and apply a new regex to it. (Do
 
 And finally, I'll list what else that needs to be done because different skins have different ways of handling and displaying weather.
 
-## In Search of a new Weather API
+## In Search of a Weather API
 
 There are many weather API services out there with generous free tiers. [OpenWeatherMap](https://openweathermap.org) and [Dark Sky](https://darksky.net) both provide decent timely API calls, with max 60 calls/minute for OpenWeatherMap and 1000 calls/day for Dark Sky. Of course, you can choose any other services as you wish.
 
@@ -43,7 +35,7 @@ Once you acquired your API key, hop on to the next step!
 
 > Note: **DO NOT** share your API key. Someone who has your API key may randomly use it and easily hit the API request limit. 
 
-## Using our new API
+## Using the API
 
 The instructions below will be skin agnostic, but since different weather skins may need different data, you may need to do some extra tweaks.
 
@@ -225,7 +217,7 @@ Url=[MeasureCurrent]
 StringIndex=5
 ```
 
-## And There's More
+## But There's More
 
 After all the hard work, are we done? Yes and no. We fixed the WebParser, provided correct data, but it's not a perfect skin yet.
 

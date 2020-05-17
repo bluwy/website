@@ -6,6 +6,13 @@ import SEO from "@/components/seo"
 export default ({ data }) => {
   const post = data.post
 
+  const tableOfContents = `
+    <h2>Table of Contents</h2>
+    <div class="toc">${post.tableOfContents}</div>
+  `
+
+  const rawHtml = post.html.replace(`<!-- toc -->`, tableOfContents)
+
   return (
     <Layout>
       <SEO title={post.frontmatter.title} />
@@ -16,7 +23,7 @@ export default ({ data }) => {
         </header>
         <div
           className="markdown"
-          dangerouslySetInnerHTML={{ __html: post.html }}
+          dangerouslySetInnerHTML={{ __html: rawHtml }}
         />
       </article>
     </Layout>
@@ -31,6 +38,7 @@ export const query = graphql`
         title
         date(formatString: "D MMMM YYYY")
       }
+      tableOfContents(absolute: false)
     }
   }
 `

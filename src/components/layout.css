@@ -135,7 +135,7 @@ button:focus,
 }
 
 .markdown a {
-  @apply  font-semibold border-b border-black;
+  @apply font-semibold underline;
 }
 
 /* Header autolink */
@@ -144,19 +144,50 @@ button:focus,
 }
 
 .markdown ol {
-  @apply text-lg;
-  list-style-type: decimal;
+  @apply text-lg list-decimal;
 }
 
 .markdown ul {
-  @apply text-lg;
-  list-style-type: disc;
+  @apply text-lg list-disc;
 }
 
 .markdown li {
   @apply ml-6 mb-1 pl-6;
 }
 
+.markdown .toc p {
+  @apply m-0;
+}
+
+.markdown .toc ul {
+  @apply list-none;
+}
+
+.markdown .toc li {
+  @apply m-0;
+}
+
+.markdown .toc a {
+  @apply relative font-normal no-underline;
+}
+
+.markdown .toc a::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: calc(100% + 16px);
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid theme("colors.gray.800");
+  border-right: 2px solid theme("colors.gray.800");
+  transform: translateY(-50%) rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+.markdown .toc a:hover::before,
+.markdown .toc a:focus::before {
+  transform: translateY(-50%) translateX(4px) rotate(45deg);
+}
 
 @screen lg {
   html {
