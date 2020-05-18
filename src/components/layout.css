@@ -83,7 +83,7 @@ button:focus,
 }
 
 .btn--translucent {
-  @apply text-black bg-opacity-20 border-opacity-20;
+  @apply bg-opacity-20 border-opacity-20;
 }
 
 .btn--translucent:hover,
@@ -143,7 +143,7 @@ button:focus,
 }
 
 .markdown a {
-  @apply font-semibold underline;
+  @apply text-primary-800 font-semibold underline;
 }
 
 /* Header autolink */
@@ -309,6 +309,10 @@ button:focus,
 
   :not(pre) > code[class*="language-"] {
     @apply text-primary-100 bg-white bg-opacity-20;
+  }
+
+  .markdown a {
+    @apply text-primary-300;
   }
 
   .markdown .toc a::before {
