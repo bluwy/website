@@ -28,6 +28,7 @@ const Contact = () => {
             {socialLinks.map(socialLink => (
               <a
                 className="btn"
+                key={socialLink.title}
                 href={socialLink.link}
                 title={`My ${socialLink.title} profile`}
               >
@@ -46,9 +47,9 @@ const Contact = () => {
               className="max-w-md mx-auto"
               name="contact"
               method="POST"
-              netlify
+              data-netlify="true"
             >
-              <label className="block mb-3" for="name">
+              <label className="block mb-3" htmlFor="name">
                 <div className="mb-1">Name</div>
                 <input
                   id="name"
@@ -59,7 +60,7 @@ const Contact = () => {
                   required
                 />
               </label>
-              <label className="block mb-3" for="question">
+              <label className="block mb-3" htmlFor="question">
                 <div className="mb-1">Question</div>
                 <input
                   id="question"
@@ -70,7 +71,7 @@ const Contact = () => {
                   required
                 />
               </label>
-              <label className="block mb-3" for="message">
+              <label className="block mb-3" htmlFor="message">
                 <div className="mb-1">Message (optional)</div>
                 <textarea
                   id="message"
