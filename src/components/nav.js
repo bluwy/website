@@ -25,7 +25,11 @@ const Nav = () => {
   })
 
   return (
-    <nav className={[style.nav, shrink && style.navShrink].filter(Boolean).join(" ")}>
+    <nav
+      className={[style.nav, shrink && style.navShrink]
+        .filter(Boolean)
+        .join(" ")}
+    >
       <div className="container h-full">
         <div className="flex flex-row flex-no-wrap justify-between items-center h-full">
           <Link className="flex flex-row flex-no-wrap items-center" to="/">
@@ -42,7 +46,12 @@ const Nav = () => {
           <ul>
             {navLinks.map(link => (
               <li className="inline-block mx-3 sm:mx-4 my-2" key={link.title}>
-                <Link className="text-lg" to={link.to}>
+                <Link
+                  className="text-lg"
+                  to={link.to}
+                  activeClassName="font-semibold"
+                  partiallyActive={true}
+                >
                   {link.title}
                 </Link>
               </li>
