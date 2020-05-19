@@ -12,10 +12,12 @@ tags:
   - GitHub Action
 ---
 
-A GitHub Action to automate submitting a release post on Reddit. This was also my submission for [GitHub Hackathon](https://githubhackathon.com/).
+A GitHub Action to automate submitting a release post on Reddit. This was my second submission for [GitHub Hackathon](https://githubhackathon.com/).
 
 <!-- endexcerpt -->
 
 ## What I've Learned
 
-I had previous experience with GitHub Actions by helping with prebuilt binaries in [node-argon2](https://github.com/ranisalt/node-argon2/pull/242), but building an action from scratch gave me a great insight on GitHub's approach to CI/CD, which is highly flexible and extensible compared to other solutions.
+After the first submission for [Substitute String](https://github.com/marketplace/actions/substitute-string), I wanted to do something more useful. This action gave me the opportunity to work with external APIs which includes authentication, authorization and calling endpoints.
+
+I had some trouble with Reddit's API which oddly doesn't work with my main account. I had to open a new account which surprisingly worked straight away. New accounts are throttled when submitting posts or comments so it was a great chance for me to develop timeout handlings.
