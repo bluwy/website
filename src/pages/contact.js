@@ -22,8 +22,8 @@ const Contact = () => {
       <SEO title="Contact" />
       <div className="container">
         <h1 className="text-center m-0">Find Me</h1>
-        <section className="text-center">
-          <p>I'm on these few places. Reach me out for any enquiries!</p>
+        <section className="text-center mb-10">
+          <p>I'm on these few places. Reach me out for any questions!</p>
           <div className="space-x-4">
             {socialLinks.map(socialLink => (
               <a
@@ -38,7 +38,7 @@ const Contact = () => {
           </div>
         </section>
         <section>
-          <h2 className="text-center">For Serious Stuff</h2>
+          <h2 className="text-center">Serious Stuff</h2>
           <p className="text-center">
             Need a formal enquiry? No problem. Send a form below.
           </p>
@@ -54,9 +54,20 @@ const Contact = () => {
                 <input
                   id="name"
                   name="name"
-                  className="w-full sm:max-w-xs"
+                  className="w-full"
                   type="text"
                   placeholder="Bob Stone"
+                  required
+                />
+              </label>
+              <label className="block mb-3" htmlFor="email">
+                <div className="mb-1">Email</div>
+                <input
+                  id="email"
+                  name="email"
+                  className="w-full"
+                  type="email"
+                  placeholder="bob@example.com"
                   required
                 />
               </label>
@@ -72,7 +83,7 @@ const Contact = () => {
                 />
               </label>
               <label className="block mb-3" htmlFor="message">
-                <div className="mb-1">Message (optional)</div>
+                <div className="mb-1">Message</div>
                 <textarea
                   id="message"
                   name="message"
@@ -80,6 +91,7 @@ const Contact = () => {
                   type="text"
                   rows="4"
                   placeholder="I think that..."
+                  required
                 />
               </label>
               <div className="text-right">
