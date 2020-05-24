@@ -153,7 +153,7 @@ button:focus,
 }
 
 .markdown a.anchor:hover,
-.markdown.anchor:focus {
+.markdown a.anchor:focus {
   @apply opacity-100;
 }
 
