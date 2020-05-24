@@ -232,15 +232,6 @@ button:focus,
     @apply text-lg;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-medium;
-  }
-
   h1 {
     @apply text-4xl mt-10;
   }

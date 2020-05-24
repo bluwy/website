@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import style from "./nav.module.css"
+import logo from "@/images/logo.svg"
 
 const Nav = () => {
   const data = useStaticQuery(graphql`
@@ -34,8 +35,8 @@ const Nav = () => {
         <div className="flex flex-row flex-no-wrap justify-between items-center h-full">
           <Link className="flex flex-row flex-no-wrap items-center" to="/">
             <img
-              className="mr-1"
-              src="/logo.svg"
+              className="mr-3"
+              src={logo}
               alt="Bjorn Lu logo"
               style={{ height: "24px" }}
             />

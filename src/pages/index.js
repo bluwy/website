@@ -2,6 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "@/components/layout"
 import SEO from "@/components/seo"
+import logo from "@/images/logo.svg"
 
 const Home = ({ data }) => {
   const skills = data.skills.nodes
@@ -13,11 +14,11 @@ const Home = ({ data }) => {
       <article>
         <section className="container">
           <div className="flex flex-row justify-between max-w-md p-3 mx-auto mt-12 border-4 rounded-lg border-primary-400 dark:border-primary-700 bg-primary-500 bg-opacity-20">
-            <div className="hidden sm:block mr-3">
+            <div className="hidden sm:block mr-4">
               <img
-                src="/logo.svg"
+                src={logo}
                 alt="Bjorn Lu logo"
-                style={{ width: "260px", height: "100%" }}
+                style={{ width: "240px", height: "100%" }}
               />
             </div>
             <div>
@@ -33,20 +34,24 @@ const Home = ({ data }) => {
           </div>
         </section>
         <section className="border-t-4 border-b-4 border-primary-600 bg-primary-500 bg-opacity-50 dark:border-primary-900 dark:bg-primary-700 dark:bg-opacity-20">
-          <div className="container pt-2 pb-10">
+          <div className="container pt-2 pb-8">
             <h2>Check Me Out</h2>
-            <p>
+            <p className="mb-8">
               A picked up many skills in various area of development throughout
               the years. Here's what I know so far!
             </p>
             <table className="w-full">
-              <tbody className="space-y-10">
+              <tbody>
                 {skills.map(skill => (
                   <tr key={skill.title}>
-                    <th className="font-semibold text-left align-top pr-3">
+                    <th className="table-row sm:table-cell font-semibold text-left align-top pr-3">
                       {skill.title}
                     </th>
-                    <td className="pb-4">{skill.topics.join(", ")}</td>
+                    <td className="table-row sm:table-cell">
+                      {skill.topics.join(", ")}
+                      <br />
+                      <br />
+                    </td>
                   </tr>
                 ))}
               </tbody>

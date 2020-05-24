@@ -81,12 +81,12 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Bjorn Lu`,
-        short_name: `starter`,
+        short_name: `Bjorn Lu`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#f7fafc`,
+        theme_color: `#ffbbdd`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`,
+        icon: `src/images/logo.svg`,
       },
     },
     {
