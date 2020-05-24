@@ -1,6 +1,6 @@
 ---
 title: Fixing Weather Skins in Rainmeter?
-date: '2020-01-18T12:10:00.000Z'
+date: "2020-01-18T12:10:00.000Z"
 ---
 
 Another day, another weather service down. Here's the steps to fix broken weather skins and migrate to different weather service APIs.
@@ -35,7 +35,7 @@ Unless you're using a public weather API, most services require sign ups to acqu
 
 Once you acquired your API key, hop on to the next step!
 
-> Note: **DO NOT** share your API key. Someone who has your API key may randomly use it and easily hit the API request limit. 
+> Note: **DO NOT** share your API key. Someone who has your API key may randomly use it and easily hit the API request limit.
 
 ## Using the API
 
@@ -70,7 +70,7 @@ Url=https://api.openweathermap.org/data/2.5/weather?appid=<your-api-key>&id=#Loc
 RegExp="(?siU)<head>.*<ut>(.*)</ut>.*<dnam>(.*),.*</dnam>.*<tmp>(.*)</tmp>.*<t>(.*)</t>.*<icon>(.*)</icon>"
 ```
 
-Replace `<your-api-key>` with your API key (Make sure to remove it before sharing your code to others). As you can see, I've reused the variables for the location id and temperature unit as the API parameters. Learn more about Rainmeter's variables [here](https://docs.rainmeter.net/manual/variables/) and OpenWeatherMap's API [here](https://openweathermap.org/current). 
+Replace `<your-api-key>` with your API key (Make sure to remove it before sharing your code to others). As you can see, I've reused the variables for the location id and temperature unit as the API parameters. Learn more about Rainmeter's variables [here](https://docs.rainmeter.net/manual/variables/) and OpenWeatherMap's API [here](https://openweathermap.org/current).
 
 Also note I'm using XML format as denoted at `mode=xml` in the `Url`.
 
@@ -162,7 +162,7 @@ Next, take a look at `<city.*name="(.*)"`. It kinda looks like the `<city>` tag 
 
 We also have the parentheses `(.*)`, and the parentheses is called a capture group that will be captured and return so we can use the data.
 
-So what this whole thing means is that we match from `<city`, and then `.*` for any character of any length, until `name="`, and then match `(.*)` for any character of any length again but this time capturing it too, and finally it'll will match until it reaches `"`. *whoo~*
+So what this whole thing means is that we match from `<city`, and then `.*` for any character of any length, until `name="`, and then match `(.*)` for any character of any length again but this time capturing it too, and finally it'll will match until it reaches `"`. _whoo~_
 
 The rest are also of the same form as `<city.*name="(.*)"`.
 
@@ -225,6 +225,7 @@ StringIndex=5
 After all the hard work, are we done? Yes and no. We fixed the WebParser, provided correct data, but it's not a perfect skin yet.
 
 Here's what still needs to be done:
+
 1. Change variable `#Unit#` settings to accept `metric` and `imperial` so it fits the APIs format.
 2. Change variable `#Location#` to accept OpenWeatherMap's id format.
 3. OpenWeatherMap's icon value is different from `wxdata`'s, so since the Mond weather icons are named, 1.png..., you have to rename to [OpenWeatherMap's format](https://openweathermap.org/weather-conditions).

@@ -1,6 +1,6 @@
 ---
 title: Building My First Apollo Server
-date: '2019-10-05T02:00:27.000Z'
+date: "2019-10-05T02:00:27.000Z"
 ---
 
 I recently got interested in GraphQL whilst building a new server. I had experience with the REST infrastructure before so this post will go into details on some things I faced during the learning process.
@@ -29,9 +29,9 @@ But once the codebase gets bigger, a pattern slowly emerges, `schema`, `resolver
 
 Simply put:
 
-* `schema` is the endpoints written in GraphQL.
-* `resolvers` control the input and output between `schema` and `datasources`.
-* `datasources` queries the database.
+- `schema` is the endpoints written in GraphQL.
+- `resolvers` control the input and output between `schema` and `datasources`.
+- `datasources` queries the database.
 
 ## Directory structure
 
