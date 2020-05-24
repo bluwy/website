@@ -100,11 +100,5 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: "gatsby-plugin-purgecss",
-      options: {
-        tailwindcss: true,
-      },
-    },
   ],
 }
