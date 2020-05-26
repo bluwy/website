@@ -14,4 +14,3 @@
   from = "/:year/:month/:day/*"
   to = "/blog/:splat"
   status = 301
-  force = true
