@@ -1,0 +1,11 @@
+[[redirects]]
+  from = "https://bjornlu.netlify.com/*"
+  to = "https://bjornlu.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/:year/:month/:day/*"
+  to = "/blog/:splat"
+  status = 301
+  force = true
