@@ -78,7 +78,7 @@ const Home = ({ data }) => {
                 <Link className="card flex" to={project.fields.slug}>
                   <div className="flex-shrink-0">
                     <img
-                      className="rounded-lg border-2 h-12 border-primary-400 overflow-hidden mr-3"
+                      className="rounded-lg h-12 overflow-hidden mr-3"
                       src={require(`@/images/project-icons/${project.frontmatter.icon}`)}
                       alt={`${project.frontmatter.title} icon`}
                     />
