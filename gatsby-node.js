@@ -1,6 +1,9 @@
 const path = require("path")
 const { createFilePath } = require("gatsby-source-filesystem")
 
+// Used when slug not found
+const invalidSlug = `not-exist`
+
 exports.onCreateNode = arg => {
   remarkOnCreateNode(arg)
   postOnCreateNode(arg)
@@ -64,7 +67,10 @@ async function postCreatePages({ graphql, actions, reporter }) {
 
   const result = await graphql(`
     query {
-      allMarkdownRemark(filter: { fields: { collection: { eq: "posts" } } }) {
+      allMarkdownRemark(
+        filter: { fields: { collection: { eq: "posts" } } }
+        sort: { fields: frontmatter___date, order: DESC }
+      ) {
         nodes {
           fields {
             slug
@@ -81,15 +87,21 @@ async function postCreatePages({ graphql, actions, reporter }) {
 
   const posts = result.data.allMarkdownRemark.nodes
 
-  posts.forEach(post => {
+  for (let i = 0; i < posts.length; i++) {
+    const post = posts[i]
+    const nextPost = posts[i + 1]
+    const prevPost = posts[i - 1]
+
     createPage({
       path: post.fields.slug,
       component: postTemplate,
       context: {
         slug: post.fields.slug,
+        nextSlug: nextPost ? nextPost.fields.slug : invalidSlug,
+        prevSlug: prevPost ? prevPost.fields.slug : invalidSlug,
       },
     })
-  })
+  }
 }
 
 //#endregion
@@ -127,6 +139,7 @@ async function projectCreatePages({ graphql, actions, reporter }) {
     query {
       allMarkdownRemark(
         filter: { fields: { collection: { eq: "projects" } } }
+        sort: { fields: frontmatter___title }
       ) {
         nodes {
           fields {
@@ -144,15 +157,21 @@ async function projectCreatePages({ graphql, actions, reporter }) {
 
   const projects = result.data.allMarkdownRemark.nodes
 
-  projects.forEach(project => {
+  for (let i = 0; i < projects.length; i++) {
+    const project = projects[i]
+    const nextProject = projects[i + 1]
+    const prevProject = projects[i - 1]
+
     createPage({
       path: project.fields.slug,
       component: projectTemplate,
       context: {
         slug: project.fields.slug,
+        nextSlug: nextProject ? nextProject.fields.slug : invalidSlug,
+        prevSlug: prevProject ? prevProject.fields.slug : invalidSlug,
       },
     })
-  })
+  }
 }
 
 //#endregion

@@ -1,0 +1,48 @@
+.cardHoverHeadline {
+  @apply opacity-70 transition-opacity duration-200;
+}
+
+.cardHover:hover .cardHoverHeadline,
+.cardHover:focus .cardHoverHeadline {
+  @apply opacity-90;
+}
+
+.arrow {
+  display: inline-block;
+  position: relative;
+  width: 10px;
+  height: 10px;
+}
+
+.arrow::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  width: 2px;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  height: 100%;
+  transform: translateX(-50%);
+  background-color: currentColor;
+}
+
+.arrow::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 80%;
+  height: 80%;
+  border-top: 2px solid currentColor;
+  border-left: 2px solid currentColor;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.arrowLeft {
+  transform: rotate(-90deg);
+}
+
+.arrowRight {
+  transform: rotate(90deg);
+}
