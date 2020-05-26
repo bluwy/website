@@ -16,14 +16,20 @@ const NotFoundPage = () => {
   }
 
   const showEaster = useMemo(() => {
-    return currentSentence !== `end`
+    return currentSentence === `end`
   }, [currentSentence])
 
   return (
     <Layout>
-      <SEO title="404: Not found" />
+      <SEO title={showEaster ? `【=◈︿◈=】` : `404`} />
       <div className="container text-center">
         {showEaster ? (
+          <>
+            <h1 className="mt-20 mb-6 lg:mb-8 text-6xl">【=◈︿◈=】</h1>
+            <p>Is anyone there?</p>
+            <p>Play.</p>
+          </>
+        ) : (
           <>
             <h1 style={{ fontSize: `7rem` }}>404</h1>
             {/* eslint-disable-next-line */}
@@ -31,12 +37,6 @@ const NotFoundPage = () => {
             <p className="markdown">
               Take me <Link to="/">home</Link>.
             </p>
-          </>
-        ) : (
-          <>
-            <h1 className="mt-20 mb-6 lg:mb-8 text-6xl">【=◈︿◈=】</h1>
-            <p>Is anyone there?</p>
-            <p>Play.</p>
           </>
         )}
       </div>
