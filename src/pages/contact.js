@@ -48,11 +48,11 @@ const Contact = () => {
               name="contact"
               method="POST"
               data-netlify="true"
+              netlify-honeypot="bot-field"
             >
-              <label className="block mb-3" htmlFor="name">
+              <label className="block mb-3">
                 <div className="mb-1">Name</div>
                 <input
-                  id="name"
                   name="name"
                   className="w-full"
                   type="text"
@@ -60,10 +60,9 @@ const Contact = () => {
                   required
                 />
               </label>
-              <label className="block mb-3" htmlFor="email">
+              <label className="block mb-3">
                 <div className="mb-1">Email</div>
                 <input
-                  id="email"
                   name="email"
                   className="w-full"
                   type="email"
@@ -71,10 +70,9 @@ const Contact = () => {
                   required
                 />
               </label>
-              <label className="block mb-3" htmlFor="question">
+              <label className="block mb-3">
                 <div className="mb-1">Question</div>
                 <input
-                  id="question"
                   name="question"
                   className="w-full"
                   type="text"
@@ -82,10 +80,9 @@ const Contact = () => {
                   required
                 />
               </label>
-              <label className="block mb-3" htmlFor="message">
+              <label className="block mb-3">
                 <div className="mb-1">Message</div>
                 <textarea
-                  id="message"
                   name="message"
                   className="w-full"
                   type="text"
