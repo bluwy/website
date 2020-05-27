@@ -16,14 +16,15 @@ const ToggleTagSelect = ({ tags, selectedTags, onChange }) => {
   return (
     <div>
       {tags.map(tag => (
-        <ToggleTag
-          className="mr-2 mb-2"
-          key={tag}
-          onTrue={tagOnTrue(tag)}
-          onFalse={tagOnFalse(tag)}
-        >
-          {tag}
-        </ToggleTag>
+        <span className="mr-2 mb-2">
+          <ToggleTag
+            key={tag}
+            onTrue={tagOnTrue(tag)}
+            onFalse={tagOnFalse(tag)}
+          >
+            {tag}
+          </ToggleTag>
+        </span>
       ))}
     </div>
   )

@@ -1,10 +1,10 @@
-import React, { useState, useMemo } from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby"
 import Layout from "@/components/layout"
 import SEO from "@/components/seo"
 
 const NotFoundPage = () => {
-  const [currentSentence, nextSentence] = useEasterSentence()
+  const [currentSentence, nextSentence, noMoreSentence] = useEasterSentence()
   const [clickBuffer, setClickBuffer] = useState(8)
 
   const clickNextSentence = () => {
@@ -15,15 +15,11 @@ const NotFoundPage = () => {
     }
   }
 
-  const showEaster = useMemo(() => {
-    return currentSentence === `end`
-  }, [currentSentence])
-
   return (
     <Layout>
-      <SEO title={showEaster ? `【=◈︿◈=】` : `404`} />
+      <SEO title={noMoreSentence ? `【=◈︿◈=】` : `404`} />
       <div className="container text-center">
-        {showEaster ? (
+        {noMoreSentence ? (
           <>
             <h1 className="mt-20 mb-6 lg:mb-8 text-6xl">【=◈︿◈=】</h1>
             <p>Is anyone there?</p>
@@ -31,7 +27,7 @@ const NotFoundPage = () => {
           </>
         ) : (
           <>
-            <h1 style={{ fontSize: `7rem` }}>404</h1>
+            <h1 className="text-7xl">404</h1>
             {/* eslint-disable-next-line */}
             <p onClick={clickNextSentence}>{currentSentence}</p>
             <p className="markdown">
@@ -63,9 +59,9 @@ function useEasterSentence() {
 
   const [currentSentenceIndex, setCurrentSentenceIndex] = useState(0)
 
-  const currentSentence = useMemo(() => {
-    return sentences[currentSentenceIndex]
-  }, [sentences, currentSentenceIndex])
+  const currentSentence = sentences[currentSentenceIndex]
+
+  const noMoreSentence = currentSentenceIndex >= sentences.length - 1
 
   const nextSentence = () => {
     if (currentSentenceIndex + 1 < sentences.length) {
@@ -73,5 +69,5 @@ function useEasterSentence() {
     }
   }
 
-  return [currentSentence, nextSentence]
+  return [currentSentence, nextSentence, noMoreSentence]
 }

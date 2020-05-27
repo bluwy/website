@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types"
 
-const ToggleTag = ({ className, children, initialState, onTrue, onFalse }) => {
+const ToggleTag = ({ children, initialState, onTrue, onFalse }) => {
   const [state, setState] = useState(initialState || false)
 
   const toggleState = () => {
@@ -11,11 +11,7 @@ const ToggleTag = ({ className, children, initialState, onTrue, onFalse }) => {
 
   return (
     <button
-      className={
-        state
-          ? `${className} ftag ftag--active`
-          : `${className} ftag ftag--disabled`
-      }
+      className={state ? `ftag ftag--active` : `ftag ftag--disabled`}
       onClick={toggleState}
     >
       {children}
@@ -24,7 +20,6 @@ const ToggleTag = ({ className, children, initialState, onTrue, onFalse }) => {
 }
 
 ToggleTag.propTypes = {
-  className: PropTypes.string,
   children: PropTypes.node,
   initialState: PropTypes.bool,
   onTrue: PropTypes.func,
