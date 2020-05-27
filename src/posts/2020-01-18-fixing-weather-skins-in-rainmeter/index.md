@@ -3,7 +3,7 @@ title: Fixing Weather Skins in Rainmeter?
 date: "2020-01-18T12:10:00.000Z"
 ---
 
-Another day, another weather service down. Here's the steps to fix broken weather skins and migrate to different weather service APIs.
+Another day, another weather service down. Here are the steps to fix broken weather skins and migrate to different weather service APIs.
 
 <!-- endexcerpt -->
 
@@ -78,7 +78,7 @@ Also note I'm using XML format as denoted at `mode=xml` in the `Url`.
 
 Now we reached the real deal, the almighty Regex battlefield. Again, no worries, I'll explain as much as I can.
 
-Before we start, let's take a look at what data Mond needs. Below are the measure Mond has that retreives data from the WebParser's regex:
+Before we start, let's take a look at what data Mond needs. Below are the measure Mond has that retrieves data from the WebParser's regex:
 
 ```ini
 [MeasureTempUnit]
@@ -113,7 +113,7 @@ Url=[MeasureCurrent]
 StringIndex=5
 ```
 
-Mond has 5 datas: temperature unit, location, temperature, weather condition and icons.
+Mond has 5 data: temperature unit, location, temperature, weather condition and icons.
 
 Now let's inspect our XML data and see how we can capture them. Below is an example response:
 
@@ -140,7 +140,7 @@ Now let's inspect our XML data and see how we can capture them. Below is an exam
 </current>
 ```
 
-From the XML, here's the values we need to get:
+From the XML, here are the values we need to get:
 
 1. Temperature unit: `metric` from the `<temperature unit="">` tag
 2. Location: `London` from the `<city name="">` tag
@@ -158,7 +158,7 @@ Good lord what is this!
 
 First, we declare `(?siU)`, which is the option modifier for the regex (More info [here](https://docs.rainmeter.net/tips/webparser-tutorial/)).
 
-Next, take a look at `<city.*name="(.*)"`. It kinda looks like the `<city>` tag in the original XML, but whats `.*`? It consists of two characters: `.` and `*`. `.` means "any character", `*` means "of any length", so combined it means "match any character of any length".
+Next, take a look at `<city.*name="(.*)"`. It kinda looks like the `<city>` tag in the original XML, but what's `.*`? It consists of two characters: `.` and `*`. `.` means "any character", `*` means "of any length", so combined it means "match any character of any length".
 
 We also have the parentheses `(.*)`, and the parentheses is called a capture group that will be captured and return so we can use the data.
 
@@ -231,7 +231,7 @@ Here's what still needs to be done:
 3. OpenWeatherMap's icon value is different from `wxdata`'s, so since the Mond weather icons are named, 1.png..., you have to rename to [OpenWeatherMap's format](https://openweathermap.org/weather-conditions).
 4. And more I couldn't think of...
 
-> Note: I did not actually fix the Mond weather skin. It's still broken at it's current state. RIP DeviantArt comments.
+> Note: I did not actually fix the Mond weather skin. It's still broken at its current state. RIP DeviantArt comments.
 
 ## Conclusion
 

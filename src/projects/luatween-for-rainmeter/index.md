@@ -16,4 +16,4 @@ A Lua library for Rainmeter to easily tween meters and measures. It uses [tween.
 
 ## What I've Learned
 
-This was the first time I had to use a dynamically-typed language, Lua. Before this, I had only use C# for Unity development. It was easy to adopt at first, but once the library grew substantially, it needed lots of refactoring and documenting to be able to safely add extra functionalities.
+This was the first time I had to use a dynamically-typed language, Lua. Before this, I had only used C# for Unity development. It was easy to adopt at first, but once the library grew substantially, it needed lots of refactoring and documenting to be able to safely add extra functionalities.

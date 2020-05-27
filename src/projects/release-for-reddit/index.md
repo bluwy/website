@@ -20,4 +20,4 @@ A GitHub Action to automate submitting a release post on Reddit. This was my sec
 
 After the first submission for [Substitute String](https://github.com/marketplace/actions/substitute-string), I wanted to do something more useful. This action gave me the opportunity to work with external APIs which includes authentication, authorization and calling endpoints.
 
-I had some trouble with Reddit's API which oddly doesn't work with my main account. I had to open a new account which surprisingly worked straight away. New accounts are throttled when submitting posts or comments so it was a great chance for me to develop timeout handlings.
+I had some trouble with Reddit's API which oddly doesn't work with my main account. I had to create a new account which surprisingly worked straight away. New accounts are throttled when submitting posts or comments so it was also great chance for me to handle the custom timeout response.

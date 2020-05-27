@@ -65,7 +65,7 @@ I was lucky enough to try out its recent v1 release, and it was a breeze to star
 
 The dashboard was pretty much all you need to **do almost everything**. From creating your database from scratch to auto-generated GraphQL APIs, you won't even have to write any code to have a server spinning.
 
-It's an interesting approach compared to Prisma 2, but I had issues when it comes to customisation.
+It's an interesting approach compared to Prisma 2, but I had issues when it comes to customization.
 
 The primary issue I had was with the **auto-generated GraphQL APIs**. At the time of writing, there was no way to say "hide" a database column from the generated API.
 
@@ -81,7 +81,7 @@ Yes, two styles, one being the familiar **mongo style API**, and the other being
 
 This wasn't much of a big deal, but once your query grows more and more complex, you would eventually have to use the raw query builder.
 
-Besides that, the mongo style API often had quirks when it doesn't work as intended, which you would then have to fall back to the raw query builder again.
+Besides that, the Mongo style API often had quirks when it doesn't work as intended, which you would then have to fall back to the raw query builder again.
 
 But after using [Knex][knex], TypeORM's query builder is certainly **not as powerful**.
 

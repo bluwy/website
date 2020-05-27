@@ -5,15 +5,17 @@ date: "2019-10-05T02:00:27.000Z"
 
 I recently got interested in GraphQL whilst building a new server. I had experience with the REST infrastructure before so this post will go into details on some things I faced during the learning process.
 
+I'm still a newbie at the time of writing so take some points with a grain of salt.
+
 If you're not familiar with either REST or GraphQL, they are methods for requesting information from a server. This post will go into some technical details of both technologies. Here are links to [REST](https://restfulapi.net/) and [GraphQL](https://graphql.org/) for more information.
 
-## GraphQL is more manageable
+## GraphQL is More Manageable
 
 I started by reading the whole documentation on GraphQL before I even got started. The topic alone got me interested in some intuitive ways GraphQL solves from the usual REST API.
 
 Since GraphQL is static-typed, the code looks clearer as to what does what. You don't have to look at its implementation to know what it will do since everything is declared upfront in the request.
 
-## Starting with Apollo server
+## Starting with Apollo Server
 
 I didn't dig straight into a vanilla GraphQL server, instead, I chose Apollo since it provided some great out-of-the-box configuration.
 
@@ -21,7 +23,7 @@ The documentation also provides many nice GraphQL best practices for beginners.
 
 The only difference I found between vanilla GraphQL and Apollo is the term `models` and `datasources` respectively, which both refers to the service to query the database. `models` define type classes respective to the schema's types, whereas `datasources` define a domain of a schema.
 
-## Easy, but slightly hard
+## Easy but Slightly Hard
 
 Starting out with simple queries was a breeze. As complex at it seems, there's not much configuration needed to get started. Spinning up a small test was as easy as a REST API.
 
@@ -29,17 +31,17 @@ But once the codebase gets bigger, a pattern slowly emerges, `schema`, `resolver
 
 Simply put:
 
-- `schema` is the endpoints written in GraphQL.
+- `schema` is the endpoint written in GraphQL.
 - `resolvers` control the input and output between `schema` and `datasources`.
 - `datasources` queries the database.
 
-## Directory structure
+## Directory Structure
 
-This one was a bit tricky since GraphQL is unopinionated about the structure, but luckily I found a [great article](https://hackernoon.com/three-ways-to-structure-your-graphql-code-with-apollo-server-4788beed89db) explaining ways to organize the layers.
+This one was a bit tricky since GraphQL is not opinionated about the structure, but luckily I found a [great article](https://hackernoon.com/three-ways-to-structure-your-graphql-code-with-apollo-server-4788beed89db) explaining ways to organize the layers.
 
-Finally, I went with the domain-oriented structure since it makes sense to group things by its features rather than by its functionaility.
+Finally, I went with the domain-oriented structure since it makes sense to group things by its features rather than by its functionality.
 
-## Authentication was tricky
+## Authentication was Tricky
 
 Since my project has both public and private APIs, I needed to manually add auth guards on my `datasources`. It was rather tedious, but there should be a better way of doing it that I'm missing.
 
@@ -47,7 +49,7 @@ Since my project has both public and private APIs, I needed to manually add auth
 
 I used [Vue](https://vuejs.org) for the front-end and used [Vue Apollo](https://vue-apollo.netlify.com) for the client. Setting up a simple query was like magic. Everything worked as expected.
 
-## Client pagination headache
+## Client Pagination Headache
 
 Apollo Client provides great support for retrieving paginated queries, but I had an issue with its cache system.
 

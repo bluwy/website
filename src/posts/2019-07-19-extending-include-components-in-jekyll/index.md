@@ -57,7 +57,7 @@ Notice we're accessing the variables passed by prefixing 'include.', and now we 
 
 ## My Findings
 
-During the development of my previous website (Now I'm using Gatsby), I needed to embed custom HTML code in my components. Of course I could just write it and pass it directly as an argument, but then I can't use double quotes (") in my code.
+During the development of my previous website (Now I'm using Gatsby), I needed to embed custom HTML code in my components. Of course, I could just write it and pass it directly as an argument, but then I can't use double quotes (") in my code.
 
 That's where the `capture` tag comes in, we can wrap our code in it and the quotes will be automatically escaped! Syntax highlighting would work normally too in your favorite text editor.
 

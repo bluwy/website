@@ -15,7 +15,7 @@ tags:
   - PostgreSQL
 ---
 
-A todo app built with PostgreSQL, Express and Nuxt. It offers custom email authentication and simple todos management.
+A todo app built with PostgreSQL, Express and Nuxt. It offers custom email authentication and simple todo management.
 
 <!-- endexcerpt -->
 
