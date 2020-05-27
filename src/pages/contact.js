@@ -43,13 +43,18 @@ const Contact = () => {
             Need a formal enquiry? No problem. Send a form below.
           </p>
           <div>
+            {/* Gatsby strips out input fields that are not included in the JSX form. Why Gatsby? */}
+            {/* https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/#form-handling-with-static-site-generators */}
             <form
               className="max-w-md mx-auto"
               name="contact"
               method="POST"
+              action="/thanks"
               data-netlify="true"
               netlify-honeypot="bot-field"
             >
+              <input type="hidden" name="form-name" value="contact" />
+              <input type="hidden" name="bot-field" />
               <label className="block mb-3">
                 <div className="mb-1">Name</div>
                 <input

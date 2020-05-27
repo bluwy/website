@@ -69,6 +69,9 @@ module.exports = {
         "10": "10px",
         "12": "12px",
       },
+      fontSize: {
+        "7xl": "7rem",
+      },
     },
   },
   variants: {},
