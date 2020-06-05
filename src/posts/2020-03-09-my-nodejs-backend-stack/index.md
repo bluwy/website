@@ -7,9 +7,9 @@ The [NodeJS][nodejs] ecosystem is large and there are many ways to build your se
 
 In this post, I'll talk about some key findings of the various tech stacks I've used. The table of contents below lists the stacks in chronological order of my 6-month journey.
 
-**TL;DR:**
+**TL;DR**: [Apollo][apollo-server], [Nexus][nexus], [Objection.js][objection], [TypeScript][typescript] and [PostgreSQL][postgres]. And [Prisma 2][prisma2] once it matures.
 
-[Apollo][apollo-server], [Nexus][nexus], [Objection.js][objection], [TypeScript][typescript] and [PostgreSQL][postgres]. And [Prisma 2][prisma2] once it matures.
+**Update 5/6/2020**: The Prisma team has changed a few terms since I last written this post. Notably `Nexus` => `Nexus Schema`, `Prisma` => `Prisma 1` and `Prisma 2` => `Prisma`. However, I did not update the new terms in this post since I have not used its newer features yet.
 
 ## Table of Contents
 
