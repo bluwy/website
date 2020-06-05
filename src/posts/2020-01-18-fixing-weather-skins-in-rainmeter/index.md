@@ -11,7 +11,11 @@ Another day, another weather service down. Here are the steps to fix broken weat
 
 > **TL;DR**: It's tedious to fix a weather skin unless it's a really simple one.
 
-**Update 14/2/2020**: While this post talks about using an API, JSMorley (One of the developers of Rainmeter) presented [a web scraping alternative](https://forum.rainmeter.net/viewtopic.php?t=34470) which in most cases can be much easier to set up. I **highly recommend** checking it out before continuing on this post.
+**Update 5/6/2020**: Before getting technical below, you might be interested in some of the threads from the Rainmeter forum.
+
+- [Weather Skins](https://forum.rainmeter.net/viewtopic.php?t=34689): List of currently functioning weather skins.
+- [Weather.com - Parsing the JSON](https://forum.rainmeter.net/viewtopic.php?f=118&t=34628): Use JSON data from https://weather.com. No sign up required.
+- [Weather.com JSON not loading correctly](https://forum.rainmeter.net/viewtopic.php?f=118&t=35342): In case this happens.
 
 ## Table of Contents
 
@@ -235,7 +239,7 @@ Here's what still needs to be done:
 
 ## Conclusion
 
-Well, I didn't expect it'll take me this long to write a somewhat simple tutorial (2 hours T-T). But heck it should give you an idea on what needs to be done to migrate a skin to a new API.
+And there's that. A lot of work has to be done depending on how complex the skin is. But this should give you an idea on what needs to be done to migrate a skin to a new API.
 
 If you spot any errors or find any false information, feel free to contact me on [Reddit](https://reddit.com/u/IamLUG) or send an issue or PR on [GitHub](https://github.com/BjornLuG/bjorn-lu) if you prefer. I'll fix it as soon as possible.
 
