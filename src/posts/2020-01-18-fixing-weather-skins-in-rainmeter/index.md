@@ -7,14 +7,14 @@ Another day, another weather service down. Here are the steps to fix broken weat
 
 <!-- endexcerpt -->
 
-**Note**: This is not a full tutorial on how to fix weather skins, but rather to give you an idea on what needs to be done. I'll only be showing basic regex techniques because there's too much to do to fit in this blog post.
+**Note**: This is not a full tutorial on how to fix weather skins, but rather to give you an idea on what needs to be done. I'll only be showing basic regex techniques to substitute the new data.
 
 > **TL;DR**: It's tedious to fix a weather skin unless it's a really simple one.
 
 **Update 5/6/2020**: Before getting technical below, you might be interested in some of the threads from the Rainmeter forum.
 
 - [Weather Skins](https://forum.rainmeter.net/viewtopic.php?t=34689): List of currently functioning weather skins.
-- [Weather.com - Parsing the JSON](https://forum.rainmeter.net/viewtopic.php?f=118&t=34628): Use JSON data from https://weather.com. No sign up required.
+- [Weather.com - Parsing the JSON](https://forum.rainmeter.net/viewtopic.php?f=118&t=34628): Use data from [weather.com](https://weather.com). No sign up required.
 - [Weather.com JSON not loading correctly](https://forum.rainmeter.net/viewtopic.php?f=118&t=35342): In case this happens.
 
 ## Table of Contents
@@ -23,9 +23,9 @@ Another day, another weather service down. Here are the steps to fix broken weat
 
 ## Getting Ready
 
-Before we get started, here's what you need to know about what we'll be doing in the next `n` minutes.
+Before we get started, here's what you need to know about what we'll be doing in the next few minutes.
 
-We will start by looking for a new weather API. It could be any weather api as long as it provides the information you need and of course, a reasonable request rate.
+We will start by looking for a new weather API. It could be any weather API as long as it provides the information you need and of course, a reasonable request rate.
 
 Next, we will change to the skin's API endpoint and apply a new regex to it. (Don't worry, I'll guide you through it)
 
@@ -33,13 +33,15 @@ And finally, I'll list what else that needs to be done because different skins h
 
 ## In Search of a Weather API
 
-There are many weather API services out there with generous free tiers. [OpenWeatherMap](https://openweathermap.org) and [Dark Sky](https://darksky.net) both provide decent timely API calls, with max 60 calls/minute for OpenWeatherMap and 1000 calls/day for Dark Sky. Of course, you can choose any other services as you wish.
+> **Update 12/6/2020**: [Dark Sky](https://darksky.net) have been acquired by Apple and is shuting down its services by 1 July 2020 :(
 
-Unless you're using a public weather API, most services require sign ups to acquire an API key, which is totally fair to prevent DDOS-ing on their servers.
+There are a few weather API services out there with generous free tiers, such as [OpenWeatherMap](https://openweathermap.org/price), [ClimaCell](https://www.climacell.co/weather-api/pricing/), [Weatherbit](https://www.weatherbit.io/pricing) and [AccuWeather](https://developer.accuweather.com/packages). Of course, you can choose any other services as you wish.
+
+Most weather API services require sign ups to acquire an API key, which is totally fair to prevent DDOS-ing on their servers.
 
 Once you acquired your API key, hop on to the next step!
 
-> Note: **DO NOT** share your API key. Someone who has your API key may randomly use it and easily hit the API request limit.
+> **Note**: **DO NOT** share your API key. Someone who has your API key may randomly use it and easily hit the API request limit.
 
 ## Using the API
 
@@ -62,7 +64,7 @@ RegExp="(?siU)<head>.*<ut>(.*)</ut>.*<dnam>(.*),.*</dnam>.*<tmp>(.*)</tmp>.*<t>(
 
 Every weather skin will almost always pull data through the [WebParser](https://docs.rainmeter.net/manual/measures/webparser/) measure. The `Url` key is our API endpoint, `RegExp` is our regex to be match on our response data, which may be in the form of JSON or XML (Depends on what the service provides). Learn more about WebParser in the [official tutorial](https://docs.rainmeter.net/tips/webparser-tutorial/).
 
-Looking at the code, the `Url` `wxdata.weather.com` is deprecated, so we need to change that. Let's change it to OpenWeatherMap's API. Here's what it should look like:
+Looking at the code, the url `wxdata.weather.com` is deprecated, so we need to change that. Let's change it to OpenWeatherMap's API. Here's what it should look like:
 
 ```ini
 [MeasureCurrent]
@@ -80,7 +82,7 @@ Also note I'm using XML format as denoted at `mode=xml` in the `Url`.
 
 ### Changing the RegExp
 
-Now we reached the real deal, the almighty Regex battlefield. Again, no worries, I'll explain as much as I can.
+Now we have reached the real deal, the almighty Regex battlefield. Take a deep breath and let's dive in.
 
 Before we start, let's take a look at what data Mond needs. Below are the measure Mond has that retrieves data from the WebParser's regex:
 
@@ -170,9 +172,9 @@ So what this whole thing means is that we match from `<city`, and then `.*` for 
 
 The rest are also of the same form as `<city.*name="(.*)"`.
 
-If you're still confused, try [https://www.debuggex.com/](https://www.debuggex.com/) to visualize the regex. First, paste the regex into the "My regular expression" text box and paste the XML into the "My test data" text box. And don't forget to change "JavaScript" to "PCRE" (Rainmeter uses PERL compatible regular expressions).
+If you're still confused, try https://www.debuggex.com/ to visualize the regex. First, paste the regex into the "My regular expression" text box and paste the XML into the "My test data" text box. And don't forget to change "JavaScript" to "PCRE" (Rainmeter uses PERL compatible regular expressions). Notice that the data we need are being highlighted.
 
-And lastly, remember the 5 measures that Mond uses to get the regex's data, we have to tweak a bit since the capturing order was changed.
+And lastly, remember the 5 measures that Mond uses to get the regex's data, we have to tweak a bit since the capturing order changed.
 
 `StringIndex` is the parentheses number in the `RegExp`. Notice we have 5 `(.*)`, those are the capturing groups that the 5 measures will have to index, with the first `(.*)` means `StringIndex=1` and so on.
 
@@ -226,21 +228,20 @@ StringIndex=5
 
 ## But There's More
 
-After all the hard work, are we done? Yes and no. We fixed the WebParser, provided correct data, but it's not a perfect skin yet.
+After all the hard work, are we done? Yes, and no. We fixed the WebParser, provided correct data, but it's not a perfect skin yet.
 
-Here's what still needs to be done:
+We still have these TODOs:
 
 1. Change variable `#Unit#` settings to accept `metric` and `imperial` so it fits the APIs format.
 2. Change variable `#Location#` to accept OpenWeatherMap's id format.
-3. OpenWeatherMap's icon value is different from `wxdata`'s, so since the Mond weather icons are named, 1.png..., you have to rename to [OpenWeatherMap's format](https://openweathermap.org/weather-conditions).
-4. And more I couldn't think of...
+3. OpenWeatherMap's icon value is different from `wxdata`'s, so since the Mond weather icons are named, 1.png..., we have to rename to [OpenWeatherMap's format](https://openweathermap.org/weather-conditions).
 
-> Note: I did not actually fix the Mond weather skin. It's still broken at its current state. RIP DeviantArt comments.
+> **Note**: I did not actually fix the Mond weather skin. It's still broken at its current state. RIP DeviantArt comments.
 
 ## Conclusion
 
 And there's that. A lot of work has to be done depending on how complex the skin is. But this should give you an idea on what needs to be done to migrate a skin to a new API.
 
-If you spot any errors or find any false information, feel free to contact me on [Reddit](https://reddit.com/u/IamLUG) or send an issue or PR on [GitHub](https://github.com/BjornLuG/bjorn-lu) if you prefer. I'll fix it as soon as possible.
+If you spot any errors or find any false information, feel free to contact me on [Reddit](https://reddit.com/u/IamLUG) or submit an issue on [GitHub](https://github.com/BjornLuG/bjorn-lu) if you prefer. I'll fix it as soon as possible.
 
 Happy coding!
