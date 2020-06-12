@@ -1,9 +1,3 @@
-[build]
-  publish = "public"
-
-[[plugins]]
-  package = "netlify-plugin-gatsby-cache"
-
 [[redirects]]
   from = "https://bjornlu.netlify.com/*"
   to = "https://bjornlu.com/:splat"
