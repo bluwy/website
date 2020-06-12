@@ -170,11 +170,11 @@ button:focus,
 }
 
 .markdown li {
-  @apply ml-6 mb-1 pl-6;
+  @apply ml-5 mb-1 pl-6;
 }
 
 .markdown blockquote {
-  @apply p-4 mb-3 border-l-6 border-warning-500 bg-warning-300 bg-opacity-20;
+  @apply p-4 my-3 border-l-6 border-warning-500 bg-warning-300 bg-opacity-20;
 }
 
 .markdown blockquote p:last-child {
