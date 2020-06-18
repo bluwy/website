@@ -67,7 +67,7 @@ textarea:focus {
 
 button,
 .btn {
-  @apply inline-block px-2 py-1 rounded-md border-2 border-primary-600 bg-primary-500 bg-opacity-50 transition-colors duration-200;
+  @apply inline-block px-2 py-1 rounded-md border-2 border-primary-600 border-opacity-80 bg-primary-500 bg-opacity-50 transition-colors duration-200;
 }
 
 button:hover,
