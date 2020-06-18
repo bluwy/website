@@ -15,7 +15,7 @@ export default ({ data }) => {
 
   return (
     <Layout>
-      <SEO title={post.frontmatter.title} />
+      <SEO title={post.frontmatter.title} description={post.excerpt} />
       <article className="container">
         <header className="mb-6">
           <h1 className="m-0">{post.frontmatter.title}</h1>
@@ -56,6 +56,7 @@ export const query = graphql`
   query($slug: String!, $nextSlug: String!, $prevSlug: String!) {
     post: markdownRemark(fields: { slug: { eq: $slug } }) {
       html
+      excerpt
       frontmatter {
         title
         date(formatString: "D MMMM YYYY")

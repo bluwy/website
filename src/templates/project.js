@@ -13,7 +13,7 @@ export default ({ data }) => {
 
   return (
     <Layout>
-      <SEO title={seoTitle} />
+      <SEO title={seoTitle} description={project.excerpt} />
       <article className="container">
         <h1 className="text-center m-0">{project.frontmatter.title}</h1>
         <div className="text-center mb-6 space-x-3">
@@ -62,6 +62,7 @@ export const query = graphql`
   query($slug: String!, $nextSlug: String!, $prevSlug: String!) {
     project: markdownRemark(fields: { slug: { eq: $slug } }) {
       html
+      excerpt
       frontmatter {
         title
         desc
