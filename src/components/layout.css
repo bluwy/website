@@ -52,7 +52,7 @@ textarea {
 
 input::placeholder,
 textarea::placeholder {
-  @apply text-black;
+  @apply text-black text-opacity-40;
 }
 
 input:hover,

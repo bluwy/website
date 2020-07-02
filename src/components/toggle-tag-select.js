@@ -16,12 +16,8 @@ const ToggleTagSelect = ({ tags, selectedTags, onChange }) => {
   return (
     <div>
       {tags.map(tag => (
-        <div className="inline-block mr-2 mb-2">
-          <ToggleTag
-            key={tag}
-            onTrue={tagOnTrue(tag)}
-            onFalse={tagOnFalse(tag)}
-          >
+        <div className="inline-block mr-2 mb-2" key={tag}>
+          <ToggleTag onTrue={tagOnTrue(tag)} onFalse={tagOnFalse(tag)}>
             {tag}
           </ToggleTag>
         </div>
