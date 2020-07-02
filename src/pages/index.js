@@ -22,7 +22,7 @@ const Home = ({ data }) => {
               />
             </div>
             <div>
-              <h1 className="text-3xl mt-0">Hello, I'm Bjorn</h1>
+              <h1 className="text-3xl m-0">Hello, I'm Bjorn</h1>
               <p>
                 A full-stack web developer from Malaysia. Loves open source.
                 Writes on various topics of interest. Nice to meet you.
@@ -34,8 +34,8 @@ const Home = ({ data }) => {
           </div>
         </section>
         <section className="border-t-4 border-b-4 border-primary-600 bg-primary-500 bg-opacity-50 dark:border-primary-900 dark:bg-primary-700 dark:bg-opacity-20">
-          <div className="container pt-2 pb-8">
-            <h2>Check Me Out</h2>
+          <div className="container py-8">
+            <h2 className="mt-0">Check Me Out</h2>
             <p className="mb-8">
               A picked up many skills in various area of development throughout
               the years. Here's what I know so far!
@@ -59,7 +59,7 @@ const Home = ({ data }) => {
           </div>
         </section>
         <section className="container mt-8">
-          <div className="flex flex-row justify-between items-center">
+          <div className="flex flex-row justify-between items-center mb-1">
             <div>
               <h2 className="m-0">Featured Projects</h2>
             </div>

@@ -15,7 +15,7 @@ export default ({ data }) => {
     <Layout>
       <SEO title={seoTitle} description={project.excerpt} />
       <article className="container">
-        <h1 className="text-center m-0">{project.frontmatter.title}</h1>
+        <h1 className="text-center m-0 mb-1">{project.frontmatter.title}</h1>
         <div className="text-center mb-6 space-x-3">
           {project.frontmatter.links.map(link => (
             <a
