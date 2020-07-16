@@ -5,7 +5,7 @@ icon: penn-todo.svg
 featured: true
 links:
   - label: Repository
-    link: https://github.com/BjornLuG/penn-todo
+    link: https://github.com/bluwy/penn-todo
   - label: Website
     link: https://penn-todo.herokuapp.com/
 tags:

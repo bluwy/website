@@ -5,7 +5,7 @@ icon: material-design.svg
 featured: true
 links:
   - label: Repository
-    link: https://github.com/BjornLuG/material-shadow-preview
+    link: https://github.com/bluwy/material-shadow-preview
   - label: Website
     link: https://material-shadow-preview.netlify.app/
 tags:

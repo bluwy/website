@@ -4,7 +4,7 @@ desc: A personal class scheduler
 icon: timetable.svg
 links:
   - label: Repository
-    link: https://github.com/BjornLuG/timetable
+    link: https://github.com/bluwy/timetable
   - label: Website
     link: https://timetable.bjornlu.com
 tags:

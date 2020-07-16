@@ -242,6 +242,6 @@ We still have these TODOs:
 
 And there's that. A lot of work has to be done depending on how complex the skin is. But this should give you an idea on what needs to be done to migrate a skin to a new API.
 
-If you spot any errors or find any false information, feel free to contact me on [Reddit](https://reddit.com/u/IamLUG) or submit an issue on [GitHub](https://github.com/BjornLuG/bjorn-lu) if you prefer. I'll fix it as soon as possible.
+If you spot any errors or find any false information, feel free to contact me on [Reddit](https://reddit.com/u/IamLUG) or submit an issue on [GitHub](https://github.com/bluwy/bjorn-lu) if you prefer. I'll fix it as soon as possible.
 
 Happy coding!

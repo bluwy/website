@@ -5,7 +5,7 @@ icon: rainmeter.svg
 featured: true
 links:
   - label: Repository
-    link: https://github.com/BjornLuG/LuaTween-for-Rainmeter
+    link: https://github.com/bluwy/LuaTween-for-Rainmeter
 tags:
   - Rainmeter
 ---

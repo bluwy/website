@@ -5,7 +5,7 @@ icon: github-action.svg
 featured: true
 links:
   - label: Repository
-    link: https://github.com/BjornLuG/release-for-reddit-action
+    link: https://github.com/bluwy/release-for-reddit-action
   - label: Marketplace
     link: https://github.com/marketplace/actions/release-for-reddit
 tags:

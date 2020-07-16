@@ -4,7 +4,7 @@ desc: Substitute strings in GitHub Actions
 icon: github-action.svg
 links:
   - label: Repository
-    link: https://github.com/BjornLuG/substitute-string-action
+    link: https://github.com/bluwy/substitute-string-action
   - label: Marketplace
     link: https://github.com/marketplace/actions/substitute-string
 tags:
