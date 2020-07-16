@@ -57,23 +57,11 @@ const Contact = () => {
               <input type="hidden" name="bot-field" />
               <label className="block mb-3">
                 <div className="mb-1">Name</div>
-                <input
-                  name="name"
-                  className="w-full"
-                  type="text"
-                  placeholder="Bob Stone"
-                  required
-                />
+                <input name="name" className="w-full" type="text" required />
               </label>
               <label className="block mb-3">
                 <div className="mb-1">Email</div>
-                <input
-                  name="email"
-                  className="w-full"
-                  type="email"
-                  placeholder="bob@example.com"
-                  required
-                />
+                <input name="email" className="w-full" type="email" required />
               </label>
               <label className="block mb-3">
                 <div className="mb-1">Question</div>
@@ -81,7 +69,6 @@ const Contact = () => {
                   name="question"
                   className="w-full"
                   type="text"
-                  placeholder="What do you...?"
                   required
                 />
               </label>
@@ -92,7 +79,6 @@ const Contact = () => {
                   className="w-full"
                   type="text"
                   rows="4"
-                  placeholder="I think that..."
                   required
                 />
               </label>
