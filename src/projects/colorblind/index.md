@@ -9,8 +9,7 @@ links:
   - label: NPM
     link: https://www.npmjs.com/package/@bjornlu/colorblind
 tags:
-  - JavaScript
-  - Library
+  - TypeScript
 ---
 
 A zero-dependencies color blindness simulation library. Transforms RGB colors to simulate color blindness.
