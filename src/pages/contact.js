@@ -55,22 +55,24 @@ const Contact = () => {
             >
               <input type="hidden" name="form-name" value="contact" />
               <input type="hidden" name="bot-field" />
+              <div className="flex flex-wrap">
+                <label className="mb-3 w-full sm:w-1/2 sm:pr-2">
+                  <div className="mb-1">Name</div>
+                  <input name="name" className="w-full" type="text" required />
+                </label>
+                <label className="mb-3 w-full sm:w-1/2 sm:pl-2">
+                  <div className="mb-1">Email</div>
+                  <input
+                    name="email"
+                    className="w-full"
+                    type="email"
+                    required
+                  />
+                </label>
+              </div>
               <label className="block mb-3">
-                <div className="mb-1">Name</div>
-                <input name="name" className="w-full" type="text" required />
-              </label>
-              <label className="block mb-3">
-                <div className="mb-1">Email</div>
-                <input name="email" className="w-full" type="email" required />
-              </label>
-              <label className="block mb-3">
-                <div className="mb-1">Question</div>
-                <input
-                  name="question"
-                  className="w-full"
-                  type="text"
-                  required
-                />
+                <div className="mb-1">Subject</div>
+                <input name="subject" className="w-full" type="text" required />
               </label>
               <label className="block mb-3">
                 <div className="mb-1">Message</div>
