@@ -37,8 +37,8 @@ const Home = ({ data }) => {
           <div className="container py-8">
             <h2 className="mt-0">Check Me Out</h2>
             <p className="mb-8">
-              A picked up many skills in various area of development throughout
-              the years. Here's what I know so far!
+              I've picked up many skills in various area of development
+              throughout the years. Here's what I know so far!
             </p>
             <table className="w-full">
               <tbody>

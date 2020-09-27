@@ -6,6 +6,8 @@
     - TypeScript
     - Vue
     - Nuxt
+    - React
+    - Svelte
     - Jekyll
     - Gatsby
 - title: Backend
@@ -28,4 +30,4 @@
     - Docker
     - Jest
     - Mocha
-    - Chai
+    - Cypress
