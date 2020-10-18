@@ -9,7 +9,7 @@
 }
 
 html {
-  @apply text-gray-900 bg-gray-100;
+  @apply text-gray-900 bg-gray-100 break-words;
 }
 
 h1,
