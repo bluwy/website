@@ -40,9 +40,14 @@ p {
   @apply text-lg mb-3;
 }
 
-pre[class*="language-"],
+/* Inline code */
 code[class*="language-"] {
   @apply text-lg;
+}
+
+/* Code blocks */
+pre[class*="language-"] > code[class*="language-"] {
+  @apply text-sm;
 }
 
 input,
