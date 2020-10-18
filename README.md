@@ -6,9 +6,10 @@ This is my website. Built with [Gatsby](https://www.gatsbyjs.org/). Styled with 
 
 ## Development
 
-Clone this repo, install dependencies with `yarn install` and you're all set.
-
 ```bash
+# Install dependencies
+$ yarn install
+
 # Start dev server with hot reloading
 $ yarn develop
 
