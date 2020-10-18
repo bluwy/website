@@ -64,6 +64,7 @@ module.exports = {
             },
           },
           `gatsby-remark-prismjs`,
+          `prism-svelte`,
         ],
       },
     },
