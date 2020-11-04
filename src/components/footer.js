@@ -19,10 +19,7 @@ const Footer = () => {
     <footer className="mt-12">
       <div className="container">
         <hr className="border-t-2 border-primary-700 opacity-50" />
-        <div className="flex flex-col sm:flex-row flex-col-reverse justify-between py-8 text-center sm:text-left">
-          <div className="flex-shrink">
-            &copy; Bjorn Lu {new Date().getFullYear()}
-          </div>
+        <div className="flex flex-col sm:flex-row-reverse justify-between py-8 text-center sm:text-left">
           <div className="flex-shrink space-x-3 mb-3 sm:mb-0">
             {socialLinks.map(socialLink => (
               <a
@@ -34,6 +31,9 @@ const Footer = () => {
                 {socialLink.title}
               </a>
             ))}
+          </div>
+          <div className="flex-shrink">
+            &copy; Bjorn Lu {new Date().getFullYear()}
           </div>
         </div>
       </div>
