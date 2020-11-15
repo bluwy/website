@@ -4,12 +4,13 @@
     - CSS
     - JavaScript
     - TypeScript
-    - Vue
-    - Nuxt
     - React
+    - Vue
     - Svelte
     - Jekyll
     - Gatsby
+    - Nuxt
+    - Sapper
 - title: Backend
   topics:
     - NodeJS
@@ -27,7 +28,6 @@
 - title: Others
   topics:
     - Git
-    - Docker
     - Jest
     - Mocha
     - Cypress
