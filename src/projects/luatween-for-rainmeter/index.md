@@ -2,7 +2,6 @@
 title: LuaTween for Rainmeter
 desc: Animate stuff in Rainmeter easily
 icon: rainmeter.svg
-featured: true
 links:
   - label: Repository
     link: https://github.com/bluwy/LuaTween-for-Rainmeter
