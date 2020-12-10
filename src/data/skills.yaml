@@ -19,7 +19,6 @@
     - Nexus
     - Objection.js
     - PostgreSQL
-    - MySQL
 - title: Deployment
   topics:
     - GitHub Pages

@@ -2,36 +2,26 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "@/components/layout"
 import SEO from "@/components/seo"
-import logo from "@/images/logo.svg"
+// import logo from "@/images/logo.svg"
 
 const Home = ({ data }) => {
   const skills = data.skills.nodes
   const projects = data.projects.nodes
+  const posts = data.posts.nodes
 
   return (
     <Layout>
       <SEO />
       <article>
-        <section className="container">
-          <div className="flex flex-row justify-between max-w-md p-3 mx-auto mt-12 border-4 rounded-lg border-primary-400 dark:border-primary-700 bg-primary-500 bg-opacity-20">
-            <div className="hidden sm:block mr-4">
-              <img
-                src={logo}
-                alt="Bjorn Lu logo"
-                style={{ width: "240px", height: "100%" }}
-              />
-            </div>
-            <div>
-              <h1 className="text-3xl m-0">Hello, I'm Bjorn</h1>
-              <p>
-                A full-stack web developer from Malaysia. Loves open source.
-                Writes on various topics of interest. Nice to meet you.
-              </p>
-            </div>
-          </div>
-          <div className="max-w-md mx-auto">
-            <div className="h-16 mx-16 border-l-12 border-r-12 border-primary-600 dark:border-primary-800" />
-          </div>
+        <section className="container text-center py-10">
+          <h1 className="text-3xl m-0">Hello, I'm Bjorn</h1>
+          <p>
+            A full-stack web developer from Malaysia.
+            <br />
+            Writes on various topics of interest.
+            <br />
+            Loves open source.
+          </p>
         </section>
         <section className="border-t-4 border-b-4 border-primary-600 bg-primary-500 bg-opacity-50 dark:border-primary-900 dark:bg-primary-700 dark:bg-opacity-20">
           <div className="container py-8">
@@ -96,6 +86,34 @@ const Home = ({ data }) => {
             ))}
           </div>
         </section>
+        <section className="container mt-8">
+          <div className="flex flex-row justify-between items-center mb-1">
+            <div>
+              <h2 className="m-0">Recent Posts</h2>
+            </div>
+            <div>
+              <Link className="btn text-sm" to="/blog">
+                View all
+              </Link>
+            </div>
+          </div>
+          <div className="flex flex-col flex-wrap sm:flex-row -mx-2">
+            {posts.map(post => (
+              <div className="w-full sm:w-1/2 p-2" key={post.frontmatter.title}>
+                <Link className="card flex" to={post.fields.slug}>
+                  <div>
+                    <div className="text-md font-semibold">
+                      {post.frontmatter.title}
+                    </div>
+                    <div className="text-sm opacity-80">
+                      {post.frontmatter.date} - {post.timeToRead} min read
+                    </div>
+                  </div>
+                </Link>
+              </div>
+            ))}
+          </div>
+        </section>
       </article>
     </Layout>
   )
@@ -124,6 +142,22 @@ export const query = graphql`
           title
           desc
           icon
+        }
+      }
+    }
+    posts: allMarkdownRemark(
+      filter: { fields: { collection: { eq: "posts" } } }
+      sort: { fields: frontmatter___date, order: DESC }
+      limit: 4
+    ) {
+      nodes {
+        timeToRead
+        frontmatter {
+          title
+          date(formatString: "D MMMM YYYY")
+        }
+        fields {
+          slug
         }
       }
     }
