@@ -1,8 +1,5 @@
 - title: Frontend
   topics:
-    - HTML
-    - CSS
-    - JavaScript
     - TypeScript
     - React
     - Vue
@@ -14,18 +11,16 @@
 - title: Backend
   topics:
     - NodeJS
-    - Express
     - GraphQL
     - Nexus
     - Objection.js
     - PostgreSQL
-- title: Deployment
+    - Postgraphile
+- title: Others
   topics:
     - GitHub Pages
     - Netlify
     - Heroku
-- title: Others
-  topics:
     - Git
     - Jest
     - Mocha
