@@ -3,7 +3,7 @@ import { Link, useStaticQuery, graphql } from "gatsby"
 import style from "./nav.module.css"
 import logo from "@/images/logo.svg"
 
-const Nav = () => {
+const Nav = ({ isHero }) => {
   const data = useStaticQuery(graphql`
     query {
       allNavLinksYaml {
@@ -27,7 +27,7 @@ const Nav = () => {
 
   return (
     <nav
-      className={[style.nav, shrink && style.navShrink]
+      className={[style.nav, isHero && style.navHero, shrink && style.navShrink]
         .filter(Boolean)
         .join(" ")}
     >

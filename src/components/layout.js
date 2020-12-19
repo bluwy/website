@@ -4,10 +4,10 @@ import Footer from "./footer"
 import Nav from "./nav"
 import "./layout.css"
 
-const Layout = ({ children }) => (
+const Layout = ({ isHero = false, children }) => (
   <>
-    <Nav />
-    <main className="pt-24">{children}</main>
+    <Nav isHero={isHero} />
+    <main className={isHero ? "" : "pt-24"}>{children}</main>
     <Footer />
   </>
 )

@@ -2,7 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "@/components/layout"
 import SEO from "@/components/seo"
-// import logo from "@/images/logo.svg"
+import { Hero, HeroTitle } from "@/components/hero"
 
 const Home = ({ data }) => {
   const skills = data.skills.nodes
@@ -10,45 +10,48 @@ const Home = ({ data }) => {
   const posts = data.posts.nodes
 
   return (
-    <Layout>
+    <Layout isHero={true}>
       <SEO />
       <article>
-        <section className="container text-center py-10">
-          <h1 className="text-3xl m-0">Hello, I'm Bjorn</h1>
-          <p>
-            A full-stack web developer from Malaysia.
-            <br />
-            Writes on various topics of interest.
-            <br />
-            Loves open source.
-          </p>
-        </section>
-        <section className="border-t-4 border-b-4 border-primary-600 bg-primary-500 bg-opacity-50 dark:border-primary-900 dark:bg-primary-700 dark:bg-opacity-20">
-          <div className="container py-8">
-            <h2 className="mt-0">Check Me Out</h2>
-            <p className="mb-8">
-              I've picked up many skills in various area of development
-              throughout the years. Here's what I know so far!
-            </p>
-            <table className="w-full">
-              <tbody>
-                {skills.map(skill => (
-                  <tr key={skill.title}>
-                    <th className="table-row sm:table-cell font-semibold text-left align-top pr-3">
-                      {skill.title}
-                    </th>
-                    <td className="table-row sm:table-cell">
-                      {skill.topics.join(", ")}
-                      <br />
-                      <br />
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+        <section className="w-screen h-screen relative flex justify-center items-center bg-gray-900">
+          <div className="absolute w-full h-full">
+            <Hero />
           </div>
         </section>
+        <section className="border-t-4 py-8 border-b-4 border-primary-600 bg-primary-500 bg-opacity-50 dark:border-primary-900 dark:bg-primary-700 dark:bg-opacity-20">
+          <HeroTitle>
+            <div className="text-center">
+              <h1 className="text-3xl m-0">Hey There!</h1>
+              <p>
+                I'm a full-stack web developer.
+                <br />
+                Writes on various topics of interest.
+                <br />
+                Loves open source.
+              </p>
+            </div>
+          </HeroTitle>
+        </section>
         <section className="container mt-8">
+          <h2 className="mt-0">Check Me Out</h2>
+          <p className="mb-6">
+            I've picked up many skills in various area of development throughout
+            the years. Here's what I know so far!
+          </p>
+          <table className="w-full mb-8">
+            {skills.map(skill => (
+              <tr key={skill.title}>
+                <th className="table-row sm:table-cell font-semibold text-left align-top pr-3">
+                  {skill.title}
+                </th>
+                <td className="table-row sm:table-cell">
+                  {skill.topics.join(", ")}
+                  <br />
+                  <br />
+                </td>
+              </tr>
+            ))}
+          </table>
           <div className="flex flex-row justify-between items-center mb-1">
             <div>
               <h2 className="m-0">Featured Projects</h2>
