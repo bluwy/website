@@ -4,7 +4,7 @@ import Helmet from "react-helmet"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import style from "./hero.module.css"
 
-export const Hero = () => {
+const HeroImage = () => {
   const data = useStaticQuery(graphql`
     query {
       allSocialsYaml {
@@ -42,12 +42,15 @@ export const Hero = () => {
         <div className="space-x-12">
           {socialLinks.map(socialLink => (
             <a
-            className="text-3xl"
+              className="text-3xl"
               key={socialLink.title}
               href={socialLink.link}
               title={`My ${socialLink.title} profile`}
             >
-              <FontAwesomeIcon className={style.socialIcon}  icon={socialLink.icon} />
+              <FontAwesomeIcon
+                className={style.socialIcon}
+                icon={socialLink.icon}
+              />
             </a>
           ))}
         </div>
@@ -77,7 +80,7 @@ const HeroTitleArrow = () => (
   </svg>
 )
 
-export const HeroTitle = ({ children }) => (
+const HeroTitle = ({ children }) => (
   <div className="flex justify-center">
     <div className="relative">
       <div className={"hidden sm:block " + style.heroTitleArrowLeft}>
@@ -90,3 +93,27 @@ export const HeroTitle = ({ children }) => (
     </div>
   </div>
 )
+
+export const Hero = () => (
+  <>
+    <section className="w-screen h-screen bg-gray-900">
+      <HeroImage />
+    </section>
+    <section className="border-t-6 border-b-6 py-8 text-gray-100 border-primary-900 bg-gray-800 opacity-90">
+      <HeroTitle>
+        <div className="text-center">
+          <h1 className="text-3xl m-0 mb-1">Hey There!</h1>
+          <p>
+            I'm a full-stack web developer.
+            <br />
+            Writes on various topics of interest.
+            <br />
+            Loves open source.
+          </p>
+        </div>
+      </HeroTitle>
+    </section>
+  </>
+)
+
+export default Hero

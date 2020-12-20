@@ -2,7 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "@/components/layout"
 import SEO from "@/components/seo"
-import { Hero, HeroTitle } from "@/components/hero"
+import Hero from "@/components/hero"
 
 const Home = ({ data }) => {
   const skills = data.skills.nodes
@@ -13,25 +13,7 @@ const Home = ({ data }) => {
     <Layout isHero={true}>
       <SEO />
       <article>
-        <section className="w-screen h-screen relative flex justify-center items-center bg-gray-900">
-          <div className="absolute w-full h-full">
-            <Hero />
-          </div>
-        </section>
-        <section className="border-t-4 py-8 border-b-4 border-primary-600 bg-primary-500 bg-opacity-50 dark:border-primary-900 dark:bg-primary-700 dark:bg-opacity-20">
-          <HeroTitle>
-            <div className="text-center">
-              <h1 className="text-3xl m-0 mb-1">Hey There!</h1>
-              <p>
-                I'm a full-stack web developer.
-                <br />
-                Writes on various topics of interest.
-                <br />
-                Loves open source.
-              </p>
-            </div>
-          </HeroTitle>
-        </section>
+        <Hero />
         <section className="container mt-8">
           <h2 className="mt-0">Check Me Out</h2>
           <p className="mb-6">

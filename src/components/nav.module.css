@@ -21,6 +21,6 @@
   }
 
   .navShrink {
-    @apply shadow-none bg-gray-800;
+    @apply shadow-none bg-gray-800 text-gray-100;
   }
 }
