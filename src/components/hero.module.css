@@ -149,6 +149,11 @@
     drop-shadow(0 0 24px #fe13cd);
 }
 
+.socialIconGroup {
+  position: absolute;
+  bottom: 4.5vh;
+}
+
 /* Landscape mode uses vh as scale */
 @media (orientation: landscape) {
   .hero {

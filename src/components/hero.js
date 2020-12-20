@@ -38,22 +38,19 @@ const HeroImage = () => {
           <div className={style.heroTextWelcome}>Welcome</div>
         </div>
       </div>
-      <div className="absolute bottom-0 mb-8">
-        <div className="space-x-12">
-          {socialLinks.map(socialLink => (
-            <a
-              className="text-3xl"
-              key={socialLink.title}
-              href={socialLink.link}
-              title={`My ${socialLink.title} profile`}
-            >
-              <FontAwesomeIcon
-                className={style.socialIcon}
-                icon={socialLink.icon}
-              />
-            </a>
-          ))}
-        </div>
+      <div className={"text-3xl space-x-12 " + style.socialIconGroup}>
+        {socialLinks.map(socialLink => (
+          <a
+            key={socialLink.title}
+            href={socialLink.link}
+            title={`My ${socialLink.title} profile`}
+          >
+            <FontAwesomeIcon
+              className={style.socialIcon}
+              icon={socialLink.icon}
+            />
+          </a>
+        ))}
       </div>
     </div>
   )

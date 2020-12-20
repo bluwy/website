@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { library } from "@fortawesome/fontawesome-svg-core"
+import { config, library } from "@fortawesome/fontawesome-svg-core"
 import {
   faTwitter,
   faReddit,
@@ -9,7 +9,11 @@ import {
 } from "@fortawesome/free-brands-svg-icons"
 import Footer from "./footer"
 import Nav from "./nav"
+import "@fortawesome/fontawesome-svg-core/styles.css"
 import "./layout.css"
+
+// Prevent fontawesome FOUC: https://stackoverflow.com/a/59429852/13265944
+config.autoAddCss = false
 
 // Setup icons
 library.add(faTwitter, faReddit, faLinkedin, faGithub)
