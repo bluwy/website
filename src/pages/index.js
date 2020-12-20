@@ -21,7 +21,7 @@ const Home = ({ data }) => {
         <section className="border-t-4 py-8 border-b-4 border-primary-600 bg-primary-500 bg-opacity-50 dark:border-primary-900 dark:bg-primary-700 dark:bg-opacity-20">
           <HeroTitle>
             <div className="text-center">
-              <h1 className="text-3xl m-0">Hey There!</h1>
+              <h1 className="text-3xl m-0 mb-1">Hey There!</h1>
               <p>
                 I'm a full-stack web developer.
                 <br />

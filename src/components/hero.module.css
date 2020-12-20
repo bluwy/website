@@ -4,6 +4,7 @@
   background-position: 50% 0%;
   background-color: #18031a;
   font-family: Pacifico, cursive;
+  position: relative;
   width: 100%;
   height: 100%;
   display: flex;
@@ -131,6 +132,21 @@
   left: 100%;
   transform-origin: center;
   transform: translateY(-50%) rotate(-180deg);
+}
+
+.socialIcon {
+  mix-blend-mode: screen;
+  color: #cbfdff;
+  filter: drop-shadow(0 0 2px #2df5ff) drop-shadow(0 0 10px #2df5ff)
+    drop-shadow(0 0 24px #2df5ff);
+  transition: filter 0.2s ease-in, color 0.2s ease-in;
+}
+
+.socialIcon:hover,
+.socialIcon:focus {
+  color: #ffc4f3;
+  filter: drop-shadow(0 0 2px #fe13cd) drop-shadow(0 0 10px #fe13cd)
+    drop-shadow(0 0 24px #fe13cd);
 }
 
 /* Landscape mode uses vh as scale */

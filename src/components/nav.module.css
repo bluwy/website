@@ -3,11 +3,11 @@
 }
 
 .navHero {
-  @apply bg-transparent;
+  @apply bg-transparent text-gray-100;
 }
 
 .navShrink {
-  @apply shadow;
+  @apply shadow bg-gray-100 text-gray-900;
   height: 56px;
 }
 
