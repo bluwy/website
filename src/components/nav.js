@@ -10,6 +10,7 @@ const Nav = ({ isHero }) => {
         nodes {
           title
           to
+          external
         }
       }
     }
@@ -46,15 +47,21 @@ const Nav = ({ isHero }) => {
           </Link>
           <ul>
             {navLinks.map(link => (
-              <li className="inline-block mx-3 sm:mx-4 my-2" key={link.title}>
-                <Link
-                  className="text-lg"
-                  to={link.to}
-                  activeClassName="font-semibold"
-                  partiallyActive={true}
-                >
-                  {link.title}
-                </Link>
+              <li
+                className="inline-block text-lg mx-3 sm:mx-4 my-2"
+                key={link.title}
+              >
+                {link.external ? (
+                  <a href={link.to}>{link.title}</a>
+                ) : (
+                  <Link
+                    to={link.to}
+                    activeClassName="font-semibold"
+                    partiallyActive={true}
+                  >
+                    {link.title}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>

@@ -3,4 +3,5 @@
 - title: Blog
   to: /blog
 - title: Resume
-  to: /resume
+  to: /resume.pdf
+  external: true
