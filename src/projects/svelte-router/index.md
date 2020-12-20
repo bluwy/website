@@ -10,6 +10,7 @@ links:
     link: https://www.npmjs.com/package/@bjornlu/svelte-router
 tags:
   - Svelte
+  - TypeScript
 ---
 
 A simple router for Svelte single-page apps. Supports hash and path-based navigations.
