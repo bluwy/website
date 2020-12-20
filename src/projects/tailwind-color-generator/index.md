@@ -3,7 +3,7 @@ title: Tailwind Color Generator
 desc: Easily generate Tailwind color palette
 icon: tailwind.svg
 links:
-  - label: Repository
+  - label: GitHub
     link: https://github.com/bluwy/tailwind-color-gen
   - label: Website
     link: https://tailwind-color-gen.netlify.app

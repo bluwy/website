@@ -3,7 +3,7 @@ title: Cheetah Job Sheet
 desc: Job sheet management tool
 icon: timetable.svg
 links:
-  - label: Repository
+  - label: GitHub
     link: https://github.com/bluwy/cheetah-server
 tags:
   - React

@@ -3,7 +3,7 @@ title: Timetable
 desc: A personal class scheduler
 icon: timetable.svg
 links:
-  - label: Repository
+  - label: GitHub
     link: https://github.com/bluwy/timetable
   - label: Website
     link: https://timetable.bjornlu.com

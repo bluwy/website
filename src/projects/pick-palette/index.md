@@ -4,7 +4,7 @@ desc: Color palette manager
 icon: pick-palette.svg
 featured: true
 links:
-  - label: Repository
+  - label: GitHub
     link: https://github.com/bluwy/pick-palette
   - label: Website
     link: https://pick-palette.netlify.app

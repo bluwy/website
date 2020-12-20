@@ -3,7 +3,7 @@ title: Colorblind
 desc: Simulate color blindness
 icon: npm.svg
 links:
-  - label: Repository
+  - label: GitHub
     link: https://github.com/bluwy/colorblind
   - label: NPM
     link: https://www.npmjs.com/package/@bjornlu/colorblind

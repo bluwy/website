@@ -3,7 +3,7 @@ title: Release for Reddit
 desc: Automate Reddit release post
 icon: github-action.svg
 links:
-  - label: Repository
+  - label: GitHub
     link: https://github.com/bluwy/release-for-reddit-action
   - label: Marketplace
     link: https://github.com/marketplace/actions/release-for-reddit

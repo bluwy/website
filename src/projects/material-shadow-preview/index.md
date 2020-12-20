@@ -4,7 +4,7 @@ desc: Visualize Material Design elevations
 icon: material-design.svg
 featured: true
 links:
-  - label: Repository
+  - label: GitHub
     link: https://github.com/bluwy/material-shadow-preview
   - label: Website
     link: https://material-shadow-preview.netlify.app/

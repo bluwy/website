@@ -3,7 +3,7 @@ title: Substitute String
 desc: Substitute strings in GitHub Actions
 icon: github-action.svg
 links:
-  - label: Repository
+  - label: GitHub
     link: https://github.com/bluwy/substitute-string-action
   - label: Marketplace
     link: https://github.com/marketplace/actions/substitute-string
