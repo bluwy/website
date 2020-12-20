@@ -11,6 +11,7 @@ links:
 tags:
   - Vue
   - Nuxt
+  - TailwindCSS
   - Express
   - PostgreSQL
 ---

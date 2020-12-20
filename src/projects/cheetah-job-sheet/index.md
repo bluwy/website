@@ -11,9 +11,11 @@ tags:
   - GraphQL
 ---
 
-A job sheet management interface to plan and keep track of employees' daily tasks. Current development is halted because no Andriod devices were available to build the employee's app interface.
+A job sheet management interface to plan and keep track of employees' daily tasks.
 
 <!-- endexcerpt -->
+
+Current development is halted because no Andriod devices were available to build the employee's app interface.
 
 ## What I've Learned
 

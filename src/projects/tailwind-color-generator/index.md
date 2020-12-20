@@ -9,6 +9,7 @@ links:
     link: https://tailwind-color-gen.netlify.app
 tags:
   - Vue
+  - TailwindCSS
 ---
 
 A simple app to quickly generate color palette for Tailwind usage. Includes 100 - 900 shades for primary, info, warning, success, danger and gray colors.

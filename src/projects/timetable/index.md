@@ -9,6 +9,7 @@ links:
     link: https://timetable.bjornlu.com
 tags:
   - Vue
+  - TailwindCSS
 ---
 
 A progressive web app to schedule my classes and other routine activities. No login required as it uses web storage. It works offline as well.
