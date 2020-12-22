@@ -5,7 +5,7 @@ date: "2020-12-21T12:30:08.000Z"
 
 If you've tried to get Apollo Client to work with Sapper, you'll quickly notice that queries can get very repetitive, especially when implementing cache hydration.
 
-You may be wondering if there's a cleaner way, but unfortunately, there isn't and I'm gladly be proven wrong. In this post, I'll discuss the best solutions I've come about, keeping them as simple as possible.
+You may be wondering if there's a cleaner way, but unfortunately, I haven't find the perfect solution I'm satisfied with yet. Nevertheless, I'll discuss the best, "simplest" solutions I've come about.
 
 ## Table of Contents
 
