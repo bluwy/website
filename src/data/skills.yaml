@@ -19,6 +19,7 @@
 - title: Others
   topics:
     - GitHub Pages
+    - GitHub Actions
     - Netlify
     - Heroku
     - Git
