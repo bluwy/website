@@ -21,18 +21,20 @@ const Home = ({ data }) => {
             the years. Here's what I know so far!
           </p>
           <table className="w-full mb-8">
-            {skills.map(skill => (
-              <tr key={skill.title}>
-                <th className="table-row sm:table-cell font-semibold text-left align-top pr-3">
-                  {skill.title}
-                </th>
-                <td className="table-row sm:table-cell">
-                  {skill.topics.join(", ")}
-                  <br />
-                  <br />
-                </td>
-              </tr>
-            ))}
+            <tbody>
+              {skills.map(skill => (
+                <tr key={skill.title}>
+                  <th className="table-row sm:table-cell font-semibold text-left align-top pr-3">
+                    {skill.title}
+                  </th>
+                  <td className="table-row sm:table-cell">
+                    {skill.topics.join(", ")}
+                    <br />
+                    <br />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
           </table>
           <div className="flex flex-row justify-between items-center mb-1">
             <div>

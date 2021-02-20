@@ -56,19 +56,15 @@ const HeroImage = () => {
   )
 }
 
-const HeroTitleArrow = () => (
-  <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+const HeroTitleArrow = ({ className }) => (
+  <svg
+    className={className}
+    width="70"
+    height="120"
+    xmlns="http://www.w3.org/2000/svg"
+  >
     <path
-      className={style.arrow1}
-      d="M90 60 L60 100 L90 140"
-      strokeWidth="15"
-      fill="transparent"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      className={style.arrow2}
-      d="M140 60 L110 100 L140 140"
+      d="M50 20 L20 60 L50 100"
       strokeWidth="15"
       fill="transparent"
       strokeLinecap="round"
@@ -80,12 +76,14 @@ const HeroTitleArrow = () => (
 const HeroTitle = ({ children }) => (
   <div className="flex justify-center">
     <div className="relative">
-      <div className={"hidden sm:block " + style.heroTitleArrowLeft}>
-        <HeroTitleArrow />
+      <div className={"hidden sm:flex " + style.heroTitleArrowLeft}>
+        <HeroTitleArrow className={style.arrow1} />
+        <HeroTitleArrow className={style.arrow2} />
       </div>
       <div>{children}</div>
-      <div className={"hidden sm:block " + style.heroTitleArrowRight}>
-        <HeroTitleArrow />
+      <div className={"hidden sm:flex " + style.heroTitleArrowRight}>
+        <HeroTitleArrow className={style.arrow1} />
+        <HeroTitleArrow className={style.arrow2} />
       </div>
     </div>
   </div>
@@ -96,7 +94,7 @@ export const Hero = () => (
     <section className="w-screen h-screen bg-gray-900">
       <HeroImage />
     </section>
-    <section className="border-t-6 border-b-6 py-8 text-gray-100 border-primary-900 bg-gray-800 opacity-90">
+    <section className="border-t-6 border-b-6 py-8 text-gray-100 border-primary-900 bg-gray-800 bg-opacity-90">
       <HeroTitle>
         <div className="text-center">
           <h1 className="text-3xl m-0 mb-1">Hey There!</h1>

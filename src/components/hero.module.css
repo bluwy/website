@@ -113,6 +113,7 @@
 }
 
 .arrow2 {
+  margin-left: -1rem;
   stroke: #cbfdff;
   mix-blend-mode: screen;
   filter: drop-shadow(0 0 2px #2df5ff) drop-shadow(0 0 10px #2df5ff)
