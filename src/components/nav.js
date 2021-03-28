@@ -45,7 +45,7 @@ const Nav = ({ isHero }) => {
               Bjorn Lu
             </span>
           </Link>
-          <ul>
+          <ul className="whitespace-no-wrap">
             {navLinks.map(link => (
               <li
                 className="inline-block text-lg mx-3 sm:mx-4 my-2"
