@@ -1,3 +1,29 @@
+## 9 April 2021
+
+- When you have a git branch relation like: `master` < `feat-a` < `feat-b`. If `feat-a` gets squash merged into `master`, and to get `feat-b` merged into `master`, run `git rebase master -i` to interactively drop squash commits and rebase. Note the commits will be recommitted, changing commit time.
+
+## 6 April 2021
+
+- In bash, `$()` means execute and return a value; `\` means execute only
+
+## 5 April 2021
+
+- Babel is only a parser/transpiler, nothing fancy
+
+## 3 April 2021
+
+- When reading the source of a software, remember that you're reading bleeding-edge code that may not be released yet.
+
+## 30 March 2021
+
+- VSCode has a search editor that places the search result directly in code view.
+
+## 29 March 2021
+
+- Sentry release version needs to match the SDK's release name.
+
+- Facebook created [Origami Design](https://origami.design/) that has much better and programmable prototyping functionality.
+
 ## 28 March 2021
 
 - `@vue/compiler-sfc` automatically [transforms asset URLs to JS imports](https://github.com/vuejs/vue-next/blob/2424768808e493ae1b59860ccb20a7c96d72d20a/packages/compiler-sfc/src/templateTransformAssetUrl.ts#L84).
