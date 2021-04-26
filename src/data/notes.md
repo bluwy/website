@@ -1,3 +1,11 @@
+## 16 April 2021
+
+- Transfering money via cryptocurrencies is a very viable option to PayPal or TransferWise.
+
+## 11 April 2021
+
+- Svelte compiler exposes metadata, including `vars`.
+
 ## 9 April 2021
 
 - When you have a git branch relation like: `master` < `feat-a` < `feat-b`. If `feat-a` gets squash merged into `master`, and to get `feat-b` merged into `master`, run `git rebase master -i` to interactively drop squash commits and rebase. Note the commits will be recommitted, changing commit time.

@@ -80,7 +80,7 @@ const HeroTitle = ({ children }) => (
         <HeroTitleArrow className={style.arrow1} />
         <HeroTitleArrow className={style.arrow2} />
       </div>
-      <div>{children}</div>
+      <div className="mx-8">{children}</div>
       <div className={"hidden sm:flex " + style.heroTitleArrowRight}>
         <HeroTitleArrow className={style.arrow1} />
         <HeroTitleArrow className={style.arrow2} />
@@ -101,9 +101,9 @@ export const Hero = () => (
           <p>
             I'm a full-stack web developer.
             <br />
-            Writes on various topics of interest.
+            I write on various topics of interest.
             <br />
-            Loves open source.
+            Loves open source!
           </p>
         </div>
       </HeroTitle>
