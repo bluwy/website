@@ -1,3 +1,19 @@
+## 4 May 2021
+
+- In Ubuntu, if `~/` disk space runs out and unable to start the GUI, go to `ctrl-alt-f2` (or any other fn except `f1`). Make disk space there.
+
+## 2 May 2021
+
+- Scroll-snapped list need `scroll-snap-align` property in the children.
+
+## 30 May 2021
+
+- Terser doesn't mangle DOM polyfills well. e.g. `function CustomEvent() {}` will not work whether it's scoped or not. I should probably report this bug.
+
+## 28 April 2021
+
+- If BIOS doesn't boot GRUB, but booted Windows instead, go to BIOS menu and manually boot with GRUB, then enter `sudo efibootmgr -o 0 1` to switch the boot sequence between the 0th and 1st bootloader (or similar command).
+
 ## 16 April 2021
 
 - Transfering money via cryptocurrencies is a very viable option to PayPal or TransferWise.
