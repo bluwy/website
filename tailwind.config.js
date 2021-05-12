@@ -63,6 +63,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['"Source Sans Pro"', "sans-serif"],
+        mono: ['"Ubuntu Mono"', "monospace"],
       },
       borderWidth: {
         "6": "6px",

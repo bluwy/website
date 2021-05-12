@@ -42,12 +42,12 @@ p {
 
 /* Inline code */
 code[class*="language-"] {
-  @apply text-lg;
+  @apply text-lg font-mono;
 }
 
 /* Code blocks */
 pre[class*="language-"] > code[class*="language-"] {
-  @apply text-sm;
+  @apply text-sm font-mono;
 }
 
 input,
