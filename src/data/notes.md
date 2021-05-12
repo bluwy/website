@@ -1,3 +1,19 @@
+## 10 May 2021
+
+- WebView browser versions in Android emulators are usually pinned and can't be upgraded.
+
+## 8 May 2021
+
+- Svelte `createEventDispatcher()` and `bubble()` (the logic that forwards DOM events) have similar code that simulates dispatching an event.
+
+## 7 May 2021
+
+- `@vitejs/plugin-legacy` set `modernPolyfills: true` and `renderLegacyChunks: false` to only build polyfills for the generated chunks.
+
+## 6 May 2021
+
+- To make sure Vite and plugins know they're working on production build, set `process.env.VITE_USER_NODE_ENV = "production"`.
+
 ## 4 May 2021
 
 - In Ubuntu, if `~/` disk space runs out and unable to start the GUI, go to `ctrl-alt-f2` (or any other fn except `f1`). Make disk space there.
