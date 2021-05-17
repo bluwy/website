@@ -1,3 +1,11 @@
+## 16 May 2021
+
+- 20 GB partition size for Linux root directory is not enough for snaps.
+
+## 14 May 2021
+
+- [Vagrant](https://www.vagrantup.com) setups an entire stack on your PC, including the OS. Feels like a waste of storage and bandwidth, with the only benefit of saving time.
+
 ## 10 May 2021
 
 - WebView browser versions in Android emulators are usually pinned and can't be upgraded.
