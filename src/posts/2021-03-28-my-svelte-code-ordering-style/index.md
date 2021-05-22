@@ -15,6 +15,8 @@ Over time I picked up a pattern to help with readabilty, code flow, and familiar
 
 1. Other library imports
 
+1. Svelte third-party component imports
+
 1. Svelte component imports
 
 1. Asset imports
@@ -29,7 +31,7 @@ Over time I picked up a pattern to help with readabilty, code flow, and familiar
 
 1. `let` variables
 
-1. Computed variables
+1. Computed variables (with mix of `let` variables)
 
 1. Computed blocks
 
@@ -39,9 +41,11 @@ Over time I picked up a pattern to help with readabilty, code flow, and familiar
 
 1. `export function` props
 
-1. Event handler functions
+1. Event handler functions (name starts with `handle`)
 
-1. Generic functions
+1. Utility functions
+
+> Break this pattern whenever it feels right, e.g. grouping things by feature than type
 
 ## Example
 
@@ -49,8 +53,9 @@ Over time I picked up a pattern to help with readabilty, code flow, and familiar
 <script>
   import { createEventDispatcher, onMount } from 'svelte'
   import { _ } from 'svelte-i18n'
-  import library from 'library'
-  import Dashboard from './Dashboard.svelte'
+  import { debounce } from 'lodash'
+  import { Modal } from 'svelte-components'
+  import Button from './Button.svelte'
   import picture from './picture.svg'
   import { download } from './utils'
 
@@ -91,5 +96,5 @@ Over time I picked up a pattern to help with readabilty, code flow, and familiar
   }
 </script>
 
-<Dashboard {value} {disabled} on:click={handleClick} />
+<Button {value} {disabled} on:click={handleClick} />
 ```
