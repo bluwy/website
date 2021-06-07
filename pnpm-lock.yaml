@@ -1,12 +1,14 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@sveltejs/adapter-static': ^1.0.0-next.13
   '@sveltejs/kit': ^1.0.0-next.113
   prettier: ^2.3.1
   prettier-plugin-svelte: ^2.3.0
   svelte: ^3.38.2
 
 devDependencies:
+  '@sveltejs/adapter-static': 1.0.0-next.13
   '@sveltejs/kit': 1.0.0-next.113_svelte@3.38.2
   prettier: 2.3.1
   prettier-plugin-svelte: 2.3.0_prettier@2.3.1+svelte@3.38.2
@@ -22,6 +24,10 @@ packages:
     dependencies:
       estree-walker: 2.0.2
       picomatch: 2.3.0
+    dev: true
+
+  /@sveltejs/adapter-static/1.0.0-next.13:
+    resolution: {integrity: sha512-zaXJlWK9JfrjrE6nG5etB8kf4DSkbE3H8Ql6gmCk3WjdvpY85a60TMYBU9OK2iunkqpHnPYiMUGEnOGYmWlLYA==}
     dev: true
 
   /@sveltejs/kit/1.0.0-next.113_svelte@3.38.2:
