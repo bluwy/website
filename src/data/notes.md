@@ -1,3 +1,15 @@
+## 6 June 2021
+
+- Bundlers compile ESM to CJS with `module.export.default` for compatibility with CJS in ESM. This only happens if you have named exports, as CJS doesn't exactly support it. This is also the reason for `require('module').default` syntax.
+
+## 3 June 2021
+
+- Playwright doesn't like using Chromium browser running `--single-process` in Ubuntu
+
+## 2 June 2021
+
+- [Gqless](https://github.com/gqless/gqless) generates GraphQL queries on the fly by sniffing variable usages. Likely with Proxies.
+
 ## 16 May 2021
 
 - 20 GB partition size for Linux root directory is not enough for snaps.
