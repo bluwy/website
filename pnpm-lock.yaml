@@ -6,6 +6,8 @@ specifiers:
   prettier: ^2.3.1
   prettier-plugin-svelte: ^2.3.0
   svelte: ^3.38.2
+  svelte-windicss-preprocess: ^4.0.8
+  windicss: ^3.1.1
 
 devDependencies:
   '@sveltejs/adapter-static': 1.0.0-next.13
@@ -13,6 +15,8 @@ devDependencies:
   prettier: 2.3.1
   prettier-plugin-svelte: 2.3.0_prettier@2.3.1+svelte@3.38.2
   svelte: 3.38.2
+  svelte-windicss-preprocess: 4.0.8_svelte@3.38.2
+  windicss: 3.1.1
 
 packages:
 
@@ -192,6 +196,16 @@ packages:
       source-map-js: 0.6.2
     dev: true
 
+  /prettier-plugin-svelte/2.3.0_prettier@2.3.0+svelte@3.38.2:
+    resolution: {integrity: sha512-HTzXvSq7lWFuLsSaxYOUkGkVNCl3RrSjDCOgQjkBX5FQGmWjL8o3IFACSGhjPMMfWKADpapAr0zdbBWkND9mqw==}
+    peerDependencies:
+      prettier: ^1.16.4 || ^2.0.0
+      svelte: ^3.2.0
+    dependencies:
+      prettier: 2.3.0
+      svelte: 3.38.2
+    dev: true
+
   /prettier-plugin-svelte/2.3.0_prettier@2.3.1+svelte@3.38.2:
     resolution: {integrity: sha512-HTzXvSq7lWFuLsSaxYOUkGkVNCl3RrSjDCOgQjkBX5FQGmWjL8o3IFACSGhjPMMfWKADpapAr0zdbBWkND9mqw==}
     peerDependencies:
@@ -200,6 +214,12 @@ packages:
     dependencies:
       prettier: 2.3.1
       svelte: 3.38.2
+    dev: true
+
+  /prettier/2.3.0:
+    resolution: {integrity: sha512-kXtO4s0Lz/DW/IJ9QdWhAf7/NmPWQXkFr/r/WkR3vyI+0v8amTDxiaQSLzs8NBlytfLWX/7uQUMIW677yLKl4w==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
     dev: true
 
   /prettier/2.3.1:
@@ -264,6 +284,17 @@ packages:
       svelte: 3.38.2
     dev: true
 
+  /svelte-windicss-preprocess/4.0.8_svelte@3.38.2:
+    resolution: {integrity: sha512-dqbMoR9Ve77dFmTMdXbHAWSrBCxLb0yMqpX+wR0GEVW7DMikiyo8YvvPoJbKFLZhD4rJYbr6YcN+xj0ii6heJQ==}
+    dependencies:
+      prettier: 2.3.0
+      prettier-plugin-svelte: 2.3.0_prettier@2.3.0+svelte@3.38.2
+      windicss: 3.1.0
+      windicss-runtime-dom: 0.1.1
+    transitivePeerDependencies:
+      - svelte
+    dev: true
+
   /svelte/3.38.2:
     resolution: {integrity: sha512-q5Dq0/QHh4BLJyEVWGe7Cej5NWs040LWjMbicBGZ+3qpFWJ1YObRmUDZKbbovddLC9WW7THTj3kYbTOFmU9fbg==}
     engines: {node: '>= 8'}
@@ -280,4 +311,20 @@ packages:
       rollup: 2.51.0
     optionalDependencies:
       fsevents: 2.3.2
+    dev: true
+
+  /windicss-runtime-dom/0.1.1:
+    resolution: {integrity: sha512-hUNMCoGW01r946w710BDO/3bLgLQrlNRLVqXgCdbMPedIi6z5QFTIkzw+DVCEt6gojmrhy055CJ+ATTCefJTmg==}
+    dev: true
+
+  /windicss/3.1.0:
+    resolution: {integrity: sha512-z49xITq4X1ltHIZyL4NwFTR2LXPJ0rbOOrhDXfLX+OfG4Au7+GAzqvNlzUfAaIbA8HSpnI04alQHUWH24KfNYA==}
+    engines: {node: '>= 12'}
+    hasBin: true
+    dev: true
+
+  /windicss/3.1.1:
+    resolution: {integrity: sha512-vLtydYOqqLwb3Jg02QYqCnna1jONLt6GuDyAtRokQY81uA8BiOyN2y3ED9QGX28CIL5Zi7bpnkBL1f1g4CHuXQ==}
+    engines: {node: '>= 12'}
+    hasBin: true
     dev: true
