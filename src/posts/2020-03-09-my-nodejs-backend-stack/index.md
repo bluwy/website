@@ -1,6 +1,6 @@
 ---
 title: My NodeJS Backend Stack
-date: "2020-03-09T20:02:55.000Z"
+date: '2020-03-09T20:02:55.000Z'
 ---
 
 The [NodeJS][nodejs] ecosystem is large and there are many ways to build your server. In about 6 months of learning backend work, I finally came out with my preferred tech stack.

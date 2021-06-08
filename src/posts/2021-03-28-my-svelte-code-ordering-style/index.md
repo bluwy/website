@@ -1,6 +1,6 @@
 ---
 title: My Svelte Code Ordering Style
-date: "2021-04-10T15:43:11.000Z"
+date: '2021-04-10T15:43:11.000Z'
 ---
 
 Formatting Svelte code with Prettier is just half the story, the script tag is where the magic happens, but there's no formal way to organize it.

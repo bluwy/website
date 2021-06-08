@@ -1,6 +1,6 @@
 ---
 title: 3 Ways to Fix Rainmeter Crashes
-date: "2019-06-06T02:00:54.000Z"
+date: '2019-06-06T02:00:54.000Z'
 ---
 
 Sometimes Rainmeter crashes and you have no idea why. Here's a straightforward guide to fix it.

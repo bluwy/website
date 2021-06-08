@@ -1,6 +1,6 @@
 ---
 title: Building My First Apollo Server
-date: "2019-10-05T02:00:27.000Z"
+date: '2019-10-05T02:00:27.000Z'
 ---
 
 I recently got interested in GraphQL whilst building a new server. I had experience with the REST infrastructure before so this post will go into details on some things I faced during the learning process.
