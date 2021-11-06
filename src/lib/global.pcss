@@ -1,0 +1,312 @@
+::selection {
+  @apply text-black bg-primary-500;
+}
+
+html {
+  @apply text-gray-900 bg-gray-100 break-words overflow-x-hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-semibold leading-tight;
+}
+
+h1 {
+  @apply text-3xl mt-12 mb-4;
+}
+
+h2 {
+  @apply text-2xl mt-10 mb-3;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  @apply text-xl mt-6 mb-2;
+}
+
+p {
+  @apply text-lg mb-3;
+}
+
+/* Inline code */
+code[class*='language-'] {
+  @apply text-lg font-mono;
+}
+
+/* Code blocks */
+pre[class*='language-'] > code[class*='language-'] {
+  @apply text-sm font-mono;
+}
+
+input,
+textarea {
+  @apply px-2 py-1 rounded-md bg-gray-300 bg-opacity-20 border-2 border-gray-500 transition-colors duration-300;
+}
+
+input::placeholder,
+textarea::placeholder {
+  @apply text-black text-opacity-40;
+}
+
+input:hover,
+textarea:hover {
+  @apply bg-primary-300 border-primary-500 bg-opacity-20;
+}
+
+input:focus,
+textarea:focus {
+  @apply bg-primary-300 border-primary-500 bg-opacity-50;
+}
+
+button,
+.btn {
+  @apply inline-block px-2 py-1 rounded-md border-2 border-primary-600 border-opacity-80 bg-primary-500 bg-opacity-50 transition-colors duration-200;
+}
+
+button:hover,
+button:focus,
+.btn:hover,
+.btn:focus {
+  @apply bg-opacity-70;
+}
+
+.btn--sm {
+  @apply text-sm;
+  padding: 0.125rem 0.5rem;
+}
+
+.btn--translucent {
+  @apply bg-opacity-20 border-opacity-20;
+}
+
+.btn--translucent:hover,
+.btn--translucent:focus {
+  @apply bg-opacity-50 border-opacity-50;
+}
+
+.card {
+  @apply p-3 rounded-lg border-2 border-primary-600 bg-primary-500 bg-opacity-20 border-opacity-20 transition-colors duration-200;
+}
+
+.card:hover,
+.card:focus {
+  @apply bg-opacity-50 border-opacity-70;
+}
+
+.ftag {
+  @apply inline-block border text-sm rounded-md bg-primary-300 border-primary-500 bg-opacity-20 transition-colors duration-200;
+  padding: 0.125rem 0.5rem;
+}
+
+.ftag--active {
+  @apply bg-primary-500 bg-opacity-50;
+}
+
+.ftag--disabled {
+  @apply bg-gray-400 border-gray-500 bg-opacity-20;
+}
+
+.gatsby-highlight {
+  @apply overflow-auto rounded-lg my-5;
+}
+
+.gatsby-highlight pre[class*='language-'] {
+  @apply m-0 p-4;
+}
+
+.gatsby-highlight code[class*='language-'] {
+  @apply inline-block min-w-full;
+}
+
+.gatsby-highlight-code-line {
+  @apply block bg-white bg-opacity-20 border-white -mx-4 pl-3 pr-4 border-white border-opacity-70;
+  border-left-width: 0.25rem;
+}
+
+.gatsby-code-title {
+  @apply mt-5 px-4 py-1 font-semibold bg-gray-800 text-white rounded-t-lg;
+}
+
+.gatsby-code-title ~ .gatsby-highlight {
+  @apply mt-0 rounded-t-none;
+}
+
+:not(pre) > code[class*='language-'] {
+  @apply text-primary-900 bg-gray-300 bg-opacity-40;
+}
+
+.markdown a {
+  @apply text-primary-800 font-semibold underline;
+}
+
+/* Header autolink */
+.markdown a.anchor {
+  @apply text-primary-700 opacity-70 transition-opacity duration-200;
+  transform: translateY(4px);
+}
+
+.markdown a.anchor:hover,
+.markdown a.anchor:focus {
+  @apply opacity-100;
+}
+
+.markdown a.anchor svg {
+  @apply visible;
+}
+
+.markdown ol {
+  @apply text-lg list-decimal;
+}
+
+.markdown ul {
+  @apply text-lg list-disc;
+}
+
+.markdown li {
+  @apply ml-5 mb-1 pl-6;
+}
+
+.markdown blockquote {
+  @apply p-4 my-3 border-l-6 border-warning-500 bg-warning-300 bg-opacity-20;
+}
+
+.markdown blockquote p:last-child {
+  @apply m-0;
+}
+
+.markdown .toc p {
+  @apply m-0;
+}
+
+.markdown .toc ul {
+  @apply list-none;
+}
+
+.markdown .toc li {
+  @apply m-0;
+}
+
+.markdown .toc a {
+  @apply relative font-normal no-underline;
+}
+
+.markdown .toc a::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: calc(100% + 16px);
+  width: 8px;
+  height: 8px;
+  opacity: 0.7;
+  border-top: 2px solid theme('colors.gray.800');
+  border-right: 2px solid theme('colors.gray.800');
+  transform: translateY(-50%) rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+.markdown .toc a:hover::before,
+.markdown .toc a:focus::before {
+  transform: translateY(-50%) translateX(4px) rotate(45deg);
+}
+
+@screen sm {
+  .markdown a.anchor {
+    position: absolute;
+    top: calc(50% + 1px);
+    right: 100%;
+    padding-left: 0;
+    padding-right: 4px;
+    transform: translateY(-50%);
+  }
+}
+
+@screen lg {
+  html {
+    @apply text-lg;
+  }
+
+  h1 {
+    @apply text-4xl mt-10;
+  }
+
+  h2 {
+    @apply text-3xl mt-8;
+  }
+
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-2xl mt-6;
+  }
+}
+
+@screen dark {
+  ::selection {
+    @apply text-white bg-primary-800;
+  }
+
+  html {
+    @apply bg-gray-900 text-gray-100;
+  }
+
+  input,
+  textarea {
+    @apply bg-opacity-10;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    @apply text-white;
+  }
+
+  input:hover,
+  textarea:hover {
+    @apply bg-primary-300 border-primary-500 bg-opacity-20;
+  }
+
+  input:focus,
+  textarea:focus {
+    @apply bg-primary-300 border-primary-500 bg-opacity-30;
+  }
+
+  button,
+  .btn {
+    @apply bg-opacity-30;
+  }
+
+  button:hover,
+  button:focus,
+  .btn:hover,
+  .btn:focus {
+    @apply bg-opacity-60;
+  }
+
+  .card {
+    @apply bg-opacity-10 border-opacity-10;
+  }
+
+  .card:hover,
+  .card:focus {
+    @apply bg-opacity-20 border-opacity-50;
+  }
+
+  :not(pre) > code[class*='language-'] {
+    @apply text-primary-100 bg-white bg-opacity-20;
+  }
+
+  .markdown a {
+    @apply text-primary-300;
+  }
+
+  .markdown .toc a::before {
+    border-top: 2px solid theme('colors.gray.200');
+    border-right: 2px solid theme('colors.gray.200');
+  }
+}
