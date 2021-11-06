@@ -1,7 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@sveltejs/adapter-static': ^1.0.0-next.21
+  '@sveltejs/adapter-netlify': ^1.0.0-next.35
   '@sveltejs/kit': ^1.0.0-next.194
   prettier: ^2.4.1
   prettier-plugin-svelte: ^2.4.0
@@ -10,7 +10,7 @@ specifiers:
   windicss: ^3.2.1
 
 devDependencies:
-  '@sveltejs/adapter-static': 1.0.0-next.21
+  '@sveltejs/adapter-netlify': 1.0.0-next.35
   '@sveltejs/kit': 1.0.0-next.194_svelte@3.44.1
   prettier: 2.4.1
   prettier-plugin-svelte: 2.4.0_prettier@2.4.1+svelte@3.44.1
@@ -19,6 +19,10 @@ devDependencies:
   windicss: 3.2.1
 
 packages:
+
+  /@iarna/toml/2.2.5:
+    resolution: {integrity: sha512-trnsAYxU3xnS1gPHPyU961coFyLkh4gAD/0zQ5mymY4yOZ+CYvsPqUbOFSw0aDM4y0tV7tiFxL/1XfXPNC6IPg==}
+    dev: true
 
   /@iconify/json/1.1.421:
     resolution: {integrity: sha512-nCxWszt2AjVsG/REoAhFue4aiJniZmjx8M2MAS/SCSHQUGoxKcFTg5NeyfDW1tQiKJ0R8AmbEb0Zum8ljybZNA==}
@@ -32,8 +36,11 @@ packages:
       picomatch: 2.3.0
     dev: true
 
-  /@sveltejs/adapter-static/1.0.0-next.21:
-    resolution: {integrity: sha512-B4+QoUVAaANKx+mHntG8SqF45zbj3Ct4Akg/cGauo6COyfKZRhO5OsMa+wPuT2TKJBZC4eEDK0p+p9nyQBkxKQ==}
+  /@sveltejs/adapter-netlify/1.0.0-next.35:
+    resolution: {integrity: sha512-3PC1RaRReu652ot+LC9EOjkebnZehdwvUm0zhPC8OFPJJccQwq6Y1kbHDeACIIFRTaKLIRBpuYh3idP6ffUGdw==}
+    dependencies:
+      '@iarna/toml': 2.2.5
+      esbuild: 0.13.12
     dev: true
 
   /@sveltejs/kit/1.0.0-next.194_svelte@3.44.1:

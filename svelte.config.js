@@ -1,12 +1,13 @@
 import path from 'path'
 import { windi } from 'svelte-windicss-preprocess'
-import adapterStatic from '@sveltejs/adapter-static'
+import adapter from '@sveltejs/adapter-netlify'
 
-export default /** @type {import('@sveltejs/kit').Config} */ ({
+/** @type {import('@sveltejs/kit').Config} */
+const config = {
   preprocess: [windi()],
   kit: {
     target: '#svelte',
-    adapter: adapterStatic(),
+    adapter: adapter(),
     vite: {
       resolve: {
         alias: {
@@ -18,4 +19,6 @@ export default /** @type {import('@sveltejs/kit').Config} */ ({
       }
     }
   }
-})
+}
+
+export default config
