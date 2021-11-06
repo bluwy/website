@@ -12,10 +12,10 @@
 >
   <path
     d="M50 20 L20 60 L50 100"
-    strokeWidth="15"
+    stroke-width="15"
     fill="transparent"
-    strokeLinecap="round"
-    strokeLinejoin="round"
+    stroke-linecap="round"
+    stroke-linejoin="round"
   />
 </svg>
 
