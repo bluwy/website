@@ -1,14 +1,14 @@
 import path from 'path'
-import { windi } from 'svelte-windicss-preprocess'
 import adapter from '@sveltejs/adapter-netlify'
+import WindiCSS from 'vite-plugin-windicss'
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-  preprocess: [windi()],
   kit: {
     target: '#svelte',
     adapter: adapter(),
     vite: {
+      plugins: [WindiCSS()],
       resolve: {
         alias: {
           $assets: path.resolve('src/assets'),

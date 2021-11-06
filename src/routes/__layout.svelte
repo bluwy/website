@@ -1,4 +1,7 @@
-<slot />
+<script>
+  import 'virtual:windi.css'
+</script>
 
-<style windi:preflights:global windi:safelist:global>
-</style>
+<main>
+  <slot />
+</main>

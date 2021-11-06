@@ -14,7 +14,7 @@
     "prettier": "^2.4.1",
     "prettier-plugin-svelte": "^2.4.0",
     "svelte": "^3.44.1",
-    "svelte-windicss-preprocess": "^4.1.5",
+    "vite-plugin-windicss": "^1.5.1",
     "windicss": "^3.2.1"
   }
 }
