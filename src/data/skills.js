@@ -1,15 +1,15 @@
-export default [
+export const skills = [
   {
     title: 'Frontend',
     topics: [
       'TypeScript',
-      'React',
-      'Vue',
       'Svelte',
+      'Vue',
+      'React',
       'Jekyll',
-      'Gatsby',
-      'Nuxt',
-      'Sapper'
+      'SvelteKit',
+      'Vite',
+      'and various build tools'
     ]
   },
   {

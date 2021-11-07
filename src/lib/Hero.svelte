@@ -1,5 +1,5 @@
 <script>
-  import socials from '$data/socials'
+  import { socials } from '$data/socials'
   import HeroArrow from './HeroArrow.svelte'
   import Icon from './Icon.svelte'
 </script>

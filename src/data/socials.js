@@ -1,9 +1,9 @@
-import githubIcon from '$assets/images/social-icons/github?raw'
-import redditIcon from '$assets/images/social-icons/reddit?raw'
-import twitterIcon from '$assets/images/social-icons/twitter?raw'
-import twitterIcon from '$assets/images/social-icons/linkedin?raw'
+import githubIcon from '$assets/images/social-icons/github.svg?raw'
+import redditIcon from '$assets/images/social-icons/reddit.svg?raw'
+import twitterIcon from '$assets/images/social-icons/twitter.svg?raw'
+import linkedinIcon from '$assets/images/social-icons/linkedin.svg?raw'
 
-export default [
+export const socials = [
   {
     title: 'GitHub',
     link: 'https://github.com/bluwy',
@@ -22,6 +22,6 @@ export default [
   {
     title: 'LinkedIn',
     link: 'https://www.linkedin.com/in/bjorn-lu-3302a31b5',
-    svg: twitterIcon
+    svg: linkedinIcon
   }
 ]
