@@ -9,6 +9,7 @@
     "format": "prettier --write --plugin-search-dir=. **/*.{js,svelte,md}"
   },
   "devDependencies": {
+    "@bjornlu/rollup-plugin-markdown": "workspace:*",
     "@sveltejs/adapter-netlify": "^1.0.0-next.35",
     "@sveltejs/kit": "^1.0.0-next.194",
     "prettier": "^2.4.1",

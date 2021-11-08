@@ -1,0 +1,20 @@
+{
+  "name": "@bjornlu/rollup-plugin-markdown",
+  "version": "0.0.1",
+  "private": true,
+  "author": "Bjorn Lu",
+  "license": "MIT",
+  "type": "module",
+  "exports": "./index.js",
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "mdast-util-to-string": "^3.1.0",
+    "mdast-util-toc": "^6.1.0",
+    "reading-time": "^1.5.0",
+    "remark": "^14.0.1",
+    "remark-frontmatter": "^4.0.1",
+    "remark-gfm": "^3.0.1",
+    "remark-html": "^15.0.0",
+    "remark-prism": "^1.3.6"
+  }
+}

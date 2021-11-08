@@ -1,6 +1,7 @@
 import path from 'path'
 import adapter from '@sveltejs/adapter-netlify'
 import WindiCSS from 'vite-plugin-windicss'
+import markdown from '@bjornlu/rollup-plugin-markdown'
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -8,7 +9,7 @@ const config = {
     target: '#svelte',
     adapter: adapter(),
     vite: {
-      plugins: [WindiCSS()],
+      plugins: [WindiCSS(), markdown()],
       resolve: {
         alias: {
           $assets: path.resolve('src/assets'),
