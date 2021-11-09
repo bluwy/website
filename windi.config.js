@@ -7,7 +7,7 @@ export default defineConfig({
     container: {
       center: true,
       padding: {
-        default: '16px',
+        DEFAULT: '16px',
         sm: '16px',
         md: '32px',
         lg: '120px',
@@ -15,6 +15,7 @@ export default defineConfig({
       }
     },
     colors: {
+      transparent: 'transparent',
       black: colors.black,
       white: colors.white,
       gray: colors.gray,

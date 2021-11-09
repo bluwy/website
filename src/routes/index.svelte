@@ -29,8 +29,8 @@
     </p>
     <table class="w-full mb-8">
       <tbody>
-        {#each skills as skill}
-          <tr key={skill.title}>
+        {#each skills as skill (skill.title)}
+          <tr>
             <th
               class="table-row sm:table-cell font-semibold text-left align-top pr-3"
             >
@@ -54,8 +54,8 @@
       </div>
     </div>
     <div class="flex flex-col flex-wrap sm:flex-row -mx-2">
-      {#each projects as project}
-        <div class="w-full sm:w-1/2 p-2" key={project.title}>
+      {#each projects as project (project.title)}
+        <div class="w-full sm:w-1/2 p-2">
           <a class="card flex" href={project.slug}>
             <div class="flex-shrink-0">
               <img
@@ -88,8 +88,8 @@
       </div>
     </div>
     <div class="flex flex-col flex-wrap sm:flex-row -mx-2">
-      {#each posts as post}
-        <div class="w-full sm:w-1/2 p-2" key={post.frontmatter.title}>
+      {#each posts as post (post.frontmatter.title)}
+        <div class="w-full sm:w-1/2 p-2">
           <a class="card flex" href={post.fields.slug}>
             <div>
               <div class="text-md font-semibold">

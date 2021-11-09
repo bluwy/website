@@ -24,11 +24,11 @@
     <div class="flex flex-row flex-no-wrap h-full justify-between items-center">
       <a class="flex flex-row flex-no-wrap items-center" href="/">
         <img class="mr-3 h-[24px]" src={logo} alt="Bjorn Lu logo" />
-        <span class="font-semibold text-lg hidden sm:block"> Bjorn Lu </span>
+        <span class="font-semibold text-lg hidden sm:block">Bjorn Lu</span>
       </a>
-      <ul class="whitespace-no-wrap">
-        {#each navLinks as link}
-          <li class="my-2 mx-3 text-lg inline-block sm:mx-4" key={link.title}>
+      <ul class="flex whitespace-no-wrap">
+        {#each navLinks as link (link.title)}
+          <li class="my-2 mx-3 text-lg inline-block sm:mx-4">
             <a
               class:font-semibold={$page.path.startsWith(link.to)}
               href={link.to}
