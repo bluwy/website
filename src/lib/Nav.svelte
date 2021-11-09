@@ -1,7 +1,7 @@
 <script>
   import { page } from '$app/stores'
   import logo from '$assets/images/logo.svg'
-  import navLinks from '$data/navLinks'
+  import { links } from '$data/nav'
 
   let scrollY = 0
 
@@ -27,11 +27,12 @@
         <span class="font-semibold text-lg hidden sm:block">Bjorn Lu</span>
       </a>
       <ul class="flex whitespace-no-wrap">
-        {#each navLinks as link (link.title)}
+        {#each links as link (link.title)}
           <li class="my-2 mx-3 text-lg inline-block sm:mx-4">
             <a
               class:font-semibold={$page.path.startsWith(link.to)}
               href={link.to}
+              rel={link.external ? 'external' : undefined}
             >
               {link.title}
             </a>
