@@ -1,3 +1,4 @@
+import { posts } from '$data/posts'
 import { projects } from '$data/projects'
 
 /**
@@ -7,6 +8,15 @@ import { projects } from '$data/projects'
  *   title: string,
  *   desc: string
  * }} IndexProject
+ */
+
+/**
+ * @typedef {{
+ *   slug: string,
+ *   title: string,
+ *   date: string,
+ *   readingTime: string
+ * }} IndexPost
  */
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
@@ -21,9 +31,21 @@ export async function get() {
       desc: v.frontmatter.desc
     }))
 
+  /** @type {IndexPost[]} */
+  const recentPosts = posts
+    .sort((a, b) => b.frontmatter.date - a.frontmatter.date)
+    .map((v) => ({
+      slug: v.slug,
+      title: v.frontmatter.title,
+      date: v.frontmatter.date,
+      readingTime: v.readingTime
+    }))
+    .slice(0, 4)
+
   return {
     body: {
-      projects: featuredProjects
+      featuredProjects,
+      recentPosts
     }
   }
 }

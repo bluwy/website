@@ -14,9 +14,12 @@
 <script>
   import Hero from '$lib/Hero.svelte'
   import { skills } from '$data/skills'
+  import { formatDate } from '$lib/utils'
 
   /** @type {import('./index.json').IndexProject[]} */
-  export let projects
+  export let featuredProjects
+  /** @type {import('./index.json').IndexPost[]} */
+  export let recentPosts
 </script>
 
 <article>
@@ -54,7 +57,7 @@
       </div>
     </div>
     <div class="flex flex-col flex-wrap sm:flex-row -mx-2">
-      {#each projects as project (project.title)}
+      {#each featuredProjects as project (project.title)}
         <div class="w-full sm:w-1/2 p-2">
           <a class="card flex" href={project.slug}>
             <div class="flex-shrink-0">
@@ -77,31 +80,30 @@
       {/each}
     </div>
   </section>
-  <!-- 
   <section class="container mt-8">
     <div class="flex flex-row justify-between items-center mb-1">
       <div>
         <h2 class="m-0">Recent Posts</h2>
       </div>
       <div>
-        <a class="btn text-sm" href="/blog"> View all </a>
+        <a class="btn text-sm" href="/blog">View all</a>
       </div>
     </div>
     <div class="flex flex-col flex-wrap sm:flex-row -mx-2">
-      {#each posts as post (post.frontmatter.title)}
+      {#each recentPosts as post (post.title)}
         <div class="w-full sm:w-1/2 p-2">
-          <a class="card flex" href={post.fields.slug}>
+          <a class="card flex" href={post.slug}>
             <div>
               <div class="text-md font-semibold">
-                {post.frontmatter.title}
+                {post.title}
               </div>
               <div class="text-sm opacity-80">
-                {post.frontmatter.date} - {post.timeToRead} min read
+                {formatDate(new Date(post.date))} - {post.readingTime}
               </div>
             </div>
           </a>
         </div>
       {/each}
     </div>
-  </section> -->
+  </section>
 </article>
