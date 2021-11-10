@@ -1,8 +1,13 @@
-import { remark } from 'remark'
+import { unified } from 'unified'
+import remarkParse from 'remark-parse'
 import remarkFrontmatter from 'remark-frontmatter'
 import remarkGfm from 'remark-gfm'
-import remarkHtml from 'remark-html'
 import remarkPrism from 'remark-prism'
+import remarkHtml from 'remark-html'
+import remarkRehype from 'remark-rehype'
+import rehypeSlug from 'rehype-slug'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import rehypeStringify from 'rehype-stringify'
 import { toc } from 'mdast-util-toc'
 import { toString } from 'mdast-util-to-string'
 import { load as yamlParse } from 'js-yaml'
@@ -18,39 +23,41 @@ const END_EXCERPT = '<!-- endexcerpt -->'
  * }}
  */
 export default function rollupPluginMarkdown() {
-  const remarkTocPipeline = remark().use(remarkHtml)
-
-  const remarkPipeline = remark()
+  const remarkPipeline = unified()
+    .use(remarkParse)
     .use(remarkFrontmatter)
     .use(remarkGfm)
     .use(remarkPrism)
-    .use(remarkHtml)
-    .use(() => (tree, file) => {
-      file.data.tocHtml = remarkTocPipeline.stringify(toc(tree).map, file)
-
-      const frontmatterNode =
-        tree.children[0]?.type === 'yaml'
-          ? tree.children.splice(0, 1)[0]
-          : undefined
-
-      if (frontmatterNode) {
-        file.data.frontmatter = yamlParse(frontmatterNode.value)
+    .use(remarkData)
+    .use(remarkRehype)
+    .use(rehypeSlug)
+    .use(rehypeAutolinkHeadings, {
+      behavior: 'append',
+      properties: {
+        ariaHidden: true,
+        tabIndex: -1,
+        className: 'anchor'
+      },
+      content: {
+        type: 'element',
+        tagName: 'svg',
+        properties: {
+          width: '24',
+          height: '24',
+          fill: 'currentColor'
+        },
+        children: [
+          {
+            type: 'element',
+            tagName: 'use',
+            properties: {
+              'xlink:href': '#autolink-icon' // Symbol defined in Icons.svelte
+            }
+          }
+        ]
       }
-
-      const plainString = toString(tree)
-
-      if (plainString.includes(END_EXCERPT)) {
-        file.data.excerpt = plainString.substring(
-          0,
-          plainString.indexOf(END_EXCERPT)
-        )
-      } else {
-        file.data.excerpt =
-          plainString.substring(0, DEFAULT_EXCERPT_LENGTH) + '...'
-      }
-
-      file.data.readingTime = readingTime(plainString).text
     })
+    .use(rehypeStringify)
 
   return {
     name: 'rollup-plugin-markdown',
@@ -68,5 +75,37 @@ export default function rollupPluginMarkdown() {
         .map(([key, value]) => `export const ${key} = ${JSON.stringify(value)}`)
         .join('\n')
     }
+  }
+}
+
+/** @type {import('unified').Plugin} */
+function remarkData() {
+  const remarkTocPipeline = unified().use(remarkParse).use(remarkHtml)
+
+  return function (tree, file) {
+    file.data.tocHtml = remarkTocPipeline.stringify(toc(tree).map)
+
+    const frontmatterNode =
+      tree.children[0]?.type === 'yaml'
+        ? tree.children.splice(0, 1)[0]
+        : undefined
+
+    if (frontmatterNode) {
+      file.data.frontmatter = yamlParse(frontmatterNode.value)
+    }
+
+    const plainString = toString(tree)
+
+    if (plainString.includes(END_EXCERPT)) {
+      file.data.excerpt = plainString.substring(
+        0,
+        plainString.indexOf(END_EXCERPT)
+      )
+    } else {
+      file.data.excerpt =
+        plainString.substring(0, DEFAULT_EXCERPT_LENGTH) + '...'
+    }
+
+    file.data.readingTime = readingTime(plainString).text
   }
 }
