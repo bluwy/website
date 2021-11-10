@@ -33,7 +33,6 @@ export async function get() {
 
   /** @type {IndexPost[]} */
   const recentPosts = posts
-    .sort((a, b) => b.frontmatter.date - a.frontmatter.date)
     .map((v) => ({
       slug: v.slug,
       title: v.frontmatter.title,

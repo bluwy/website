@@ -19,11 +19,13 @@ const postMarkdowns = import.meta.globEager('../posts/*/index.md')
  */
 
 /** @type {Post[]} */
-export const posts = Object.entries(postMarkdowns).map(([k, v]) => ({
-  slug: '/blog/' + k.match(/posts\/\d{4}-\d{2}-\d{2}-(.*)\/index.md/)[1],
-  ...v,
-  frontmatter: {
-    ...v.frontmatter,
-    date: new Date(v.frontmatter.date)
-  }
-}))
+export const posts = Object.entries(postMarkdowns)
+  .map(([k, v]) => ({
+    slug: '/blog/' + k.match(/posts\/\d{4}-\d{2}-\d{2}-(.*)\/index.md/)[1],
+    ...v,
+    frontmatter: {
+      ...v.frontmatter,
+      date: new Date(v.frontmatter.date)
+    }
+  }))
+  .sort((a, b) => b.frontmatter.date - a.frontmatter.date)
