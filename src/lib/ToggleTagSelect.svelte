@@ -19,7 +19,7 @@
 
 <div>
   {#each tags as tag (tag)}
-    <div class="inline-block mr-2 mb-2">
+    <div class="mr-2 mb-2 inline-block">
       <ToggleTag
         value={tag}
         checked={selected.includes(tag)}

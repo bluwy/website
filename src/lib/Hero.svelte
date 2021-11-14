@@ -11,7 +11,7 @@
   />
 </svelte:head>
 
-<section class="w-screen h-screen bg-gray-900">
+<section class="h-screen bg-gray-900 w-screen">
   <div class="background">
     <div class="hero">
       <div class="heroCircle1" />
@@ -22,7 +22,7 @@
         <div class="heroTextWelcome">Welcome</div>
       </div>
     </div>
-    <div class="absolute bottom-[4.5vh] text-3xl space-x-12">
+    <div class="space-x-12 bottom-[4.5vh] text-3xl absolute">
       {#each socials as social}
         <a
           class="socialIcon"
@@ -37,16 +37,16 @@
 </section>
 
 <section
-  class="border-t-6 border-b-6 py-8 text-gray-100 border-primary-900 bg-gray-800 bg-opacity-90"
+  class="bg-gray-800 bg-opacity-90 border-t-6 border-b-6 border-primary-900 py-8 text-gray-100"
 >
   <div class="flex justify-center">
     <div class="relative">
-      <div class="hidden sm:flex heroTitleArrowLeft">
+      <div class="hidden heroTitleArrowLeft sm:flex">
         <HeroArrow glowColor="pink" />
         <HeroArrow glowColor="blue" />
       </div>
-      <div class="text-center mx-8">
-        <h1 class="text-3xl m-0 mb-1">Hey There!</h1>
+      <div class="mx-8 text-center">
+        <h1 class="m-0 mb-1 text-3xl">Hey There!</h1>
         <p>
           I'm a frontend web developer.
           <br />
@@ -55,7 +55,7 @@
           Loves open source!
         </p>
       </div>
-      <div class="hidden sm:flex heroTitleArrowRight">
+      <div class="hidden heroTitleArrowRight sm:flex">
         <HeroArrow glowColor="pink" />
         <HeroArrow glowColor="blue" />
       </div>

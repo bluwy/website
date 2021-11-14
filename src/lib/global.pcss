@@ -32,11 +32,11 @@ code[class*='language-'] {
 /* prism compat end */
 
 ::selection {
-  @apply text-black bg-primary-500 @dark:text-white @dark:bg-primary-800;
+  @apply bg-primary-500 text-black @dark:bg-primary-800 @dark:text-white;
 }
 
 html, body {
-  @apply text-gray-900 bg-gray-100 leading-normal break-words overflow-x-hidden @dark:bg-gray-900 @dark:text-gray-100;
+  @apply bg-gray-100 leading-normal text-gray-900 break-words overflow-x-hidden @dark:bg-gray-900 @dark:text-gray-100;
 }
 
 
@@ -46,23 +46,23 @@ h3,
 h4,
 h5,
 h6 {
-  @apply relative font-semibold leading-tight;
+  @apply font-semibold leading-tight relative;
   scroll-margin-top: 64px;
 }
 
 h1 {
-  @apply text-3xl mt-12 mb-4;
+  @apply mt-12 mb-4 text-3xl;
 }
 
 h2 {
-  @apply text-2xl mt-10 mb-3;
+  @apply mt-10 mb-3 text-2xl;
 }
 
 h3,
 h4,
 h5,
 h6 {
-  @apply text-xl mt-6 mb-2;
+  @apply mt-6 text-xl mb-2;
 }
 
 p {
@@ -71,17 +71,17 @@ p {
 
 /* Inline code */
 code[class*='language-'] {
-  @apply text-lg font-mono;
+  @apply font-mono text-lg;
 }
 
 /* Code blocks */
 pre[class*='language-'] > code[class*='language-'] {
-  @apply text-sm font-mono;
+  @apply font-mono text-sm;
 }
 
 input,
 textarea {
-  @apply px-2 py-1 rounded-md bg-gray-300 bg-opacity-20 border-2 border-gray-500 transition-colors duration-300 @dark:bg-opacity-10;
+  @apply rounded-md bg-gray-300 bg-opacity-20 border-2 border-gray-500 py-1 px-2 transition-colors duration-300 @dark:bg-opacity-10;
 }
 
 input::placeholder,
@@ -91,17 +91,17 @@ textarea::placeholder {
 
 input:hover,
 textarea:hover {
-  @apply bg-primary-300 border-primary-500 bg-opacity-20 @dark:bg-primary-300 @dark:border-primary-500 @dark:bg-opacity-20;
+  @apply bg-primary-300 bg-opacity-20 border-primary-500 @dark:bg-primary-300 @dark:bg-opacity-20 @dark:border-primary-500;
 }
 
 input:focus,
 textarea:focus {
-  @apply bg-primary-300 border-primary-500 bg-opacity-50 @dark:bg-primary-300 @dark:border-primary-500 @dark:bg-opacity-30;
+  @apply bg-primary-300 bg-opacity-50 border-primary-500 @dark:bg-primary-300 @dark:bg-opacity-30 @dark:border-primary-500;
 }
 
 button,
 .btn {
-  @apply inline-block px-2 py-1 rounded-md border-2 border-primary-600 border-opacity-80 bg-primary-500 bg-opacity-50 transition-colors duration-200 @dark:bg-opacity-30;
+  @apply rounded-md bg-primary-500 bg-opacity-50 border-2 border-primary-600 border-opacity-80 py-1 px-2 transition-colors duration-200 inline-block @dark:bg-opacity-30;
 }
 
 button:hover,
@@ -126,7 +126,7 @@ button:focus,
 }
 
 .card {
-  @apply p-3 rounded-lg border-2 border-primary-600 bg-primary-500 bg-opacity-20 border-opacity-20 transition-colors duration-200 @dark:bg-opacity-10 @dark:border-opacity-10;
+  @apply rounded-lg bg-primary-500 bg-opacity-20 border-2 border-primary-600 border-opacity-20 p-3 transition-colors duration-200 @dark:bg-opacity-10 @dark:border-opacity-10;
 }
 
 .card:hover,
@@ -135,7 +135,7 @@ button:focus,
 }
 
 .ftag {
-  @apply inline-block border text-sm rounded-md bg-primary-300 border-primary-500 bg-opacity-20 transition-colors duration-200;
+  @apply border rounded-md bg-primary-300 bg-opacity-20 border-primary-500 text-sm transition-colors duration-200 inline-block;
   padding: 0.125rem 0.5rem;
 }
 
@@ -144,11 +144,11 @@ button:focus,
 }
 
 .ftag--disabled {
-  @apply bg-gray-400 border-gray-500 bg-opacity-20;
+  @apply bg-gray-400 bg-opacity-20 border-gray-500;
 }
 
 .gatsby-highlight {
-  @apply overflow-auto rounded-lg my-5;
+  @apply rounded-lg my-5 overflow-auto;
 }
 
 .gatsby-highlight pre[class*='language-'] {
@@ -156,34 +156,34 @@ button:focus,
 }
 
 .gatsby-highlight code[class*='language-'] {
-  @apply inline-block min-w-full;
+  @apply min-w-full inline-block;
 }
 
 .gatsby-highlight-code-line {
-  @apply inline-block bg-white bg-opacity-20 border-white -ml-4 pl-3 pr-4 border-white border-opacity-70;
+  @apply bg-white border-white bg-opacity-20 border-opacity-70 -ml-4 pr-4 pl-3 inline-block ;
   border-left-width: 0.25rem;
   width: calc(100% + 1rem);
 }
 
 .gatsby-code-title {
-  @apply mt-5 px-4 py-1 font-semibold bg-gray-800 text-white rounded-t-lg;
+  @apply rounded-t-lg font-semibold bg-gray-800 mt-5 text-white py-1 px-4;
 }
 
 .gatsby-code-title ~ .gatsby-highlight {
-  @apply mt-0 rounded-t-none;
+  @apply rounded-t-none mt-0;
 }
 
 :not(pre) > code[class*='language-'] {
-  @apply text-primary-900 bg-gray-300 bg-opacity-40 @dark:text-primary-100 @dark:bg-white @dark:bg-opacity-20;
+  @apply bg-gray-300 bg-opacity-40 text-primary-900 @dark:bg-white @dark:bg-opacity-20 @dark:text-primary-100;
 }
 
 .markdown a {
-  @apply text-primary-800 font-semibold underline @dark:text-primary-300;
+  @apply font-semibold text-primary-800 underline @dark:text-primary-300;
 }
 
 /* Header autolink */
 .markdown a.anchor {
-  @apply text-primary-700 opacity-70 transition-opacity duration-200;
+  @apply opacity-70 transition-opacity text-primary-700 duration-200;
   transform: translateY(4px);
 }
 
@@ -197,15 +197,15 @@ button:focus,
 }
 
 .markdown ol {
-  @apply text-lg list-decimal;
+  @apply list-decimal text-lg;
 }
 
 .markdown ul {
-  @apply text-lg list-disc;
+  @apply list-disc text-lg;
 }
 
 .markdown li {
-  @apply ml-5 mb-1 pl-6;
+  @apply mb-1 ml-5 pl-6;
 }
 
 .markdown li > p:last-child {
@@ -213,7 +213,7 @@ button:focus,
 }
 
 .markdown blockquote {
-  @apply p-4 m-0 my-3 border-l-6 border-warning-500 bg-warning-300 bg-opacity-20;
+  @apply bg-warning-300 bg-opacity-20 border-l-6 border-warning-500 m-0 my-3 p-4;
 }
 
 .markdown blockquote p:last-child {
@@ -233,11 +233,11 @@ button:focus,
 }
 
 .markdown .toc a {
-  @apply relative font-normal no-underline;
+  @apply font-normal relative no-underline;
 }
 
 .markdown .toc a::before {
-  @apply border-t-2 border-r-2 border-gray-800 @dark:border-gray-200
+  @apply border-t-2 border-r-2 border-gray-800 @dark:border-gray-200;
   content: '';
   position: absolute;
   top: 50%;
@@ -271,17 +271,17 @@ button:focus,
   }
 
   h1 {
-    @apply text-4xl mt-10;
+    @apply mt-10 text-4xl;
   }
 
   h2 {
-    @apply text-3xl mt-8;
+    @apply mt-8 text-3xl;
   }
 
   h3,
   h4,
   h5,
   h6 {
-    @apply text-2xl mt-6;
+    @apply mt-6 text-2xl;
   }
 }

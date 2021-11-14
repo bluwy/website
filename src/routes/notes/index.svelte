@@ -21,7 +21,7 @@
 <Head title="Notes" />
 
 <article class="container">
-  <h1 class="text-center m-0 mb-6">Notes</h1>
+  <h1 class="m-0 text-center mb-6">Notes</h1>
   <div class="markdown">
     {@html notesHtml}
   </div>

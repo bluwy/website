@@ -3,12 +3,12 @@
   export let svg
 </script>
 
-<i class="inline-block overflow-visible h-[1em] align-[-0.125em]">
+<i class="h-[1em] inline-block overflow-visible align-[-0.125em]">
   {@html svg}
 </i>
 
 <style lang="postcss">
   i > :global(svg) {
-    @apply block fill-current h-full overflow-visible;
+    @apply h-full fill-current block overflow-visible;
   }
 </style>

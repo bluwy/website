@@ -22,11 +22,11 @@
 <Head title="Blog" />
 
 <div class="container">
-  <h1 class="text-center m-0 mb-6">Blog Posts</h1>
+  <h1 class="m-0 text-center mb-6">Blog Posts</h1>
   <section class="space-y-5 sm:-mx-4">
     {#each allPosts as post (post.slug)}
       <a class="card block" href={post.slug}>
-        <div class="text-xl font-semibold">
+        <div class="font-semibold text-xl">
           {post.title}
         </div>
         <div class="mb-3 opacity-80">{post.excerpt}</div>

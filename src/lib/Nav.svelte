@@ -12,14 +12,14 @@
 <svelte:window bind:scrollY />
 
 <nav
-  class="w-full h-24 transition-all ease-out text-7xl z-30 duration-300 fixed @dark:bg-gray-900"
+  class="h-24 w-full transition-all ease-out text-7xl z-30 duration-300 fixed @dark:bg-gray-900"
   class:hero={isHero}
   class:shrink
 >
   <div class="container h-full">
     <div class="flex flex-row flex-no-wrap h-full justify-between items-center">
       <a class="flex flex-row flex-no-wrap items-center" href="/">
-        <img class="mr-3 h-[24px]" src={logo} alt="Bjorn Lu logo" />
+        <img class="h-[24px] mr-3" src={logo} alt="Bjorn Lu logo" />
         <span class="font-semibold text-lg hidden sm:block">Bjorn Lu</span>
       </a>
       <ul class="flex whitespace-no-wrap">
@@ -45,6 +45,6 @@
   }
 
   .shrink {
-    @apply shadow h-14 bg-gray-100 text-gray-900 h-[56px] @dark:shadow-none @dark:bg-gray-800 @dark:text-gray-100;
+    @apply bg-gray-100 h-14 h-[56px] shadow text-gray-900 @dark:bg-gray-800 @dark:shadow-none @dark:text-gray-100;
   }
 </style>

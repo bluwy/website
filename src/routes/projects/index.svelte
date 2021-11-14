@@ -42,7 +42,7 @@
 <Head title="Projects" />
 
 <div class="container">
-  <h1 class="text-center m-0">Projects</h1>
+  <h1 class="m-0 text-center">Projects</h1>
   <section class="my-6">
     <input
       class="mb-4 w-full sm:max-w-sm"
@@ -54,10 +54,10 @@
   </section>
   <section class="space-y-5 sm:-mx-4">
     {#each filteredProjects as project (project.slug)}
-      <a class="card flex flex-col sm:flex-row" href={project.slug}>
+      <a class="flex flex-col card sm:flex-row" href={project.slug}>
         <div class="flex-shrink-0 hidden sm:block">
           <img
-            class="rounded-lg overflow-hidden mr-4"
+            class="rounded-lg mr-4 overflow-hidden"
             src={project.icon}
             alt="{project.title} icon"
             width="160"
@@ -66,7 +66,7 @@
         </div>
         <div class="flex flex-col justify-between">
           <div>
-            <div class="text-xl font-semibold mb-1">
+            <div class="font-semibold text-xl mb-1">
               {project.title}
             </div>
             <div class="mb-3 opacity-80">{project.excerpt}</div>
