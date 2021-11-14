@@ -1,3 +1,5 @@
+<!-- Useful, but too much effort, discontinued -->
+
 ## 6 June 2021
 
 - Bundlers compile ESM to CJS with `module.export.default` for compatibility with CJS in ESM. This only happens if you have named exports, as CJS doesn't exactly support it. This is also the reason for `require('module').default` syntax.
