@@ -22,6 +22,8 @@
   export let prevProject
   /** @type {import("./[slug].json").SlugPageProject | null} */
   export let nextProject
+
+  $: rawHtml = thisPost.markdownHtml.replace('<!-- toc -->', thisPost.tocHtml)
 </script>
 
 <Head title={thisProject.title} description={thisProject.excerpt} />
@@ -36,7 +38,7 @@
     {/each}
   </div>
   <div class="markdown">
-    {@html thisProject.markdownHtml}
+    {@html rawHtml}
   </div>
 </article>
 <div class="container mt-12">

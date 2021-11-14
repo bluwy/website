@@ -18,12 +18,11 @@ export function codeToHtml(highlighter, code, lang, theme) {
 }
 
 // Forked from https://github.com/shikijs/shiki/blob/e9209dea35bde4446a9f346b5deaa48ad89409b7/packages/shiki/src/renderer.ts#L6
-// To support line highlight
+// To support line highlight and gatsby compatibility
 /**
  *
  * @param {import('shiki').IThemedToken[][]} lines
  * @param {import('shiki').HtmlRendererOptions} options
- * @returns
  */
 function renderToHtml(lines, options = {}) {
   const bg = options.bg || '#fff'

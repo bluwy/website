@@ -88,7 +88,9 @@ function remarkData() {
   const remarkTocPipeline = unified().use(remarkParse).use(remarkHtml)
 
   return function (tree, file) {
-    file.data.tocHtml = remarkTocPipeline.stringify(toc(tree).map)
+    file.data.tocHtml = `<div class="toc">${remarkTocPipeline.stringify(
+      toc(tree).map
+    )}</div>`
 
     const frontmatterNode =
       tree.children[0]?.type === 'yaml'

@@ -22,6 +22,8 @@
   export let prevPost
   /** @type {import("./[slug].json").SlugPagePost | null} */
   export let nextPost
+
+  $: rawHtml = thisPost.markdownHtml.replace('<!-- toc -->', thisPost.tocHtml)
 </script>
 
 <Head title={thisPost.title} description={thisPost.excerpt} />
@@ -32,7 +34,7 @@
     <div>{formatDate(new Date(thisPost.date))}</div>
   </header>
   <div class="markdown">
-    {@html thisPost.markdownHtml}
+    {@html rawHtml}
   </div>
 </article>
 <div class="container mt-12">
