@@ -12,9 +12,13 @@
 </script>
 
 <script>
+  import Head from '$lib/Head.svelte'
+
   /** @type {import("./index.json").MainPost[]} */
   export let notesHtml
 </script>
+
+<Head title="Notes" />
 
 <article class="container">
   <h1 class="text-center m-0 mb-6">Notes</h1>

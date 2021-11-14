@@ -15,12 +15,15 @@
   import Hero from '$lib/Hero.svelte'
   import { skills } from '$data/skills'
   import { formatDate } from '$lib/utils'
+  import Head from '$lib/Head.svelte'
 
   /** @type {import('./index.json').IndexProject[]} */
   export let featuredProjects
   /** @type {import('./index.json').IndexPost[]} */
   export let recentPosts
 </script>
+
+<Head />
 
 <article>
   <Hero />

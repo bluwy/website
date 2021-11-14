@@ -6,7 +6,6 @@ import { projects } from '$data/projects'
  *   markdownHtml: string,
  *   excerpt: string,
  *   title: string,
- *   desc: string,
  *   links: { label: string, link: string }[]
  * }} SlugThisProject
  */
@@ -32,7 +31,6 @@ export async function get({ params }) {
     markdownHtml: projects[projectIndex].markdownHtml,
     excerpt: projects[projectIndex].excerpt,
     title: projects[projectIndex].frontmatter.title,
-    desc: projects[projectIndex].frontmatter.desc,
     links: projects[projectIndex].frontmatter.links
   }
 

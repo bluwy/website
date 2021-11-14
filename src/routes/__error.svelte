@@ -1,4 +1,6 @@
 <script>
+  import Head from '$lib/Head.svelte'
+
   const sentences = [
     `There's nothing here. I promise.`,
     `There's really nothing here.`,
@@ -27,6 +29,8 @@
     }
   }
 </script>
+
+<Head title={noMoreSentence ? '【=◈︿◈=】' : '404'} />
 
 <div class="container text-center">
   {#if noMoreSentence}

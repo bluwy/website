@@ -48,7 +48,7 @@
       <div class="text-center mx-8">
         <h1 class="text-3xl m-0 mb-1">Hey There!</h1>
         <p>
-          I'm a full-stack web developer.
+          I'm a frontend web developer.
           <br />
           I write on various topics of interest.
           <br />

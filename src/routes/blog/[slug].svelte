@@ -12,6 +12,7 @@
 </script>
 
 <script>
+  import Head from '$lib/Head.svelte'
   import PaginationCard from '$lib/PaginationCard.svelte'
   import { formatDate } from '$lib/utils'
 
@@ -22,6 +23,8 @@
   /** @type {import("./[slug].json").SlugPagePost | null} */
   export let nextPost
 </script>
+
+<Head title={thisPost.title} description={thisPost.excerpt} />
 
 <article class="container">
   <header class="mb-6">

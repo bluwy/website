@@ -12,6 +12,7 @@
 </script>
 
 <script>
+  import Head from '$lib/Head.svelte'
   import ToggleTag from '$lib/ToggleTag.svelte'
   import ToggleTagSelect from '$lib/ToggleTagSelect.svelte'
 
@@ -37,6 +38,8 @@
     return titleMatch && tagsMatch
   })
 </script>
+
+<Head title="Projects" />
 
 <div class="container">
   <h1 class="text-center m-0">Projects</h1>

@@ -12,6 +12,8 @@
 </script>
 
 <script>
+  import Head from '$lib/Head.svelte'
+
   import PaginationCard from '$lib/PaginationCard.svelte'
 
   /** @type {import("./[slug].json").SlugThisProject} */
@@ -21,6 +23,8 @@
   /** @type {import("./[slug].json").SlugPageProject | null} */
   export let nextProject
 </script>
+
+<Head title={thisProject.title} description={thisProject.excerpt} />
 
 <article class="container">
   <h1 class="m-0 text-center mb-2">{thisProject.title}</h1>

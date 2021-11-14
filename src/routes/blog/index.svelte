@@ -12,11 +12,14 @@
 </script>
 
 <script>
+  import Head from '$lib/Head.svelte'
   import { formatDate } from '$lib/utils'
 
   /** @type {import("./index.json").MainPost[]} */
   export let allPosts
 </script>
+
+<Head title="Blog" />
 
 <div class="container">
   <h1 class="text-center m-0 mb-6">Blog Posts</h1>
