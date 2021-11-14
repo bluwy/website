@@ -1,3 +1,20 @@
+/* preflight start */
+/*
+  windi and tailwind's preflight aren't exactly the same https://github.com/windicss/windicss/issues/537
+
+  known issues:
+  - line height slightly different 1.75rem vs 1.5em (negligable)
+*/
+
+fieldset,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* preflight end */
+
 ::selection {
   @apply text-black bg-primary-500;
 }
@@ -17,7 +34,7 @@ h4,
 h5,
 h6 {
   @apply relative font-semibold leading-tight;
-  scroll-padding-top: 60px;
+  scroll-margin-top: 60px;
 }
 
 h1 {
@@ -175,6 +192,10 @@ button:focus,
 
 .markdown li {
   @apply ml-5 mb-1 pl-6;
+}
+
+.markdown li > p:last-child {
+  @apply m-0;
 }
 
 .markdown blockquote {
