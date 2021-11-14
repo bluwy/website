@@ -12,13 +12,9 @@
 <svelte:window bind:scrollY />
 
 <nav
-  class="
-    w-full transition-all ease-out text-7xl z-30 duration-300 fixed dark:bg-gray-900
-    {shrink
-    ? 'h-14 bg-gray-100 shadow dark:bg-gray-800 dark:shadow-none'
-    : 'h-24 bg-gray-100'}
-    {isHero && !shrink ? '!bg-transparent !text-gray-100' : ''}
-  "
+  class="w-full h-24 transition-all ease-out text-7xl z-30 duration-300 fixed @dark:bg-gray-900"
+  class:hero={isHero}
+  class:shrink
 >
   <div class="container h-full">
     <div class="flex flex-row flex-no-wrap h-full justify-between items-center">
@@ -42,3 +38,13 @@
     </div>
   </div>
 </nav>
+
+<style>
+  .hero {
+    @apply bg-transparent text-gray-100 @dark:bg-transparent;
+  }
+
+  .shrink {
+    @apply shadow h-14 bg-gray-100 text-gray-900 h-[56px] @dark:shadow-none @dark:bg-gray-800 @dark:text-gray-100;
+  }
+</style>

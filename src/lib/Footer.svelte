@@ -12,7 +12,7 @@
       <div class="flex-shrink space-x-4 text-2xl mb-3 sm:mb-0">
         {#each socials as social (social.title)}
           <a
-            class="opacity-80 transition-colors duration-200 hover:text-primary-800 focus:text-primary-800 hover:opacity-100 focus:opacity-100 dark:hover:text-primary-300 dark:focus:text-primary-300"
+            class="opacity-80 transition-colors duration-200 hover:text-primary-800 focus:text-primary-800 hover:opacity-100 focus:opacity-100 @dark:hover:text-primary-300 @dark:focus:text-primary-300"
             href={social.link}
             title="My {social.title} profile"
           >

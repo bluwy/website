@@ -19,7 +19,7 @@
       <span class="ml-2 arrow arrow-right" />
     {/if}
   </div>
-  <div class="font-bold text-lg text-gray-800 dark:text-gray-100">
+  <div class="font-bold text-lg text-gray-800 @dark:text-gray-100">
     {label}
   </div>
 </a>

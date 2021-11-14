@@ -32,16 +32,13 @@ code[class*='language-'] {
 /* prism compat end */
 
 ::selection {
-  @apply text-black bg-primary-500;
+  @apply text-black bg-primary-500 @dark:text-white @dark:bg-primary-800;
 }
 
-html {
-  @apply text-gray-900 bg-gray-100 break-words overflow-x-hidden;
+html, body {
+  @apply text-gray-900 bg-gray-100 leading-normal break-words overflow-x-hidden @dark:bg-gray-900 @dark:text-gray-100;
 }
 
-body {
-  @apply leading-normal;
-}
 
 h1,
 h2,
@@ -84,34 +81,34 @@ pre[class*='language-'] > code[class*='language-'] {
 
 input,
 textarea {
-  @apply px-2 py-1 rounded-md bg-gray-300 bg-opacity-20 border-2 border-gray-500 transition-colors duration-300;
+  @apply px-2 py-1 rounded-md bg-gray-300 bg-opacity-20 border-2 border-gray-500 transition-colors duration-300 @dark:bg-opacity-10;
 }
 
 input::placeholder,
 textarea::placeholder {
-  @apply text-black text-opacity-40;
+  @apply text-black text-opacity-40 @dark:text-white;
 }
 
 input:hover,
 textarea:hover {
-  @apply bg-primary-300 border-primary-500 bg-opacity-20;
+  @apply bg-primary-300 border-primary-500 bg-opacity-20 @dark:bg-primary-300 @dark:border-primary-500 @dark:bg-opacity-20;
 }
 
 input:focus,
 textarea:focus {
-  @apply bg-primary-300 border-primary-500 bg-opacity-50;
+  @apply bg-primary-300 border-primary-500 bg-opacity-50 @dark:bg-primary-300 @dark:border-primary-500 @dark:bg-opacity-30;
 }
 
 button,
 .btn {
-  @apply inline-block px-2 py-1 rounded-md border-2 border-primary-600 border-opacity-80 bg-primary-500 bg-opacity-50 transition-colors duration-200;
+  @apply inline-block px-2 py-1 rounded-md border-2 border-primary-600 border-opacity-80 bg-primary-500 bg-opacity-50 transition-colors duration-200 @dark:bg-opacity-30;
 }
 
 button:hover,
 button:focus,
 .btn:hover,
 .btn:focus {
-  @apply bg-opacity-70;
+  @apply bg-opacity-70 @dark:bg-opacity-60;
 }
 
 .btn--sm {
@@ -129,12 +126,12 @@ button:focus,
 }
 
 .card {
-  @apply p-3 rounded-lg border-2 border-primary-600 bg-primary-500 bg-opacity-20 border-opacity-20 transition-colors duration-200;
+  @apply p-3 rounded-lg border-2 border-primary-600 bg-primary-500 bg-opacity-20 border-opacity-20 transition-colors duration-200 @dark:bg-opacity-10 @dark:border-opacity-10;
 }
 
 .card:hover,
 .card:focus {
-  @apply bg-opacity-50 border-opacity-70;
+  @apply bg-opacity-50 border-opacity-70 @dark:bg-opacity-20 @dark:border-opacity-50;
 }
 
 .ftag {
@@ -177,11 +174,11 @@ button:focus,
 }
 
 :not(pre) > code[class*='language-'] {
-  @apply text-primary-900 bg-gray-300 bg-opacity-40;
+  @apply text-primary-900 bg-gray-300 bg-opacity-40 @dark:text-primary-100 @dark:bg-white @dark:bg-opacity-20;
 }
 
 .markdown a {
-  @apply text-primary-800 font-semibold underline;
+  @apply text-primary-800 font-semibold underline @dark:text-primary-300;
 }
 
 /* Header autolink */
@@ -240,6 +237,7 @@ button:focus,
 }
 
 .markdown .toc a::before {
+  @apply border-t-2 border-r-2 border-gray-800 @dark:border-gray-200
   content: '';
   position: absolute;
   top: 50%;
@@ -247,8 +245,6 @@ button:focus,
   width: 8px;
   height: 8px;
   opacity: 0.7;
-  border-top: 2px solid theme('colors.gray.800');
-  border-right: 2px solid theme('colors.gray.800');
   transform: translateY(-50%) rotate(45deg);
   transition: transform 0.2s ease;
 }
@@ -287,69 +283,5 @@ button:focus,
   h5,
   h6 {
     @apply text-2xl mt-6;
-  }
-}
-
-@screen dark {
-  ::selection {
-    @apply text-white bg-primary-800;
-  }
-
-  html {
-    @apply bg-gray-900 text-gray-100;
-  }
-
-  input,
-  textarea {
-    @apply bg-opacity-10;
-  }
-
-  input::placeholder,
-  textarea::placeholder {
-    @apply text-white;
-  }
-
-  input:hover,
-  textarea:hover {
-    @apply bg-primary-300 border-primary-500 bg-opacity-20;
-  }
-
-  input:focus,
-  textarea:focus {
-    @apply bg-primary-300 border-primary-500 bg-opacity-30;
-  }
-
-  button,
-  .btn {
-    @apply bg-opacity-30;
-  }
-
-  button:hover,
-  button:focus,
-  .btn:hover,
-  .btn:focus {
-    @apply bg-opacity-60;
-  }
-
-  .card {
-    @apply bg-opacity-10 border-opacity-10;
-  }
-
-  .card:hover,
-  .card:focus {
-    @apply bg-opacity-20 border-opacity-50;
-  }
-
-  :not(pre) > code[class*='language-'] {
-    @apply text-primary-100 bg-white bg-opacity-20;
-  }
-
-  .markdown a {
-    @apply text-primary-300;
-  }
-
-  .markdown .toc a::before {
-    border-top: 2px solid theme('colors.gray.200');
-    border-right: 2px solid theme('colors.gray.200');
   }
 }
