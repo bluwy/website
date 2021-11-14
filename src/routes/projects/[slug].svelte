@@ -23,7 +23,10 @@
   /** @type {import("./[slug].json").SlugPageProject | null} */
   export let nextProject
 
-  $: rawHtml = thisPost.markdownHtml.replace('<!-- toc -->', thisPost.tocHtml)
+  $: rawHtml = thisProject.markdownHtml.replace(
+    '<!-- toc -->',
+    thisProject.tocHtml
+  )
 </script>
 
 <Head title={thisProject.title} description={thisProject.excerpt} />

@@ -15,6 +15,7 @@ import { load as yamlParse } from 'js-yaml'
 import readingTime from 'reading-time'
 import shiki from 'shiki'
 import { codeToHtml } from './shiki.js'
+import { hash } from './hash.js'
 
 const DEFAULT_EXCERPT_LENGTH = 140
 const END_EXCERPT = '<!-- endexcerpt -->'
@@ -71,14 +72,24 @@ export default function rollupPluginMarkdown() {
 
       const processed = await remarkPipeline.process(code)
 
-      const module = {
-        ...processed.data,
-        markdownHtml: processed.toString()
-      }
+      const { images, ...processedData } = processed.data
 
-      return Object.entries(module)
+      const imagesImport = images
+        .map(({ name, path }) => `import ${name} from '${path}'`)
+        .join('\n')
+
+      const processedDataExports = Object.entries(processedData)
         .map(([key, value]) => `export const ${key} = ${JSON.stringify(value)}`)
         .join('\n')
+
+      let rawMarkdown = JSON.stringify(processed.toString())
+      for (const image of images) {
+        rawMarkdown = rawMarkdown.replace(image.name, `" + ${image.name} + "`)
+      }
+
+      const markdownExports = `export const markdownHtml = ${rawMarkdown}`
+
+      return imagesImport + '\n' + processedDataExports + '\n' + markdownExports
     }
   }
 }
@@ -114,6 +125,18 @@ function remarkData() {
     }
 
     file.data.readingTime = readingTime(plainString).text
+
+    file.data.images = []
+    visit(tree, 'image', (node) => {
+      if (node.url.startsWith('.')) {
+        const name = hash(node.url)
+        file.data.images.push({
+          name,
+          path: node.url
+        })
+        node.url = name
+      }
+    })
   }
 }
 
