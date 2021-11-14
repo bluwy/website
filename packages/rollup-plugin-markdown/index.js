@@ -2,16 +2,19 @@ import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkFrontmatter from 'remark-frontmatter'
 import remarkGfm from 'remark-gfm'
-import remarkPrism from 'remark-prism'
 import remarkHtml from 'remark-html'
 import remarkRehype from 'remark-rehype'
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeStringify from 'rehype-stringify'
+import rehypeRaw from 'rehype-raw'
 import { toc } from 'mdast-util-toc'
 import { toString } from 'mdast-util-to-string'
+import { visit } from 'unist-util-visit'
 import { load as yamlParse } from 'js-yaml'
 import readingTime from 'reading-time'
+import shiki from 'shiki'
+import { codeToHtml } from './shiki.js'
 
 const DEFAULT_EXCERPT_LENGTH = 140
 const END_EXCERPT = '<!-- endexcerpt -->'
@@ -27,9 +30,11 @@ export default function rollupPluginMarkdown() {
     .use(remarkParse)
     .use(remarkFrontmatter)
     .use(remarkGfm)
-    .use(remarkPrism)
+    .use(remarkCodeTitle)
+    .use(remarkShiki)
     .use(remarkData)
-    .use(remarkRehype)
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeRaw)
     .use(rehypeSlug)
     .use(rehypeAutolinkHeadings, {
       behavior: 'append',
@@ -107,5 +112,45 @@ function remarkData() {
     }
 
     file.data.readingTime = readingTime(plainString).text
+  }
+}
+
+/** @type {import('unified').Plugin} */
+function remarkShiki() {
+  shiki.render
+  const highlighterPromise = shiki.getHighlighter({
+    theme: 'one-dark-pro',
+    langs: ['html', 'css', 'javascript', 'typescript', 'ini', 'xml']
+  })
+
+  return async function (tree) {
+    const highlighter = await highlighterPromise
+    visit(tree, 'code', (node) => {
+      node.type = 'html'
+      node.value = codeToHtml(
+        highlighter,
+        node.value,
+        // https://github.com/shikijs/shiki/issues/196
+        node.lang === 'svelte' ? 'html' : node.lang
+      )
+    })
+  }
+}
+
+/** @type {import('unified').Plugin} */
+function remarkCodeTitle() {
+  return function (tree) {
+    visit(tree, 'code', (node, index) => {
+      if (!node.lang) return
+      if (!node.lang.includes(':title=')) return
+
+      const [lang, title] = node.lang.split(':title=')
+      node.lang = lang
+
+      tree.children.splice(index, 0, {
+        type: 'html',
+        value: `<div class="gatsby-code-title">${title}</div>`
+      })
+    })
   }
 }

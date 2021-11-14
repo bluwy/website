@@ -15,6 +15,22 @@ ul {
 
 /* preflight end */
 
+/* prism compat start */
+
+pre[class*='language-'],
+code[class*='language-'] {
+  text-shadow: none;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  tab-size: 4;
+  hyphens: none;
+}
+
+/* prism compat end */
+
 ::selection {
   @apply text-black bg-primary-500;
 }
@@ -34,7 +50,7 @@ h4,
 h5,
 h6 {
   @apply relative font-semibold leading-tight;
-  scroll-margin-top: 60px;
+  scroll-margin-top: 64px;
 }
 
 h1 {
@@ -139,7 +155,7 @@ button:focus,
 }
 
 .gatsby-highlight pre[class*='language-'] {
-  @apply m-0 p-4;
+  @apply m-0 p-4 overflow-auto;
 }
 
 .gatsby-highlight code[class*='language-'] {
@@ -147,8 +163,9 @@ button:focus,
 }
 
 .gatsby-highlight-code-line {
-  @apply block bg-white bg-opacity-20 border-white -mx-4 pl-3 pr-4 border-white border-opacity-70;
+  @apply inline-block bg-white bg-opacity-20 border-white -ml-4 pl-3 pr-4 border-white border-opacity-70;
   border-left-width: 0.25rem;
+  width: calc(100% + 1rem);
 }
 
 .gatsby-code-title {
@@ -199,7 +216,7 @@ button:focus,
 }
 
 .markdown blockquote {
-  @apply p-4 my-3 border-l-6 border-warning-500 bg-warning-300 bg-opacity-20;
+  @apply p-4 m-0 my-3 border-l-6 border-warning-500 bg-warning-300 bg-opacity-20;
 }
 
 .markdown blockquote p:last-child {
