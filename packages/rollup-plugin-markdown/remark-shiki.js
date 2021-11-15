@@ -19,6 +19,10 @@ export function remarkShiki() {
         node.lang === 'svelte' ? 'html' : node.lang
       )
     })
+    visit(tree, 'inlineCode', (node) => {
+      node.type = 'html'
+      node.value = `<code class="language-text">${node.value}</code>`
+    })
   }
 }
 

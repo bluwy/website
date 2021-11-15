@@ -29,16 +29,21 @@ code[class*='language-'] {
   hyphens: none;
 }
 
+:not(pre) > code[class*='language-'] {
+  padding: 0.1em 0.3em;
+  border-radius: 0.3em;
+}
+
 /* prism compat end */
 
 ::selection {
   @apply bg-primary-500 text-black @dark:bg-primary-800 @dark:text-white;
 }
 
-html, body {
+html,
+body {
   @apply bg-gray-100 leading-normal text-gray-900 break-words overflow-x-hidden @dark:bg-gray-900 @dark:text-gray-100;
 }
-
 
 h1,
 h2,
@@ -160,7 +165,7 @@ button:focus,
 }
 
 .gatsby-highlight-code-line {
-  @apply bg-white border-white bg-opacity-20 border-opacity-70 -ml-4 pr-4 pl-3 inline-block ;
+  @apply bg-white border-white bg-opacity-20 border-opacity-70 -ml-4 pr-4 pl-3 inline-block;
   border-left-width: 0.25rem;
   width: calc(100% + 1rem);
 }
