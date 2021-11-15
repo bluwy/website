@@ -66,3 +66,10 @@
     </div>
   </div>
 </div>
+
+<style>
+  /* Do this for all markdown? Looks nice */
+  article :global(#preview) ~ :global(p) > :global(img) {
+    @apply rounded-lg shadow-2xl;
+  }
+</style>

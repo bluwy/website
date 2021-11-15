@@ -6,7 +6,7 @@
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
     "preview": "svelte-kit preview",
-    "format": "prettier --write --plugin-search-dir=. **/*.{js,svelte,md}"
+    "format": "prettier --write --plugin-search-dir=. **/*.{js,ts,html,svelte,md,css,pcss}"
   },
   "devDependencies": {
     "@bjornlu/rollup-plugin-markdown": "workspace:*",
