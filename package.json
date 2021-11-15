@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "@bjornlu/rollup-plugin-markdown": "workspace:*",
-    "@sveltejs/adapter-netlify": "^1.0.0-next.35",
+    "@sveltejs/adapter-static": "^1.0.0-next.21",
     "@sveltejs/kit": "^1.0.0-next.194",
     "prettier": "^2.4.1",
     "prettier-plugin-svelte": "^2.4.0",
