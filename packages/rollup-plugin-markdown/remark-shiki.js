@@ -1,13 +1,35 @@
-import { FontStyle } from 'shiki'
+import { getHighlighter, FontStyle } from 'shiki'
+import { visit } from 'unist-util-visit'
+
+/** @type {import('unified').Plugin} */
+export function remarkShiki() {
+  const highlighterPromise = getHighlighter({
+    theme: 'one-dark-pro',
+    langs: ['html', 'css', 'javascript', 'typescript', 'ini', 'xml']
+  })
+
+  return async function (tree) {
+    const highlighter = await highlighterPromise
+    visit(tree, 'code', (node) => {
+      node.type = 'html'
+      node.value = codeToHtml(
+        highlighter,
+        node.value,
+        // https://github.com/shikijs/shiki/issues/196
+        node.lang === 'svelte' ? 'html' : node.lang
+      )
+    })
+  }
+}
 
 /**
- *
+ * Compatible with Gatsby. Support line highlighting and markup structure.
  * @param {import('shiki').Highlighter} highlighter
  * @param {string} code
  * @param {import('shiki').Lang} [lang]
  * @param {import('shiki').Theme} [theme]
  */
-export function codeToHtml(highlighter, code, lang, theme) {
+function codeToHtml(highlighter, code, lang, theme) {
   const tokens = highlighter.codeToThemedTokens(code, lang)
   const _theme = highlighter.getTheme(theme)
   return renderToHtml(tokens, {
@@ -18,7 +40,6 @@ export function codeToHtml(highlighter, code, lang, theme) {
 }
 
 // Forked from https://github.com/shikijs/shiki/blob/e9209dea35bde4446a9f346b5deaa48ad89409b7/packages/shiki/src/renderer.ts#L6
-// To support line highlight and gatsby compatibility
 /**
  *
  * @param {import('shiki').IThemedToken[][]} lines
