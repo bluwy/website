@@ -1,6 +1,10 @@
 # My website
 
-Built with SvelteKit and WindiCSS.
+https://bjornlu.com
+
+## Notes
+
+This is largely a port from Gatsby to SvelteKit. The biggest hurdle is to transfer the Markdown processing, which is especially hard due to Gatsby's locked-in Remark ecosystem. I've made [rollup-plugin-markdown](./packages/rollup-plugin-windicss/index.js) to tackle this.
 
 ## Development
 

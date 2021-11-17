@@ -6,18 +6,18 @@ importers:
     specifiers:
       '@bjornlu/rollup-plugin-markdown': workspace:*
       '@sveltejs/adapter-static': ^1.0.0-next.21
-      '@sveltejs/kit': ^1.0.0-next.194
+      '@sveltejs/kit': ^1.0.0-next.196
       prettier: ^2.4.1
-      prettier-plugin-svelte: ^2.4.0
+      prettier-plugin-svelte: ^2.5.0
       svelte: ^3.44.1
       vite-plugin-windicss: ^1.5.1
       windicss: ^3.2.1
     devDependencies:
       '@bjornlu/rollup-plugin-markdown': link:packages/rollup-plugin-markdown
       '@sveltejs/adapter-static': 1.0.0-next.21
-      '@sveltejs/kit': 1.0.0-next.194_svelte@3.44.1
+      '@sveltejs/kit': 1.0.0-next.196_svelte@3.44.1
       prettier: 2.4.1
-      prettier-plugin-svelte: 2.4.0_prettier@2.4.1+svelte@3.44.1
+      prettier-plugin-svelte: 2.5.0_prettier@2.4.1+svelte@3.44.1
       svelte: 3.44.1
       vite-plugin-windicss: 1.5.1
       windicss: 3.2.1
@@ -99,8 +99,8 @@ packages:
     resolution: {integrity: sha512-B4+QoUVAaANKx+mHntG8SqF45zbj3Ct4Akg/cGauo6COyfKZRhO5OsMa+wPuT2TKJBZC4eEDK0p+p9nyQBkxKQ==}
     dev: true
 
-  /@sveltejs/kit/1.0.0-next.194_svelte@3.44.1:
-    resolution: {integrity: sha512-xM6BKLZkfYUEy0JXwglhCqBF58S8K4Lt7K7TdLMirrO4gtnZlhg8yhMsG+dYM257Fq0ucS7d/72QgXJfnfURZA==}
+  /@sveltejs/kit/1.0.0-next.196_svelte@3.44.1:
+    resolution: {integrity: sha512-z7sA/2/3Il5biibjPXCYXJC11TyFhgCvMaJvvbtMnu2l3EmOmJBMS+r2djGptzfFsugSVNwGQFn8+ldWQWq3jA==}
     engines: {node: '>=14.13'}
     hasBin: true
     peerDependencies:
@@ -1225,8 +1225,8 @@ packages:
       source-map-js: 0.6.2
     dev: true
 
-  /prettier-plugin-svelte/2.4.0_prettier@2.4.1+svelte@3.44.1:
-    resolution: {integrity: sha512-JwJ9bOz4XHLQtiLnX4mTSSDUdhu12WH8sTwy/XTDCSyPlah6IcV7NWeYBZscPEcceu2YnW8Y9sJCP40Z2UH9GA==}
+  /prettier-plugin-svelte/2.5.0_prettier@2.4.1+svelte@3.44.1:
+    resolution: {integrity: sha512-+iHY2uGChOngrgKielJUnqo74gIL/EO5oeWm8MftFWjEi213lq9QYTOwm1pv4lI1nA61tdgf80CF2i5zMcu1kw==}
     peerDependencies:
       prettier: ^1.16.4 || ^2.0.0
       svelte: ^3.2.0
