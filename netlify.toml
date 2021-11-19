@@ -1,3 +1,11 @@
+[build]
+  publish = "build"
+  command = "npx pnpm i --store=node_modules/.pnpm-store && npm run build"
+
+[build.environment]
+  NODE_VERSION = "16"
+  NPM_FLAGS = "--version" # prevent Netlify npm install
+
 [[redirects]]
   from = "https://bjornlu.netlify.app/*"
   to = "https://bjornlu.com/:splat"

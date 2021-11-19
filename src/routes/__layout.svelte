@@ -5,6 +5,7 @@
   import Footer from '$lib/Footer.svelte'
   import 'virtual:windi.css'
   import '$lib/global.pcss'
+  import '$data/assets'
 
   $: isHero = $page.path === '/'
 </script>
