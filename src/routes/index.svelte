@@ -29,9 +29,17 @@
   <Hero />
   <section class="container mt-8">
     <h2 class="mt-0">Check Me Out</h2>
-    <p class="mb-6">
-      I've picked up many skills in various area of development throughout the
-      years. Here's what I know so far!
+    <p class="mb-6 markdown">
+      I'm currently working on build tools around
+      <a href="https://vitejs.dev">Vite</a> and
+      <a href="https://svelte.dev">Svelte</a>. Primarily maintaining
+      <a href="https://github.com/sveltejs/vite-plugin-svelte">
+        vite-plugin-svelte
+      </a>, and also helping out on
+      <a href="https://github.com/vitejs/vite">Vite</a>
+      and
+      <a href="https://github.com/sveltejs/kit">SvelteKit</a>. Project
+      development-wise, I'm fairly proficient with these tools:
     </p>
     <table class="mb-8 w-full">
       <tbody>
