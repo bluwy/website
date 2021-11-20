@@ -6,7 +6,7 @@ The [site](https://bjornlu.com) is built with [SvelteKit](https://kit.svelte.dev
 
 ## Notes
 
-This is largely a port from Gatsby to SvelteKit. The biggest hurdle is to transfer the Markdown processing, which is especially hard due to Gatsby's locked-in Remark ecosystem. I've made a compatible [rollup-plugin-markdown](./packages/rollup-plugin-windicss/index.js) to tackle this.
+This is largely a port from Gatsby to SvelteKit. The biggest hurdle is to transfer the Markdown processing, which is especially hard due to Gatsby's locked-in Remark ecosystem. I've made a compatible [rollup-plugin-markdown](./packages/rollup-plugin-markdown) to tackle this.
 
 ## Development
 
@@ -32,7 +32,6 @@ $ pnpm format
 - [taniarascia.com](https://www.taniarascia.com/): Design inspiration.
 - [css.gg](https://css.gg/): CSS icons reference.
 - [Google Fonts](https://fonts.google.com/): Free fonts.
-- [package.json](./package.json)
 
 ## License
 
