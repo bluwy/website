@@ -21,7 +21,9 @@ export function remarkShiki() {
     })
     visit(tree, 'inlineCode', (node) => {
       node.type = 'html'
-      node.value = `<code class="language-text">${node.value}</code>`
+      node.value = `<code class="language-text">${escapeHtml(
+        node.value
+      )}</code>`
     })
   }
 }

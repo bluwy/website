@@ -31,7 +31,7 @@
 <article class="container">
   <header class="mb-6">
     <h1 class="m-0">{thisPost.title}</h1>
-    <div>{formatDate(new Date(thisPost.date))}</div>
+    <p class="mt-2">{formatDate(new Date(thisPost.date))}</p>
   </header>
   <div class="markdown">
     {@html rawHtml}

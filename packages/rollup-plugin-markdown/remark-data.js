@@ -30,13 +30,11 @@ export function remarkData() {
     const plainString = toString(tree)
 
     if (plainString.includes(END_EXCERPT)) {
-      file.data.excerpt = plainString.substring(
-        0,
-        plainString.indexOf(END_EXCERPT)
-      )
+      const endIndex = plainString.indexOf(END_EXCERPT)
+      file.data.excerpt = plainString.substring(0, endIndex)
     } else {
-      file.data.excerpt =
-        plainString.substring(0, DEFAULT_EXCERPT_LENGTH) + '...'
+      const endIndex = plainString.lastIndexOf(' ', DEFAULT_EXCERPT_LENGTH)
+      file.data.excerpt = plainString.substring(0, endIndex) + '...'
     }
 
     file.data.readingTime = readingTime(plainString).text
