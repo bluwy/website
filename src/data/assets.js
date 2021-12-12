@@ -1,6 +1,11 @@
-// Asset paths so client build will copy over these assets
+// Assets are only generated in client build, but the current markdown pipeline
+// only references the assets in the server build. So no assets are emitted.
+// This file is imported by __layout.svelte, which Vite will crawl in the client
+// build and generate the assets.
 
-// ts-ignore - please vite transform
-const projectMarkdownImages = import.meta.glob('../projects/**/*.png')
-// ts-ignore - please vite transform
+// ts-ignore
+const postMarkdownImages = import.meta.glob('../posts/**/*.{png,jpg}')
+// ts-ignore
+const projectMarkdownImages = import.meta.glob('../projects/**/*.{png,jpg}')
+// ts-ignore
 const projectIconSvgs = import.meta.glob('../assets/images/project-icons/*.svg')
