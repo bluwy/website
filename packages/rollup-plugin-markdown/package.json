@@ -17,11 +17,11 @@
     "rehype-stringify": "^9.0.2",
     "remark-frontmatter": "^4.0.1",
     "remark-gfm": "^3.0.1",
-    "remark-html": "^15.0.0",
-    "remark-parse": "^10.0.0",
-    "remark-rehype": "^10.0.1",
-    "shiki": "^0.9.12",
-    "unified": "^10.1.0",
+    "remark-html": "^15.0.1",
+    "remark-parse": "^10.0.1",
+    "remark-rehype": "^10.1.0",
+    "shiki": "^0.9.15",
+    "unified": "^10.1.1",
     "unist-util-visit": "^4.1.0"
   }
 }
