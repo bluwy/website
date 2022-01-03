@@ -7,7 +7,7 @@
   import '$lib/global.pcss'
   import '$data/assets'
 
-  $: isHero = $page.path === '/'
+  $: isHero = $page.url.pathname === '/'
 </script>
 
 <Icons />
