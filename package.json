@@ -10,12 +10,12 @@
   },
   "devDependencies": {
     "@bjornlu/rollup-plugin-markdown": "workspace:*",
-    "@sveltejs/adapter-static": "^1.0.0-next.21",
-    "@sveltejs/kit": "^1.0.0-next.201",
+    "@sveltejs/adapter-static": "^1.0.0-next.24",
+    "@sveltejs/kit": "^1.0.0-next.214",
     "prettier": "^2.5.1",
     "prettier-plugin-svelte": "^2.5.1",
-    "svelte": "^3.44.2",
-    "vite-plugin-windicss": "^1.5.4",
-    "windicss": "^3.2.1"
+    "svelte": "^3.44.3",
+    "vite-plugin-windicss": "^1.6.1",
+    "windicss": "^3.4.2"
   }
 }
