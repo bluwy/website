@@ -21,7 +21,7 @@
         {/each}
       </div>
       <div class="flex-shrink">
-        &copy; Bjorn Lu {new Date().getFullYear()}
+        &copy; Bjorn Lu 2022
       </div>
     </div>
   </div>
