@@ -6,19 +6,19 @@ importers:
     specifiers:
       '@bjornlu/rollup-plugin-markdown': workspace:*
       '@sveltejs/adapter-static': ^1.0.0-next.24
-      '@sveltejs/kit': ^1.0.0-next.214
+      '@sveltejs/kit': ^1.0.0-next.216
       prettier: ^2.5.1
       prettier-plugin-svelte: ^2.5.1
-      svelte: ^3.44.3
+      svelte: ^3.45.0
       vite-plugin-windicss: ^1.6.1
       windicss: ^3.4.2
     devDependencies:
       '@bjornlu/rollup-plugin-markdown': link:packages/rollup-plugin-markdown
       '@sveltejs/adapter-static': 1.0.0-next.24
-      '@sveltejs/kit': 1.0.0-next.214_svelte@3.44.3
+      '@sveltejs/kit': 1.0.0-next.216_svelte@3.45.0
       prettier: 2.5.1
-      prettier-plugin-svelte: 2.5.1_prettier@2.5.1+svelte@3.44.3
-      svelte: 3.44.3
+      prettier-plugin-svelte: 2.5.1_prettier@2.5.1+svelte@3.45.0
+      svelte: 3.45.0
       vite-plugin-windicss: 1.6.1
       windicss: 3.4.2
 
@@ -101,16 +101,16 @@ packages:
       tiny-glob: 0.2.9
     dev: true
 
-  /@sveltejs/kit/1.0.0-next.214_svelte@3.44.3:
-    resolution: {integrity: sha512-rzEM/1zomAGOs8L8kZAf8Aj3GKi8+kF5VJbFbvQVGfH2ug+MiyvLDQE2LthZRTGZ4weqJ3Nt+ba0swClsL3T0A==}
+  /@sveltejs/kit/1.0.0-next.216_svelte@3.45.0:
+    resolution: {integrity: sha512-FKg7PPlymsZ2aU8DteY1BH217M2dIAgfWzm8OVqazQn2uLbw25WbVqSJ5KdgW83mLYoxSWUNPrJX3TJNEG6jVg==}
     engines: {node: '>=14.13'}
     hasBin: true
     peerDependencies:
       svelte: ^3.44.0
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 1.0.0-next.33_svelte@3.44.3+vite@2.7.10
-      sade: 1.8.0
-      svelte: 3.44.3
+      '@sveltejs/vite-plugin-svelte': 1.0.0-next.34_svelte@3.45.0+vite@2.7.10
+      sade: 1.8.1
+      svelte: 3.45.0
       vite: 2.7.10
     transitivePeerDependencies:
       - diff-match-patch
@@ -120,8 +120,8 @@ packages:
       - supports-color
     dev: true
 
-  /@sveltejs/vite-plugin-svelte/1.0.0-next.33_svelte@3.44.3+vite@2.7.10:
-    resolution: {integrity: sha512-aj0h2+ZixgT+yoJFIs8dRRw/Cj9tgNu3+hY4CJikpa04mfhR61wXqJFfi2ZEFMUvFda5nCxKYIChFkc6wq5fJA==}
+  /@sveltejs/vite-plugin-svelte/1.0.0-next.34_svelte@3.45.0+vite@2.7.10:
+    resolution: {integrity: sha512-qZH2jndijrdkvevgbO7OH3iQsviM5Kz7h5APiNP4yEMZTrwq9bifzYvco6BprwtPvLb5wYlRVFZUOdusY6AovQ==}
     engines: {node: ^14.13.1 || >= 16}
     peerDependencies:
       diff-match-patch: ^1.0.5
@@ -136,8 +136,8 @@ packages:
       kleur: 4.1.4
       magic-string: 0.25.7
       require-relative: 0.8.7
-      svelte: 3.44.3
-      svelte-hmr: 0.14.9_svelte@3.44.3
+      svelte: 3.45.0
+      svelte-hmr: 0.14.9_svelte@3.45.0
       vite: 2.7.10
     transitivePeerDependencies:
       - supports-color
@@ -649,8 +649,8 @@ packages:
     engines: {node: '>=4'}
     dev: false
 
-  /is-core-module/2.8.0:
-    resolution: {integrity: sha512-vd15qHsaqrRL7dtH6QNuy0ndJmRDrS9HAM1CAiSifNUFv4x1a0CCVsj18hJ1mShxIG6T2i1sO78MkP56r0nYRw==}
+  /is-core-module/2.8.1:
+    resolution: {integrity: sha512-SdNCUs284hr40hFTFP6l0IfZ/RSrMXF3qgoRHd3/79unUTvrFO/JoXwkGm+5J/Oe3E/b5GsnG330uUNgRpu1PA==}
     dependencies:
       has: 1.0.3
     dev: true
@@ -745,7 +745,7 @@ packages:
       micromark-util-symbol: 1.0.1
       micromark-util-types: 1.0.2
       unist-util-stringify-position: 3.0.0
-      uvu: 0.5.2
+      uvu: 0.5.3
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -876,7 +876,7 @@ packages:
       micromark-util-subtokenize: 1.0.2
       micromark-util-symbol: 1.0.1
       micromark-util-types: 1.0.2
-      uvu: 0.5.2
+      uvu: 0.5.3
     dev: false
 
   /micromark-extension-frontmatter/1.0.0:
@@ -894,7 +894,7 @@ packages:
       micromark-util-sanitize-uri: 1.0.0
       micromark-util-symbol: 1.0.1
       micromark-util-types: 1.0.2
-      uvu: 0.5.2
+      uvu: 0.5.3
     dev: false
 
   /micromark-extension-gfm-footnote/1.0.3:
@@ -906,7 +906,7 @@ packages:
       micromark-util-normalize-identifier: 1.0.0
       micromark-util-sanitize-uri: 1.0.0
       micromark-util-symbol: 1.0.1
-      uvu: 0.5.2
+      uvu: 0.5.3
     dev: false
 
   /micromark-extension-gfm-strikethrough/1.0.4:
@@ -917,7 +917,7 @@ packages:
       micromark-util-resolve-all: 1.0.0
       micromark-util-symbol: 1.0.1
       micromark-util-types: 1.0.2
-      uvu: 0.5.2
+      uvu: 0.5.3
     dev: false
 
   /micromark-extension-gfm-table/1.0.5:
@@ -927,7 +927,7 @@ packages:
       micromark-util-character: 1.1.0
       micromark-util-symbol: 1.0.1
       micromark-util-types: 1.0.2
-      uvu: 0.5.2
+      uvu: 0.5.3
     dev: false
 
   /micromark-extension-gfm-tagfilter/1.0.1:
@@ -943,7 +943,7 @@ packages:
       micromark-util-character: 1.1.0
       micromark-util-symbol: 1.0.1
       micromark-util-types: 1.0.2
-      uvu: 0.5.2
+      uvu: 0.5.3
     dev: false
 
   /micromark-extension-gfm/2.0.1:
@@ -973,7 +973,7 @@ packages:
       micromark-util-character: 1.1.0
       micromark-util-symbol: 1.0.1
       micromark-util-types: 1.0.2
-      uvu: 0.5.2
+      uvu: 0.5.3
     dev: false
 
   /micromark-factory-space/1.0.0:
@@ -990,7 +990,7 @@ packages:
       micromark-util-character: 1.1.0
       micromark-util-symbol: 1.0.1
       micromark-util-types: 1.0.2
-      uvu: 0.5.2
+      uvu: 0.5.3
     dev: false
 
   /micromark-factory-whitespace/1.0.0:
@@ -1079,7 +1079,7 @@ packages:
       micromark-util-chunked: 1.0.0
       micromark-util-symbol: 1.0.1
       micromark-util-types: 1.0.2
-      uvu: 0.5.2
+      uvu: 0.5.3
     dev: false
 
   /micromark-util-symbol/1.0.1:
@@ -1109,7 +1109,7 @@ packages:
       micromark-util-subtokenize: 1.0.2
       micromark-util-symbol: 1.0.1
       micromark-util-types: 1.0.2
-      uvu: 0.5.2
+      uvu: 0.5.3
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -1161,14 +1161,14 @@ packages:
       source-map-js: 1.0.1
     dev: true
 
-  /prettier-plugin-svelte/2.5.1_prettier@2.5.1+svelte@3.44.3:
+  /prettier-plugin-svelte/2.5.1_prettier@2.5.1+svelte@3.45.0:
     resolution: {integrity: sha512-IhZUcqr7Bg4LY15d87t9lDr7EyC0IPehkzH5ya5igG8zYwf3UYaYDFnVW2mckREaZyLREcH9YOouesmt4f5Ozg==}
     peerDependencies:
       prettier: ^1.16.4 || ^2.0.0
       svelte: ^3.2.0
     dependencies:
       prettier: 2.5.1
-      svelte: 3.44.3
+      svelte: 3.45.0
     dev: true
 
   /prettier/2.5.1:
@@ -1280,11 +1280,13 @@ packages:
     resolution: {integrity: sha1-eZlTn8ngR6N5KPoZb44VY9q9Nt4=}
     dev: true
 
-  /resolve/1.20.0:
-    resolution: {integrity: sha512-wENBPt4ySzg4ybFQW2TT1zMQucPK95HSh/nq2CFTZVOGut2+pQvSsgtda4d26YrYcr067wjbmzOG8byDPBX63A==}
+  /resolve/1.21.0:
+    resolution: {integrity: sha512-3wCbTpk5WJlyE4mSOtDLhqQmGFi0/TD9VPwmiolnk8U0wRgMEktqCXd3vy5buTO3tljvalNvKrjHEfrd2WpEKA==}
+    hasBin: true
     dependencies:
-      is-core-module: 2.8.0
+      is-core-module: 2.8.1
       path-parse: 1.0.7
+      supports-preserve-symlinks-flag: 1.0.0
     dev: true
 
   /reusify/1.0.4:
@@ -1292,8 +1294,8 @@ packages:
     engines: {iojs: '>=1.0.0', node: '>=0.10.0'}
     dev: true
 
-  /rollup/2.62.0:
-    resolution: {integrity: sha512-cJEQq2gwB0GWMD3rYImefQTSjrPYaC6s4J9pYqnstVLJ1CHa/aZNVkD4Epuvg4iLeMA4KRiq7UM7awKK6j7jcw==}
+  /rollup/2.63.0:
+    resolution: {integrity: sha512-nps0idjmD+NXl6OREfyYXMn/dar3WGcyKn+KBzPdaLecub3x/LrId0wUcthcr8oZUAcZAR8NKcfGGFlNgGL1kQ==}
     engines: {node: '>=10.0.0'}
     hasBin: true
     optionalDependencies:
@@ -1306,8 +1308,8 @@ packages:
       queue-microtask: 1.2.3
     dev: true
 
-  /sade/1.8.0:
-    resolution: {integrity: sha512-NRfCA8AVYuAA7Hu8bs18od6J4BdcXXwOv6OJuNgwbw8LcLK8JKwaM3WckLZ+MGyPJUS/ivVgK3twltrOIJJnug==}
+  /sade/1.8.1:
+    resolution: {integrity: sha512-xal3CZX1Xlo/k4ApwCFrHVACi9fBqJ7V+mwhBsuf/1IOKbBy098Fex+Wa/5QMubw09pSZ/u8EY8PWgevJsXp1A==}
     engines: {node: '>=6'}
     dependencies:
       mri: 1.2.0
@@ -1346,16 +1348,21 @@ packages:
       inline-style-parser: 0.1.1
     dev: false
 
-  /svelte-hmr/0.14.9_svelte@3.44.3:
+  /supports-preserve-symlinks-flag/1.0.0:
+    resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
+    engines: {node: '>= 0.4'}
+    dev: true
+
+  /svelte-hmr/0.14.9_svelte@3.45.0:
     resolution: {integrity: sha512-bKE9+4qb4sAnA+TKHiYurUl970rjA0XmlP9TEP7K/ncyWz3m81kA4HOgmlZK/7irGK7gzZlaPDI3cmf8fp/+tg==}
     peerDependencies:
       svelte: '>=3.19.0'
     dependencies:
-      svelte: 3.44.3
+      svelte: 3.45.0
     dev: true
 
-  /svelte/3.44.3:
-    resolution: {integrity: sha512-aGgrNCip5PQFNfq9e9tmm7EYxWLVHoFsEsmKrtOeRD8dmoGDdyTQ+21xd7qgFd8MNdKGSYvg7F9dr+Tc0yDymg==}
+  /svelte/3.45.0:
+    resolution: {integrity: sha512-6AWftH2eqqKLYH1HvKpuUWe8OfjflarhegN57P/Cqwc2Rb2F5oIdDtANU/jMscyZMzG0v6nTQox0siZR9cmRVQ==}
     engines: {node: '>= 8'}
     dev: true
 
@@ -1372,11 +1379,6 @@ packages:
     dependencies:
       is-number: 7.0.0
     dev: true
-
-  /totalist/2.0.0:
-    resolution: {integrity: sha512-+Y17F0YzxfACxTyjfhnJQEe7afPA0GSpYlFkl2VFMxYP7jshQf9gXV7cH47EfToBumFThfKBvfAcoUn6fdNeRQ==}
-    engines: {node: '>=6'}
-    dev: false
 
   /trough/2.0.2:
     resolution: {integrity: sha512-FnHq5sTMxC0sk957wHDzRnemFnNBvt/gSY99HzK8F7UP5WAbvP70yX5bd7CjEQkN+TjdxwI7g7lJ6podqrG2/w==}
@@ -1448,16 +1450,15 @@ packages:
       unist-util-visit-parents: 5.1.0
     dev: false
 
-  /uvu/0.5.2:
-    resolution: {integrity: sha512-m2hLe7I2eROhh+tm3WE5cTo/Cv3WQA7Oc9f7JB6uWv+/zVKvfAm53bMyOoGOSZeQ7Ov2Fu9pLhFr7p07bnT20w==}
+  /uvu/0.5.3:
+    resolution: {integrity: sha512-brFwqA3FXzilmtnIyJ+CxdkInkY/i4ErvP7uV0DnUVxQcQ55reuHphorpF+tZoVHK2MniZ/VJzI7zJQoc9T9Yw==}
     engines: {node: '>=8'}
     hasBin: true
     dependencies:
       dequal: 2.0.2
       diff: 5.0.0
       kleur: 4.1.4
-      sade: 1.8.0
-      totalist: 2.0.0
+      sade: 1.8.1
     dev: false
 
   /vfile-location/4.0.1:
@@ -1514,8 +1515,8 @@ packages:
     dependencies:
       esbuild: 0.13.15
       postcss: 8.4.5
-      resolve: 1.20.0
-      rollup: 2.62.0
+      resolve: 1.21.0
+      rollup: 2.63.0
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
