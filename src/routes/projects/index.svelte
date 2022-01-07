@@ -73,7 +73,7 @@
           </div>
           <div class="space-x-2 opacity-80">
             {#each project.tags as tag}
-              <ToggleTag readonly={true}>
+              <ToggleTag value={tag} readonly>
                 {tag}
               </ToggleTag>
             {/each}

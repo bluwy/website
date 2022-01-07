@@ -29,6 +29,7 @@
               class:font-semibold={$page.url.pathname.startsWith(link.to)}
               href={link.to}
               rel={link.external ? 'external' : undefined}
+              sveltekit:prefetch
             >
               {link.title}
             </a>
