@@ -17,7 +17,7 @@ export async function get() {
     slug: v.slug,
     excerpt: v.excerpt,
     title: v.frontmatter.title,
-    date: v.frontmatter.date,
+    date: v.date,
     readingTime: v.readingTime
   }))
 

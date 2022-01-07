@@ -1,6 +1,5 @@
 ---
 title: Simple Svelte Routing with Reactive URLs
-date: '2020-10-18T04:46:34.000Z'
 ---
 
 Svelte doesn't have an official router yet. If all you need is to conditionally render a few components based on the URL, there's no reason to use one of the [10+ Svelte routers](https://svelte-community.netlify.app/code/?tag=routers) out there that do more than you asked for. We should be able to use native web APIs to do just that!

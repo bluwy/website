@@ -1,6 +1,5 @@
 ---
 title: Extending Include Components in Jekyll
-date: '2019-07-19T10:51:00.000Z'
 ---
 
 This post will highlight some tips and tricks of the `include` tag to build more advanced components in Jekyll. The [`include` docs][include-docs] explains it thoroughly, and this post will summarize it with some of my extra findings.

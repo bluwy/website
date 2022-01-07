@@ -1,6 +1,5 @@
 ---
 title: Using Apollo Client in Sapper
-date: '2020-12-21T12:30:08.000Z'
 ---
 
 If you've tried to get Apollo Client to work with Sapper, you'll quickly notice that queries can get very repetitive, especially when implementing cache hydration.

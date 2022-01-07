@@ -33,7 +33,7 @@ export async function get({ params }) {
     excerpt: posts[postIndex].excerpt,
     tocHtml: posts[postIndex].tocHtml,
     title: posts[postIndex].frontmatter.title,
-    date: posts[postIndex].frontmatter.date
+    date: posts[postIndex].date
   }
 
   /** @type {SlugPagePost} */

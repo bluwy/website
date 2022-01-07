@@ -1,6 +1,5 @@
 ---
 title: Reflecting 2021
-date: '2022-01-07T07:19:04.000Z'
 ---
 
 The ever-so-lonely year, but an important one.

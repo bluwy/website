@@ -1,6 +1,5 @@
 ---
 title: Fixing Weather Skins in Rainmeter?
-date: '2020-01-18T12:10:00.000Z'
 ---
 
 Another day, another weather service down. Here are the steps to fix broken weather skins and migrate to different weather service APIs.

@@ -1,6 +1,5 @@
 ---
 title: My First Two Weeks with a Mac
-date: '2021-12-12T05:50:22.000Z'
 ---
 
 On 26 November 2021, I've received my first MacBook Pro bought from my own pocket. It was a huge, huge investment, especially coming from a third-world country, I was very excited to be one of those who get the experience of owning one.
