@@ -1,7 +1,5 @@
 # My website
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/edde3832-f023-40b6-b17a-d95b4c897efe/deploy-status)](https://app.netlify.com/sites/bjornlu/deploys)
-
 The [site](https://bjornlu.com) is built with [SvelteKit](https://kit.svelte.dev), [WindiCSS](https://windicss.org/), and [Remark](https://github.com/remarkjs/remark)/[Rehype](https://github.com/rehypejs/rehype)/[Unified](https://github.com/unifiedjs/unified).
 
 ## Notes
