@@ -6,7 +6,7 @@ importers:
     specifiers:
       '@bjornlu/rollup-plugin-markdown': workspace:*
       '@sveltejs/adapter-static': ^1.0.0-next.24
-      '@sveltejs/kit': ^1.0.0-next.216
+      '@sveltejs/kit': ^1.0.0-next.218
       prettier: ^2.5.1
       prettier-plugin-svelte: ^2.5.1
       svelte: ^3.45.0
@@ -15,7 +15,7 @@ importers:
     devDependencies:
       '@bjornlu/rollup-plugin-markdown': link:packages/rollup-plugin-markdown
       '@sveltejs/adapter-static': 1.0.0-next.24
-      '@sveltejs/kit': 1.0.0-next.216_svelte@3.45.0
+      '@sveltejs/kit': 1.0.0-next.218_svelte@3.45.0
       prettier: 2.5.1
       prettier-plugin-svelte: 2.5.1_prettier@2.5.1+svelte@3.45.0
       svelte: 3.45.0
@@ -101,8 +101,8 @@ packages:
       tiny-glob: 0.2.9
     dev: true
 
-  /@sveltejs/kit/1.0.0-next.216_svelte@3.45.0:
-    resolution: {integrity: sha512-FKg7PPlymsZ2aU8DteY1BH217M2dIAgfWzm8OVqazQn2uLbw25WbVqSJ5KdgW83mLYoxSWUNPrJX3TJNEG6jVg==}
+  /@sveltejs/kit/1.0.0-next.218_svelte@3.45.0:
+    resolution: {integrity: sha512-reimVgWaFq0qIvxkKnWE4nq35JFd6yQ6Lkge+o3WkX3hV8CAtrLbSAzFaEIUu5Ph09gJkl2PnqQa32WVDaeBZg==}
     engines: {node: '>=14.13'}
     hasBin: true
     peerDependencies:
@@ -205,7 +205,7 @@ packages:
       '@antfu/utils': 0.3.0
       '@windicss/config': 1.6.1
       debug: 4.3.3
-      fast-glob: 3.2.7
+      fast-glob: 3.2.9
       magic-string: 0.25.7
       micromatch: 4.0.4
       windicss: 3.4.2
@@ -448,9 +448,9 @@ packages:
     resolution: {integrity: sha512-fjquC59cD7CyW6urNXK0FBufkZcoiGG80wTuPujX590cB5Ttln20E2UB4S/WARVqhXffZl2LNgS+gQdPIIim/g==}
     dev: false
 
-  /fast-glob/3.2.7:
-    resolution: {integrity: sha512-rYGMRwip6lUMvYD3BTScMwT1HtAs2d71SMv66Vrxs0IekGZEjhM0pcMfjQPnknBt2zeCwQMEupiN02ZP4DiT1Q==}
-    engines: {node: '>=8'}
+  /fast-glob/3.2.9:
+    resolution: {integrity: sha512-MBwILhhD92sziIrMQwpqcuGERF+BH99ei2a3XsGJuqEKcSycAL+w0HWokFenZXona+kjFr82Lf71eTxNRC06XQ==}
+    engines: {node: '>=8.6.0'}
     dependencies:
       '@nodelib/fs.stat': 2.0.5
       '@nodelib/fs.walk': 1.2.8
