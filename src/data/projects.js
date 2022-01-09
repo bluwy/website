@@ -5,7 +5,7 @@ const projectIcons = import.meta.globEager('../assets/images/project-icons/*')
  * @typedef {{
  *   title: string,
  *   desc: string,
- *   icon: string,
+ *   icon?: string,
  *   links: { label: string, link: string }[],
  *   tags: string[],
  *   featured?: boolean
@@ -29,7 +29,9 @@ export const projects = Object.entries(projectMarkdowns).map(([k, v]) => ({
   ...v,
   frontmatter: {
     ...v.frontmatter,
-    icon: projectIcons['../assets/images/project-icons/' + v.frontmatter.icon]
-      .default
+    icon: v.frontmatter.icon
+      ? projectIcons['../assets/images/project-icons/' + v.frontmatter.icon]
+          .default
+      : undefined
   }
 }))

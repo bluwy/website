@@ -56,13 +56,16 @@
     {#each filteredProjects as project (project.slug)}
       <a class="flex flex-col card sm:flex-row" href={project.slug}>
         <div class="flex-shrink-0 hidden sm:block">
-          <img
-            class="rounded-lg mr-4 overflow-hidden"
-            src={project.icon}
-            alt="{project.title} icon"
-            width="160"
-            height="160"
-          />
+          {#if project.icon}
+            <img
+              class="rounded-lg bg-gray-200 mr-4 overflow-hidden @dark:bg-gray-800"
+              src={project.icon}
+              alt="{project.title} icon"
+              width="160"
+              height="160"
+            />{:else}
+            <div class="rounded-lg bg-gray-200 h-36 mr-4 w-36 @dark:bg-gray-800" />
+          {/if}
         </div>
         <div class="flex flex-col justify-between">
           <div>

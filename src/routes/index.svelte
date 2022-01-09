@@ -53,7 +53,7 @@
         <a class="text-sm btn" href="/projects">View all</a>
       </div>
     </div>
-    <p class="opacity-70 text-sm markdown">
+    <p class="text-sm opacity-70 markdown">
       I'm interested in developer experience and build tooling. Hence, my
       projects are often <a href="https://www.npmjs.com">npm</a> packages and wacky
       experiments.
@@ -63,11 +63,15 @@
         <div class="w-full p-2 sm:w-1/2">
           <a class="flex card" href={project.slug}>
             <div class="flex-shrink-0">
-              <img
-                class="rounded-lg h-12 mr-3 overflow-hidden"
-                src={project.icon}
-                alt="{project.title} icon"
-              />
+              {#if project.icon}
+                <img
+                  class="rounded-lg bg-gray-200 h-12 mr-3 overflow-hidden @dark:bg-gray-800"
+                  src={project.icon}
+                  alt="{project.title} icon"
+                />
+              {:else}
+                <div class="rounded-lg bg-gray-200 h-12 mr-3 w-12 @dark:bg-gray-800" />
+              {/if}
             </div>
             <div>
               <div class="font-semibold text-md">
@@ -91,7 +95,7 @@
         <a class="text-sm btn" href="/blog">View all</a>
       </div>
     </div>
-    <p class="opacity-70 text-sm markdown">
+    <p class="text-sm opacity-70 markdown">
       Sometimes I write about development and personal experience.
     </p>
     <div class="flex flex-col flex-wrap -mx-2 sm:flex-row">

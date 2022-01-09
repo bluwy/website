@@ -4,7 +4,7 @@ import { projects } from '$data/projects'
 /**
  * @typedef {{
  *   slug: string,
- *   icon: string,
+ *   icon?: string,
  *   title: string,
  *   desc: string
  * }} IndexProject
