@@ -36,7 +36,7 @@ export async function get() {
     .map((v) => ({
       slug: v.slug,
       title: v.frontmatter.title,
-      date: v.frontmatter.date,
+      date: v.date,
       readingTime: v.readingTime
     }))
     .slice(0, 4)

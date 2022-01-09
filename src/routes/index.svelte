@@ -13,7 +13,6 @@
 
 <script>
   import Hero from '$lib/Hero.svelte'
-  import { skills } from '$data/skills'
   import { formatDate } from '$lib/utils'
   import Head from '$lib/Head.svelte'
 
@@ -27,46 +26,38 @@
 
 <article>
   <Hero />
-  <section class="container mt-8">
-    <h2 class="mt-0">Check Me Out</h2>
-    <p class="mb-6 markdown">
-      I'm currently working on build tools around
-      <a href="https://vitejs.dev">Vite</a> and
-      <a href="https://svelte.dev">Svelte</a>. Primarily maintaining
+  <section class="container my-20 markdown">
+    <p>
+      Hi, I'm Bjorn, a frontend web developer and open-source enthusiast. I'm a
+      member of the <a href="https://svelte.dev">Svelte</a> team, and I
+      currently maintain
       <a href="https://github.com/sveltejs/vite-plugin-svelte">
         vite-plugin-svelte
-      </a>, and also helping out on
-      <a href="https://github.com/vitejs/vite">Vite</a>
-      and
-      <a href="https://github.com/sveltejs/kit">SvelteKit</a>. Project
-      development-wise, I'm fairly proficient with these tools:
+      </a>. You can often find me contributing to projects like
+      <a href="https://vitejs.dev">Vite</a> and
+      <a href="https://kit.svelte.dev">SvelteKit</a>.
     </p>
-    <table class="mb-8 w-full">
-      <tbody>
-        {#each skills as skill (skill.title)}
-          <tr>
-            <th
-              class="font-semibold text-left pr-3 table-row align-top sm:table-cell"
-            >
-              {skill.title}
-            </th>
-            <td class="table-row sm:table-cell">
-              {skill.topics.join(', ')}
-              <br />
-              <br />
-            </td>
-          </tr>
-        {/each}
-      </tbody>
-    </table>
-    <div class="flex flex-row mb-1 justify-between items-center">
+    <p>
+      I have my way around many other technologies too, including React, Vue,
+      GraphQL, and Postgraphile. I can quickly pick up new stacks when needed.
+    </p>
+  </section>
+  <section class="container mt-8" />
+
+  <section class="container mt-8">
+    <div class="flex flex-row mb-3 justify-between items-center">
       <div>
-        <h2 class="m-0">Featured Projects</h2>
+        <h2 class="m-0">Projects Showcase</h2>
       </div>
       <div>
         <a class="text-sm btn" href="/projects">View all</a>
       </div>
     </div>
+    <p class="opacity-70 text-sm markdown">
+      I'm interested in developer experience and build tooling. Hence, my
+      projects are often <a href="https://www.npmjs.com">npm</a> packages and wacky
+      experiments.
+    </p>
     <div class="flex flex-col flex-wrap -mx-2 sm:flex-row">
       {#each featuredProjects as project (project.title)}
         <div class="w-full p-2 sm:w-1/2">
@@ -100,6 +91,9 @@
         <a class="text-sm btn" href="/blog">View all</a>
       </div>
     </div>
+    <p class="opacity-70 text-sm markdown">
+      Sometimes I write about development and personal experience.
+    </p>
     <div class="flex flex-col flex-wrap -mx-2 sm:flex-row">
       {#each recentPosts as post (post.title)}
         <div class="w-full p-2 sm:w-1/2">

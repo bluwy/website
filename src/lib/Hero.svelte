@@ -1,6 +1,5 @@
 <script>
   import { socials } from '$data/socials'
-  import HeroArrow from './HeroArrow.svelte'
   import Icon from './Icon.svelte'
 </script>
 
@@ -36,32 +35,7 @@
   </div>
 </section>
 
-<section
-  class="bg-gray-800 bg-opacity-90 border-t-6 border-b-6 border-primary-900 py-8 text-gray-100"
->
-  <div class="flex justify-center">
-    <div class="relative">
-      <div class="hidden heroTitleArrowLeft sm:flex">
-        <HeroArrow glowColor="pink" />
-        <HeroArrow glowColor="blue" />
-      </div>
-      <div class="mx-8 text-center">
-        <h1 class="m-0 mb-1 text-3xl">Hey There!</h1>
-        <p>
-          I'm a frontend web developer.
-          <br />
-          I write on various topics of interest.
-          <br />
-          Loves open source!
-        </p>
-      </div>
-      <div class="hidden heroTitleArrowRight sm:flex">
-        <HeroArrow glowColor="pink" />
-        <HeroArrow glowColor="blue" />
-      </div>
-    </div>
-  </div>
-</section>
+<div class="border-b-6 border-primary-900" />
 
 <style>
   .background {
@@ -169,21 +143,6 @@
     color: #ffc4f3;
     text-shadow: 0 0 2px #fe13cd, 0 0 10px #fe13cd, 0 0 22px #fe13cd,
       0 0 36px #fe13cd;
-  }
-
-  .heroTitleArrowLeft {
-    position: absolute;
-    top: 50%;
-    right: 100%;
-    transform: translateY(-50%);
-  }
-
-  .heroTitleArrowRight {
-    position: absolute;
-    top: 50%;
-    left: 100%;
-    transform-origin: center;
-    transform: translateY(-50%) rotate(-180deg);
   }
 
   .socialIcon {
