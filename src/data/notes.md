@@ -1,5 +1,13 @@
 <!-- Useful, but too much effort, discontinued -->
 
+## 9 January 2022
+
+- Cloudflare [does not support pnpm](https://community.cloudflare.com/t/add-pnpm-to-pre-installed-cloudflare-pages-tools/288514) by default, but can be workaround with the build command `npx pnpm i --store=node_modules/.pnpm-store && npm run build` and environment variable `NPM_FLAGS` = `--version`.
+
+## 8 January 2022
+
+- You cannot sign in to Google if Safari has the `requestIdleCallback` experimental option turned on. [Thanks](https://discussions.apple.com/thread/251820986?answerId=251820986021#251820986021).
+
 ## 6 June 2021
 
 - Bundlers compile ESM to CJS with `module.export.default` for compatibility with CJS in ESM. This only happens if you have named exports, as CJS doesn't exactly support it. This is also the reason for `require('module').default` syntax.
