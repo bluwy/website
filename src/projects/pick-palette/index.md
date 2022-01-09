@@ -2,7 +2,6 @@
 title: Pick Palette
 desc: Color palette manager
 icon: pick-palette.svg
-featured: true
 links:
   - label: GitHub
     link: https://github.com/bluwy/pick-palette

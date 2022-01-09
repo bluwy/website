@@ -2,7 +2,6 @@
 title: Svelte Router
 desc: A SPA router for Svelte
 icon: npm.svg
-featured: true
 links:
   - label: GitHub
     link: https://github.com/bluwy/svelte-router
