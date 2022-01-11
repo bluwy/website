@@ -47,7 +47,7 @@
   <section class="container mt-8">
     <div class="flex flex-row mb-3 justify-between items-center">
       <div>
-        <h2 class="m-0">Projects Showcase</h2>
+        <h2 class="m-0">Showcase</h2>
       </div>
       <div>
         <a class="text-sm btn" href="/projects">View all</a>
@@ -74,12 +74,12 @@
               {/if}
             </div>
             <div>
-              <div class="font-semibold text-md">
+              <h3 class="font-semibold m-0 text-base">
                 {project.title}
-              </div>
-              <div class="text-sm opacity-80">
+              </h3>
+              <p class="m-0 text-sm opacity-80">
                 {project.desc}
-              </div>
+              </p>
             </div>
           </a>
         </div>
@@ -103,12 +103,12 @@
         <div class="w-full p-2 sm:w-1/2">
           <a class="flex card" href={post.slug}>
             <div>
-              <div class="font-semibold text-md">
+              <h2 class="font-semibold m-0 text-base">
                 {post.title}
-              </div>
-              <div class="text-sm opacity-80">
+              </h2>
+              <p class="m-0 text-sm opacity-80">
                 {formatDate(new Date(post.date))} - {post.readingTime}
-              </div>
+              </p>
             </div>
           </a>
         </div>

@@ -55,27 +55,31 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-semibold leading-tight relative;
+  @apply  leading-tight relative;
   scroll-margin-top: 64px;
 }
 
 h1 {
-  @apply mt-12 mb-4 text-3xl;
+  @apply font-normal mt-12 mb-4 text-3xl;
 }
 
 h2 {
-  @apply mt-10 mb-3 text-2xl;
+  @apply font-medium mt-10 mb-3 text-2xl;
 }
 
-h3,
+h3 {
+  @apply font-medium mt-6 text-xl mb-2;
+
+}
+
 h4,
 h5,
 h6 {
-  @apply mt-6 text-xl mb-2;
+  @apply font-semibold mt-6 text-xl mb-2;
 }
 
 p {
-  @apply text-lg mb-3;
+  @apply text-lg mb-3 text-gray-700 @dark:text-gray-300;
 }
 
 /* Inline code */
@@ -210,7 +214,7 @@ button:focus,
 }
 
 .markdown ul {
-  @apply list-disc text-lg;
+  @apply list-disc text-lg text-gray-700 @dark:text-gray-300;
 }
 
 .markdown li {

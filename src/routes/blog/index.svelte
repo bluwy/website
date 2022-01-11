@@ -26,13 +26,13 @@
   <section class="space-y-5 sm:-mx-4">
     {#each allPosts as post (post.slug)}
       <a class="card block" href={post.slug}>
-        <div class="font-semibold text-xl">
+        <h2 class="m-0 text-xl">
           {post.title}
-        </div>
-        <div class="mb-3 opacity-80">{post.excerpt}</div>
-        <div class="text-sm opacity-50">
+        </h2>
+        <p class="text-base mb-3 opacity-70">{post.excerpt}</p>
+        <p class="m-0 text-sm opacity-50">
           {formatDate(new Date(post.date))} - {post.readingTime}
-        </div>
+        </p>
       </a>
     {/each}
   </section>

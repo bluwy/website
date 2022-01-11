@@ -12,9 +12,7 @@ tags:
   - TypeScript
 ---
 
-A simple color palette manager built with Svelte. Comes with various features, including undo/redo, offline usage, multi-tab editing, color blindness simulation, and more!
-
-<!-- endexcerpt -->
+A feature-packed color palette manager built with Svelte. <!-- endexcerpt --> Comes with various features, including undo/redo, offline usage, multi-tab editing, color blindness simulation, and more!
 
 ## What I've Learned
 

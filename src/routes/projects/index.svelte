@@ -63,16 +63,19 @@
               alt="{project.title} icon"
               width="128"
               height="128"
-            />{:else}
-            <div class="rounded-lg bg-gray-200 h-32 mr-4 w-32 @dark:bg-gray-800" />
+            />
+          {:else}
+            <div
+              class="rounded-lg bg-gray-200 h-32 mr-4 w-32 @dark:bg-gray-800"
+            />
           {/if}
         </div>
         <div class="flex flex-col justify-between">
           <div>
-            <div class="font-semibold text-xl mb-1">
+            <h2 class="m-0 text-xl">
               {project.title}
-            </div>
-            <div class="mb-3 opacity-80">{project.excerpt}</div>
+            </h2>
+            <p class="text-base mb-3 opacity-70">{project.excerpt}</p>
           </div>
           <div class="space-x-2 opacity-80">
             {#each project.tags as tag}
