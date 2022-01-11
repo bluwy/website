@@ -19,9 +19,9 @@
       <span class="ml-2 arrow arrow-right" />
     {/if}
   </div>
-  <div class="font-bold text-lg text-gray-800 @dark:text-gray-100">
+  <p class="font-medium m-0 text-lg text-gray-800 @dark:text-gray-100">
     {label}
-  </div>
+  </p>
 </a>
 
 <style>
