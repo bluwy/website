@@ -12,7 +12,7 @@
 <svelte:window bind:scrollY />
 
 <nav
-  class="h-24 w-full transition-all ease-out text-7xl z-30 duration-300 fixed @dark:bg-gray-900"
+  class="h-24 w-full text-7xl z-30 fixed @dark:bg-gray-900"
   class:hero={isHero}
   class:shrink
 >
@@ -40,12 +40,16 @@
   </div>
 </nav>
 
-<style>
+<style lang="postcss">
+  nav {
+    transition: height 200ms 150ms ease-out, background-color 150ms ease-out;
+  }
   .hero {
     @apply bg-transparent text-gray-100 @dark:bg-transparent;
   }
 
   .shrink {
     @apply bg-gray-100 h-14 h-[56px] shadow text-gray-900 @dark:bg-gray-800 @dark:shadow-none @dark:text-gray-100;
+    transition: height 200ms ease-out, background-color 150ms 200ms ease-out;
   }
 </style>

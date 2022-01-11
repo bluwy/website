@@ -29,8 +29,8 @@
         <h2 class="m-0 text-xl">
           {post.title}
         </h2>
-        <p class="text-base mb-3 opacity-70">{post.excerpt}</p>
-        <p class="m-0 text-sm opacity-50">
+        <p class="text-base mb-3 opacity-80">{post.excerpt}</p>
+        <p class="m-0 text-sm opacity-60">
           {formatDate(new Date(post.date))} - {post.readingTime}
         </p>
       </a>
