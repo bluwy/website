@@ -15,7 +15,7 @@ export function remarkData() {
 
   return function (tree, file) {
     file.data.tocHtml = `<div class="toc">${remarkTocPipeline.stringify(
-      toc(tree).map
+      toc(tree, { skip: 'Table of Contents' }).map
     )}</div>`
 
     const frontmatterNode =
