@@ -1,6 +1,7 @@
 ---
 title: svelte-fast-dimension
 desc: Fast dimension bindings for Svelte
+icon: svelte.svg
 featured: true
 links:
   - label: GitHub

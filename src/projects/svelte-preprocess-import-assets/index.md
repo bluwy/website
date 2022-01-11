@@ -1,6 +1,7 @@
 ---
 title: svelte-preprocess-import-assets
 desc: Import assets directly in you markup
+icon: svelte.svg
 featured: true
 links:
   - label: GitHub

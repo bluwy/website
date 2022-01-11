@@ -1,6 +1,7 @@
 ---
 title: vite-plugin-qrcode
 desc: Show QR code on server start
+icon: vite.svg
 featured: true
 links:
   - label: GitHub

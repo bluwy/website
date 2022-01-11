@@ -1,6 +1,7 @@
 ---
 title: vite-plugin-iso-import
 desc: Import modules isomorphically
+icon: vite.svg
 featured: true
 links:
   - label: GitHub
