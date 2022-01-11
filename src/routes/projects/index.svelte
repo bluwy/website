@@ -61,10 +61,10 @@
               class="rounded-lg bg-gray-200 mr-4 overflow-hidden @dark:bg-gray-800"
               src={project.icon}
               alt="{project.title} icon"
-              width="160"
-              height="160"
+              width="128"
+              height="128"
             />{:else}
-            <div class="rounded-lg bg-gray-200 h-36 mr-4 w-36 @dark:bg-gray-800" />
+            <div class="rounded-lg bg-gray-200 h-32 mr-4 w-32 @dark:bg-gray-800" />
           {/if}
         </div>
         <div class="flex flex-col justify-between">
