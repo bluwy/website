@@ -47,7 +47,7 @@
     <input
       class="mb-4 w-full sm:max-w-sm"
       type="text"
-      value={search}
+      bind:value={search}
       placeholder="Filter projects..."
     />
     <ToggleTagSelect tags={allProjectTags} bind:selected={filterTags} />
