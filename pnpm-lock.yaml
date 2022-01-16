@@ -5,7 +5,7 @@ importers:
   .:
     specifiers:
       '@bjornlu/rollup-plugin-markdown': workspace:*
-      '@sveltejs/adapter-static': ^1.0.0-next.26
+      '@sveltejs/adapter-cloudflare': ^1.0.0-next.7
       '@sveltejs/kit': ^1.0.0-next.231
       prettier: ^2.5.1
       prettier-plugin-svelte: ^2.6.0
@@ -14,7 +14,7 @@ importers:
       windicss: ^3.4.2
     devDependencies:
       '@bjornlu/rollup-plugin-markdown': link:packages/rollup-plugin-markdown
-      '@sveltejs/adapter-static': 1.0.0-next.26
+      '@sveltejs/adapter-cloudflare': 1.0.0-next.7
       '@sveltejs/kit': 1.0.0-next.231_svelte@3.46.2
       prettier: 2.5.1
       prettier-plugin-svelte: 2.6.0_prettier@2.5.1+svelte@3.46.2
@@ -95,10 +95,10 @@ packages:
       picomatch: 2.3.1
     dev: true
 
-  /@sveltejs/adapter-static/1.0.0-next.26:
-    resolution: {integrity: sha512-LXR0HkPygZ+m9wJhFqbYWbJ0jquhgUK6vL/8AwnqbAZGGtQFloMpf49WOANk7MiLBeY6L97W5jPLSxHiDW3T0Q==}
+  /@sveltejs/adapter-cloudflare/1.0.0-next.7:
+    resolution: {integrity: sha512-P2rq+Tdvv9IKX4SVrIRqgZ2DnjmpPjp/bhAISs6cgbMzc2AmLMCeN++DXAZAVWugIjF1freLmtXcCl3/0HByNg==}
     dependencies:
-      tiny-glob: 0.2.9
+      esbuild: 0.13.15
     dev: true
 
   /@sveltejs/kit/1.0.0-next.231_svelte@3.46.2:
@@ -503,14 +503,6 @@ packages:
     engines: {node: '>= 6'}
     dependencies:
       is-glob: 4.0.3
-    dev: true
-
-  /globalyzer/0.1.0:
-    resolution: {integrity: sha512-40oNTM9UfG6aBmuKxk/giHn5nQ8RVz/SS4Ir6zgzOv9/qC3kKZ9v4etGTcJbEl/NyVQH7FGU7d+X1egr57Md2Q==}
-    dev: true
-
-  /globrex/0.1.2:
-    resolution: {integrity: sha512-uHJgbwAMwNFf5mLst7IWLNg14x1CkeqglJb/K3doi4dw6q2IvAAmM/Y81kevy83wP+Sst+nutFTYOGg3d1lsxg==}
     dev: true
 
   /has/1.0.3:
@@ -1364,13 +1356,6 @@ packages:
   /svelte/3.46.2:
     resolution: {integrity: sha512-RXSAtYNefe01Sb1lXtZ2I+gzn3t/h/59hoaRNeRrm8IkMIu6BSiAkbpi41xb+C44x54YKnbk9+dtfs3pM4hECA==}
     engines: {node: '>= 8'}
-    dev: true
-
-  /tiny-glob/0.2.9:
-    resolution: {integrity: sha512-g/55ssRPUjShh+xkfx9UPDXqhckHEsHr4Vd9zX55oSdGZc/MD0m3sferOkwWtp98bv+kcVfEHtRJgBVJzelrzg==}
-    dependencies:
-      globalyzer: 0.1.0
-      globrex: 0.1.2
     dev: true
 
   /to-regex-range/5.0.1:

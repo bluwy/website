@@ -1,5 +1,5 @@
 import path from 'path'
-import adapter from '@sveltejs/adapter-static'
+import adapter from '@sveltejs/adapter-cloudflare'
 import WindiCSS from 'vite-plugin-windicss'
 import markdown from '@bjornlu/rollup-plugin-markdown'
 
