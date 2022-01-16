@@ -30,18 +30,23 @@
   <Hero />
   <section class="container my-20 markdown">
     <p>
-      Hi, I'm Bjorn, a frontend web developer and open-source enthusiast. I'm a
-      member of the <a href="https://svelte.dev">Svelte</a> team, and I
-      currently maintain
+      Hi, I'm Bjorn, a frontend web developer and open-source enthusiast. I'm
+      also a <a href="https://svelte.dev">Svelte</a> core maintainer,
+      contributing to projects like
       <a href="https://github.com/sveltejs/vite-plugin-svelte">
         vite-plugin-svelte
-      </a>. You can often find me contributing to projects like
-      <a href="https://vitejs.dev">Vite</a> and
+      </a>,
+      <a href="https://vitejs.dev">Vite</a>, and
       <a href="https://kit.svelte.dev">SvelteKit</a>.
     </p>
     <p>
       I have my way around many other technologies too, including React, Vue,
-      GraphQL, and Postgraphile. I can quickly pick up new stacks when needed.
+      GraphQL, and PostgreSQL. I can quickly pick up new stacks when needed.
+    </p>
+    <p>
+      Sometimes, I write <a href="/blog">blog posts</a> and jot down
+      <a href="/notes">interesting stuff</a>. I also have a
+      <a href="/todo" rel="external">todo list</a> to keep track of my public work.
     </p>
   </section>
   <section class="container mt-8" />
