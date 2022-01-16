@@ -1,4 +1,6 @@
 <script context="module">
+  export const prerender = true
+
   /** @type {import('@sveltejs/kit').Load} */
   export async function load({ fetch }) {
     const res = await fetch('/index.json')
@@ -70,7 +72,9 @@
                   alt="{project.title} icon"
                 />
               {:else}
-                <div class="rounded-lg bg-gray-200 h-12 mr-3 w-12 @dark:bg-gray-800" />
+                <div
+                  class="rounded-lg bg-gray-200 h-12 mr-3 w-12 @dark:bg-gray-800"
+                />
               {/if}
             </div>
             <div>

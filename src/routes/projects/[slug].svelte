@@ -1,4 +1,6 @@
 <script context="module">
+  export const prerender = true
+
   /** @type {import('@sveltejs/kit').Load} */
   export async function load({ fetch, params }) {
     const res = await fetch(`/projects/${params.slug}.json`)
