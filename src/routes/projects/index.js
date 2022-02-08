@@ -24,6 +24,9 @@ export async function get() {
   return {
     body: {
       allProjects
+    },
+    headers: {
+      'cache-control': 'public, maxage=3600'
     }
   }
 }

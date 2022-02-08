@@ -59,6 +59,9 @@ export async function get({ params }) {
       thisPost,
       prevPost,
       nextPost
+    },
+    headers: {
+      'cache-control': 'public, maxage=3600'
     }
   }
 }

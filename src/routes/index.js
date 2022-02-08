@@ -45,6 +45,9 @@ export async function get() {
     body: {
       featuredProjects,
       recentPosts
+    },
+    headers: {
+      'cache-control': 'public, maxage=3600'
     }
   }
 }

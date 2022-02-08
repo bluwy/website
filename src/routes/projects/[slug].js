@@ -57,6 +57,9 @@ export async function get({ params }) {
       thisProject,
       prevProject,
       nextProject
+    },
+    headers: {
+      'cache-control': 'public, maxage=3600'
     }
   }
 }

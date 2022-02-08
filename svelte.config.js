@@ -6,7 +6,6 @@ import markdown from '@bjornlu/rollup-plugin-markdown'
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   kit: {
-    target: '#svelte',
     adapter: adapter(),
     vite: {
       plugins: [WindiCSS(), markdown()],

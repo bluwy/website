@@ -1,16 +1,5 @@
 <script context="module">
   export const prerender = true
-
-  /** @type {import('@sveltejs/kit').Load} */
-  export async function load({ fetch }) {
-    const res = await fetch('/blog.json')
-
-    if (res.ok) {
-      return {
-        props: await res.json()
-      }
-    }
-  }
 </script>
 
 <script>

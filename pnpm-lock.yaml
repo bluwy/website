@@ -6,20 +6,20 @@ importers:
     specifiers:
       '@bjornlu/rollup-plugin-markdown': workspace:*
       '@sveltejs/adapter-cloudflare': ^1.0.0-next.9
-      '@sveltejs/kit': ^1.0.0-next.251
+      '@sveltejs/kit': ^1.0.0-next.260
       prettier: ^2.5.1
       prettier-plugin-svelte: ^2.6.0
-      svelte: ^3.46.3
-      vite-plugin-windicss: ^1.6.3
+      svelte: ^3.46.4
+      vite-plugin-windicss: ^1.7.0
       windicss: ^3.4.3
     devDependencies:
       '@bjornlu/rollup-plugin-markdown': link:packages/rollup-plugin-markdown
       '@sveltejs/adapter-cloudflare': 1.0.0-next.9
-      '@sveltejs/kit': 1.0.0-next.251_svelte@3.46.3
+      '@sveltejs/kit': 1.0.0-next.260_svelte@3.46.4
       prettier: 2.5.1
-      prettier-plugin-svelte: 2.6.0_prettier@2.5.1+svelte@3.46.3
-      svelte: 3.46.3
-      vite-plugin-windicss: 1.6.3
+      prettier-plugin-svelte: 2.6.0_prettier@2.5.1+svelte@3.46.4
+      svelte: 3.46.4
+      vite-plugin-windicss: 1.7.0
       windicss: 3.4.3
 
   packages/rollup-plugin-markdown:
@@ -101,16 +101,16 @@ packages:
       esbuild: 0.13.15
     dev: true
 
-  /@sveltejs/kit/1.0.0-next.251_svelte@3.46.3:
-    resolution: {integrity: sha512-7GtUrUHqOa7ISo86PlICcMKcfGodOZwP9p7hXnN4t1yMWIQD2eKZlJffvnwx1X+NMcJ8hLChgcjGYjc1xZABhQ==}
+  /@sveltejs/kit/1.0.0-next.260_svelte@3.46.4:
+    resolution: {integrity: sha512-0EEkGD0BpZdgRm9UoOnldS8iDFFhT2ixN3oQ/9DblGKNo7cz/FEQmKoYYIOOVYI3XyurwccWORPEpTTA4l9Oew==}
     engines: {node: '>=14.13'}
     hasBin: true
     peerDependencies:
       svelte: ^3.44.0
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 1.0.0-next.36_svelte@3.46.3+vite@2.7.13
+      '@sveltejs/vite-plugin-svelte': 1.0.0-next.37_svelte@3.46.4+vite@2.7.13
       sade: 1.8.1
-      svelte: 3.46.3
+      svelte: 3.46.4
       vite: 2.7.13
     transitivePeerDependencies:
       - diff-match-patch
@@ -120,8 +120,8 @@ packages:
       - supports-color
     dev: true
 
-  /@sveltejs/vite-plugin-svelte/1.0.0-next.36_svelte@3.46.3+vite@2.7.13:
-    resolution: {integrity: sha512-X7lTiioTGC3ri5M299fxc2dimuKU7f22zTXcmD+NrF+fO9/b7YNfLeQQwWV7Tvv9REysMlR4G2HQF6+lY62p/Q==}
+  /@sveltejs/vite-plugin-svelte/1.0.0-next.37_svelte@3.46.4+vite@2.7.13:
+    resolution: {integrity: sha512-EdSXw2rXeOahNrQfMJVZxa/NxZxW1a0TiBI3s+pVxnxU14hEQtnkLtdbTFhnceu22gJpNPFSIJRcIwRBBDQIeA==}
     engines: {node: ^14.13.1 || >= 16}
     peerDependencies:
       diff-match-patch: ^1.0.5
@@ -135,8 +135,8 @@ packages:
       debug: 4.3.3
       kleur: 4.1.4
       magic-string: 0.25.7
-      svelte: 3.46.3
-      svelte-hmr: 0.14.9_svelte@3.46.3
+      svelte: 3.46.4
+      svelte-hmr: 0.14.9_svelte@3.46.4
       vite: 2.7.13
     transitivePeerDependencies:
       - supports-color
@@ -188,8 +188,8 @@ packages:
     resolution: {integrity: sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==}
     dev: false
 
-  /@windicss/config/1.6.3:
-    resolution: {integrity: sha512-1kjdy4tyYLD4sCB4DS+3Lt1Odnde03z4Rz3EUqyWJ7SiBEWMgRk1L797SsgEH4+W1DjLBZLs1SVYzaTO/3UdJA==}
+  /@windicss/config/1.7.0:
+    resolution: {integrity: sha512-jP+SYEUMTcvEQexYAeaIGKWq3sE+yv0myyOCph7Glm/YZE2ZCK1GukI1oDG6fcVer121EQzCY4Rx11trb3oSZg==}
     dependencies:
       debug: 4.3.3
       jiti: 1.12.15
@@ -198,11 +198,11 @@ packages:
       - supports-color
     dev: true
 
-  /@windicss/plugin-utils/1.6.3:
-    resolution: {integrity: sha512-tY20pAdV8YOlCj/5Teh078n/YbekbE5qOmlNgcl+S10KqitUGB9+Qss/xE0HULACmCXBO9XeLUcAPGao79lAnA==}
+  /@windicss/plugin-utils/1.7.0:
+    resolution: {integrity: sha512-4zxTIhpGaia4FTxL/c20GQU2bK3bqToerdErvDzwLqWQECVGt7vTGFQd3e4XMpfR6Ujgk4/p7fCHv/F15R/pkA==}
     dependencies:
       '@antfu/utils': 0.4.0
-      '@windicss/config': 1.6.3
+      '@windicss/config': 1.7.0
       debug: 4.3.3
       fast-glob: 3.2.11
       magic-string: 0.25.7
@@ -756,44 +756,43 @@ packages:
       micromark-util-character: 1.1.0
     dev: false
 
-  /mdast-util-gfm-footnote/1.0.0:
-    resolution: {integrity: sha512-qeg9YoS2YYP6OBmMyUFxKXb6BLwAsbGidIxgwDAXHIMYZQhIwe52L9BSJs+zP29Jp5nSERPkmG3tSwAN23/ZbQ==}
+  /mdast-util-gfm-footnote/1.0.1:
+    resolution: {integrity: sha512-p+PrYlkw9DeCRkTVw1duWqPRHX6Ywh2BNKJQcZbCwAuP/59B0Lk9kakuAd7KbQprVO4GzdW8eS5++A9PUSqIyw==}
     dependencies:
       '@types/mdast': 3.0.10
-      mdast-util-to-markdown: 1.2.6
+      mdast-util-to-markdown: 1.3.0
       micromark-util-normalize-identifier: 1.0.0
-      unist-util-visit: 4.1.0
     dev: false
 
-  /mdast-util-gfm-strikethrough/1.0.0:
-    resolution: {integrity: sha512-gM9ipBUdRxYa6Yq1Hd8Otg6jEn/dRxFZ1F9ZX4QHosHOexLGqNZO2dh0A+YFbUEd10RcKjnjb4jOfJJzoXXUew==}
+  /mdast-util-gfm-strikethrough/1.0.1:
+    resolution: {integrity: sha512-zKJbEPe+JP6EUv0mZ0tQUyLQOC+FADt0bARldONot/nefuISkaZFlmVK4tU6JgfyZGrky02m/I6PmehgAgZgqg==}
     dependencies:
       '@types/mdast': 3.0.10
-      mdast-util-to-markdown: 1.2.6
+      mdast-util-to-markdown: 1.3.0
     dev: false
 
-  /mdast-util-gfm-table/1.0.2:
-    resolution: {integrity: sha512-pPekvCTChFBF8uCq8bVyQwar8NBU/TaXIy44jj/UzmjMgPBHIa1B1ge8a0JVgzhqgXQAMvGT+PgiKlicdLGfDQ==}
+  /mdast-util-gfm-table/1.0.3:
+    resolution: {integrity: sha512-B/tgpJjND1qIZM2WZst+NYnb0notPE6m0J+YOe3NOHXyEmvK38ytxaOsgz4BvrRPQQcNbRrTzSHMPnBkj1fCjg==}
     dependencies:
       markdown-table: 3.0.2
-      mdast-util-to-markdown: 1.2.6
+      mdast-util-to-markdown: 1.3.0
     dev: false
 
-  /mdast-util-gfm-task-list-item/1.0.0:
-    resolution: {integrity: sha512-dwkzOTjQe8JCCHVE3Cb0pLHTYLudf7t9WCAnb20jI8/dW+VHjgWhjtIUVA3oigNkssgjEwX+i+3XesUdCnXGyA==}
+  /mdast-util-gfm-task-list-item/1.0.1:
+    resolution: {integrity: sha512-KZ4KLmPdABXOsfnM6JHUIjxEvcx2ulk656Z/4Balw071/5qgnhz+H1uGtf2zIGnrnvDC8xR4Fj9uKbjAFGNIeA==}
     dependencies:
       '@types/mdast': 3.0.10
-      mdast-util-to-markdown: 1.2.6
+      mdast-util-to-markdown: 1.3.0
     dev: false
 
   /mdast-util-gfm/2.0.0:
     resolution: {integrity: sha512-wMwejlTN3EQADPFuvxe8lmGsay3+f6gSJKdAHR6KBJzpcxvsjJSILB9K6u6G7eQLC7iOTyVIHYGui9uBc9r1Tg==}
     dependencies:
       mdast-util-gfm-autolink-literal: 1.0.2
-      mdast-util-gfm-footnote: 1.0.0
-      mdast-util-gfm-strikethrough: 1.0.0
-      mdast-util-gfm-table: 1.0.2
-      mdast-util-gfm-task-list-item: 1.0.0
+      mdast-util-gfm-footnote: 1.0.1
+      mdast-util-gfm-strikethrough: 1.0.1
+      mdast-util-gfm-table: 1.0.3
+      mdast-util-gfm-task-list-item: 1.0.1
     dev: false
 
   /mdast-util-to-hast/12.1.1:
@@ -811,8 +810,8 @@ packages:
       unist-util-visit: 4.1.0
     dev: false
 
-  /mdast-util-to-markdown/1.2.6:
-    resolution: {integrity: sha512-doJZmTEGagHypWvJ8ltinmwUsT9ZaNgNIQW6Gl7jNdsI1QZkTHTimYW561Niy2s8AEPAqEgV0dIh2UOVlSXUJA==}
+  /mdast-util-to-markdown/1.3.0:
+    resolution: {integrity: sha512-6tUSs4r+KK4JGTTiQ7FfHmVOaDrLQJPmpjD6wPMlHGUVXoG9Vjc3jIeP+uyBWRf8clwB2blM+W7+KrlMYQnftA==}
     dependencies:
       '@types/mdast': 3.0.10
       '@types/unist': 2.0.6
@@ -1143,8 +1142,8 @@ packages:
     engines: {node: '>=8.6'}
     dev: true
 
-  /postcss/8.4.5:
-    resolution: {integrity: sha512-jBDboWM8qpaqwkMwItqTQTiFikhs/67OYVvblFFTM7MrZjt6yMKd6r2kgXizEbTTljacm4NldIlZnhbjr84QYg==}
+  /postcss/8.4.6:
+    resolution: {integrity: sha512-OovjwIzs9Te46vlEx7+uXB0PLijpwjXGKXjVGGPIGubGpq7uh5Xgf6D6FiJ/SzJMBosHDp6a2hiXOS97iBXcaA==}
     engines: {node: ^10 || ^12 || >=14}
     dependencies:
       nanoid: 3.2.0
@@ -1152,14 +1151,14 @@ packages:
       source-map-js: 1.0.2
     dev: true
 
-  /prettier-plugin-svelte/2.6.0_prettier@2.5.1+svelte@3.46.3:
+  /prettier-plugin-svelte/2.6.0_prettier@2.5.1+svelte@3.46.4:
     resolution: {integrity: sha512-NPSRf6Y5rufRlBleok/pqg4+1FyGsL0zYhkYP6hnueeL1J/uCm3OfOZPsLX4zqD9VAdcXfyEL2PYqGv8ZoOSfA==}
     peerDependencies:
       prettier: ^1.16.4 || ^2.0.0
       svelte: ^3.2.0
     dependencies:
       prettier: 2.5.1
-      svelte: 3.46.3
+      svelte: 3.46.4
     dev: true
 
   /prettier/2.5.1:
@@ -1281,8 +1280,8 @@ packages:
     engines: {iojs: '>=1.0.0', node: '>=0.10.0'}
     dev: true
 
-  /rollup/2.66.1:
-    resolution: {integrity: sha512-crSgLhSkLMnKr4s9iZ/1qJCplgAgrRY+igWv8KhG/AjKOJ0YX/WpmANyn8oxrw+zenF3BXWDLa7Xl/QZISH+7w==}
+  /rollup/2.67.1:
+    resolution: {integrity: sha512-1Sbcs4OuW+aD+hhqpIRl+RqooIpF6uQcfzU/QSI7vGkwADY6cM4iLsBGRM2CGLXDTDN5y/yShohFmnKegSPWzg==}
     engines: {node: '>=10.0.0'}
     hasBin: true
     optionalDependencies:
@@ -1340,16 +1339,16 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /svelte-hmr/0.14.9_svelte@3.46.3:
+  /svelte-hmr/0.14.9_svelte@3.46.4:
     resolution: {integrity: sha512-bKE9+4qb4sAnA+TKHiYurUl970rjA0XmlP9TEP7K/ncyWz3m81kA4HOgmlZK/7irGK7gzZlaPDI3cmf8fp/+tg==}
     peerDependencies:
       svelte: '>=3.19.0'
     dependencies:
-      svelte: 3.46.3
+      svelte: 3.46.4
     dev: true
 
-  /svelte/3.46.3:
-    resolution: {integrity: sha512-mTOXvv74CVQqJHqoIZDprVfRKVVmYNadXP0VKnOEA54223kLGCr1nMrifS4Zx29qMt/xRB38Eq1D7dDH/fM8fQ==}
+  /svelte/3.46.4:
+    resolution: {integrity: sha512-qKJzw6DpA33CIa+C/rGp4AUdSfii0DOTCzj/2YpSKKayw5WGSS624Et9L1nU1k2OVRS9vaENQXp2CVZNU+xvIg==}
     engines: {node: '>= 8'}
     dev: true
 
@@ -1464,12 +1463,12 @@ packages:
       vfile-message: 3.1.0
     dev: false
 
-  /vite-plugin-windicss/1.6.3:
-    resolution: {integrity: sha512-D4fEUcAPoLRLdDZMee8NrHZHmn0Qj7AjSg1xNGBnZsMTwRPj93NKZk0fIIUoiKTEh1KrdQejW8g6cg0SgGKTww==}
+  /vite-plugin-windicss/1.7.0:
+    resolution: {integrity: sha512-1ps7hk6Pr9TqsW9Y+QXmJ9PMowVLjM0h32c+jh9vdQr5Jzyim3hHivR0rXSkDV9znIB9RkjRQD1znRbAMX0OcQ==}
     peerDependencies:
       vite: ^2.0.1
     dependencies:
-      '@windicss/plugin-utils': 1.6.3
+      '@windicss/plugin-utils': 1.7.0
       debug: 4.3.3
       kolorist: 1.5.1
       windicss: 3.4.3
@@ -1494,9 +1493,9 @@ packages:
         optional: true
     dependencies:
       esbuild: 0.13.15
-      postcss: 8.4.5
+      postcss: 8.4.6
       resolve: 1.22.0
-      rollup: 2.66.1
+      rollup: 2.67.1
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
