@@ -1,0 +1,12 @@
+{
+  "name": "@bjornlu/svelte-preprocess-markdown",
+  "version": "0.0.1",
+  "private": true,
+  "author": "Bjorn Lu",
+  "license": "MIT",
+  "type": "module",
+  "exports": "./index.js",
+  "dependencies": {
+    "@bjornlu/markdown": "workspace:*"
+  }
+}
