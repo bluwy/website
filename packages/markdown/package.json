@@ -1,0 +1,27 @@
+{
+  "name": "@bjornlu/markdown",
+  "version": "0.0.1",
+  "private": true,
+  "author": "Bjorn Lu",
+  "license": "MIT",
+  "type": "module",
+  "exports": "./index.js",
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "mdast-util-to-string": "^3.1.0",
+    "mdast-util-toc": "^6.1.0",
+    "reading-time": "^1.5.0",
+    "rehype-autolink-headings": "^6.1.1",
+    "rehype-raw": "^6.1.1",
+    "rehype-slug": "^5.0.1",
+    "rehype-stringify": "^9.0.3",
+    "remark-frontmatter": "^4.0.1",
+    "remark-gfm": "^3.0.1",
+    "remark-html": "^15.0.1",
+    "remark-parse": "^10.0.1",
+    "remark-rehype": "^10.1.0",
+    "shiki": "^0.10.0",
+    "unified": "^10.1.1",
+    "unist-util-visit": "^4.1.0"
+  }
+}
