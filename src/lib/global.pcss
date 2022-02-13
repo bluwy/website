@@ -266,6 +266,13 @@ button:focus,
   transform: translateY(-50%) translateX(4px) rotate(45deg);
 }
 
+/* shiki line */
+span.line:empty {
+  /* TODO: Make rehype-shiki instead. In remark stage, rehype stringify removes the whitespace */
+  display: block;
+  height: 1.25rem;
+}
+
 @screen sm {
   .markdown a.anchor {
     position: absolute;
