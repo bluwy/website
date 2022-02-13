@@ -132,9 +132,7 @@ export default {
 }
 ```
 
-However when using stores in the server, they can't be imported directly as the value can leak to other current requests/connections. To prevent that, [Svelte Context](https://svelte.dev/tutorial/context-api) can be used to isolate the URL per request.
-
-The store would need to be a function too so that we can create one for each request. Adapting this into `url.js`, we get:
+However when using stores in the server, they can't be imported directly as the value can leak to other current requests/connections. To prevent that, [Svelte Context](https://svelte.dev/tutorial/context-api) can be used to isolate the URL per request. The store would need to be a function too so that we can create one for each request. Adapting this into `url.js`, we get:
 
 ```js:title=url.js
 import { derived, writable } from 'svelte/store'
@@ -187,7 +185,7 @@ export let ssrUrl = ''
 setContext('APP', { url: createUrlStore(ssrUrl) })
 ```
 
-You can view the full server setup at the [repo](https://github.com/bluwy/svelte-url).
+You can view the full server setup in the final [repo](https://github.com/bluwy/svelte-url).
 
 ## Conclusion
 
