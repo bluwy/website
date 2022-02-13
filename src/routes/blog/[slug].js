@@ -8,6 +8,7 @@ import { posts } from '$data/posts'
  *   tocHtml: string,
  *   title: string,
  *   date: string,
+ *   lastUpdate?: string,
  * }} SlugThisPost
  */
 
@@ -33,7 +34,8 @@ export async function get({ params }) {
     excerpt: posts[postIndex].excerpt,
     tocHtml: posts[postIndex].tocHtml,
     title: posts[postIndex].frontmatter.title,
-    date: posts[postIndex].date
+    date: posts[postIndex].frontmatter.date,
+    lastUpdate: posts[postIndex].frontmatter.updated
   }
 
   /** @type {SlugPagePost} */

@@ -22,7 +22,16 @@
 <article class="container">
   <header class="mb-6">
     <h1 class="m-0">{thisPost.title}</h1>
-    <p class="mt-2">{formatDate(new Date(thisPost.date))}</p>
+    <p class="mt-2">
+      <span>
+        {formatDate(new Date(thisPost.date))}
+      </span>
+      {#if thisPost.lastUpdate}
+        <span class="opacity-70 text-sm">
+          (Updated {formatDate(thisPost.lastUpdate)})
+        </span>
+      {/if}
+    </p>
   </header>
   <div class="markdown">
     {@html rawHtml}

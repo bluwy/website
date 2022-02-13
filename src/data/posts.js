@@ -3,7 +3,8 @@ const postMarkdowns = import.meta.globEager('../posts/*/index.md')
 /**
  * @typedef {{
  *   title: string,
- *   date: Date
+ *   date: Date,
+ *   updated: Date
  * }} PostFrontmatter
  */
 
@@ -24,8 +25,12 @@ export const posts = Object.entries(postMarkdowns)
     const [, date, name] = k.match(/posts\/(\d{4}-\d{2}-\d{2})-(.*)\/index.md/)
     return {
       slug: '/blog/' + name,
-      date: new Date(date),
-      ...v
+      ...v,
+      frontmatter: {
+        ...v.frontmatter,
+        date: new Date(date),
+        updated: new Date(v.frontmatter.updated)
+      }
     }
   })
-  .sort((a, b) => b.date - a.date)
+  .sort((a, b) => b.frontmatter.date - a.frontmatter.date)
