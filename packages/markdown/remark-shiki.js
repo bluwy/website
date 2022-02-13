@@ -5,19 +5,14 @@ import { visit } from 'unist-util-visit'
 export function remarkShiki() {
   const highlighterPromise = getHighlighter({
     theme: 'one-dark-pro',
-    langs: ['html', 'css', 'javascript', 'typescript', 'ini', 'xml']
+    langs: ['html', 'css', 'javascript', 'typescript', 'ini', 'xml', 'svelte']
   })
 
   return async function (tree) {
     const highlighter = await highlighterPromise
     visit(tree, 'code', (node) => {
       node.type = 'html'
-      node.value = codeToHtml(
-        highlighter,
-        node.value,
-        // https://github.com/shikijs/shiki/issues/196
-        node.lang === 'svelte' ? 'html' : node.lang
-      )
+      node.value = codeToHtml(highlighter, node.value, node.lang)
     })
     visit(tree, 'inlineCode', (node) => {
       node.type = 'html'
