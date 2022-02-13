@@ -132,48 +132,68 @@ export default {
 }
 ```
 
-Adapting this into `url.js`, we get:
+However when using stores in the server, they can't be imported directly as the value can leak to other current requests/connections. To prevent that, [Svelte Context](https://svelte.dev/tutorial/context-api) can be used to isolate the URL per request.
+
+The store would need to be a function too so that we can create one for each request. Adapting this into `url.js`, we get:
 
 ```js:title=url.js
-import { derived, writable } from "svelte/store"
+import { derived, writable } from 'svelte/store'
 
-const isBrowser = typeof window !== "undefined"
+export function createUrlStore(ssrUrl) {
+  // Ideally a bundler constant so that it's tree-shakable
+  if (typeof window === 'undefined') {
+    const { subscribe } = writable(ssrUrl)
+    return { subscribe }
+  }
 
-const href = writable(isBrowser ? window.location.href : "https://example.com")
+  const href = writable(window.location.href)
 
-const URL = isBrowser ? window.URL : require("url").URL
-
-if (isBrowser) {
   const originalPushState = history.pushState
   const originalReplaceState = history.replaceState
 
   const updateHref = () => href.set(window.location.href)
 
-  history.pushState = function() {
+  history.pushState = function () {
     originalPushState.apply(this, arguments)
     updateHref()
   }
 
-  history.replaceState = function() {
+  history.replaceState = function () {
     originalReplaceState.apply(this, arguments)
     updateHref()
   }
 
-  window.addEventListener("popstate", updateHref)
-  window.addEventListener("hashchange", updateHref)
+  window.addEventListener('popstate', updateHref)
+  window.addEventListener('hashchange', updateHref)
+
+  return {
+    subscribe: derived(href, ($href) => new URL($href)).subscribe
+  }
 }
 
-export default {
-  subscribe: derived(href, $href => new URL($href)).subscribe,
-  ssrSet: urlHref => href.set(urlHref),
-}
+// If you're using in a pure SPA, you can return a store directly and share it everywhere
+// export default createUrlStore()
 ```
+
+In your main `App.svelte` for SSR, you can then create a context like so:
+
+```js
+import { setContext } from 'svelte'
+import { createUrlStore } from './url'
+
+// Value passed from the server renderer
+export let ssrUrl = ''
+
+setContext('APP', { url: createUrlStore(ssrUrl) })
+```
+
+You can view the full server setup at the [repo](https://github.com/bluwy/svelte-url).
 
 ## Conclusion
 
 And we've built ourself a reactive URL store that supports hash-based routing, history-based routing, and server-side rendering! Feel free to copy it in your next project and tweak it to your needs.
 
-With reactive URLs, it's ever easier to route in our app:
+With reactive URLs, here's how it should look like now:
 
 ```svelte:title=App.svelte
 <script>
