@@ -7,7 +7,7 @@
   import ToggleTag from '$lib/ToggleTag.svelte'
   import ToggleTagSelect from '$lib/ToggleTagSelect.svelte'
 
-  /** @type {import("./index.json").MainProject[]} */
+  /** @type {import("./index").MainProject[]} */
   export let allProjects
 
   /** @type {string} */

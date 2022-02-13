@@ -7,11 +7,11 @@
 
   import PaginationCard from '$lib/PaginationCard.svelte'
 
-  /** @type {import("./[slug].json").SlugThisProject} */
+  /** @type {import("./[slug]").SlugThisProject} */
   export let thisProject
-  /** @type {import("./[slug].json").SlugPageProject | null} */
+  /** @type {import("./[slug]").SlugPageProject | null} */
   export let prevProject
-  /** @type {import("./[slug].json").SlugPageProject | null} */
+  /** @type {import("./[slug]").SlugPageProject | null} */
   export let nextProject
 
   $: rawHtml = thisProject.markdownHtml.replace(

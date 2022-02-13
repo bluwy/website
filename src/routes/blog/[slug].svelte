@@ -7,11 +7,11 @@
   import PaginationCard from '$lib/PaginationCard.svelte'
   import { formatDate } from '$lib/utils'
 
-  /** @type {import("./[slug].json").SlugThisPost} */
+  /** @type {import("./[slug]").SlugThisPost} */
   export let thisPost
-  /** @type {import("./[slug].json").SlugPagePost | null} */
+  /** @type {import("./[slug]").SlugPagePost | null} */
   export let prevPost
-  /** @type {import("./[slug].json").SlugPagePost | null} */
+  /** @type {import("./[slug]").SlugPagePost | null} */
   export let nextPost
 
   $: rawHtml = thisPost.markdownHtml.replace('<!-- toc -->', thisPost.tocHtml)

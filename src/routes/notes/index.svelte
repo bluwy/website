@@ -5,7 +5,7 @@
 <script>
   import Head from '$lib/Head.svelte'
 
-  /** @type {import("./index.json").MainPost[]} */
+  /** @type {import("./index").MainPost[]} */
   export let notesHtml
 </script>
 

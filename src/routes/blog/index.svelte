@@ -6,7 +6,7 @@
   import Head from '$lib/Head.svelte'
   import { formatDate } from '$lib/utils'
 
-  /** @type {import("./index.json").MainPost[]} */
+  /** @type {import("./index").MainPost[]} */
   export let allPosts
 </script>
 

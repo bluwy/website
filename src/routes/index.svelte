@@ -7,9 +7,9 @@
   import { formatDate } from '$lib/utils'
   import Head from '$lib/Head.svelte'
 
-  /** @type {import('./index.json').IndexProject[]} */
+  /** @type {import('./index').IndexProject[]} */
   export let featuredProjects
-  /** @type {import('./index.json').IndexPost[]} */
+  /** @type {import('./index').IndexPost[]} */
   export let recentPosts
 </script>
 
