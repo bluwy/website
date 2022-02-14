@@ -3,7 +3,7 @@ title: Simple Svelte Routing with Reactive URLs
 updated: '2022-02-13'
 ---
 
-Svelte doesn't have an official router yet. If all you need is to conditionally render a few components based on the URL, there's no reason to use one of the [10+ Svelte routers](https://sveltesociety.dev/components/#routers) out there that do more than you asked for. We should be able to use native web APIs to do just that!
+If you're not using [SvelteKit](https://kit.svelte.dev), and you need a router in the wild, you'll quickly notice that there are [A LOT](https://sveltesociety.dev/components/#routers) of choices out there. If all you need is to conditionally render a few components based on the URL, we should be able to use native web APIs to do just that!
 
 <!-- endexcerpt -->
 
