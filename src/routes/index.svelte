@@ -33,8 +33,9 @@
   <section class="container my-20 markdown">
     <p>
       Hi, I'm Bjorn, a frontend web developer and open-source enthusiast. I'm
-      also a <a href="https://svelte.dev">Svelte</a> core maintainer,
-      contributing to projects like
+      also a <a href="https://svelte.dev">Svelte</a> and
+      <a href="https://vitejs.dev">Vite</a>
+      team member, contributing to projects like
       <a href="https://github.com/sveltejs/vite-plugin-svelte">
         vite-plugin-svelte
       </a>,
