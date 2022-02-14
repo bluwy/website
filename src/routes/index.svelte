@@ -1,5 +1,18 @@
 <script context="module">
   export const prerender = true
+
+  // workaround root shadow endpoints issue when navigate to home page from other pages
+  /** @type {import('@sveltejs/kit').Load} */
+  export async function load({ fetch }) {
+    const res = await fetch('/root.json')
+
+    if (res.ok) {
+      return {
+        props: await res.json(),
+        maxage: 3600
+      }
+    }
+  }
 </script>
 
 <script>
@@ -7,9 +20,9 @@
   import { formatDate } from '$lib/utils'
   import Head from '$lib/Head.svelte'
 
-  /** @type {import('./index').IndexProject[]} */
+  /** @type {import('./root.json').IndexProject[]} */
   export let featuredProjects
-  /** @type {import('./index').IndexPost[]} */
+  /** @type {import('./root.json').IndexPost[]} */
   export let recentPosts
 </script>
 
