@@ -13,12 +13,12 @@
   },
   "devDependencies": {
     "@bjornlu/rollup-plugin-markdown": "workspace:*",
-    "@sveltejs/adapter-cloudflare": "^1.0.0-next.10",
-    "@sveltejs/kit": "^1.0.0-next.267",
+    "@sveltejs/adapter-cloudflare": "^1.0.0-next.14",
+    "@sveltejs/kit": "^1.0.0-next.288",
     "prettier": "^2.5.1",
     "prettier-plugin-svelte": "^2.6.0",
     "svelte": "^3.46.4",
-    "vite-plugin-windicss": "^1.7.0",
-    "windicss": "^3.4.3"
+    "vite-plugin-windicss": "^1.8.1",
+    "windicss": "^3.5.0"
   }
 }
