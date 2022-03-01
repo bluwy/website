@@ -1,18 +1,5 @@
 <script context="module">
   export const prerender = true
-
-  // workaround root shadow endpoints issue when navigate to home page from other pages
-  /** @type {import('@sveltejs/kit').Load} */
-  export async function load({ fetch }) {
-    const res = await fetch('/root.json')
-
-    if (res.ok) {
-      return {
-        props: await res.json(),
-        maxage: 3600
-      }
-    }
-  }
 </script>
 
 <script>
