@@ -60,25 +60,33 @@ h6 {
 }
 
 h1 {
-  @apply font-normal mt-12 mb-4 text-3xl;
+  @apply font-normal mt-20 mb-5 text-3xl;
 }
 
 h2 {
-  @apply font-medium mt-10 mb-3 text-2xl;
+  @apply font-medium mt-16 mb-4 text-2xl;
+}
+
+h1 ~ h2 {
+  @apply mt-6;
 }
 
 h3 {
-  @apply font-medium mt-6 text-xl mb-2;
+  @apply font-medium mt-16 text-xl mb-4;
+}
+
+h2 ~ h3 {
+  @apply mt-6;
 }
 
 h4,
 h5,
 h6 {
-  @apply font-semibold mt-6 text-xl mb-2;
+  @apply font-semibold mt-12 text-xl mb-3;
 }
 
 p {
-  @apply text-lg mb-3 text-gray-700 @dark:text-gray-300;
+  @apply text-lg mb-6 text-gray-700 @dark:text-gray-300;
 }
 
 /* Inline code */
@@ -209,7 +217,7 @@ button:focus,
 }
 
 .markdown ol {
-  @apply list-decimal text-lg;
+  @apply list-decimal text-lg mb-6;
 }
 
 .markdown ul {
@@ -217,7 +225,7 @@ button:focus,
 }
 
 .markdown li {
-  @apply mb-1 ml-5 pl-6;
+  @apply mb-2 ml-5 pl-6;
 }
 
 .markdown li > p:last-child {
@@ -241,7 +249,7 @@ button:focus,
 }
 
 .markdown .toc li {
-  @apply m-0;
+  @apply mx-0 my-1 lg:my-0.5;
 }
 
 .markdown .toc a {
@@ -290,17 +298,17 @@ span.line:empty {
   }
 
   h1 {
-    @apply mt-10 text-4xl;
+    @apply text-4xl;
   }
 
   h2 {
-    @apply mt-8 text-3xl;
+    @apply text-3xl;
   }
 
   h3,
   h4,
   h5,
   h6 {
-    @apply mt-6 text-2xl;
+    @apply text-2xl;
   }
 }
