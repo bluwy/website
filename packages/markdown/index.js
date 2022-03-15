@@ -26,7 +26,7 @@ export function createMarkdownProcessor() {
     .use(rehypeAutolinkHeadings, {
       behavior: 'append',
       properties: {
-        ariaHidden: true,
+        ariaHidden: 'true',
         tabIndex: -1,
         className: 'anchor'
       },

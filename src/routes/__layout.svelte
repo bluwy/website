@@ -1,8 +1,9 @@
 <script>
-  import { page } from '$app/stores'
+  import { navigating, page } from '$app/stores'
   import Icons from '$lib/Icons.svelte'
   import Nav from '$lib/Nav.svelte'
   import Footer from '$lib/Footer.svelte'
+  import LoadingBar from '$lib/LoadingBar.svelte'
   import 'virtual:windi.css'
   import '$lib/global.pcss'
   import '$data/assets'
@@ -16,3 +17,6 @@
   <slot />
 </main>
 <Footer />
+{#if $navigating}
+  <LoadingBar />
+{/if}
