@@ -1,7 +1,3 @@
-<script context="module">
-  export const prerender = true
-</script>
-
 <script>
   import Hero from '$lib/Hero.svelte'
   import { formatDate } from '$lib/utils'

@@ -1,11 +1,7 @@
-<script context="module">
-  export const prerender = true
-</script>
-
 <script>
   import Head from '$lib/Head.svelte'
 
-  /** @type {import("./index").MainPost[]} */
+  /** @type {string} */
   export let notesHtml
 </script>
 

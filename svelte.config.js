@@ -7,6 +7,9 @@ import markdown from '@bjornlu/rollup-plugin-markdown'
 const config = {
   kit: {
     adapter: adapter(),
+    prerender: {
+      default: true
+    },
     vite: {
       plugins: [WindiCSS(), markdown()],
       resolve: {

@@ -1,7 +1,3 @@
-<script context="module">
-  export const prerender = true
-</script>
-
 <script>
   import Head from '$lib/Head.svelte'
   import ToggleTag from '$lib/ToggleTag.svelte'
