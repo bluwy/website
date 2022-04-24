@@ -117,7 +117,7 @@
       <a href="https://www.patreon.com/bluwy">Patreon</a> page!
     </p>
     <object
-      class="mx-auto"
+      class="w-full"
       data="/sponsors.svg"
       type="image/svg+xml"
       title="Sponsors"
