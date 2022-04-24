@@ -34,9 +34,9 @@ And finally, I'll list what else that needs to be done because different skins h
 
 > **Update 12/6/2020**: [Dark Sky](https://darksky.net) have been acquired by Apple and is shuting down its services by 1 July 2020 :(
 
-There are a few weather API services out there with generous free tiers, such as [OpenWeatherMap](https://openweathermap.org/price), [ClimaCell](https://www.climacell.co/weather-api/pricing/), [Weatherbit](https://www.weatherbit.io/pricing) and [AccuWeather](https://developer.accuweather.com/packages). Of course, you can choose any other services as you wish.
+There are a few weather API services out there with generous free tiers, such as [OpenWeatherMap](https://openweathermap.org/price), [Weatherbit](https://www.weatherbit.io/pricing), [AccuWeather](https://developer.accuweather.com/packages), and [Meteomatics](https://www.meteomatics.com/en/weather-api/). Of course, you can choose any other services as you wish.
 
-Most weather API services require sign ups to acquire an API key, which is totally fair to prevent DDOS-ing on their servers.
+Most weather API services require sign ups to acquire an API key, which is totally fair to prevent DDOS on their servers.
 
 Once you acquired your API key, hop on to the next step!
 
@@ -235,12 +235,14 @@ We still have these TODOs:
 2. Change variable `#Location#` to accept OpenWeatherMap's id format.
 3. OpenWeatherMap's icon value is different from `wxdata`'s, so since the Mond weather icons are named, 1.png..., we have to rename to [OpenWeatherMap's format](https://openweathermap.org/weather-conditions).
 
-> **Note**: I did not actually fix the Mond weather skin. It's still broken at its current state. RIP DeviantArt comments.
+> **Note**: I did not actually fix the Mond weather skin. It's still broken at its current state (last I checked).
 
 ## Conclusion
 
 And there's that. A lot of work has to be done depending on how complex the skin is. But this should give you an idea on what needs to be done to migrate a skin to a new API.
 
-If you spot any errors or find any false information, feel free to contact me on [Reddit](https://reddit.com/u/IamLUG) or submit an issue on [GitHub](https://github.com/bluwy/bjorn-lu) if you prefer. I'll fix it as soon as possible.
+If you spot any errors or find any false information, feel free to contact me on [Reddit](https://reddit.com/u/IamLUG) or submit an issue on [GitHub](https://github.com/bluwy/website) if you prefer. I'll fix it as soon as possible.
+
+**Update 24/4/2022**: I've not used Rainmeter for a long time so I'm likely not able to help with any questions you have. The [Rainmeter forum](https://forum.rainmeter.net) or [Discord server](https://discord.gg/rainmeter) would be the best place to start.
 
 Happy coding!
