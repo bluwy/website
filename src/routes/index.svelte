@@ -47,9 +47,8 @@
       </div>
     </div>
     <p class="text-sm opacity-70 markdown">
-      I'm interested in developer experience and build tooling. Hence, my
-      projects are often <a href="https://www.npmjs.com">npm</a> packages and wacky
-      experiments.
+      I'm interested in developer experience and build tools. My projects are
+      often npm packages and wacky experiments.
     </p>
     <div class="flex flex-col flex-wrap -mx-2 sm:flex-row">
       {#each featuredProjects as project (project.title)}
@@ -109,5 +108,19 @@
         </div>
       {/each}
     </div>
+  </section>
+  <section class="container mt-8">
+    <h2 class="m-0 mb-1">Sponsors</h2>
+    <p class="text-sm opacity-70 markdown">
+      My open source adventure is sponsored by these fine folks. If you'd like
+      to support too, check out my
+      <a href="https://www.patreon.com/bluwy">Patreon</a> page!
+    </p>
+    <object
+      class="mx-auto"
+      data="/sponsors.svg"
+      type="image/svg+xml"
+      title="Sponsors"
+    />
   </section>
 </article>
