@@ -13,7 +13,7 @@
       const remaining = 1 - p
       if (remaining > 0.15) t = setTimeout(next, 100 / remaining)
     }
-    t = setTimeout(next, 300)
+    t = setTimeout(next, 500)
     return () => clearTimeout(t)
   })
 
