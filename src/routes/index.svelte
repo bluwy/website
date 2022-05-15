@@ -109,7 +109,7 @@
       {/each}
     </div>
   </section>
-  <section class="container mt-8">
+  <section class="container mt-8 -mb-6">
     <h2 class="m-0 mb-1">Sponsors</h2>
     <p class="text-sm opacity-70 markdown">
       My open source adventure is sponsored by these fine folks. If you'd like
