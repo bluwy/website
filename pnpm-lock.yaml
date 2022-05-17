@@ -6,7 +6,7 @@ importers:
     specifiers:
       '@bjornlu/rollup-plugin-markdown': workspace:*
       '@sveltejs/adapter-cloudflare': ^1.0.0-next.19
-      '@sveltejs/kit': ^1.0.0-next.330
+      '@sveltejs/kit': ^1.0.0-next.334
       prettier: ^2.6.2
       prettier-plugin-svelte: ^2.7.0
       svelte: ^3.48.0
@@ -15,7 +15,7 @@ importers:
     devDependencies:
       '@bjornlu/rollup-plugin-markdown': link:packages/rollup-plugin-markdown
       '@sveltejs/adapter-cloudflare': 1.0.0-next.19
-      '@sveltejs/kit': 1.0.0-next.330_svelte@3.48.0
+      '@sveltejs/kit': 1.0.0-next.334_svelte@3.48.0
       prettier: 2.6.2
       prettier-plugin-svelte: 2.7.0_kkjbqzpydplecjtkxrgomroeru
       svelte: 3.48.0
@@ -112,9 +112,9 @@ packages:
       worktop: 0.8.0-next.13
     dev: true
 
-  /@sveltejs/kit/1.0.0-next.330_svelte@3.48.0:
-    resolution: {integrity: sha512-Wb95D5tOF8BViZuikqzZLAcupdS7TpXtadNPgpEOxKowmkrW8xjRrrfVdPIkNOLqAP1V+gKInmQ/gFYmnv5EjA==}
-    engines: {node: '>=14.13'}
+  /@sveltejs/kit/1.0.0-next.334_svelte@3.48.0:
+    resolution: {integrity: sha512-HPMF1oYBfyOG6wfU0Y6F4SID8jphue9yF+PXJqVTDBL5Z2WBG2ogum6MavE8aWhq+g2H6w5y0jNT8+8DO2KTCA==}
+    engines: {node: '>=16'}
     hasBin: true
     peerDependencies:
       svelte: ^3.44.0
