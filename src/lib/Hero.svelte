@@ -21,7 +21,7 @@
         <div class="heroTextWelcome">Welcome</div>
       </div>
     </div>
-    <div class="space-x-12 bottom-[4.5vh] text-3xl absolute">
+    <div class="space-x-8 sm:space-x-12 bottom-[4.5vh] text-3xl absolute">
       {#each socials as social}
         <a
           class="socialIcon"
