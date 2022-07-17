@@ -11,7 +11,7 @@ import { posts } from '$data/posts'
  */
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
-export async function get() {
+export async function GET() {
   /** @type {MainPost[]} */
   const allPosts = posts.map((v) => ({
     slug: v.slug,

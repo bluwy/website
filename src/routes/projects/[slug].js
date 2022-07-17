@@ -18,7 +18,7 @@ import { projects } from '$data/projects'
  */
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
-export async function get({ params }) {
+export async function GET({ params }) {
   const { slug } = params
 
   const projectIndex = projects.findIndex((v) => v.slug.endsWith(slug))

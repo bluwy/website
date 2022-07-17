@@ -20,7 +20,7 @@ import { posts } from '$data/posts'
  */
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
-export async function get({ params }) {
+export async function GET({ params }) {
   const { slug } = params
 
   const postIndex = posts.findIndex((v) => v.slug.endsWith(slug))

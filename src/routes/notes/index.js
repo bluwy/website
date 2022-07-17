@@ -1,7 +1,7 @@
 import { markdownHtml } from '../../data/notes.md'
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
-export async function get() {
+export async function GET() {
   return {
     body: {
       notesHtml: markdownHtml

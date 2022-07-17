@@ -11,7 +11,7 @@ import { projects } from '$data/projects'
  */
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
-export async function get() {
+export async function GET() {
   /** @type {MainProject[]} */
   const allProjects = projects.map((v) => ({
     slug: v.slug,

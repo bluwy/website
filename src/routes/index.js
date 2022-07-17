@@ -20,7 +20,7 @@ import { projects } from '$data/projects'
  */
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
-export async function get() {
+export async function GET() {
   /** @type {IndexProject[]} */
   const featuredProjects = projects
     .filter((v) => v.frontmatter.featured)

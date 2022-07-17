@@ -1,7 +1,7 @@
 /**
  * @type {import('@sveltejs/kit').RequestHandler}
  */
-export async function get() {
+export async function GET() {
   const result = await fetch(
     'https://gist.github.com/bluwy/0382476041ee9ae6b4d5eaee719a40df/raw/sponsors.svg',
     {
