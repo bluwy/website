@@ -121,6 +121,7 @@
       data="/sponsors.svg"
       type="image/svg+xml"
       title="Sponsors"
+      style="color-scheme: normal"
     />
   </section>
 </article>
