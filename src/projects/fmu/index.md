@@ -1,7 +1,8 @@
 ---
 title: fmu
-desc: A collection of JS module utilities written in Rust
+desc: JS module utilities written in Rust
 icon: fmu.svg
+featured: true
 links:
   - label: GitHub
     link: https://github.com/bluwy/fmu

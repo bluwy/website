@@ -1,7 +1,8 @@
 ---
-title: Publint
+title: publint
 desc: Lint packaging errors
 icon: publint.svg
+featured: true
 links:
   - label: GitHub
     link: https://github.com/bluwy/publint
