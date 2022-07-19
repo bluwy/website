@@ -69,7 +69,7 @@
     z-index: -1;
     top: 50%;
     left: 50%;
-    box-shadow: 0 0 300px 150px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 150px 200px rgba(255, 255, 255, 0.25);
   }
 
   .heroCircle1,
@@ -97,7 +97,7 @@
     border-color: #ffc4f3;
     mix-blend-mode: screen;
     box-shadow: 0 0 2px #fe13cd, inset 0 0 2px #fe13cd, 0 0 10px #fe13cd,
-      inset 0 0 10px #fe13cd, 0 0 24px #fe13cd, inset 0 0 24px #fe13cd;
+      inset 0 0 10px #fe13cd, 0 0 36px #fe13cd, inset 0 0 36px #fe13cd;
   }
 
   .heroCircle2 {
@@ -108,7 +108,7 @@
     color: #cbfdff;
     mix-blend-mode: screen;
     box-shadow: 0 0 2px #2df5ff, inset 0 0 2px #2df5ff, 0 0 10px #2df5ff,
-      inset 0 0 10px #2df5ff, 0 0 24px #2df5ff, inset 0 0 24px #2df5ff;
+      inset 0 0 10px #2df5ff, 0 0 32px #2df5ff, inset 0 0 32px #2df5ff;
   }
 
   .heroText {

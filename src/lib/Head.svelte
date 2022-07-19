@@ -4,7 +4,7 @@
 
   const siteAuthor = 'Bjorn Lu'
   const siteDescription =
-    'Bjorn Lu is a frontend web developer and build tool enthusiast working on open-source'
+    'Bjorn Lu is a frontend web developer and open-source enthusiast'
 
   $: finalTitle = title ? `${title} - ${siteAuthor}` : siteAuthor
   $: finalDescription = description || siteDescription

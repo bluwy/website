@@ -26,13 +26,10 @@
       <a href="https://kit.svelte.dev">SvelteKit</a>.
     </p>
     <p>
-      I have my way around many other technologies too, including React, Vue,
-      GraphQL, and PostgreSQL. I can quickly pick up new stacks when needed.
-    </p>
-    <p>
       Sometimes, I write <a href="/blog">blog posts</a> and jot down
-      <a href="/notes">interesting stuff</a>. I also have a
-      <a href="/todo" rel="external">todo list</a> to keep track of my public work.
+      <a href="/notes">notes</a>. I have a
+      <a href="/todo" rel="external">todo list</a> too if you'd like to see the stuff
+      I'm working in public.
     </p>
   </section>
   <section class="container mt-8" />
@@ -48,7 +45,7 @@
     </div>
     <p class="text-sm opacity-70 markdown">
       I'm interested in developer experience and build tools. My projects are
-      often npm packages and wacky experiments.
+      often experimental npm packages.
     </p>
     <div class="flex flex-col flex-wrap -mx-2 sm:flex-row">
       {#each featuredProjects as project (project.title)}
@@ -90,7 +87,7 @@
       </div>
     </div>
     <p class="text-sm opacity-70 markdown">
-      Sometimes I write about development and personal experience.
+      I write about technical notes, guides, and personal experience.
     </p>
     <div class="flex flex-col flex-wrap -mx-2 sm:flex-row">
       {#each recentPosts as post (post.title)}
