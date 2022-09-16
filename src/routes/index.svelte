@@ -15,14 +15,17 @@
   <Hero />
   <section class="container my-20 markdown">
     <p>
-      Hi, I'm Bjorn, a frontend web developer and open-source enthusiast. I'm
-      also a <a href="https://svelte.dev">Svelte</a> and
-      <a href="https://vitejs.dev">Vite</a>
-      team member, contributing to projects like
+      Hi, I'm Bjorn. I work in open source for the web! I'm an <a
+        href="https://astro.build">Astro</a
+      >
+      core resident, <a href="https://svelte.dev">Svelte</a> and
+      <a href="https://vitejs.dev">Vite</a> core team member. Currently
+      maintaining
       <a href="https://github.com/sveltejs/vite-plugin-svelte">
         vite-plugin-svelte
       </a>,
-      <a href="https://vitejs.dev">Vite</a>, and
+      <a href="https://vitejs.dev">Vite</a>,
+      <a href="https://astro.build">Astro</a> and sometimes
       <a href="https://kit.svelte.dev">SvelteKit</a>.
     </p>
     <p>
