@@ -1,29 +1,22 @@
 <script>
-  throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
-
   import Head from '$lib/Head.svelte'
-
   import PaginationCard from '$lib/PaginationCard.svelte'
 
-  /** @type {import("./[slug]").SlugThisProject} */
-  export let thisProject
-  /** @type {import("./[slug]").SlugPageProject | null} */
-  export let prevProject
-  /** @type {import("./[slug]").SlugPageProject | null} */
-  export let nextProject
+  /** @type {import('./$types').PageData} */
+  export let data
 
-  $: rawHtml = thisProject.markdownHtml.replace(
+  $: rawHtml = data.thisProject.markdownHtml.replace(
     '<!-- toc -->',
-    thisProject.tocHtml
+    data.thisProject.tocHtml
   )
 </script>
 
-<Head title={thisProject.title} description={thisProject.excerpt} />
+<Head title={data.thisProject.title} description={data.thisProject.excerpt} />
 
 <article class="container">
-  <h1 class="m-0 text-center mb-2">{thisProject.title}</h1>
+  <h1 class="m-0 text-center mb-2">{data.thisProject.title}</h1>
   <div class="space-x-3 text-center mb-6">
-    {#each thisProject.links as link (link.label)}
+    {#each data.thisProject.links as link (link.label)}
       <a class="btn btn--sm btn--translucent" href={link.link}>
         {link.label}
       </a>
@@ -36,20 +29,20 @@
 <div class="container mt-12">
   <div class="flex flex-row flex-wrap">
     <div class="mb-4 w-full sm:mb-0 sm:pr-2 sm:w-1/2">
-      {#if prevProject}
+      {#if data.prevProject}
         <PaginationCard
           type="prev"
-          label={prevProject.title}
-          href={prevProject.slug}
+          label={data.prevProject.title}
+          href={data.prevProject.slug}
         />
       {/if}
     </div>
     <div class="w-full sm:pl-2 sm:w-1/2">
-      {#if nextProject}
+      {#if data.nextProject}
         <PaginationCard
           type="next"
-          label={nextProject.title}
-          href={nextProject.slug}
+          label={data.nextProject.title}
+          href={data.nextProject.slug}
         />
       {/if}
     </div>

@@ -18,7 +18,7 @@ import { projects } from '$data/projects'
  */
 
 /** @type {import('@sveltejs/kit').PageServerLoad} */
-export async function load({ params }) {
+export async function load({ params, setHeaders }) {
   const { slug } = params
 
   const projectIndex = projects.findIndex((v) => v.slug.endsWith(slug))
@@ -52,15 +52,13 @@ export async function load({ params }) {
         }
       : null
 
-  throw new Error("@migration task: Migrate this return statement (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292699)");
+  setHeaders({
+    'cache-control': 'public, maxage=3600'
+  })
+
   return {
-    body: {
-      thisProject,
-      prevProject,
-      nextProject
-    },
-    headers: {
-      'cache-control': 'public, maxage=3600'
-    }
+    thisProject,
+    prevProject,
+    nextProject
   }
 }

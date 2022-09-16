@@ -1,11 +1,9 @@
 <script>
-  throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
-
   import Head from '$lib/Head.svelte'
   import { formatDate } from '$lib/utils'
 
-  /** @type {import("./index").MainPost[]} */
-  export let allPosts
+  /** @type {import('./$types').PageData} */
+  export let data
 </script>
 
 <Head title="Blog" />
@@ -13,7 +11,7 @@
 <div class="container">
   <h1 class="m-0 text-center mb-6">Blog Posts</h1>
   <section class="space-y-5 sm:-mx-4">
-    {#each allPosts as post (post.slug)}
+    {#each data.allPosts as post (post.slug)}
       <a class="card block" href={post.slug}>
         <h2 class="m-0 text-xl">
           {post.title}

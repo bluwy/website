@@ -1,21 +1,21 @@
 <script>
-  throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
-
   import Head from '$lib/Head.svelte'
   import ToggleTag from '$lib/ToggleTag.svelte'
   import ToggleTagSelect from '$lib/ToggleTagSelect.svelte'
 
-  /** @type {import("./index").MainProject[]} */
-  export let allProjects
+  /** @type {import('./$types').PageData} */
+  export let data
 
   /** @type {string} */
   let search = ''
   /** @type {string[]} */
   let filterTags = []
 
-  $: allProjectTags = [...new Set(allProjects.flatMap((v) => v.tags))].sort()
+  $: allProjectTags = [
+    ...new Set(data.allProjects.flatMap((v) => v.tags))
+  ].sort()
 
-  $: filteredProjects = allProjects.filter((project) => {
+  $: filteredProjects = data.allProjects.filter((project) => {
     const titleMatch = project.title
       .toLowerCase()
       .includes(search.toLowerCase())

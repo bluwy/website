@@ -1,32 +1,30 @@
 <script>
-  throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
-
   import Head from '$lib/Head.svelte'
   import PaginationCard from '$lib/PaginationCard.svelte'
   import { formatDate } from '$lib/utils'
 
-  /** @type {import("./[slug]").SlugThisPost} */
-  export let thisPost
-  /** @type {import("./[slug]").SlugPagePost | null} */
-  export let prevPost
-  /** @type {import("./[slug]").SlugPagePost | null} */
-  export let nextPost
+  /** @type {import('./$types').PageData} */
+  export let data
 
-  $: rawHtml = thisPost.markdownHtml.replace('<!-- toc -->', thisPost.tocHtml)
+  $: rawHtml = data.thisPost.markdownHtml.replace(
+    '<!-- toc -->',
+    data.thisPost.tocHtml
+  )
 </script>
 
-<Head title={thisPost.title} description={thisPost.excerpt} />
+<Head title={data.thisPost.title} description={data.thisPost.excerpt} />
 
 <article class="container">
   <header class="mb-6">
-    <h1 class="m-0">{thisPost.title}</h1>
+    <h1 class="m-0">{data.thisPost.title}</h1>
     <p class="mt-2">
       <span>
-        {formatDate(new Date(thisPost.date))}
+        {formatDate(new Date(data.thisPost.date))}
       </span>
-      {#if thisPost.lastUpdate}
+      {#if data.thisPost.lastUpdate}
         <span class="opacity-70 text-sm">
-          (Updated {formatDate(new Date(thisPost.lastUpdate))})
+          {data.thisPost.lastUpdate}
+          (Updated {formatDate(new Date(data.thisPost.lastUpdate))})
         </span>
       {/if}
     </p>
@@ -38,20 +36,20 @@
 <div class="container mt-12">
   <div class="flex flex-row flex-wrap">
     <div class="mb-4 w-full sm:mb-0 sm:pr-2 sm:w-1/2">
-      {#if prevPost}
+      {#if data.prevPost}
         <PaginationCard
           type="prev"
-          label={prevPost.title}
-          href={prevPost.slug}
+          label={data.prevPost.title}
+          href={data.prevPost.slug}
         />
       {/if}
     </div>
     <div class="w-full sm:pl-2 sm:w-1/2">
-      {#if nextPost}
+      {#if data.nextPost}
         <PaginationCard
           type="next"
-          label={nextPost.title}
-          href={nextPost.slug}
+          label={data.nextPost.title}
+          href={data.nextPost.slug}
         />
       {/if}
     </div>

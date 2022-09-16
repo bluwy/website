@@ -1,14 +1,10 @@
 <script>
-  throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
-
   import Hero from '$lib/Hero.svelte'
   import { formatDate } from '$lib/utils'
   import Head from '$lib/Head.svelte'
 
-  /** @type {import('./root.json').IndexProject[]} */
-  export let featuredProjects
-  /** @type {import('./root.json').IndexPost[]} */
-  export let recentPosts
+  /** @type {import('./$types').PageData} */
+  export let data
 </script>
 
 <Head />
@@ -53,7 +49,7 @@
       often experimental npm packages.
     </p>
     <div class="flex flex-col flex-wrap -mx-2 sm:flex-row">
-      {#each featuredProjects as project (project.title)}
+      {#each data.featuredProjects as project (project.title)}
         <div class="w-full p-2 sm:w-1/2">
           <a class="flex card" href={project.slug}>
             <div class="flex-shrink-0">
@@ -95,7 +91,7 @@
       I write about technical notes, guides, and personal experience.
     </p>
     <div class="flex flex-col flex-wrap -mx-2 sm:flex-row">
-      {#each recentPosts as post (post.title)}
+      {#each data.recentPosts as post (post.title)}
         <div class="w-full p-2 sm:w-1/2">
           <a class="flex card" href={post.slug}>
             <div>
