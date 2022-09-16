@@ -10,8 +10,8 @@ import { projects } from '$data/projects'
  * }} MainProject
  */
 
-/** @type {import('@sveltejs/kit').RequestHandler} */
-export async function GET() {
+/** @type {import('@sveltejs/kit').PageServerLoad} */
+export async function load() {
   /** @type {MainProject[]} */
   const allProjects = projects.map((v) => ({
     slug: v.slug,
@@ -21,6 +21,7 @@ export async function GET() {
     tags: v.frontmatter.tags
   }))
 
+  throw new Error("@migration task: Migrate this return statement (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292699)");
   return {
     body: {
       allProjects

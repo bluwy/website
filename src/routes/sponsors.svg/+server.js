@@ -14,8 +14,20 @@ export async function GET() {
     }
   )
 
-  if (!result.ok) return { status: 500, body: 'Failed to fetch SVG endpoint' }
+  if (!result.ok) return new Response('Failed to fetch SVG endpoint', { status: 500 })
 
+  throw new Error("@migration task: Migrate this return statement (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292701)");
+  // Suggestion (check for correctness before using):
+  // return new Response(result.body, {
+  //   headers: {
+  //     'Access-Control-Allow-Origin': '*',
+  //     'Content-Type': 'image/svg+xml',
+  //     'Content-Length': result.headers.get('Content-Length'),
+  //     'Cache-Control': import.meta.env.DEV
+  //       ? 'no-store'
+  //       : 'public, max-age=604800, s-maxage=259200' // Browser caches 1 week. Shared cache 3 days.
+  //   }
+  // });
   return {
     status: 200,
     body: result.body,
