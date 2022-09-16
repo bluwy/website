@@ -10,7 +10,7 @@ import { posts } from '$data/posts'
  * }} MainPost
  */
 
-/** @type {import('@sveltejs/kit').PageServerLoad} */
+/** @type {import('./$types').PageServerLoad} */
 export async function load({ setHeaders }) {
   /** @type {MainPost[]} */
   const allPosts = posts.map((v) => ({

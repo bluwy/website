@@ -29,7 +29,9 @@ export const posts = Object.entries(postMarkdowns)
       frontmatter: {
         ...v.frontmatter,
         date: new Date(date),
-        updated: new Date(v.frontmatter.updated)
+        updated: v.frontmatter.updated
+          ? new Date(v.frontmatter.updated)
+          : undefined
       }
     }
   })

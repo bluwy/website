@@ -19,7 +19,7 @@ import { posts } from '$data/posts'
  * }} SlugPagePost
  */
 
-/** @type {import('@sveltejs/kit').PageServerLoad} */
+/** @type {import('./$types').PageServerLoad} */
 export async function load({ params, setHeaders }) {
   const { slug } = params
 

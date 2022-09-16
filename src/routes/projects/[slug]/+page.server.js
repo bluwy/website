@@ -17,7 +17,7 @@ import { projects } from '$data/projects'
  * }} SlugPageProject
  */
 
-/** @type {import('@sveltejs/kit').PageServerLoad} */
+/** @type {import('./$types').PageServerLoad} */
 export async function load({ params, setHeaders }) {
   const { slug } = params
 

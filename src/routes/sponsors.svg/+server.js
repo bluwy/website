@@ -1,5 +1,5 @@
 /**
- * @type {import('@sveltejs/kit').RequestHandler}
+ * @type {import('./$types').RequestHandler}
  */
 export async function GET() {
   const result = await fetch(

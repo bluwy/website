@@ -10,7 +10,7 @@ import { projects } from '$data/projects'
  * }} MainProject
  */
 
-/** @type {import('@sveltejs/kit').PageServerLoad} */
+/** @type {import('./$types').PageServerLoad} */
 export async function load({ setHeaders }) {
   /** @type {MainProject[]} */
   const allProjects = projects.map((v) => ({

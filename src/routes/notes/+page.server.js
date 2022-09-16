@@ -1,6 +1,6 @@
 import { markdownHtml } from '../../data/notes.md'
 
-/** @type {import('@sveltejs/kit').PageServerLoad} */
+/** @type {import('./$types').PageServerLoad} */
 export async function load({ setHeaders }) {
   setHeaders({
     'cache-control': 'public, maxage=3600'
