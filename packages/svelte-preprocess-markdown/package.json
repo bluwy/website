@@ -7,6 +7,6 @@
   "type": "module",
   "exports": "./index.js",
   "dependencies": {
-    "@bjornlu/markdown": "workspace:*"
+    "@bjornlu/markdown": "workspace:0.0.1"
   }
 }
