@@ -14,6 +14,7 @@
           <a
             class="opacity-80 transition-colors duration-200 hover:opacity-100 hover:text-primary-800 focus:opacity-100 focus:text-primary-800 @dark:hover:text-primary-300 @dark:focus:text-primary-300"
             href={social.link}
+            rel={social.rel ? social.rel : undefined}
             title="My {social.title} profile"
           >
             <Icon svg={social.svg} />

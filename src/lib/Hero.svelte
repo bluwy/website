@@ -26,6 +26,7 @@
         <a
           class="socialIcon"
           href={social.link}
+          rel={social.rel ? social.rel : undefined}
           title="My {social.title} profile"
         >
           <Icon svg={social.svg} />

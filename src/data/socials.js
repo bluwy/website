@@ -1,7 +1,7 @@
 import githubIcon from '$assets/images/social-icons/github.svg?raw'
 import redditIcon from '$assets/images/social-icons/reddit.svg?raw'
 import twitterIcon from '$assets/images/social-icons/twitter.svg?raw'
-import patreonIcon from '$assets/images/social-icons/patreon.svg?raw'
+import mastodonIcon from '$assets/images/social-icons/mastodon.svg?raw'
 import linkedinIcon from '$assets/images/social-icons/linkedin.svg?raw'
 
 export const socials = [
@@ -21,9 +21,10 @@ export const socials = [
     svg: twitterIcon
   },
   {
-    title: 'Patreon',
-    link: 'https://www.patreon.com/bluwy',
-    svg: patreonIcon
+    title: 'Mastodon',
+    link: 'https://mas.to/@bluwy',
+    rel: 'me',
+    svg: mastodonIcon
   },
   {
     title: 'LinkedIn',
