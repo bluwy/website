@@ -39,6 +39,7 @@
     <p>Play.</p>
   {:else}
     <h1 class="text-7xl">404</h1>
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
     <p type="button" on:click={clickNextSentence}>{currentSentence}</p>
     <p class="markdown">
       Take me <a href="/">home</a>.
