@@ -26,12 +26,6 @@
       <a href="https://astro.build">Astro</a> and sometimes
       <a href="https://kit.svelte.dev">SvelteKit</a>.
     </p>
-    <p>
-      Sometimes, I write <a href="/blog">blog posts</a> and jot down
-      <a href="/notes">notes</a>. I have a
-      <a href="/todo" rel="external">todo list</a> too if you'd like to see the stuff
-      I'm working in public.
-    </p>
   </section>
   <section class="container mt-8" />
 

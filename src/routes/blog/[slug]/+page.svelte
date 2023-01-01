@@ -23,7 +23,6 @@
       </span>
       {#if data.thisPost.lastUpdate}
         <span class="opacity-70 text-sm">
-          {data.thisPost.lastUpdate}
           (Updated {formatDate(new Date(data.thisPost.lastUpdate))})
         </span>
       {/if}
