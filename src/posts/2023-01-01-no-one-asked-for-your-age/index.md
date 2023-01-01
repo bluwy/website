@@ -22,7 +22,7 @@ Age however is something everyone can relate to. When used as a denominator for 
 
 > I only found my company when I was 30.
 
-It's a skill to cope with it, but it stays at the back of one's mind, often negatively. It skews the value of the achievement, instead of what it is at face value.
+It's a skill to cope with it, but it stays aback of one's mind, often negatively. It skews the significance of the achievement, instead of what it is at face value.
 
 That is not to say you shouldn't share your age, if someone asked. But it is a number that doesn't need to be presented as pride.
 
