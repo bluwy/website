@@ -14,9 +14,13 @@ export function remarkData() {
   const remarkTocPipeline = unified().use(remarkParse).use(remarkHtml)
 
   return function (tree, file) {
-    file.data.tocHtml = `<div class="toc">${remarkTocPipeline.stringify(
-      toc(tree, { skip: 'Table of Contents' }).map
-    )}</div>`
+    const tocResult = toc(tree, { skip: 'Table of Contents' })
+    if (tocResult.map) {
+      const tocHtml = remarkTocPipeline.stringify(tocResult.map)
+      file.data.tocHtml = `<div class="toc">${tocHtml}</div>`
+    } else {
+      file.data.tocHtml = ''
+    }
 
     const frontmatterNode =
       tree.children[0]?.type === 'yaml'
