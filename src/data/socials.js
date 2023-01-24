@@ -22,7 +22,7 @@ export const socials = [
   },
   {
     title: 'Mastodon',
-    link: 'https://mas.to/@bluwy',
+    link: 'https://m.webtoo.ls/@bluwy',
     rel: 'me',
     svg: mastodonIcon
   },
