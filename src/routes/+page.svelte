@@ -2,6 +2,9 @@
   import Hero from '$lib/Hero.svelte'
   import { formatDate } from '$lib/utils'
   import Head from '$lib/Head.svelte'
+  import svelteLogo from '$assets/images/oss-icons/svelte.svg'
+  import viteLogo from '$assets/images/oss-icons/vite.svg'
+  import astroLogo from '$assets/images/oss-icons/astro.svg'
 
   /** @type {import('./$types').PageData} */
   export let data
@@ -11,7 +14,7 @@
 
 <article>
   <Hero />
-  <section class="container my-20 markdown">
+  <section class="container mt-20 mb-10 markdown">
     <p>
       Hi, I'm Bjorn. I work in open source for the web! I'm an <a
         href="https://astro.build">Astro</a
@@ -27,9 +30,20 @@
       <a href="https://kit.svelte.dev">SvelteKit</a>.
     </p>
   </section>
-  <section class="container mt-8" />
 
-  <section class="container mt-8">
+  <section class="container my-10 flex justify-center gap-12">
+    <a href="https://svelte.dev">
+      <img src={svelteLogo} alt="svelte" class="w-12" />
+    </a>
+    <a href="https://vitejs.dev">
+      <img src={viteLogo} alt="vite" class="w-12" />
+    </a>
+    <a href="https://astor.build">
+      <img src={astroLogo} alt="astro" class="w-10 @dark:filter @dark:invert" />
+    </a>
+  </section>
+
+  <section class="container mt-20">
     <div class="flex flex-row mb-3 justify-between items-center">
       <div>
         <h2 class="m-0">Showcase</h2>
