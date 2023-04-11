@@ -6,7 +6,7 @@
 <svelte:head>
   <link
     rel="stylesheet"
-    href="https://fonts.googleapis.com/css?family=Pacifico&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
   />
 </svelte:head>
 

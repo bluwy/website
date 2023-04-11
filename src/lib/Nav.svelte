@@ -19,7 +19,7 @@
   <div class="container h-full">
     <div class="flex flex-row flex-no-wrap h-full justify-between items-center">
       <a class="flex flex-row flex-no-wrap items-center" href="/">
-        <img class="h-[24px] mr-3" src={logo} alt="Bjorn Lu logo" />
+        <img class="h-[24px] w-[24px] mr-3" src={logo} alt="Bjorn Lu logo" />
         <span class="font-semibold text-lg hidden sm:block">Bjorn Lu</span>
       </a>
       <ul class="flex whitespace-no-wrap">
