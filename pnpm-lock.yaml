@@ -28,6 +28,9 @@ importers:
       vite:
         specifier: ^4.3.8
         version: 4.3.8
+      vite-plugin-cloudflare-redirect:
+        specifier: ^0.1.0
+        version: 0.1.0(vite@4.3.8)
       vite-plugin-windicss:
         specifier: ^1.9.0
         version: 1.9.0(vite@4.3.8)
@@ -513,6 +516,10 @@ packages:
   /character-entities@2.0.2:
     resolution: {integrity: sha512-shx7oQ0Awen/BRIdkjkvz54PnEEI/EjwXDSIZp86/KKdbafHh1Df/RYGBhn4hbe2+uKC9FnT5UCEdyPz3ai9hQ==}
     dev: false
+
+  /cloudflare-redirect-parser@0.1.0:
+    resolution: {integrity: sha512-M4pDIvjLX4wuC9SX1CaQ3ClLIgNOa37gaeL4c31cCJpJ2b+GlaXybnB14iUTtuGbhmS+Eu6JGLoWbiJ2PW8g+A==}
+    dev: true
 
   /comma-separated-tokens@2.0.3:
     resolution: {integrity: sha512-Fu4hJdvzeylCfQPp9SGWidpzrMs7tTrlu6Vb8XGaRGck8QSNZJJp538Wrb60Lax4fPwR64ViY468OIUTbRlGZg==}
@@ -1631,6 +1638,18 @@ packages:
       unist-util-stringify-position: 3.0.3
       vfile-message: 3.1.4
     dev: false
+
+  /vite-plugin-cloudflare-redirect@0.1.0(vite@4.3.8):
+    resolution: {integrity: sha512-d3PzoOfOyV0n3ZA6nK1xvD1cFGluD8vHpkxHpRIUu1ikIGnihAoc7nkZ+l4nv9dCXgkGP3DdlozExGcResx87A==}
+    peerDependencies:
+      vite: ^3.0.0
+    peerDependenciesMeta:
+      vite:
+        optional: true
+    dependencies:
+      cloudflare-redirect-parser: 0.1.0
+      vite: 4.3.8
+    dev: true
 
   /vite-plugin-windicss@1.9.0(vite@4.3.8):
     resolution: {integrity: sha512-w0unPfcbVU5eaISAsFTLgIb41SLhmXoUF75Othu8NqFioe8+DEqiuvJ7/k/LRuEuvI8Rt/OKrY6cNzrB+dykaA==}

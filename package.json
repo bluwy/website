@@ -20,6 +20,7 @@
     "svelte": "^3.59.1",
     "typescript": "^5.0.4",
     "vite": "^4.3.8",
+    "vite-plugin-cloudflare-redirect": "^0.1.0",
     "vite-plugin-windicss": "^1.9.0",
     "windicss": "^3.5.6"
   }
