@@ -1,5 +1,9 @@
 <!-- Useful, but too much effort, discontinued -->
 
+## 11 August 2023
+
+- Pushing to GitHub gists only work with SSH.
+
 ## 9 January 2022
 
 - Cloudflare [does not support pnpm](https://community.cloudflare.com/t/add-pnpm-to-pre-installed-cloudflare-pages-tools/288514) by default, but can be workaround with the build command `npx pnpm i --store=node_modules/.pnpm-store && npm run build` and environment variable `NPM_FLAGS` = `--version`.
