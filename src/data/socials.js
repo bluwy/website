@@ -28,7 +28,7 @@ export const socials = [
   },
   {
     title: 'LinkedIn',
-    link: 'https://www.linkedin.com/in/bjorn-lu-3302a31b5',
+    link: 'https://www.linkedin.com/in/bjornlu',
     svg: linkedinIcon
   }
 ]
