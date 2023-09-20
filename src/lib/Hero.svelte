@@ -97,8 +97,13 @@
     height: 100%;
     border-color: #ffc4f3;
     mix-blend-mode: screen;
-    box-shadow: 0 0 2px #fe13cd, inset 0 0 2px #fe13cd, 0 0 10px #fe13cd,
-      inset 0 0 10px #fe13cd, 0 0 36px #fe13cd, inset 0 0 36px #fe13cd;
+    box-shadow:
+      0 0 2px #fe13cd,
+      inset 0 0 2px #fe13cd,
+      0 0 10px #fe13cd,
+      inset 0 0 10px #fe13cd,
+      0 0 36px #fe13cd,
+      inset 0 0 36px #fe13cd;
   }
 
   .heroCircle2 {
@@ -108,8 +113,13 @@
     height: calc(100% - 8vw);
     color: #cbfdff;
     mix-blend-mode: screen;
-    box-shadow: 0 0 2px #2df5ff, inset 0 0 2px #2df5ff, 0 0 10px #2df5ff,
-      inset 0 0 10px #2df5ff, 0 0 32px #2df5ff, inset 0 0 32px #2df5ff;
+    box-shadow:
+      0 0 2px #2df5ff,
+      inset 0 0 2px #2df5ff,
+      0 0 10px #2df5ff,
+      inset 0 0 10px #2df5ff,
+      0 0 32px #2df5ff,
+      inset 0 0 32px #2df5ff;
   }
 
   .heroText {
@@ -123,7 +133,10 @@
     font-size: 5vw;
     transform: translateY(4vw) rotateZ(-5deg);
     color: #ffc4f3;
-    text-shadow: 0 0 2px #fe13cd, 0 0 10px #fe13cd, 0 0 22px #fe13cd,
+    text-shadow:
+      0 0 2px #fe13cd,
+      0 0 10px #fe13cd,
+      0 0 22px #fe13cd,
       0 0 36px #fe13cd;
   }
 
@@ -134,7 +147,10 @@
     transform: translateY(-3vw) rotateZ(-5deg);
     color: #e3ffff;
     mix-blend-mode: screen;
-    text-shadow: 0 0 2px #2df5ff, 0 0 10px #2df5ff, 0 0 22px #2df5ff,
+    text-shadow:
+      0 0 2px #2df5ff,
+      0 0 10px #2df5ff,
+      0 0 22px #2df5ff,
       0 0 36px #2df5ff;
   }
 
@@ -142,7 +158,10 @@
     font-size: 5vw;
     transform: translateX(1vw) translateY(-4vw) rotateZ(-5deg);
     color: #ffc4f3;
-    text-shadow: 0 0 2px #fe13cd, 0 0 10px #fe13cd, 0 0 22px #fe13cd,
+    text-shadow:
+      0 0 2px #fe13cd,
+      0 0 10px #fe13cd,
+      0 0 22px #fe13cd,
       0 0 36px #fe13cd;
   }
 
@@ -151,7 +170,9 @@
     color: #cbfdff;
     filter: drop-shadow(0 0 2px #2df5ff) drop-shadow(0 0 10px #2df5ff)
       drop-shadow(0 0 24px #2df5ff);
-    transition: filter 0.2s ease-in, color 0.2s ease-in;
+    transition:
+      filter 0.2s ease-in,
+      color 0.2s ease-in;
   }
 
   .socialIcon:hover,

@@ -3,5 +3,5 @@
   "singleQuote": true,
   "tabWidth": 2,
   "trailingComma": "none",
-  "plugins": ["./node_modules/prettier-plugin-svelte"]
+  "plugins": ["prettier-plugin-svelte"]
 }

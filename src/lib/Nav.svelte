@@ -43,7 +43,9 @@
 
 <style lang="postcss">
   nav {
-    transition: height 200ms 150ms ease-out, background-color 150ms ease-out;
+    transition:
+      height 200ms 150ms ease-out,
+      background-color 150ms ease-out;
   }
   .hero {
     @apply bg-transparent text-gray-100 @dark:bg-transparent;
@@ -51,6 +53,8 @@
 
   .shrink {
     @apply bg-gray-100 h-14 h-[56px] shadow text-gray-900 @dark:bg-gray-800 @dark:shadow-none @dark:text-gray-100;
-    transition: height 200ms ease-out, background-color 150ms 200ms ease-out;
+    transition:
+      height 200ms ease-out,
+      background-color 150ms 200ms ease-out;
   }
 </style>
