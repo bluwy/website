@@ -14,12 +14,12 @@
   "devDependencies": {
     "@bjornlu/rollup-plugin-markdown": "workspace:*",
     "@sveltejs/adapter-cloudflare": "^2.3.3",
-    "@sveltejs/kit": "^1.25.0",
+    "@sveltejs/kit": "^1.25.1",
     "prettier": "^3.0.3",
     "prettier-plugin-svelte": "^3.0.3",
-    "svelte": "^4.2.0",
+    "svelte": "^4.2.1",
     "typescript": "^5.2.2",
-    "vite": "^4.4.9",
+    "vite": "^4.4.10",
     "vite-plugin-cloudflare-redirect": "^0.1.1",
     "vite-plugin-windicss": "^1.9.1",
     "windicss": "^3.5.6"
