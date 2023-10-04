@@ -118,9 +118,9 @@
   <section class="container mt-8 -mb-6">
     <h2 class="m-0 mb-1">Sponsors</h2>
     <p class="text-sm opacity-70 markdown">
-      My open source adventure is sponsored by these fine folks. If you'd like
-      to support too, check out my
-      <a href="https://www.patreon.com/bluwy">Patreon</a> page!
+      My open source adventure is sponsored by these fine folks. You can also
+      support me on
+      <a href="https://github.com/sponsors/bluwy">GitHub Sponsors</a>!
     </p>
     <object
       class="w-full"
