@@ -1,5 +1,9 @@
-const projectMarkdowns = import.meta.globEager('../projects/*/index.md')
-const projectIcons = import.meta.globEager('../assets/images/project-icons/*')
+const projectMarkdowns = import.meta.glob('../projects/*/index.md', {
+  eager: true
+})
+const projectIcons = import.meta.glob('../assets/images/project-icons/*', {
+  eager: true
+})
 
 /**
  * @typedef {{
