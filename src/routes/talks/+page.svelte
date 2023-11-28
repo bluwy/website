@@ -39,7 +39,9 @@
             alt="avatar 1"
             width="40"
           />
-          <a href="/avatar-1.jpg">https://bjornlu.com/avatar-1.jpg</a>
+          <a class="whitespace-nowrap" href="/avatar-1.jpg">
+            https://bjornlu.com/avatar-1.jpg
+          </a>
         </td>
       </tr>
       <tr>
@@ -51,7 +53,9 @@
             alt="avatar 2"
             width="40"
           />
-          <a href="/avatar-2.jpg">https://bjornlu.com/avatar-2.jpg</a>
+          <a class="whitespace-nowrap" href="/avatar-2.jpg">
+            https://bjornlu.com/avatar-2.jpg
+          </a>
         </td>
       </tr>
       <tr>

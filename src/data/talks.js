@@ -1,6 +1,6 @@
 export const talks = [
   {
-    title: 'The Complete Guide to packaging Libraries',
+    title: 'The Complete Guide to Packaging Libraries',
     url: 'https://www.youtube.com/watch?v=Pf-N8WGu7iQ',
     venue: 'Vuejs Amsterdam 2023',
     online: false
