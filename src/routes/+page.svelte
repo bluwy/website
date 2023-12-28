@@ -38,7 +38,7 @@
     <a href="https://vitejs.dev">
       <img src={viteLogo} alt="vite" class="w-12" />
     </a>
-    <a href="https://astor.build">
+    <a href="https://astro.build">
       <img src={astroLogo} alt="astro" class="w-10 @dark:filter @dark:invert" />
     </a>
   </section>
