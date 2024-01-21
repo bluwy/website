@@ -21,7 +21,7 @@
           </a>
         {/each}
       </div>
-      <div class="flex-shrink">&copy; Bjorn Lu 2023</div>
+      <div class="flex-shrink">&copy; Bjorn Lu 2024</div>
     </div>
   </div>
 </footer>

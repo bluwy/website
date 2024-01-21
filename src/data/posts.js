@@ -1,4 +1,4 @@
-const postMarkdowns = import.meta.globEager('../posts/*/index.md')
+const postMarkdowns = import.meta.glob('../posts/*/index.md', { eager: true })
 
 /**
  * @typedef {{
