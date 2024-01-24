@@ -14,7 +14,7 @@
   "devDependencies": {
     "@bjornlu/rollup-plugin-markdown": "workspace:*",
     "@sveltejs/adapter-cloudflare": "^4.1.0",
-    "@sveltejs/kit": "^2.4.1",
+    "@sveltejs/kit": "^2.4.3",
     "@sveltejs/vite-plugin-svelte": "^3.0.1",
     "prettier": "^3.2.4",
     "prettier-plugin-svelte": "^3.1.2",
