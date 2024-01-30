@@ -15,23 +15,23 @@ Jekyll provides a very convenient Liquid tag to import other codes, known as `in
 But there's more to it, you can use global Liquid variables in the included code too. Like so:
 
 <!-- prettier-ignore -->
-```html:title=index.html
+```html title=index.html
 {% assign person = "Darren" %}
 {% include somecode.html %} // highlight-line
 ```
 
-```html:title=somecode.html
+```html title=somecode.html
 <p>Hello, {{ person }}!</p>
 ```
 
-```html:title=Output
+```html title=Output
 <p>Hello, Darren!</p>
 ```
 
 Or if you prefer scoping your variables locally:
 
 <!-- prettier-ignore -->
-```html:title=index.html
+```html title=index.html
 <!-- Either like this -->
 {% include somecode.html person="Darren" %}
 
@@ -40,11 +40,11 @@ Or if you prefer scoping your variables locally:
 {% include somecode.html person=name %}
 ```
 
-```html:title=somecode.html
+```html title=somecode.html
 <p>Hello, {{ include.person }}!</p>
 ```
 
-```html:title=Output
+```html title=Output
 <!-- Either like this -->
 <p>Hello, Darren!</p>
 
@@ -60,15 +60,15 @@ During the development of my previous website (Now I'm using Gatsby), I needed t
 
 That's where the `capture` tag comes in, we can wrap our code in it and the quotes will be automatically escaped! Syntax highlighting would work normally too in your favorite text editor.
 
-```html:title=index.html
+```html title=index.html
 <button onclick="hello('Darren')">Say hello</button>
 ```
 
-```html:title=somecode.html
+```html title=somecode.html
 <p>{{ include.content }}</p>
 ```
 
-```html:title=Output
+```html title=Output
 <p><button onclick="hello('Darren')">Say hello</button></p>
 ```
 

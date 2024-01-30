@@ -36,7 +36,7 @@ The trick here is to use the `onDestroy()` callback, which is called after the a
 
 #### Code
 
-```js:title=server.js
+```js title=server.js
 // ...
 sapper.middleware({
   session: () => ({
@@ -54,7 +54,7 @@ sapper.middleware({
 // ...
 ```
 
-```html:title=_layout.svelte
+```html title=_layout.svelte
 <script>
   import { stores } from "@sapper/app"
   import { onDestroy } from "svelte"
@@ -76,7 +76,7 @@ sapper.middleware({
 </script>
 ```
 
-```js:title=apollo.js
+```js title=apollo.js
 export const apollo = process.browser
   ? new ApolloClient({
       uri: "/graphql",
@@ -94,7 +94,7 @@ When running queries in `preload()`, you don't have to return the query results 
 
 Since server-side rendering runs synchronously, you can retrieve the cache using `apollo.readQuery()`:
 
-```html:title=index.svelte
+```html title=index.svelte
 <script context="module">
   export async function preload(page, session) {
     // Run query, but don't return anything
@@ -120,7 +120,7 @@ You can run your queries as usual in `preload()`, return the data and hydrate th
 
 #### Code
 
-```js:title=apollo.js
+```js title=apollo.js
 export const apollo = process.browser
   ? new ApolloClient({
       uri: '/graphql',
@@ -153,7 +153,7 @@ export const apollo = process.browser
 
 The data query flow should be similar to fetching REST data. The only extra thing is to hydrate the cache in the client-side.
 
-```html:title=index.svelte
+```html title=index.svelte
 <script context="module">
   import { apollo } from "../apollo" // import Apollo Client depending on client or server-side
 

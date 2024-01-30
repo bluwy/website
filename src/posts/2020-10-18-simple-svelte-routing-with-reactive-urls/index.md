@@ -42,7 +42,7 @@ Svelte has an awesome [store](https://svelte.dev/docs#svelte_store) feature, whi
 
 Now we can create readable stores for hash and History API routing:
 
-```js:title=hash.js
+```js title=hash.js
 import { readable } from "svelte/store"
 
 export default readable(window.location.hash, set => {
@@ -52,7 +52,7 @@ export default readable(window.location.hash, set => {
 })
 ```
 
-```js:title=history.js
+```js title=history.js
 import { readable } from "svelte/store"
 
 export default readable(new URL(window.location.href), set => {
@@ -87,7 +87,7 @@ export default readable(new URL(window.location.href), set => {
 
 Two code examples above should provide a nice starting point for your custom routing. But looking at `history.js`, it returns a reactive URL object, which also contains the URL hash. What if we can combine `hash.js` with it too?
 
-```js:title=url.js
+```js title=url.js
 import { derived, writable } from "svelte/store"
 
 const href = writable(window.location.href)
@@ -121,7 +121,7 @@ There is also two stores now, `href` and the default exported URL store. This is
 
 Server-side rendering (SSR), a feature not many routers support, can also be easily implemented using a store. The gist is that instead of reading from `window.location.href`, we should be able to manually specify the current route to render, which basically translates to:
 
-```js:title=ssr.js
+```js title=ssr.js
 import { URL } from "url"
 import { writable } from "svelte/store"
 
@@ -135,7 +135,7 @@ export default {
 
 However when using stores in the server, they can't be imported directly as the value can leak to other current requests/connections. To prevent that, [Svelte Context](https://svelte.dev/tutorial/context-api) can be used to isolate the URL per request. The store would need to be a function too so that we can create one for each request. Adapting this into `url.js`, we get:
 
-```js:title=url.js
+```js title=url.js
 import { derived, writable } from 'svelte/store'
 
 export function createUrlStore(ssrUrl) {
@@ -194,7 +194,7 @@ And we've built ourself a reactive URL store that supports hash-based routing, h
 
 With reactive URLs, here's how it should look like now:
 
-```svelte:title=App.svelte
+```svelte title=App.svelte
 <script>
   import url from './url'
 

@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  fenceparser@2.2.0:
+    hash: dfel752a5iiksoo5jznz5oartm
+    path: patches/fenceparser@2.2.0.patch
+
 importers:
 
   .:
@@ -47,6 +52,9 @@ importers:
 
   packages/markdown:
     dependencies:
+      fenceparser:
+        specifier: ^2.2.0
+        version: 2.2.0(patch_hash=dfel752a5iiksoo5jznz5oartm)
       js-yaml:
         specifier: ^4.1.0
         version: 4.1.0
@@ -829,6 +837,11 @@ packages:
     dependencies:
       format: 0.2.2
     dev: false
+
+  /fenceparser@2.2.0(patch_hash=dfel752a5iiksoo5jznz5oartm):
+    resolution: {integrity: sha512-fdXOPciCALTWvooKxyRUmYERiw1L1mzqVsfpk5F9kGr3NoT/Sdwew4BqGctY6xZpUXiZ7dXXPb27Om2nmUmHMg==}
+    dev: false
+    patched: true
 
   /fill-range@7.0.1:
     resolution: {integrity: sha512-qOo9F+dMUmC2Lcb4BbVvnKJxTPjCm+RRpe4gDuGrzkL7mEVl/djYSu2OdQ2Pa302N4oqkSg9ir6jaLWJ2USVpQ==}

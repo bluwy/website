@@ -1,18 +1,23 @@
 import { visit } from 'unist-util-visit'
+import parse from 'fenceparser'
 
 /** @type {import('unified').Plugin} */
 export function remarkCodeTitle() {
   return function (tree) {
+    const handledNodes = new Set()
     visit(tree, 'code', (node, index) => {
-      if (!node.lang) return
-      if (!node.lang.includes(':title=')) return
+      if (!node.lang || !node.meta) return
+      if (!node.meta.includes('title=')) return
 
-      const [lang, title] = node.lang.split(':title=')
-      node.lang = lang
+      // The same node could be visited twice because we splice below
+      if (handledNodes.has(node)) return
+      handledNodes.add(node)
+
+      const parsed = parse(node.meta)
 
       tree.children.splice(index, 0, {
         type: 'html',
-        value: `<div class="gatsby-code-title">${title}</div>`
+        value: `<div class="gatsby-code-title">${parsed.title}</div>`
       })
     })
   }
