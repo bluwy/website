@@ -17,7 +17,7 @@ export function remarkCodeTitle() {
 
       tree.children.splice(index, 0, {
         type: 'html',
-        value: `<div class="gatsby-code-title">${parsed.title}</div>`
+        value: `<div class="shiki-code-title">${parsed.title}</div>`
       })
     })
   }

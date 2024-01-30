@@ -24,7 +24,7 @@ export function remarkShiki() {
 }
 
 /**
- * Compatible with Gatsby. Support line highlighting and markup structure.
+ * Compatible with Gatsby (but renamed `gatsby-` to `shiki-`). Support line highlighting and markup structure.
  * @param {import('shiki').Highlighter} highlighter
  * @param {string} code
  * @param {import('shiki').Lang} [lang]
@@ -52,7 +52,7 @@ function renderToHtml(lines, options = {}) {
 
   let html = ''
 
-  html += `<div class="gatsby-highlight" data-language="${lang}" style="background-color: ${bg}">`
+  html += `<div class="shiki-highlight" data-language="${lang}" style="background-color: ${bg}">`
   html += `<pre class="language-${lang}">`
   html += `<code class="language-${lang}">`
 
@@ -77,10 +77,10 @@ function renderToHtml(lines, options = {}) {
       return
     }
     if (l[l.length - 1].content.match(/\/\/\s*highlight-line/)) {
-      html += `<span class="line gatsby-highlight-code-line">`
+      html += `<span class="line shiki-highlight-code-line">`
       l.splice(l.length - 1, 1)
     } else if (nextNumberOfLinesToHighlight > 0) {
-      html += `<span class="line gatsby-highlight-code-line">`
+      html += `<span class="line shiki-highlight-code-line">`
       nextNumberOfLinesToHighlight--
     } else {
       html += `<span class="line">`
