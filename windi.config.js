@@ -44,7 +44,7 @@ export default defineConfig({
     },
     extend: {
       fontFamily: {
-        sans: ['"Source Sans Pro"', 'sans-serif'],
+        sans: ['"Source Sans 3"', 'sans-serif'],
         mono: ['"Ubuntu Mono"', 'monospace']
       },
       borderWidth: {

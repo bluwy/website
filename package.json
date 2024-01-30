@@ -9,15 +9,19 @@
     "dev": "vite dev",
     "build": "vite build",
     "preview": "vite preview",
-    "format": "prettier --write **/*.{js,ts,html,svelte,md,css,pcss}"
+    "format": "prettier --write **/*.{js,ts,html,svelte,md,css,pcss}",
+    "generate-og": "node ./scripts/generate-og.js"
   },
   "devDependencies": {
     "@bjornlu/rollup-plugin-markdown": "workspace:*",
+    "@resvg/resvg-js": "^2.6.0",
     "@sveltejs/adapter-cloudflare": "^4.1.0",
     "@sveltejs/kit": "^2.4.3",
     "@sveltejs/vite-plugin-svelte": "^3.0.1",
     "prettier": "^3.2.4",
     "prettier-plugin-svelte": "^3.1.2",
+    "satori": "^0.10.13",
+    "satori-html": "^0.3.2",
     "svelte": "^4.2.9",
     "typescript": "^5.3.3",
     "vite": "^5.0.12",
