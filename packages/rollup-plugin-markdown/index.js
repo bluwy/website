@@ -28,7 +28,7 @@ export default function rollupPluginMarkdown() {
 
       let rawMarkdown = JSON.stringify(processed.toString())
       for (const image of images) {
-        rawMarkdown = rawMarkdown.replace(image.name, `" + ${image.name} + "`)
+        rawMarkdown = rawMarkdown.replaceAll(image.name, `"+${image.name}+"`)
       }
 
       const markdownExports = `export const markdownHtml = ${rawMarkdown}`

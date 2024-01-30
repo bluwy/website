@@ -94,6 +94,14 @@ code[class*='language-'] {
   @apply font-mono text-lg;
 }
 
+h1 > code[class*='language-'],
+h2 > code[class*='language-'],
+h3 > code[class*='language-'],
+h4 > code[class*='language-'],
+li > code[class*='language-'] {
+  font-size: inherit;
+}
+
 /* Code blocks */
 pre[class*='language-'] > code[class*='language-'] {
   @apply font-mono text-sm;
@@ -180,9 +188,9 @@ button:focus,
 }
 
 .gatsby-highlight-code-line {
-  @apply bg-white border-white bg-opacity-20 border-opacity-70 -ml-4 pr-4 pl-3 inline-block;
+  @apply bg-white border-white bg-opacity-10 border-opacity-70 -ml-4 pr-4 pl-3 inline-block;
   border-left-width: 0.25rem;
-  width: calc(100% + 1rem);
+  width: calc(100% + 2rem);
 }
 
 .gatsby-code-title {
@@ -225,7 +233,7 @@ button:focus,
 }
 
 .markdown li {
-  @apply mb-2 ml-5 pl-6;
+  @apply mb-2 ml-6 pl-6;
 }
 
 .markdown li > p:last-child {
@@ -305,10 +313,13 @@ span.line:empty {
     @apply text-3xl;
   }
 
-  h3,
+  h3 {
+    @apply text-2xl;
+  }
+
   h4,
   h5,
   h6 {
-    @apply text-2xl;
+    @apply text-xl;
   }
 }

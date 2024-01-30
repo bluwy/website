@@ -63,15 +63,16 @@ function renderToHtml(lines, options = {}) {
       html += `<span class="line"></span>`
       return
     }
-    if (l[0].content.match(/\/\/\s*highlight-next-line/)) {
+    const lineContent = l.map((n) => n.content).join('')
+    if (lineContent.match(/\/\/\s*highlight-next-line/)) {
       nextNumberOfLinesToHighlight++
       return
     }
-    if (l[0].content.match(/\/\/\s*highlight-start/)) {
+    if (lineContent.match(/\/\/\s*highlight-start/)) {
       nextNumberOfLinesToHighlight = Infinity
       return
     }
-    if (l[0].content.match(/\/\/\s*highlight-end/)) {
+    if (lineContent.match(/\/\/\s*highlight-end/)) {
       nextNumberOfLinesToHighlight = 0
       return
     }
