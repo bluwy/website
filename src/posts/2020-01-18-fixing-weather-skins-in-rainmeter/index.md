@@ -1,5 +1,5 @@
 ---
-title: Fixing Weather Skins in Rainmeter?
+title: Fixing Weather Skins in Rainmeter
 ---
 
 Another day, another weather service down. Here are the steps to fix broken weather skins and migrate to different weather service APIs.

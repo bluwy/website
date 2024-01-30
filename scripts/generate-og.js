@@ -55,7 +55,7 @@ async function getOgImageSvg(title, date) {
     >
       <div style="font-size: 68px; line-height: 1; font-weight: bold;">${title}</div>
       <div style="display: flex; justify-content: space-between;">
-        <div style="font-size: 32px; line-height: 1;">${date}</div>
+        <div style="font-size: 32px; line-height: 1; padding-left: 2px;">${date}</div>
         <div style="display:flex; font-size: 32px; line-height: 1;">
           <svg style="margin-top: 5px; margin-right: 8px;" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 8.467 8.467"><path d="M4.233.265c-.29 0-.578.11-.8.332L.596 3.435a1.13 1.13 0 000 1.598L3.434 7.87a1.13 1.13 0 001.598 0L7.87 5.033a1.13 1.13 0 000-1.598L5.032.597c-.22-.22-.5-.332-.8-.332zm0 1.323a.75.75 0 01.532.221L6.658 3.7a.75.75 0 010 1.065L4.766 6.658a.75.75 0 01-1.065 0L1.81 4.766a.75.75 0 010-1.065L3.7 1.81a.75.75 0 01.532-.221zm0 1.323a.378.378 0 00-.266.11l-.946.946a.374.374 0 000 .532l.946.946a.374.374 0 00.532 0l.946-.946a.374.374 0 000-.532L4.5 3.02a.374.374 0 00-.266-.11z" fill="#ff9faf"/></svg>
           Bjorn Lu
@@ -83,13 +83,33 @@ async function getOgImageSvg(title, date) {
     ]
   })
 
+  // NOTE: The markup below has no calculations. It's only manually adjusted by eye.
   const prettySvg = svg.replace(
     '</svg>',
     `\
-${getGlowLineSvg('blue', 'x="-25" y="20" width="500" height="150"')}
-${getGlowLineSvg('pink', 'x="40" y="465" width="200" height="150"')}
-${getGlowLineSvg('blue', 'x="722" y="465" width="500" height="150"')}
-${getGlowLineSvg('pink', 'x="962" y="20" width="200" height="150"')}
+<g style="filter: brightness(0.3)">
+${/* top-left */ ''}
+${getGlowLineSvg('blue', 'x="-440" y="0" width="600" height="150"')}
+${getGlowLineSvg('pink', 'x="-460" y="-30" width="600" height="150"')}
+
+${/* left-side */ ''}
+${getGlowLineSvg('pink', 'x="-380" y="320" width="600" height="150"')}
+${getGlowLineSvg('blue', 'x="-410" y="350" width="600" height="150"')}
+
+${/* bottom */ ''}
+${getGlowLineSvg('blue', 'x="180" y="480" width="240" height="150"')}
+${getGlowLineSvg('pink', 'x="250" y="510" width="400" height="150"')}
+${getGlowLineSvg('blue', 'x="700" y="480" width="120" height="150"')}
+
+${/* top-left */ ''}
+${getGlowLineSvg('blue', 'x="970" y="-10" width="600" height="150"')}
+${getGlowLineSvg('pink', 'x="1020" y="20" width="600" height="150"')}
+
+${/* right-side */ ''}
+${getGlowLineSvg('pink', 'x="880" y="270" width="600" height="150"')}
+${getGlowLineSvg('blue', 'x="800" y="300" width="600" height="150"')}
+${getGlowLineSvg('pink', 'x="950" y="330" width="600" height="150"')}
+</g>
 </svg>
   `
   )
@@ -112,7 +132,7 @@ function getGlowLineSvg(color, attrs) {
       : '0 0 0 0 0.176471 0 0 0 0 0.960784 0 0 0 0 1 0 0 0 1 0'
 
   return `\
-<svg ${attrs} preserveAspectRatio="none" viewBox="0 0 172 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg ${attrs} preserveAspectRatio="none" style="mix-blend-mode: screen;" viewBox="0 0 172 78" fill="none" xmlns="http://www.w3.org/2000/svg">
   <g filter="url(#filter-${color})">
     <rect x="36" y="36" width="100" height="6" rx="2" fill="${lineColor}"/>
   </g>
