@@ -24,7 +24,7 @@ A module usually has access to HMR lifecycle APIs to handle when the old module 
 On a high-level, they work like this:
 
 <p class="text-center">
-  <img class="inline-block" src="./hmr-lifecycle.png" alt="HMR lifecycle graph" width="500" />
+  <img class="inline-block border-2 rounded border-gray-700 @light:filter @light:invert" src="./hmr-lifecycle.png" alt="HMR lifecycle graph" width="500" />
 <p/>
 
 <!-- NOTE: There's a bug where the last dispose before prune is not called -->
@@ -40,7 +40,7 @@ When you attach a callback with `import.meta.hot.accept()`, the callback will be
 An accepted module creates a "HMR boundary". A HMR boundary contains the module itself and all of its imported modules recursively. The accepted module is also the "root" of the HMR boundary as the boundary is usually in a graph-like structure.
 
 <p class="text-center">
-  <img class="inline-block" src="./hmr-boundary.png" alt="HMR boundary" width="500" />
+  <img class="inline-block border-2 rounded border-gray-700 @light:filter @light:invert" src="./hmr-boundary.png" alt="HMR boundary" width="500" />
 <p/>
 
 An accepted module can also be narrowed down as a "self-accepted module" depending on how the HMR callback is attached. They are two function signatures for `import.meta.hot.accept`:
@@ -148,7 +148,7 @@ We've learned about the HMR APIs and how they allow us to replace and manage mod
 At a glance, it goes something like this:
 
 <p class="text-center">
-  <img class="inline-block" src="./hmr-start-flow.png" alt="HMR start flow" width="500" />
+  <img class="inline-block border-2 rounded border-gray-700 @light:filter @light:invert" src="./hmr-start-flow.png" alt="HMR start flow" width="500" />
 <p/>
 
 Let's step through them below.
@@ -217,7 +217,7 @@ Fundamentally, HMR propagation is about finding the [HMR boundaries](#importmeta
 To better understand how it works, let's go through this example in a case-by-case basis:
 
 <p class="text-center">
-  <img class="inline-block" src="./hmr-boundary.png" alt="HMR boundary" width="500" />
+  <img class="inline-block border-2 rounded border-gray-700 @light:filter @light:invert" src="./hmr-boundary.png" alt="HMR boundary" width="500" />
 <p/>
 
 - **Scenario 1**: If `stuff.js` is updated, propagation will look at its importers recursively to find an accepted module. In this case, we'll find that `app.jsx` is an accepted module, and since there's no other importers from `stuff.js`, we stop propagation. The HMR client will then inform `app.jsx` to perform HMR.
@@ -255,7 +255,7 @@ The HMR client is responsible for:
 In a bigger picture, the HMR client helps glue the Vite dev server and the HMR APIs together. Let's take a look at how this glue works.
 
 <p class="text-center">
-  <img class="inline-block" src="./hmr-client.png" alt="HMR client" width="500" />
+  <img class="inline-block border-2 rounded border-gray-700 @light:filter @light:invert" src="./hmr-client.png" alt="HMR client" width="500" />
 <p/>
 
 ### Client initialization
