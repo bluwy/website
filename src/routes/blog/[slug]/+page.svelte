@@ -21,6 +21,9 @@
       <span>
         {formatDate(new Date(data.thisPost.date))}
       </span>
+      {#if data.thisPost.isDraft}
+        <span class="opacity-70 text-sm">(Draft)</span>
+      {/if}
       {#if data.thisPost.lastUpdate}
         <span class="opacity-70 text-sm">
           (Updated {formatDate(new Date(data.thisPost.lastUpdate))})

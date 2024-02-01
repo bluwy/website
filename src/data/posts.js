@@ -15,7 +15,8 @@ const postMarkdowns = import.meta.glob('../posts/*/index.md', { eager: true })
  *   excerpt: string,
  *   tocHtml: string,
  *   markdownHtml: string,
- *   slug: string
+ *   slug: string,
+ *   isDraft: boolean
  * }} Post
  */
 
@@ -23,12 +24,14 @@ const postMarkdowns = import.meta.glob('../posts/*/index.md', { eager: true })
 export const posts = Object.entries(postMarkdowns)
   .map(([k, v]) => {
     const [, date, name] = k.match(/posts\/(\d{4}-\d{2}-\d{2})-(.*)\/index.md/)
+    const isDraft = date === '0000-00-00'
     return {
       slug: '/blog/' + name,
+      isDraft,
       ...v,
       frontmatter: {
         ...v.frontmatter,
-        date: new Date(date),
+        date: isDraft ? new Date() : new Date(date),
         updated: v.frontmatter.updated
           ? new Date(v.frontmatter.updated)
           : undefined

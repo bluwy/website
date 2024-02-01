@@ -3,6 +3,7 @@ import { posts } from '$data/posts'
 /**
  * @typedef {{
  *   slug: string,
+ *   isDraft: string,
  *   markdownHtml: string,
  *   excerpt: string,
  *   tocHtml: string,
@@ -30,6 +31,7 @@ export async function load({ params, setHeaders }) {
   /** @type {SlugThisPost} */
   const thisPost = {
     slug: posts[postIndex].slug,
+    isDraft: posts[postIndex].isDraft,
     markdownHtml: posts[postIndex].markdownHtml,
     excerpt: posts[postIndex].excerpt,
     tocHtml: posts[postIndex].tocHtml,
