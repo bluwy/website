@@ -1,0 +1,618 @@
+---
+title: Hot Module Replacement is Easy
+---
+
+If you've built projects with Vite, chances are you've also used Hot Module Replacement (HMR). HMR allows you to update your code without having to refresh the page, such as editing a component markup or adjusting styles, the changes are immediately reflected in the browser.
+
+While HMR is also a feature in other bundlers like Webpack and Parcel, in this blog we'll dig deeper into how it works in Vite specfically. Generally other bundlers should also work similarly.
+
+On this page, you'll learn:
+
+<!-- toc -->
+
+## What it takes to replace modules
+
+In essence, HMR is about replacing modules on the fly while your app is running. Most bundlers use ECMAScript modules (ESM) as the _module_ because it's easier to analyze the imports and exports, which helps to inform how a replacement in one module will affect other related modules.
+
+A module usually has access to HMR lifecycle APIs to handle when the old module gets thrown away, and when the new module comes in place. In Vite, you have:
+
+- [`import.meta.hot.accept()`](https://vitejs.dev/guide/api-hmr.html#hot-accept-cb)
+- [`import.meta.hot.dispose()`](https://vitejs.dev/guide/api-hmr.html#hot-dispose-cb)
+- [`import.meta.hot.prune()`](https://vitejs.dev/guide/api-hmr.html#hot-prune-cb)
+- [`import.meta.hot.invalidate()`](https://vitejs.dev/guide/api-hmr.html#hot-invalidate-message-string)
+
+On a high-level, they work like this:
+
+<p class="text-center">
+  <img class="inline-block" src="./hmr-lifecycle.png" alt="HMR lifecycle graph" width="500" />
+<p/>
+
+<!-- NOTE: There's a bug where the last dispose before prune is not called -->
+
+It's also important to note that for HMR to work, you need to use these APIs either via Vite plugins or manually yourself. If not, updates to any files including JS or TS will only result in a full page reload.
+
+With that aside, let's take a deeper look into how these APIs work!
+
+### `import.meta.hot.accept()`
+
+When you attach a callback with `import.meta.hot.accept()`, the callback will be in-charge of replacing the old module with the new one. A module that uses this API is also known as an "accepted module".
+
+An accepted module creates a "HMR boundary". A HMR boundary contains the module itself and all of its imported modules recursively. The accepted module is also the "root" of the HMR boundary as the boundary is usually in a graph-like structure.
+
+<p class="text-center">
+  <img class="inline-block" src="./hmr-boundary.png" alt="HMR boundary" width="500" />
+<p/>
+
+An accepted module can also be narrowed down as a "self-accepted module" depending on how the HMR callback is attached. They are two function signatures for `import.meta.hot.accept`:
+
+1. `import.meta.hot.accept(cb: Function)` - Accepts changes from itself
+2. `import.meta.hot.accept(deps: string | string[], cb: Function)` - Accepts changes from imported modules
+
+If the first signature is used, it is known as a self-accepted module. The differentiation is important for [HMR propagation](#hmr-propagation), which we'll talk about later.
+
+Here's how they can be used:
+
+```js
+export let data = [1, 2, 3]
+
+if (import.meta.hot) {
+  import.meta.hot.accept((newModule) => {
+    // Replace the old value with the new one
+    data = newModule.data
+  })
+}
+```
+
+```js
+import { value } from './stuff.js'
+
+document.querySelector('#value').textContent = value
+
+if (import.meta.hot) {
+  import.meta.hot.accept(['./stuff.js'], ([newModule]) => {
+    // Re-render with the new value
+    document.querySelector('#value').textContent = newModule.value
+  })
+}
+```
+
+### `import.meta.hot.dispose()`
+
+When an accepted module or a module that's accepted by others gets replaced with a new one, or is being removed, we can perform cleanup with `import.meta.hot.dispose()`. This allows us to clean up any side-effects that the old module has created, such as removing event listeners, clearing timers, or resetting state.
+
+Here's an example of the API:
+
+```js
+globalThis.__my_lib_data__ = {}
+
+if (import.meta.hot) {
+  import.meta.hot.dispose(() => {
+    // Reset global state
+    globalThis.__my_lib_data__ = {}
+  })
+}
+```
+
+<!-- NOTE: There's a weird behaviour where `dispose()` is only called for the accepted module, or the module that's directly accepted by its importer. If there's a deep import chain and you updated a leaf module, all modules's `dispose()` callback will not be called. Only the accepted module, or the module that's directly accepted by its importer works. -->
+
+### `import.meta.hot.prune()`
+
+When a module is to be removed from the runtime entirely, e.g. a file is deleted, we can perform the final cleanup with `import.meta.hot.prune()`. This is similar to `import.meta.hot.dispose()`, but it's only called once when the module is removed.
+
+Internally, Vite prunes modules at a different stage through import analysis (A phase that analyzes the imports of a module), as the only time we can know that a module is no longer used is when it's no longer imported by any other modules.
+
+Here's an example of the API:
+
+```js
+globalThis.__my_lib_data__ = {}
+
+if (import.meta.hot) {
+  import.meta.hot.prune(() => {
+    delete globalThis.__my_lib_data__
+  })
+}
+```
+
+### `import.meta.hot.invalidate()`
+
+Unlike the above APIs, `import.meta.hot.invalidate()` is an action rather than a lifecycle hook. You'd often use it inside `import.meta.hot.accept` where during runtime you may later realize that the module cannot be updated safely and you need to bail out.
+
+When this gets called, the Vite server will be informed of the invalidation as if the module has been updated. [HMR propagation](#hmr-propagation) will be executed again to figure out if any of its importers recursively can accept this change instead.
+
+Here's an example of the API:
+
+```js
+export let data = [1, 2, 3]
+
+if (import.meta.hot) {
+  import.meta.hot.accept((newModule) => {
+    // If the `data` export is deleted or renamed
+    if (!(data in newModule)) {
+      // Bail out and invalidate the module
+      import.meta.hot.invalidate()
+    }
+  })
+}
+```
+
+### Other HMR APIs
+
+The [Vite HMR documentation](https://vitejs.dev/guide/api-hmr.html) covers many more APIs. However, they are not crucial to understanding how HMR works fundamentally so we'll skip them for now, but we'll return to them when we discuss about the [HMR client](#the-hmr-client) later.
+
+If you're interested in how they can be useful in some cases, give the [documentation](https://vitejs.dev/guide/api-hmr.html) a quick read!
+
+## From the start
+
+We've learned about the HMR APIs and how they allow us to replace and manage modules. But there's still a missing piece: How do we know when to replace a module? HMR usually happens after editing a file, but what comes after that?
+
+At a glance, it goes something like this:
+
+<p class="text-center">
+  <img class="inline-block" src="./hmr-start-flow.png" alt="HMR start flow" width="500" />
+<p/>
+
+Let's step through them below.
+
+### Editing a file
+
+HMR starts when you edit a file and save it. A filesystem watcher like [chokidar](https://github.com/paulmillr/chokidar) will detect the change and relay this edited file path to the next step.
+
+### Processing edited modules
+
+The Vite dev server is informed of the edited file path. The file path is then used to find its related modules in the module graph. It's important to note that a "file" and "module" are two distinct concepts, where a file may correspond to one or many modules. For example, a Vue file can be compiled to a JavaScript module, and a related CSS module.
+
+The modules are then passed on to Vite plugins' `handleHotUpdate()` hook for further processing. They can choose to filter or extend upon the array of modules. The final modules when then be passed on to the next step.
+
+Here are some plugin examples:
+
+```js
+// Example: filter out array of modules
+function vuePlugin() {
+  return {
+    name: 'vue',
+    handleHotUpdate(ctx) {
+      if (ctx.file.endsWith('.vue')) {
+        const oldContent = cache.get(ctx.file)
+        const newContent = await ctx.read()
+        // If only the style has changed when editing the file, we can filter
+        // out the JS module and only trigger the CSS module for HMR.
+        if (isOnlyStyleChanged(oldContent, newContent)) {
+          return ctx.modules.filter(m => m.url.endsWith('.css'))
+        }
+      }
+    }
+  }
+}
+```
+
+```js
+// Example: extending array of modules
+function globalCssPlugin() {
+  return {
+    name: 'global-css',
+    handleHotUpdate(ctx) {
+      if (ctx.file.endsWith('.css')) {
+        // If a CSS file is edited, we also trigger HMR for this special
+        // `virtual:global-css` module that needs to be re-transformed.
+        const mod = ctx.server.moduleGraph.getModuleById('virtual:global-css')
+        if (mod) {
+          return ctx.modules.concat(mod)
+        }
+      }
+    }
+  }
+}
+```
+
+### Module invalidation
+
+Just before HMR propagation, we eagerly invalidate the final array of updated modules and its importers recursively. Each modules' transformed code will be removed, and an invalidation timestamp will be attached to it. The timestamp will be used to fetch the new modules on the client-side on the next request.
+
+### HMR propagation
+
+The final array of updated modules will now go through HMR propagation. This is where the "magic" happens, and is often the source of confusion for why HMR doesn't work as expected.
+
+Fundamentally, HMR propagation is about finding the [HMR boundaries](#importmetahotaccept), using the updated modules as the starting point. If all of the updated modules are within a boundary, the Vite dev server will inform the HMR client to inform the [accepted modules](#importmetahotaccept) to perform HMR. If some are not within a boundary, then a full page reload will be triggered.
+
+To better understand how it works, let's go through this example in a case-by-case basis:
+
+<p class="text-center">
+  <img class="inline-block" src="./hmr-boundary.png" alt="HMR boundary" width="500" />
+<p/>
+
+- **Scenario 1**: If `stuff.js` is updated, propagation will look at its importers recursively to find an accepted module. In this case, we'll find that `app.jsx` is an accepted module, and since there's no other importers from `stuff.js`, we stop propagation. The HMR client will then inform `app.jsx` to perform HMR.
+
+- **Scenario 2**: If `main.js` or `other.js` is updated, propagation will look at its importers recursively again. However, there's no accepted module and we'll reach the "root" `index.html` file. As such, a full page reload will be triggered.
+
+- **Scenario 3**: If `app.jsx` is updated, we immediately find that it's an accepted module. However, some modules may or may not be able to updated changes to itself. We are able to determine if they can update itself by checking whether they are a self-accepted module.
+
+  - **Scenario 3 (a)**: If `app.jsx` is self-accepting, we can stop here and have the HMR client inform it to perform HMR.
+  - **Scenario 3 (b)**: If `app.jsx` is not self-accepting, we'll continue propagating upwards to find an accepted module. But since they're none and we'll reach the "root" `index.html` file, a full page reload will be triggered.
+
+- **Scenario 4**: If `utils.js` is updated, propagation will look at its importers recursively again. At first, we'll find `app.jsx` as the accepted module and will stop its propagation there. Then, we'll step on `other.js` and its importers recursively too, but there are no accepted modules and we'll reach the "root" `index.html` file. If there's at least one case that doesn't have an accepted module, a full page reload will be triggered.
+
+Besides the above, there are many other edge cases not covered here as they're a little advanced, including [circular imports](https://github.com/vitejs/vite/pull/14867), [partial accepting modules](https://github.com/vitejs/vite/discussions/13811), [only CSS importers](https://github.com/vitejs/vite/pull/3929), etc. However, you can revisit them when you're more familiar with the whole flow!
+
+At the end, the result of HMR propagation is whether a full page reload is needed, or HMR updates should be applied in the client.
+
+### What's left
+
+In simple cases where a full reload is needed, a message will be sent to the HMR client to reload the page. If there are modules that can be hot-updated, the array of accepted modules during HMR propagation will be sent to the HMR client, where it'll trigger the right [HMR APIs we discussed above](#what-it-takes-to-replace-modules) so that HMR is performed.
+
+But how does this HMR client work anyways?
+
+## The HMR client
+
+In a Vite app, you might notice a special script added in the HTML that requests `/@vite/client`. This contains the HMR client!
+
+The HMR client is responsible for:
+
+1. Establishing a WebSocket connection with the Vite dev server.
+2. Listening to HMR payloads from the server.
+3. Providing and triggering the HMR APIs in the runtime.
+4. Send back any events to the Vite dev server.
+
+In a bigger picture, the HMR client helps glue the Vite dev server and the HMR APIs together. Let's take a look at how this glue works.
+
+<p class="text-center">
+  <img class="inline-block" src="./hmr-client.png" alt="HMR client" width="500" />
+<p/>
+
+### Client initialization
+
+Before the HMR client can receive any message from the Vite dev server, it needs to first establish a connection to it, usually through [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket). Here's an example of setting up a WebSocket connection that handles the result of [HMR propagation](#hmr-propagation):
+
+```js title="/@vite/client (URL)"
+const ws = new WebSocket('ws://localhost:5173')
+
+ws.addEventListener('message', ({ data }) => {
+  const payload = JSON.parse(data)
+  switch (payload.type) {
+    case '...':
+    // Handle payloads...
+  }
+})
+
+// Send any events to the Vite dev server
+ws.send('...')
+```
+
+We'll touch more on the payload handling in the next section.
+
+Besides that, the HMR client also initializes some state needed to handle HMR, and exports several APIs, e.g. `createHotContext()`, for use by modules that uses the HMR APIs. For example:
+
+```js title=app.jsx
+import { createHotContext } from '/@vite/client'
+import.meta.hot = createHotContext('/src/app.jsx')
+
+export default function App() {
+  return <div>Hello World</div>
+}
+
+// Injected by `@vitejs/plugin-react`
+if (import.meta.hot) {
+  // ...
+}
+```
+
+The URL string passed to `createHotContext()` (also known as an "owner path") helps identify which module is able to accept changes. Internally, `createHotContext` will assign the registered HMR callbacks to a singleton of maps of "owner path to accept callbacks, dispose callback, and prune callback". We'll also get to that below!
+
+And that's pretty much how modules are able to interact with the HMR client and execute the HMR changes.
+
+### Handling payloads from the server
+
+After establishing the WebSocket connection, we can start handling the payloads from the Vite dev server.
+
+```js title="/@vite/client (URL)"
+ws.addEventListener('message', ({ data }) => {
+  const payload = JSON.parse(data)
+  switch (payload.type) {
+    case 'full-reload': {
+      location.reload()
+      break
+    }
+    case 'update': {
+      const updates = payload.updates
+      // => { type: string, path: string, acceptedPath: string, timestamp: number }[]
+      for (const update of updates) {
+        handleUpdate(update)
+      }
+      break
+    }
+    case 'prune': {
+      handlePrune(payload.paths)
+      break
+    }
+    // Handle other payload types...
+  }
+})
+```
+
+The example above handles the result of [HMR propagation](#hmr-propagation) to either trigger a full page reload or HMR updates, based on the `full-reload` and `update` payload types respectively. And it also handles pruning when a module is no longer used.
+
+There are more types of payloads that can come through that are not HMR-specific, but to briefly touch on them:
+
+- `connected`: Sent when a WebSocket connection is established.
+- `error`: Sent when there's an error on the server-side, and Vite can display an error overlay in the browser.
+- `custom`: Sent by Vite plugins to inform the client for any events. Useful for inter-communication between the client and server.
+
+Moving along, let's take a look at how HMR updates actually works.
+
+### HMR update
+
+Each [HMR boundaries](#importmetahotaccept) found during [HMR propagation](#hmr-propagation) usually correspond to a HMR update. In Vite, an update takes this signature:
+
+```ts
+interface Update {
+  // The type of update
+  type: 'js-update' | 'css-update'
+  // The URL path of the accepted module (HMR boundary root)
+  path: string
+  // The URL path that is accepted (usually the same as above)
+  // (We'll talk about this later)
+  acceptedPath: string
+  // The timestamp when the update happened
+  timestamp: number
+}
+```
+
+Different HMR implementations are free to re-shape the update signature however they want. In Vite, it's differentiated as a "JS update" or a "CSS update", where CSS updates are special cased to simply swap out `link` tags in the HTML when updated.
+
+For JS updates, we need to find the corresponding module to call its `import.meta.hot.accept()` callback so that it can apply HMR on itself. Since in `createHotContext()` we had [registered the path](#client-initialization) as the first parameter, we can easily find the matching module via the update's `path`. And with the update's `timestamp`, we can also fetch the new version of the module to be passed to `import.meta.hot.accept()`. Here's how an implementation can look like:
+
+```ts title="/@vite/client (URL)"
+// Map populated by `createHotContext()`
+const ownerPathToAcceptCallbacks = new Map<string, Function[]>()
+
+async function handleUpdate(update: Update) {
+  const acceptCbs = ownerPathToAcceptCallbacks.get(update.path)
+  const newModule = await import(`${update.acceptedPath}?t=${update.timestamp}`)
+
+  for (const cb of acceptCbs) {
+    cb(newModule)
+  }
+}
+```
+
+However, remember that `import.meta.hot.accept()` has two function signatures?
+
+- `import.meta.hot.accept(cb: Function)`
+- `import.meta.hot.accept(deps: string | string[], cb: Function)`
+
+The above implementation only works well for the first function signature (self-accepted modules), but not for the second. The second function signature's callback needs to be called only if the dependencies have updated. Internally, we can bind each callback to a set of dependencies:
+
+```js title=app.jsx
+// URL: /src/app.jsx
+import { add } from './utils.js'
+import { value } from './stuff.js'
+
+if (import.meta.hot) {
+  import.meta.hot.accept(...)
+  // { deps: ['/src/app.jsx'], fn: ... }
+
+  import.meta.hot.accept('./utils.js', ...)
+  // { deps: ['/src/utils.js'], fn: ... }
+
+  import.meta.hot.accept(['./stuff.js'], ...)
+  // { deps: ['/src/stuff.js'], fn: ... }
+}
+```
+
+And we can then use `acceptedPath` to match the dependencies and trigger the right callback function. For example, if `stuff.js` is updated, the `acceptedPath` would be `/src/stuff.js`, and `path` would be `/src/app.jsx`. This way, we can inform the owner path (`path`) that the accepted path (`acceptedPath`) has been updated, and the owner can handle its changes. We can adjust the HMR handlers as so:
+
+```ts title="/@vite/client (URL)"
+// Map populated by `createHotContext()`
+// highlight-start
+const ownerPathToAcceptCallbacks = new Map<
+  string,
+  { deps: string[]; fn: Function }[]
+>()
+// highlight-end
+
+async function handleUpdate(update: Update) {
+  const acceptCbs = ownerPathToAcceptCallbacks.get(update.path)
+  const newModule = await import(`${update.acceptedPath}?t=${update.timestamp}`)
+
+  for (const cb of acceptCbs) {
+    // Make sure to only execute callbacks that can handle `acceptedPath`
+    // highlight-start
+    if (cb.deps.some((deps) => deps.includes(update.acceptedPath))) {
+      cb.fn(newModule)
+    }
+    // highlight-end
+  }
+}
+```
+
+But we're not done yet! Before importing the new module, we also need to make sure the old module is properly disposed of using `import.meta.hot.dispose()`.
+
+```ts title="/@vite/client (URL)"
+// Maps populated by `createHotContext()`
+const ownerPathToAcceptCallbacks = new Map<
+  string,
+  { deps: string[]; fn: Function }[]
+>()
+const ownerPathToDisposeCallback = new Map<string, Function>() // highlight-line
+
+async function handleUpdate(update: Update) {
+  const acceptCbs = ownerPathToAcceptCallbacks.get(update.path)
+
+  // Call the dispose callback if there's any
+  ownerPathToDisposeCallbacks.get(update.path)?.() // highlight-line
+
+  const newModule = await import(`${update.acceptedPath}?t=${update.timestamp}`)
+
+  for (const cb of acceptCbs) {
+    // Make sure to only execute callbacks that can handle `acceptedPath`
+    if (cb.deps.some((deps) => deps.includes(update.acceptedPath))) {
+      cb.fn(newModule)
+    }
+  }
+}
+```
+
+And with that we've pretty much implemented to bulk of the HMR client! As further exercise, you can also try to implement error handling, null owner checks, queueing parallel updates for predictability, etc, that will make the final form more robust.
+
+### HMR pruning
+
+As discussed in [`import.meta.hot.prune()`](#importmetahotprune), Vite internally handles HMR pruning in the "import analysis" phase. When a module is no longer imported by any other modules, the Vite dev server will send a `{ type: 'prune', paths: string[] }` payload to the HMR client where it'll independently prune the modules in the runtime.
+
+```ts title="/@vite/client (URL)"
+// Maps populated by `createHotContext()`
+const ownerPathToDisposeCallback = new Map<string, Function>()
+const ownerPathToPruneCallback = new Map<string, Function>()
+
+function handlePrune(paths: string[]) {
+  for (const p of paths) {
+    ownerPathToDisposeCallbacks.get(p)?.()
+    ownerPathToPruneCallback.get(p)?.()
+  }
+}
+```
+
+### HMR invalidation
+
+Unlike the other HMR APIs, [`import.meta.hot.invalidate()`](#importmetahotinvalidate) is an action that can be called during `import.meta.hot.accept()` to bail out of HMR. In `/@vite/client`, it's as simple as sending a WebSocket message to the Vite dev server:
+
+```ts title="/@vite/client (URL)"
+// `ownerPath` comes from `createHotContext()`
+function handleInvalidate(ownerPath: string) {
+  ws.send(
+    JSON.stringify({
+      type: 'custom',
+      event: 'vite:invalidate',
+      data: { path: ownerPath }
+    })
+  )
+}
+```
+
+When the Vite server receives this, it'll execute [HMR propagation](#hmr-propagation) again from its importers onwards, and the result (full reload or HMR updates) will be sent back to the HMR client.
+
+### HMR events
+
+While not necessary for HMR, the HMR client can also emit events in the runtime when certain payloads are received. [`import.meta.hot.on`](https://vitejs.dev/guide/api-hmr.html#hot-on-event-cb) and [`import.meta.hot.off`](https://vitejs.dev/guide/api-hmr.html#hot-off-event-cb) can be used to listen and unlisten to these events.
+
+```js
+if (import.meta.hot) {
+  import.meta.hot.on('vite:invalidate', () => {
+    // ...
+  })
+}
+```
+
+Emitting and tracking these events are very similar to how we handle the HMR callbacks above too. Taking the [HMR invalidation](#hmr-invalidation) code as example:
+
+```ts title="/@vite/client (URL)"
+const eventNameToCallbacks = new Map<string, Set<Function>>() // highlight-line
+
+// `ownerPath` comes from `createHotContext()`
+function handleInvalidate(ownerPath: string) {
+  eventNameToCallbacks.get('vite:invalidate')?.forEach((cb) => cb()) // highlight-line
+  ws.send(
+    JSON.stringify({
+      type: 'custom',
+      event: 'vite:invalidate',
+      data: { path: ownerPath }
+    })
+  )
+}
+```
+
+### HMR data
+
+Lastly, the HMR client also provides a way to store data to be shared between HMR APIs using [`import.meta.hot.data`](https://vitejs.dev/guide/api-hmr.html#hot-data). This data can be seen passed to the HMR callbacks for `import.meta.hot.dispose()` and `import.meta.hot.prune()` too.
+
+Keeping the data is also similar to how we track the HMR callbacks. Taking the [HMR pruning](#hmr-pruning) code as example:
+
+```ts title="/@vite/client (URL)"
+// Maps populated by `createHotContext()`
+const ownerPathToDisposeCallback = new Map<string, Function>()
+const ownerPathToPruneCallback = new Map<string, Function>()
+const ownerPathToData = new Map<string, Record<string, any>>() // highlight-line
+
+function handlePrune(paths: string[]) {
+  for (const p of paths) {
+    // highlight-start
+    const data = ownerPathToData.get(p)
+    ownerPathToDisposeCallbacks.get(p)?.(data)
+    ownerPathToPruneCallback.get(p)?.(data)
+    // highlight-end
+  }
+}
+```
+
+## Wrapping up
+
+And that's about it for HMR! As a recap, we've learned:
+
+1. How the HMR APIs can be used to handle changes.
+2. How a file edit can lead to HMR updates sent from the Vite dev server to the HMR client.
+3. How the HMR client handles the HMR payload and trigger the right HMR APIs.
+
+Before we end, check out the FAQs below if you still have questions about how some things work.
+
+## Frequently asked questions
+
+### Where can I find the source code for Vite's HMR implementation?
+
+- [vite/src/client/client.ts](https://github.com/vitejs/vite/blob/main/packages/vite/src/client/client.ts) - The source code form `/@vite/client`.
+- [vite/src/shared/hmr.ts](https://github.com/vitejs/vite/blob/main/packages/vite/src/shared/hmr.ts) - The HMR client implementation used by `/@vite/client`. Also abstracted away for the HMR client in SSR. (See `HMRClient`)
+- [vite/src/node/server/hmr.ts](https://github.com/vitejs/vite/blob/main/packages/vite/src/node/server/hmr.ts) - Handle HMR propagation. (See `handleHMRUpdate`)
+
+### How does Vite's implementation differ from Webpack and others?
+
+I've not looked into Webpack's implementation, but only read how it works from the [Webpack docs](https://webpack.js.org/concepts/hot-module-replacement/) and this [NativeScript article](https://blog.nativescript.org/deep-dive-into-hot-module-replacement-with-webpack-part-one-the-basics/). From what I can tell, the general difference seems that Webpack handles HMR propagation in the client-side instead of the server-side.
+
+This difference has the benefit that the HMR API can be used more dynamically, where in comparison, Vite needs to analyze the HMR APIs being used statically on the server-side to determine if the module has called `import.meta.hot.accept()`. However, handling HMR propagation in the client-side can be complex as other important information (e.g. importers, exports, ids, etc) only exists in the server. A refactor for this requires serializing a partial module representation in the client-side and keeping it in sync with the server, which can be complex.
+
+### How does HMR work in server-side rendering?
+
+At the time of writing (Vite 5.0), HMR in SSR isn't supported yet, but will [land as an experimental feature](https://github.com/vitejs/vite/pull/12165) for Vite 5.1. Even though without HMR in SSR, you'd still get HMR in the client-side for JS frameworks like Vue and Svelte.
+
+Changes to the server-side code requires re-execution of the SSR entrypoint entirely, which can be triggerred by HMR propagation (which also works in SSR). But often HMR propagation of server-side code will lead to a full page reload, which is perfect for the client to re-sent the request to the server, which will then perform the re-execution.
+
+### How can I trigger a page reload in `handleHotUpdate()`?
+
+The `handleHotUpdate()` API is meant to handle the modules that should be invalidated and go through HMR propagation. However, there may be cases where a detected change requires a page reload immediately.
+
+In Vite, you can use `server.ws.send({ type: 'full-reload' })` to trigger a full page reload, and to make sure the modules get invalidated but not HMR-propagated (which may incorrectly cause unnecessary HMR), you can use `server.moduleGraph.invalidateModule()`.
+
+```js
+function reloadPlugin() {
+  return {
+    name: 'reload',
+    handleHotUpdate(ctx) {
+      if (ctx.file.includes('/special/')) {
+        // Trigger page reload
+        ctx.server.ws.send({ type: 'full-reload' })
+
+        // Invalidate the modules ourselves
+        const invalidatedModules = new Set()
+        for (const mod of ctx.modules) {
+          ctx.server.moduleGraph.invalidateModule(
+            mod,
+            invalidatedModules,
+            ctx.timestamp,
+            true
+          )
+        }
+
+        // Don't return any modules so HMR doesn't happen,
+        // and because we already invalidated above
+        return []
+      }
+    }
+  }
+}
+```
+
+### Is there any specification for the HMR API?
+
+The only specification I'm aware of is https://github.com/FredKSchott/esm-hmr, which had been archived. Vite had implemented the specification when it started, but had since diverged slightly, e.g. `import.meta.hot.decline()` is not implemented.
+
+If you're interested in implementing your own HMR API, you may have to pick a flavour between Vite or Webpack etc. But at its core, the terminology for accepting and invalidating changes will stay the same.
+
+## Closing notes
+
+Turns out, hot module replacement is not that easy and the title was mostly written as tongue in cheek. But I got you to read and I hope it's easier to comprehend now. If you have any other questions about HMR in Vite, feel free to hop into the [Vite `#contributing` channel](https://chat.vitejs.dev) to learn more!
