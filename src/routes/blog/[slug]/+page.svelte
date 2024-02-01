@@ -14,6 +14,15 @@
 
 <Head title={data.thisPost.title} description={data.thisPost.excerpt} />
 
+<svelte:head>
+  <meta
+    name="og:image"
+    content={`https://bjornlu.com${data.thisPost.slug}.png`}
+  />
+  <meta name="og:url" content={`https://bjornlu.com${data.thisPost.slug}`} />
+  <meta name="twitter:card" content="summary_large_image" />
+</svelte:head>
+
 <article class="container">
   <header class="mb-6">
     <h1 class="m-0">{data.thisPost.title}</h1>

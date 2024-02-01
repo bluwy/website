@@ -13,7 +13,7 @@
   <section class="space-y-5 sm:-mx-4">
     {#each data.allPosts as post (post.slug)}
       <a class="card block" href={post.slug}>
-        <h2 class="m-0 text-xl">
+        <h2 class="m-0 text-xl mb-1">
           {post.title}
         </h2>
         <p class="text-base mb-3 opacity-80">{post.excerpt}</p>
