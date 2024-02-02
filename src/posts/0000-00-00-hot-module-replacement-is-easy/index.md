@@ -2,7 +2,7 @@
 title: Hot Module Replacement is Easy
 ---
 
-If you've built projects with Vite, chances are you've also used Hot Module Replacement (HMR). HMR allows you to update your code without having to refresh the page, such as editing a component markup or adjusting styles, the changes are immediately reflected in the browser.
+If you've built projects with Vite, chances are you've also used Hot Module Replacement (HMR). HMR allows you to update your code without having to refresh the page, such as editing a component markup or adjusting styles, the changes are immediately reflected in the browser, which enables faster code interation and improved developer experience.ƒ
 
 While HMR is also a feature in other bundlers like Webpack and Parcel, in this blog we'll dig deeper into how it works in Vite specfically. Generally other bundlers should also work similarly.
 
@@ -29,7 +29,7 @@ On a high-level, they work like this:
 
 <!-- NOTE: There's a bug where the last dispose before prune is not called -->
 
-It's also important to note that for HMR to work, you need to use these APIs either via Vite plugins or manually yourself. If not, updates to any files including JS or TS will only result in a full page reload.
+It's also important to note that you need to use these APIs for HMR to work. For example, Vite uses these APIs for CSS files out-of-the-box, but for other files like Vue and Svelte, you can use a Vite plugin that will use these HMR APIs. Or manually if needed. Otherwise, updates to files will result in a full page reload by default.
 
 With that aside, let's take a deeper look into how these APIs work!
 
@@ -101,14 +101,21 @@ When a module is to be removed from the runtime entirely, e.g. a file is deleted
 
 Internally, Vite prunes modules at a different stage through import analysis (A phase that analyzes the imports of a module), as the only time we can know that a module is no longer used is when it's no longer imported by any other modules.
 
-Here's an example of the API:
+Here's an example of Vite using the API for CSS HMR:
 
 ```js
-globalThis.__my_lib_data__ = {}
+// Import utilities to update/remove style tags in the HTML
+import { updateStyle, removeStyle } from '/@vite/client'
+
+updateStyle('/src/style.css', 'body { color: red; }')
 
 if (import.meta.hot) {
+  // Empty accept callback is we want to accept, but we don't have to do anything.
+  // `updateStyle` will automatically get rid of the old style tag.
+  import.meta.hot.accept()
+  // Remove style when the module is no longer used
   import.meta.hot.prune(() => {
-    delete globalThis.__my_lib_data__
+    removeStyle('/src/style.css')
   })
 }
 ```
@@ -220,7 +227,11 @@ To better understand how it works, let's go through this example in a case-by-ca
   <img class="inline-block border-2 rounded border-gray-700 @light:filter @light:invert" src="./hmr-boundary.png" alt="HMR boundary" width="500" />
 <p/>
 
-- **Scenario 1**: If `stuff.js` is updated, propagation will look at its importers recursively to find an accepted module. In this case, we'll find that `app.jsx` is an accepted module, and since there's no other importers from `stuff.js`, we stop propagation. The HMR client will then inform `app.jsx` to perform HMR.
+- **Scenario 1**: If `stuff.js` is updated, propagation will look at its importers recursively to find an accepted module. In this case, we'll find that `app.jsx` is an accepted module. But before we end the propagation, we need to determine if `app.jsx` can accept the change from `stuff.js`. This will depend on [how the `import.meta.hot.accept()` is called](#importmetahotaccept).
+
+  - **Scenario 1 (a)**: If `app.jsx` is self-accepting, or it accepts the changes from `stuff.js`, we can stop the propagation here as there's no other importers from `stuff.js`. The HMR client will then inform `app.jsx` to perform HMR.
+
+  - **Scenario 1 (b)**: If `app.jsx` does not accept this change, we'll continue propagating upwards to find an accepted module. But since there are no other accepted modules, we'll reach the "root" `index.html` file. A full page reload will be triggered.
 
 - **Scenario 2**: If `main.js` or `other.js` is updated, propagation will look at its importers recursively again. However, there's no accepted module and we'll reach the "root" `index.html` file. As such, a full page reload will be triggered.
 
@@ -229,7 +240,34 @@ To better understand how it works, let's go through this example in a case-by-ca
   - **Scenario 3 (a)**: If `app.jsx` is self-accepting, we can stop here and have the HMR client inform it to perform HMR.
   - **Scenario 3 (b)**: If `app.jsx` is not self-accepting, we'll continue propagating upwards to find an accepted module. But since they're none and we'll reach the "root" `index.html` file, a full page reload will be triggered.
 
-- **Scenario 4**: If `utils.js` is updated, propagation will look at its importers recursively again. At first, we'll find `app.jsx` as the accepted module and will stop its propagation there. Then, we'll step on `other.js` and its importers recursively too, but there are no accepted modules and we'll reach the "root" `index.html` file. If there's at least one case that doesn't have an accepted module, a full page reload will be triggered.
+- **Scenario 4**: If `utils.js` is updated, propagation will look at its importers recursively again. At first, we'll find `app.jsx` as the accepted module and will stop its propagation there (assuming **Scenario 1 (a)**). Then, we'll step on `other.js` and its importers recursively too, but there are no accepted modules and we'll reach the "root" `index.html` file. If there's at least one case that doesn't have an accepted module, a full page reload will be triggered.
+
+If you'd like to understand some more advanced scenarious that involves multiple HMR boundaries, click on the collapsed section below:
+
+<details>
+<summary><strong>Toggle advanced scenarios</strong></summary>
+
+Let's take this different example that involves 3 HMR boundaries from the 3 `.jsx` files:
+
+<p class="text-center">
+  <img class="inline-block border-2 rounded border-gray-700 @light:filter @light:invert" src="./hmr-propagation-advanced.png" alt="HMR propagation advanced" width="650" />
+<p/>
+
+- **Scenario 5**: If `stuff.js` is updated, propagation will look at its importers recursively to find an accepted module. We'll find that `comp.jsx` is an accepted module and handle this the same way as **Scenario 1**. To re-iterate:
+
+  - **Scenario 5 (a)**: If `comp.jsx` is self-accepting, or it accepts the changes from `stuff.js`, we can stop propagation there. The HMR client will then inform `comp.jsx` to perform HMR.
+  - **Scenario 5 (b)**: If `comp.jsx` does not accept this change, we'll continue propagating upwards to find an accepted module. We'll find `app.jsx` as the accepted module and handle this the same way as this scenario (**Scenario 5**) again! We keep doing this until we find modules that can accept the changes, or if we reach the "root" index.html and a full page reload is needed.
+
+- **Scenario 6**: If `bar.js` is updated, propagation will look at its importers recursively and find `comp.jsx` and `alert.jsx` as accepted modules. We'll also handle these two modules the same way as **Scenario 5**. Assuming the best case where both accepted modules matches **Scenario 5 (a)**, the HMR client will inform both `comp.jsx` and `alert.jsx` to perform HMR.
+
+- **Scenario 7**: If `utils.js` is updated, propagation will look at its importers recursively again and find all its direct importers `comp.jsx`, `alert.jsx`, and `app.jsx` as accepted modules. We'll also handle these three modules the same way as **Scenario 5**. Assuming the best case where all accepted modules matches **Scenario 5 (a)**, even though `comp.jsx` is also part of the HMR boundary of `app.jsx`, the HMR client will inform all three of them to perform HMR. _(In the future, Vite could detect this and only inform `app.jsx` and `alert.jsx`, but this is mostly an implementation detail!)_
+
+- **Scenario 8**: If `comp.jsx` is updated, we immediately find that it's an accepted module. Similar to **Scenario 3**, we need to check whether `comp.jsx` is a self-accepting module first.
+
+  - **Scenario 8 (a)**: If `comp.jsx` is self-accepting, we can stop here and have the HMR client inform it to perform HMR.
+  - **Scenario 8 (b)**: If `comp.jsx` is not self-accepting, we can handle this the same way as **Scenario 5 (b)**.
+
+</details>
 
 Besides the above, there are many other edge cases not covered here as they're a little advanced, including [circular imports](https://github.com/vitejs/vite/pull/14867), [partial accepting modules](https://github.com/vitejs/vite/discussions/13811), [only CSS importers](https://github.com/vitejs/vite/pull/3929), etc. However, you can revisit them when you're more familiar with the whole flow!
 
@@ -282,6 +320,7 @@ We'll touch more on the payload handling in the next section.
 Besides that, the HMR client also initializes some state needed to handle HMR, and exports several APIs, e.g. `createHotContext()`, for use by modules that uses the HMR APIs. For example:
 
 ```js title=app.jsx
+// Injected by Vite's import-analysis plugin
 import { createHotContext } from '/@vite/client'
 import.meta.hot = createHotContext('/src/app.jsx')
 
