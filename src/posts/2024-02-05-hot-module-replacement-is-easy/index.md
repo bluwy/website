@@ -660,6 +660,12 @@ The only specification I'm aware of is https://github.com/FredKSchott/esm-hmr, w
 
 If you're interested in implementing your own HMR API, you may have to pick a flavour between Vite or Webpack etc. But at its core, the terminology for accepting and invalidating changes will stay the same.
 
+### Are there any other resources to learn HMR?
+
+Besides the [Vite](https://vitejs.dev/guide/api-hmr.html), [Webpack](https://webpack.js.org/concepts/hot-module-replacement/) and [Parcel](https://parceljs.org/features/development/#hot-reloading) documentations about HMR, there's not a lot of resources out there that goes in-depth into understanding how HMR really works. However, these are the few that I've found helpful:
+
+- [What the heck is HMR anyway? - Pedro Cattori (YouTube)](https://youtu.be/e5M_5jKPaL4)
+
 ## Closing notes
 
 Turns out, hot module replacement is not that easy and the title was mostly written as tongue in cheek. But I got you to read and I hope it's easier to comprehend now. If you have any other questions about HMR, feel free to hop into the [Vite `#contributing` channel](https://chat.vitejs.dev) to learn more!
