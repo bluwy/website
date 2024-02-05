@@ -595,9 +595,17 @@ Before we end, check out the FAQs below if you still have questions about how so
 
 ### Where can I find the source code for Vite's HMR implementation?
 
-- [vite/src/client/client.ts](https://github.com/vitejs/vite/blob/main/packages/vite/src/client/client.ts) - The source code form `/@vite/client`.
+- [vite/src/client/client.ts](https://github.com/vitejs/vite/blob/main/packages/vite/src/client/client.ts) - The source code for `/@vite/client`.
 - [vite/src/shared/hmr.ts](https://github.com/vitejs/vite/blob/main/packages/vite/src/shared/hmr.ts) - The HMR client implementation used by `/@vite/client`. Also abstracted away for the HMR client in SSR. (See `HMRClient`)
 - [vite/src/node/server/hmr.ts](https://github.com/vitejs/vite/blob/main/packages/vite/src/node/server/hmr.ts) - Handle HMR propagation. (See `handleHMRUpdate`)
+
+### Are there any HMR examples to learn from?
+
+HMR is usually implemented by JS frameworks with the concept of "components", where each components are able to isolate their state and re-initialize themselves. Therefore you can check out how frameworks like React, Vue, Svelte, etc implements them:
+
+- React: [Fast Refresh](https://github.com/facebook/react/tree/main/packages/react-refresh) and [`@vitejs/plugin-react`](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/src/fast-refresh.ts)
+- Vue: [`@vue/runtime-core`](https://github.com/vuejs/core/blob/main/packages/runtime-core/src/hmr.ts) and [`@vitejs/plugin-vue`](https://github.com/vitejs/vite-plugin-vue/blob/main/packages/plugin-vue/src/main.ts)
+- Svelte: [`svelte-hmr`](https://github.com/sveltejs/svelte-hmr/tree/master/packages/svelte-hmr) and [`@vitejs/plugin-svelte`](https://github.com/sveltejs/vite-plugin-svelte/blob/main/packages/vite-plugin-svelte/src/utils/compile.js)
 
 ### How does Vite's implementation differ from Webpack and others?
 
@@ -654,4 +662,6 @@ If you're interested in implementing your own HMR API, you may have to pick a fl
 
 ## Closing notes
 
-Turns out, hot module replacement is not that easy and the title was mostly written as tongue in cheek. But I got you to read and I hope it's easier to comprehend now. If you have any other questions about HMR in Vite, feel free to hop into the [Vite `#contributing` channel](https://chat.vitejs.dev) to learn more!
+Turns out, hot module replacement is not that easy and the title was mostly written as tongue in cheek. But I got you to read and I hope it's easier to comprehend now. If you have any other questions about HMR, feel free to hop into the [Vite `#contributing` channel](https://chat.vitejs.dev) to learn more!
+
+I'd also like to thank [@\_ArnaudBarre](https://twitter.com/_ArnaudBarre) for reviewing this blog.
