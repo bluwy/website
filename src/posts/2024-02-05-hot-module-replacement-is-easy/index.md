@@ -6,7 +6,7 @@ If you've built projects with Vite, chances are you've also used Hot Module Repl
 
 While HMR is also a feature in other bundlers like Webpack and Parcel, in this blog we'll dig deeper into how it works in Vite specfically. Generally other bundlers should also work similarly.
 
-On this page, you'll learn:
+To preface, HMR is _not_ easy and certain topics may require some time to digest, but I hope to have piqued your interest! On this page, you'll learn:
 
 <!-- toc -->
 
