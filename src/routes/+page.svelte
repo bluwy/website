@@ -16,9 +16,8 @@
   <Hero />
   <section class="container mt-20 mb-10 markdown">
     <p>
-      Hi, I'm Bjorn. I work in open source for the web! I'm an <a
-        href="https://astro.build">Astro</a
-      >
+      Hi, I'm Bjorn. I work in open source for the web! I'm an
+      <a href="https://astro.build">Astro</a>
       core resident, <a href="https://svelte.dev">Svelte</a> and
       <a href="https://vitejs.dev">Vite</a> core team member. Currently
       maintaining
@@ -31,15 +30,15 @@
     </p>
   </section>
 
-  <section class="container my-10 flex justify-center gap-12">
+  <section class="container my-10 flex justify-center items-center gap-12">
     <a href="https://svelte.dev">
       <img src={svelteLogo} alt="svelte" class="w-12" />
     </a>
     <a href="https://vitejs.dev">
-      <img src={viteLogo} alt="vite" class="w-12" />
+      <img src={viteLogo} alt="vite" class="w-13" />
     </a>
     <a href="https://astro.build">
-      <img src={astroLogo} alt="astro" class="w-10 @dark:filter @dark:invert" />
+      <img src={astroLogo} alt="astro" class="w-10 astro-logo" />
     </a>
   </section>
 
@@ -131,3 +130,13 @@
     />
   </section>
 </article>
+
+<style>
+  @media (prefers-color-scheme: light) {
+    .astro-logo {
+      /* transform to #17191E */
+      filter: brightness(0) invert(9%) sepia(10%) saturate(832%)
+        hue-rotate(185deg) brightness(93%) contrast(97%);
+    }
+  }
+</style>
