@@ -43,42 +43,42 @@ Svelte has an awesome [store](https://svelte.dev/docs#svelte_store) feature, whi
 Now we can create readable stores for hash and History API routing:
 
 ```js title=hash.js
-import { readable } from "svelte/store"
+import { readable } from 'svelte/store'
 
-export default readable(window.location.hash, set => {
+export default readable(window.location.hash, (set) => {
   const update = () => set(window.location.hash)
-  window.addEventListener("hashchange", update)
-  return () => window.removeEventListener("hashchange", update)
+  window.addEventListener('hashchange', update)
+  return () => window.removeEventListener('hashchange', update)
 })
 ```
 
 ```js title=history.js
-import { readable } from "svelte/store"
+import { readable } from 'svelte/store'
 
-export default readable(new URL(window.location.href), set => {
+export default readable(new URL(window.location.href), (set) => {
   const update = () => set(new URL(window.location.href))
 
   const originalPushState = history.pushState
   const originalReplaceState = history.replaceState
 
-  history.pushState = function() {
+  history.pushState = function () {
     originalPushState.apply(this, arguments)
     update()
   }
 
-  history.replaceState = function() {
+  history.replaceState = function () {
     originalReplaceState.apply(this, arguments)
     update()
   }
 
-  window.addEventListener("popstate", update)
+  window.addEventListener('popstate', update)
 
   return () => {
     // Reverting the monkey-patches this way may be unsafe if there's external
     // code patching it too. The next section discusses more about this.
     history.pushState = originalPushState
     history.replaceState = originalReplaceState
-    window.removeEventListener("popstate", update)
+    window.removeEventListener('popstate', update)
   }
 })
 ```
@@ -88,7 +88,7 @@ export default readable(new URL(window.location.href), set => {
 Two code examples above should provide a nice starting point for your custom routing. But looking at `history.js`, it returns a reactive URL object, which also contains the URL hash. What if we can combine `hash.js` with it too?
 
 ```js title=url.js
-import { derived, writable } from "svelte/store"
+import { derived, writable } from 'svelte/store'
 
 const href = writable(window.location.href)
 
@@ -97,20 +97,20 @@ const originalReplaceState = history.replaceState
 
 const updateHref = () => href.set(window.location.href)
 
-history.pushState = function() {
+history.pushState = function () {
   originalPushState.apply(this, arguments)
   updateHref()
 }
 
-history.replaceState = function() {
+history.replaceState = function () {
   originalReplaceState.apply(this, arguments)
   updateHref()
 }
 
-window.addEventListener("popstate", updateHref)
-window.addEventListener("hashchange", updateHref)
+window.addEventListener('popstate', updateHref)
+window.addEventListener('hashchange', updateHref)
 
-export default derived(href, $href => new URL($href))
+export default derived(href, ($href) => new URL($href))
 ```
 
 A few things have changed here, notably there's no `readable` store now. This is mainly because that there's no safe way to revert the monkey-patches as mentioned earlier. And since the URL store is likely to be used throughout the entire lifetime of the app, the store cleanup function is likely to never be called anyways.
@@ -122,14 +122,14 @@ There is also two stores now, `href` and the default exported URL store. This is
 Server-side rendering (SSR), a feature not many routers support, can also be easily implemented using a store. The gist is that instead of reading from `window.location.href`, we should be able to manually specify the current route to render, which basically translates to:
 
 ```js title=ssr.js
-import { URL } from "url"
-import { writable } from "svelte/store"
+import { URL } from 'url'
+import { writable } from 'svelte/store'
 
-const url = writable(new URL("https://example.com"))
+const url = writable(new URL('https://example.com'))
 
 export default {
   subscribe: url.subscribe,
-  set: href => url.set(new URL(href)),
+  set: (href) => url.set(new URL(href))
 }
 ```
 

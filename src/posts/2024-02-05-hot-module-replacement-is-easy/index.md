@@ -439,14 +439,12 @@ if (import.meta.hot) {
 
 And we can then use `acceptedPath` to match the dependencies and trigger the right callback function. For example, if `stuff.js` is updated, the `acceptedPath` would be `/src/stuff.js`, and `path` would be `/src/app.jsx`. This way, we can inform the owner path (`path`) that the accepted path (`acceptedPath`) has been updated, and the owner can handle its changes. We can adjust the HMR handlers as so:
 
-```ts title="/@vite/client (URL)"
+```ts title="/@vite/client (URL)" {2-5,13-15}
 // Map populated by `createHotContext()`
-// highlight-start
 const ownerPathToAcceptCallbacks = new Map<
   string,
   { deps: string[]; fn: Function }[]
 >()
-// highlight-end
 
 async function handleUpdate(update: Update) {
   const acceptCbs = ownerPathToAcceptCallbacks.get(update.path)
@@ -454,30 +452,28 @@ async function handleUpdate(update: Update) {
 
   for (const cb of acceptCbs) {
     // Make sure to only execute callbacks that can handle `acceptedPath`
-    // highlight-start
     if (cb.deps.some((deps) => deps.includes(update.acceptedPath))) {
       cb.fn(newModule)
     }
-    // highlight-end
   }
 }
 ```
 
 But we're not done yet! Before importing the new module, we also need to make sure the old module is properly disposed of using `import.meta.hot.dispose()`.
 
-```ts title="/@vite/client (URL)"
+```ts title="/@vite/client (URL)" {6,12}
 // Maps populated by `createHotContext()`
 const ownerPathToAcceptCallbacks = new Map<
   string,
   { deps: string[]; fn: Function }[]
 >()
-const ownerPathToDisposeCallback = new Map<string, Function>() // highlight-line
+const ownerPathToDisposeCallback = new Map<string, Function>()
 
 async function handleUpdate(update: Update) {
   const acceptCbs = ownerPathToAcceptCallbacks.get(update.path)
 
   // Call the dispose callback if there's any
-  ownerPathToDisposeCallbacks.get(update.path)?.() // highlight-line
+  ownerPathToDisposeCallbacks.get(update.path)?.()
 
   const newModule = await import(`${update.acceptedPath}?t=${update.timestamp}`)
 
@@ -542,12 +538,12 @@ if (import.meta.hot) {
 
 Emitting and tracking these events are very similar to how we handle the HMR callbacks above too. Taking the [HMR invalidation](#hmr-invalidation) code as example:
 
-```ts title="/@vite/client (URL)"
-const eventNameToCallbacks = new Map<string, Set<Function>>() // highlight-line
+```ts title="/@vite/client (URL)" {1,5}
+const eventNameToCallbacks = new Map<string, Set<Function>>()
 
 // `ownerPath` comes from `createHotContext()`
 function handleInvalidate(ownerPath: string) {
-  eventNameToCallbacks.get('vite:invalidate')?.forEach((cb) => cb()) // highlight-line
+  eventNameToCallbacks.get('vite:invalidate')?.forEach((cb) => cb())
   ws.send(
     JSON.stringify({
       type: 'custom',
@@ -564,19 +560,17 @@ Lastly, the HMR client also provides a way to store data to be shared between HM
 
 Keeping the data is also similar to how we track the HMR callbacks. Taking the [HMR pruning](#hmr-pruning) code as example:
 
-```ts title="/@vite/client (URL)"
+```ts title="/@vite/client (URL)" {4,8-10}
 // Maps populated by `createHotContext()`
 const ownerPathToDisposeCallback = new Map<string, Function>()
 const ownerPathToPruneCallback = new Map<string, Function>()
-const ownerPathToData = new Map<string, Record<string, any>>() // highlight-line
+const ownerPathToData = new Map<string, Record<string, any>>()
 
 function handlePrune(paths: string[]) {
   for (const p of paths) {
-    // highlight-start
     const data = ownerPathToData.get(p)
     ownerPathToDisposeCallbacks.get(p)?.(data)
     ownerPathToPruneCallback.get(p)?.(data)
-    // highlight-end
   }
 }
 ```

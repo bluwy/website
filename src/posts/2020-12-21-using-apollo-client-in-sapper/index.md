@@ -56,9 +56,9 @@ sapper.middleware({
 
 ```html title=_layout.svelte
 <script>
-  import { stores } from "@sapper/app"
-  import { onDestroy } from "svelte"
-  import { apollo } from "../apollo" // imports client-side Apollo Client, undefined in server
+  import { stores } from '@sapper/app'
+  import { onDestroy } from 'svelte'
+  import { apollo } from '../apollo' // imports client-side Apollo Client, undefined in server
 
   const { session } = stores()
 
@@ -79,9 +79,9 @@ sapper.middleware({
 ```js title=apollo.js
 export const apollo = process.browser
   ? new ApolloClient({
-      uri: "/graphql",
+      uri: '/graphql',
       cache: new InMemoryCache(),
-      ssrForceFetchDelay: 100,
+      ssrForceFetchDelay: 100
     })
   : undefined
 ```
@@ -103,7 +103,7 @@ Since server-side rendering runs synchronously, you can retrieve the cache using
 </script>
 
 <script>
-  import { stores } from "@sapper/app"
+  import { stores } from '@sapper/app'
 
   const { session } = stores()
 
@@ -155,13 +155,13 @@ The data query flow should be similar to fetching REST data. The only extra thin
 
 ```html title=index.svelte
 <script context="module">
-  import { apollo } from "../apollo" // import Apollo Client depending on client or server-side
+  import { apollo } from '../apollo' // import Apollo Client depending on client or server-side
 
   export async function preload(page, session) {
     const result = await apollo.query({ query: MY_QUERY })
 
     return {
-      data: result.data,
+      data: result.data
     }
   }
 </script>

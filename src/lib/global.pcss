@@ -17,8 +17,8 @@ ul {
 
 /* prism compat start */
 
-pre[class*='language-'],
-code[class*='language-'] {
+pre,
+code {
   text-shadow: none;
   direction: ltr;
   text-align: left;
@@ -29,7 +29,7 @@ code[class*='language-'] {
   hyphens: none;
 }
 
-:not(pre) > code[class*='language-'] {
+:not(pre) > code {
   padding: 0.1em 0.3em;
   border-radius: 0.3em;
 }
@@ -90,20 +90,20 @@ p {
 }
 
 /* Inline code */
-code[class*='language-'] {
+code {
   @apply font-mono text-lg;
 }
 
-h1 > code[class*='language-'],
-h2 > code[class*='language-'],
-h3 > code[class*='language-'],
-h4 > code[class*='language-'],
-li > code[class*='language-'] {
+h1 > code,
+h2 > code,
+h3 > code,
+h4 > code,
+li > code {
   font-size: inherit;
 }
 
 /* Code blocks */
-pre[class*='language-'] > code[class*='language-'] {
+pre > code {
   @apply font-mono text-sm;
 }
 
@@ -183,20 +183,16 @@ button:focus,
   @apply bg-gray-400 bg-opacity-20 border-gray-500;
 }
 
-.shiki-highlight {
-  @apply rounded-lg my-5 overflow-auto;
+.shiki {
+  @apply rounded-lg my-5 overflow-auto m-0 p-4;
 }
 
-.shiki-highlight pre[class*='language-'] {
-  @apply m-0 p-4 overflow-auto;
-}
-
-.shiki-highlight code[class*='language-'] {
+.shiki code {
   @apply min-w-full inline-block;
 }
 
-.shiki-highlight-code-line {
-  @apply bg-white border-white bg-opacity-10 border-opacity-70 -ml-4 pr-4 pl-3 inline-block;
+.highlighted {
+  @apply bg-white border-white bg-opacity-10 border-opacity-70 -mx-4 pr-4 pl-3 inline-block;
   border-left-width: 0.25rem;
   width: calc(100% + 2rem);
 }
@@ -205,11 +201,11 @@ button:focus,
   @apply rounded-t-lg font-semibold bg-gray-800 mt-5 text-white py-1 px-4;
 }
 
-.shiki-code-title ~ .shiki-highlight {
+.shiki-code-title ~ .shiki {
   @apply rounded-t-none mt-0;
 }
 
-:not(pre) > code[class*='language-'] {
+:not(pre) > code {
   @apply bg-gray-300 bg-opacity-40 text-primary-900 @dark:bg-white @dark:bg-opacity-20 @dark:text-primary-100;
 }
 
@@ -292,13 +288,6 @@ button:focus,
 .markdown .toc a:hover::before,
 .markdown .toc a:focus::before {
   transform: translateY(-50%) translateX(4px) rotate(45deg);
-}
-
-/* shiki line */
-span.line:empty {
-  /* TODO: Make rehype-shiki instead. In remark stage, rehype stringify removes the whitespace */
-  display: block;
-  height: 1.25rem;
 }
 
 @screen sm {

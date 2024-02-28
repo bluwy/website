@@ -7,6 +7,8 @@
   "type": "module",
   "exports": "./index.js",
   "dependencies": {
+    "@shikijs/rehype": "^1.1.7",
+    "@shikijs/transformers": "^1.1.7",
     "fenceparser": "^2.2.0",
     "js-yaml": "^4.1.0",
     "mdast-util-to-string": "^4.0.0",
@@ -21,7 +23,6 @@
     "remark-html": "^16.0.1",
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.1.0",
-    "shiki": "^0.14.7",
     "unified": "^11.0.4",
     "unist-util-visit": "^5.0.0"
   }

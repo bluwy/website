@@ -65,12 +65,11 @@ Every weather skin will almost always pull data through the [WebParser](https://
 
 Looking at the code, the url `wxdata.weather.com` is deprecated, so we need to change that. Let's change it to OpenWeatherMap's API. Here's what it should look like:
 
-```ini
+```ini {5}
 [MeasureCurrent]
 Measure=Plugin
 Plugin=WebParser.dll
 UpdateRate=900
-// highlight-next-line
 Url=https://api.openweathermap.org/data/2.5/weather?appid=<your-api-key>&id=#Location#&units=#Unit#&mode=xml
 RegExp="(?siU)<head>.*<ut>(.*)</ut>.*<dnam>(.*),.*</dnam>.*<tmp>(.*)</tmp>.*<t>(.*)</t>.*<icon>(.*)</icon>"
 ```
@@ -122,14 +121,14 @@ Mond has 5 data: temperature unit, location, temperature, weather condition and 
 
 Now let's inspect our XML data and see how we can capture them. Below is an example response:
 
-```xml
+```xml {2,7,18}
 <current>
-  <city id="2643743" name="London"> // highlight-line
+  <city id="2643743" name="London">
     <coord lon="-0.13" lat="51.51"/>
     <country>GB</country>
     <sun rise="2017-01-30T07:40:36" set="2017-01-30T16:47:56"/>
   </city>
-  <temperature value="7" min="5" max="8" unit="metric"/> // highlight-line
+  <temperature value="7" min="5" max="8" unit="metric"/>
   <humidity value="81" unit="%"/>
   <pressure value="1012" unit="hPa"/>
   <wind>
@@ -140,7 +139,7 @@ Now let's inspect our XML data and see how we can capture them. Below is an exam
   <clouds value="90" name="overcast clouds"/>
   <visibility value="10000"/>
   <precipitation mode="no"/>
-  <weather number="701" value="mist" icon="50d"/> // highlight-line
+  <weather number="701" value="mist" icon="50d"/>
   <lastupdate value="2017-01-30T15:50:00"/>
 </current>
 ```
@@ -179,41 +178,36 @@ And lastly, remember the 5 measures that Mond uses to get the regex's data, we h
 
 Finally the code should be like this:
 
-```ini
+```ini {6,12,18,24,30,37}
 [MeasureCurrent]
 Measure=Plugin
 Plugin=WebParser.dll
 UpdateRate=900
 Url=https://api.openweathermap.org/data/2.5/weather?appid=<your-api-key>&id=#Location#&units=#Unit#&mode=xml
-// highlight-next-line
 RegExp=(?siU)<city.*name="(.*)".*<temperature.*value="(.*)".*unit="(.*)".*<weather .*value="(.*)".*icon="(.*)"
 
 [MeasureTempUnit]
 Measure=Plugin
 Plugin=WebParser.dll
 Url=[MeasureCurrent]
-// highlight-next-line
 StringIndex=3
 
 [MeasureLocation]
 Measure=Plugin
 Plugin=WebParser.dll
 Url=[MeasureCurrent]
-// highlight-next-line
 StringIndex=1
 
 [MeasureWeatherTemp]
 Measure=Plugin
 Plugin=WebParser.dll
 Url=[MeasureCurrent]
-// highlight-next-line
 StringIndex=2
 
 [MeasureWeatherCond]
 Measure=Plugin
 Plugin=WebParser.dll
 Url=[MeasureCurrent]
-// highlight-next-line
 StringIndex=4
 Substitute=#Conditions#
 
@@ -221,7 +215,6 @@ Substitute=#Conditions#
 Measure=Plugin
 Plugin=WebParser.dll
 Url=[MeasureCurrent]
-// highlight-next-line
 StringIndex=5
 ```
 

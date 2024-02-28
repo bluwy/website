@@ -5,7 +5,8 @@ import { visit } from 'unist-util-visit'
 export function remarkShiki() {
   const highlighterPromise = getHighlighter({
     theme: 'one-dark-pro',
-    langs: ['html', 'css', 'javascript', 'typescript', 'ini', 'xml', 'svelte']
+    langs: ['html', 'css', 'javascript', 'typescript', 'ini', 'xml', 'svelte'],
+    
   })
 
   return async function (tree) {

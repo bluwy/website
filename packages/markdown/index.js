@@ -3,12 +3,13 @@ import remarkParse from 'remark-parse'
 import remarkFrontmatter from 'remark-frontmatter'
 import remarkGfm from 'remark-gfm'
 import remarkRehype from 'remark-rehype'
+import rehypeShiki from '@shikijs/rehype'
+import { transformerMetaHighlight } from '@shikijs/transformers'
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeStringify from 'rehype-stringify'
 import rehypeRaw from 'rehype-raw'
 import { remarkCodeTitle } from './remark-code-title.js'
-import { remarkShiki } from './remark-shiki.js'
 import { remarkData } from './remark-data.js'
 import { rehypeData } from './rehype-data.js'
 
@@ -19,8 +20,21 @@ export function createMarkdownProcessor() {
     .use(remarkGfm)
     .use(remarkCodeTitle)
     .use(remarkData)
-    .use(remarkShiki)
     .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeShiki, {
+      theme: 'one-dark-pro',
+      langs: [
+        'html',
+        'css',
+        'javascript',
+        'typescript',
+        'ini',
+        'xml',
+        'svelte'
+      ],
+      addLanguageClass: true,
+      transformers: [transformerMetaHighlight()]
+    })
     .use(rehypeRaw)
     .use(rehypeSlug)
     .use(rehypeAutolinkHeadings, {

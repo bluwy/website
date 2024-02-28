@@ -15,9 +15,9 @@ Jekyll provides a very convenient Liquid tag to import other codes, known as `in
 But there's more to it, you can use global Liquid variables in the included code too. Like so:
 
 <!-- prettier-ignore -->
-```html title=index.html
+```html title=index.html {2}
 {% assign person = "Darren" %}
-{% include somecode.html %} // highlight-line
+{% include somecode.html %}
 ```
 
 ```html title=somecode.html
