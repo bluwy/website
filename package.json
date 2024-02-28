@@ -9,7 +9,7 @@
     "dev": "vite dev",
     "build": "vite build",
     "preview": "vite preview",
-    "format": "prettier --write **/*.{js,ts,html,svelte,md,css,pcss}",
+    "format": "prettier --write \"**/*.{js,ts,html,svelte,md,css,pcss}\"",
     "generate-og": "node ./scripts/generate-og.js"
   },
   "devDependencies": {
