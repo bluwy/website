@@ -4,7 +4,8 @@
   import Nav from '$lib/Nav.svelte'
   import Footer from '$lib/Footer.svelte'
   import LoadingBar from '$lib/LoadingBar.svelte'
-  import 'virtual:windi.css'
+  import '@unocss/reset/tailwind.css'
+  import 'virtual:uno.css'
   import '$lib/global.pcss'
   import '$data/assets'
 

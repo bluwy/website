@@ -1,8 +1,9 @@
-import { defineConfig } from 'windicss/helpers'
-import colors from 'windicss/colors'
+import { defineConfig, presetWind } from 'unocss'
+import extractorSvelte from '@unocss/extractor-svelte'
 
 export default defineConfig({
-  darkMode: 'media',
+  extractors: [extractorSvelte()],
+  presets: [presetWind()],
   theme: {
     container: {
       center: true,
@@ -15,10 +16,6 @@ export default defineConfig({
       }
     },
     colors: {
-      transparent: 'transparent',
-      black: colors.black,
-      white: colors.white,
-      gray: colors.gray,
       primary: {
         100: '#fff1f8',
         200: '#ffe4f1',
@@ -42,16 +39,9 @@ export default defineConfig({
         900: '#4c4018'
       }
     },
-    extend: {
-      fontFamily: {
-        sans: ['"Source Sans 3"', 'sans-serif'],
-        mono: ['"Ubuntu Mono"', 'monospace']
-      },
-      borderWidth: {
-        6: '6px',
-        10: '10px',
-        12: '12px'
-      }
+    fontFamily: {
+      sans: ['"Source Sans 3"', 'sans-serif'],
+      mono: ['"Ubuntu Mono"', 'monospace']
     }
   }
 })

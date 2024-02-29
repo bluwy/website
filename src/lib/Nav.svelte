@@ -12,7 +12,11 @@
 <svelte:window bind:scrollY />
 
 <nav
-  class="h-24 w-full text-7xl z-30 fixed @dark:bg-gray-900"
+  class="
+    h-24 w-full text-7xl z-30 fixed
+    {shrink
+    ? 'bg-gray-100 shadow text-gray-900 @dark:bg-gray-800 @dark:shadow-none @dark:text-gray-100'
+    : ''}"
   class:hero={isHero}
   class:shrink
 >
@@ -48,13 +52,15 @@
       background-color 150ms ease-out;
   }
   .hero {
-    @apply bg-transparent text-gray-100 @dark:bg-transparent;
+    @apply bg-transparent text-gray-100;
   }
 
   .shrink {
-    @apply bg-gray-100 h-14 h-[56px] shadow text-gray-900 @dark:bg-gray-800 @dark:shadow-none @dark:text-gray-100;
+    height: 56px;
     transition:
       height 200ms ease-out,
       background-color 150ms 200ms ease-out;
   }
+
+  /* Can't inline @apply due to https://github.com/sveltejs/svelte/issues/7518 */
 </style>
