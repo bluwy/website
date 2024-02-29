@@ -2,6 +2,7 @@
 title: Tailwind Color Generator
 desc: Easily generate Tailwind color palette
 icon: tailwind.svg
+created: '2020-04-23'
 links:
   - label: GitHub
     link: https://github.com/bluwy/tailwind-color-gen

@@ -28,14 +28,17 @@ const projectIcons = import.meta.glob('../assets/images/project-icons/*', {
  */
 
 /** @type {Project[]} */
-export const projects = Object.entries(projectMarkdowns).map(([k, v]) => ({
-  slug: '/projects/' + k.match(/projects\/(.*)\/index.md/)[1],
-  ...v,
-  frontmatter: {
-    ...v.frontmatter,
-    icon: v.frontmatter.icon
-      ? projectIcons['../assets/images/project-icons/' + v.frontmatter.icon]
-          .default
-      : undefined
-  }
-}))
+export const projects = Object.entries(projectMarkdowns)
+  .map(([k, v]) => ({
+    slug: '/projects/' + k.match(/projects\/(.*)\/index.md/)[1],
+    ...v,
+    frontmatter: {
+      ...v.frontmatter,
+      created: new Date(v.frontmatter.created),
+      icon: v.frontmatter.icon
+        ? projectIcons['../assets/images/project-icons/' + v.frontmatter.icon]
+            .default
+        : undefined
+    }
+  }))
+  .sort((a, b) => b.frontmatter.created - a.frontmatter.created)

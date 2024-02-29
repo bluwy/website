@@ -2,10 +2,13 @@
 title: svelte-fast-dimension
 desc: Fast dimension bindings for Svelte
 icon: svelte.svg
+created: '2021-10-08'
 featured: true
 links:
   - label: GitHub
     link: https://github.com/bluwy/svelte-fast-dimension
+  - label: NPM
+    link: https://www.npmjs.com/package/svelte-fast-dimension
 tags:
   - Svelte
 ---

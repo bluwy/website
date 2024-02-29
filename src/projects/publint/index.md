@@ -2,10 +2,13 @@
 title: publint
 desc: Lint packaging errors
 icon: publint.svg
+created: '2022-02-21'
 featured: true
 links:
   - label: GitHub
     link: https://github.com/bluwy/publint
+  - label: NPM
+    link: https://www.npmjs.com/package/publint
   - label: Website
     link: https://publint.bjornlu.com
 tags:

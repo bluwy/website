@@ -2,6 +2,7 @@
 title: PENN Todo
 desc: A todo app built on the PENN stack
 icon: penn-todo.svg
+created: '2019-07-29'
 links:
   - label: GitHub
     link: https://github.com/bluwy/penn-todo

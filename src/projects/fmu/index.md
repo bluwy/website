@@ -2,10 +2,13 @@
 title: fmu
 desc: JS module utilities written in Rust
 icon: fmu.svg
+created: '2022-07-12'
 featured: true
 links:
   - label: GitHub
     link: https://github.com/bluwy/fmu
+  - label: NPM
+    link: https://www.npmjs.com/package/fmu
   - label: Website
     link: https://bluwy.github.io/fmu
 tags:

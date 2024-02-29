@@ -2,6 +2,7 @@
 title: Svelte Router
 desc: A SPA router for Svelte
 icon: npm.svg
+created: '2020-07-16'
 links:
   - label: GitHub
     link: https://github.com/bluwy/svelte-router
