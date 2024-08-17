@@ -29,6 +29,7 @@
     "vite-plugin-windicss": "^1.9.3",
     "windicss": "^3.5.6"
   },
+  "packageManager": "pnpm@9.7.0",
   "pnpm": {
     "patchedDependencies": {
       "fenceparser@2.2.0": "patches/fenceparser@2.2.0.patch"
