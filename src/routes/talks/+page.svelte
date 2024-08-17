@@ -20,16 +20,19 @@
 
 <div class="container">
   <h1 class="m-0 text-center">Talks</h1>
-  <section class="markdown">
-    <h2>Giving talks</h2>
-    <p>
-      Hi, I'm Bjorn Lu. I like to present topics that are unique and
-      resourceful, especially around things you can't find on the web. Feel free
-      to reach out to me on <a href="https://twitter.com/bluwyoo">Twitter</a> or
-      <a href="https://m.webtoo.ls/@bluwy">Mastodon</a> if you'd like me to give
-      a talk!
-    </p>
-    <p>About me:</p>
+  <section>
+    <div class="markdown">
+      <h2>Giving talks</h2>
+      <p>
+        Hi, I'm Bjorn Lu. I like to present topics that are unique and
+        resourceful, especially around things you can't find on the web. Feel
+        free to reach out to me on
+        <a href="https://twitter.com/bluwyoo">Twitter</a> or
+        <a href="https://m.webtoo.ls/@bluwy">Mastodon</a> if you'd like me to give
+        a talk!
+      </p>
+      <p>About me:</p>
+    </div>
     <table class="info-table">
       <tr>
         <td>Name</td>

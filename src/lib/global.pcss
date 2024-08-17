@@ -261,6 +261,21 @@ button:focus,
   @apply m-0;
 }
 
+.markdown table {
+  @apply my-4 border-1 border-gray-600;
+}
+.markdown table thead {
+  @apply border-b-2 border-gray-600;
+}
+.markdown table th,
+.markdown table td {
+  @apply pl-2 pr-4 py-1;
+}
+.markdown table thead tr,
+.markdown table tr:nth-child(2n) {
+  @apply bg-gray-300 @dark:bg-gray-800;
+}
+
 .markdown .toc p {
   @apply m-0;
 }

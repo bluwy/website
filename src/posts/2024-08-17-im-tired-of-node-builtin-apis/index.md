@@ -59,11 +59,16 @@ On surface, it seems simple enough, but after [migrating the Astro codebase](htt
    })
    ```
 
-3. The CLI flags are unnecessarily long and only works with a specific order. For example, in a worst case scenario:
+3. The CLI flags are unnecessarily long and only works with a specific order. For example:
 
-   - Node.js: `node --test --watch --test-concurrency 2 --test-name-pattern "pizza" "./test.js"`
-   - Mocha: `mocha --watch --parallel --jobs 2 --grep "pizza" "./test.js"`
-   - Mocha (if you're a power user): `mocha -w -p -j 2 -g "pizza" "./test.js"`
+   | node:test           | mocha                            |
+   | ------------------- | -------------------------------- |
+   | --watch             | --watch, -w                      |
+   | --test-timeout      | --timeout, -t                    |
+   | --test-name-pattern | --grep, -g                       |
+   | --test-concurrency  | --jobs, -j (with --parallel, -p) |
+   | --test-force-exit   | --exit                           |
+   | --test-only         | (not needed)                     |
 
    To run a single test with mocha, you can simply type `-g "pizza"` instead of `--test-name-pattern "pizza"`. And if you'd think to create a script command to avoid typing it, you can't because `"test:match": "node --test \"./test.js\" --test-name-pattern"` and `pnpm test:match "pizza"` does not work: `Could not find '/Users/bjorn/my/project/--test-name-pattern'`.
 
