@@ -1,12 +1,12 @@
 ---
-title: I'm tired of Node Builtin APIs
+title: I'm Tired of Node Builtin APIs
 ---
 
 Node.js has been releasing some neat APIs for common downstream usecases lately. There's
 
 <!-- endexcerpt -->
 
-- [`node:test`](https://nodejs.org/api/test.html) - A test runner, like [mocha](https://mochajs.org), [ava](https://github.com/avajs/ava/tree/main), [uvu](https://github.com/lukeed/uvu), [jest](https://jestjs.io), [vitest](https://vitest.dev), etc.
+- [`node:test`](https://nodejs.org/api/test.html) - A test runner, like [mocha](https://mochajs.org), [ava](https://github.com/avajs/ava), [uvu](https://github.com/lukeed/uvu), [jest](https://jestjs.io), [vitest](https://vitest.dev), etc.
 - [`parseArgs`](https://nodejs.org/api/util.html#utilparseargsconfig) - A CLI argument parser, like [minimist](https://github.com/minimistjs/minimist), [yargs-parser](https://github.com/yargs/yargs-parser), [mri](https://github.com/lukeed/mri), etc.
 - [`styleText`](https://nodejs.org/api/util.html#utilstyletextformat-text) - An ANSI color formatter, like [picocolors](https://github.com/alexeyraspopov/picocolors), [chalk](https://github.com/chalk/chalk), [kleur](https://github.com/lukeed/kleur), [kolorist](https://github.com/marvinhagemeister/kolorist), etc.
 
@@ -154,7 +154,7 @@ parseArgs({
 parseArgs({ strict: false })
 ```
 
-It works well at most times, but slowly you may also hit edge cases like this:
+It works well at most times, but slowly you may hit edge cases like this:
 
 <!-- prettier-ignore -->
 ```js
@@ -250,14 +250,14 @@ console.log(kleur.red('pizza'))
 console.log(kolorist.red('pizza'))
 ```
 
-It's not clear why it needs to be this way, and API styles is definitely subjective, but there's also a big reason why the most adopted libraries all have a similar API design (because it's good). It would also be a lot easier for the ecosystem to rely on one less dependency if all it takes to migrate is to modify an import statement.
+It's not clear why it needs to be this way, and while API styles are subjective, there's also a big reason why the most adopted libraries all have a similar API design (because it's good). It would also be a lot easier for the ecosystem to rely on one less dependency if all it takes to migrate is to modify an import statement.
 
-## Thoughts
+## Thoughts and Hope
 
 I'll still be using these APIs for my projects if it helps reduce dependencies for the ecosystem, but it feels like Node is missing a lot of big opportunites here to make a significant impact on the JS ecosystem.
 
 Some are bugs or feature requests that should be reported, but at the same time it's hard to tell whether it's intentional design due to how intentionally different they compare to other well-established libraries. Fixing these takes time too as it goes through the Node.js release cycle. It's easy to be compelled to hop on to a different library instead.
 
-For now, if you're building a new project that will scale up, I'd suggest sticking with the existing alternative libraries. If you're building a small and well-scoped project, the Node builtin APIs should work just fine.
+For now, if you're building a new project that will scale up, or work in a large codebase, I'd suggest sticking with the existing alternative libraries. If you're building a small and well-scoped project, the Node builtin APIs should work just fine.
 
 For the future, with respect to the maintainers who brought us these APIs (which are still useful!), I hope the APIs may evolve better and take more inspiration from the existing ecosystem and design patterns.
