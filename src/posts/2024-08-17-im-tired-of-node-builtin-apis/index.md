@@ -34,7 +34,7 @@ describe('pizza', () => {
 
 On surface, it seems simple enough, but after [migrating the Astro codebase](https://astro.build/blog/node-test-migration/) from mocha/chai to test/assert, many glaring issues start to appear:
 
-1. Each test files run in isolation (in their own `child_process`), so if you're importing a large module or many files, each test files have to pay the cost of loading them again even if you can be sure there's no side effects between them.
+1. Each test files run in isolation (in their own `child_process`) and can't be disabled. So if you're importing a large module or many files, each test files have to pay the cost of loading them again even if you can be sure there's no side effects between them.
 
    In mocha, isolation is only enabled if you run with [`--parallel`](https://mochajs.org/#-parallel-p). Or tools like vitest have a specific [`isolation` option](https://vitest.dev/guide/cli-generated.html#isolate) to disable isolation.
 
