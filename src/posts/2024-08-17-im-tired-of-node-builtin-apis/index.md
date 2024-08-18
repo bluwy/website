@@ -236,24 +236,38 @@ You can use `styleText` like this:
 ```js
 import { styleText } from 'node:util'
 
-console.log(styleText('red', 'pizza'))
+const s = `I like ${styleText('red', 'pizza')}`
 ```
 
 Compared to the previously discussed APIs, `styleText` is rather simple and is an answer to an isolated, well-defined need of ANSI color formatting in the JS ecosystem. But again as you may notice, the API is different from the already well-established libraries:
 
 ```js
 import { styleText } from 'node:util'
-import picocolor from 'picocolors'
+import picocolors from 'picocolors'
 import chalk from 'chalk'
 import kleur from 'kleur'
 import * as kolorist from 'kolorist'
 
-console.log(styleText('red', 'pizza'))
-console.log(picocolor.red('pizza'))
-console.log(chalk.red('pizza'))
-console.log(kleur.red('pizza'))
-console.log(kolorist.red('pizza'))
+const s1 = `I like ${styleText('red', 'pizza')}`
+const s2 = `I like ${picocolors.red('pizza')}`
+const s3 = `I like ${chalk.red('pizza')}`
+const s4 = `I like ${kleur.red('pizza')}`
+const s5 = `I like ${kolorist.red('pizza')}`
 ```
+
+While it may also seem that `styleText` optimizes for multiple styling, but in practice where the imports are often shortened, and there isn't much difference either:
+
+```js
+import { styleText as s } from 'node:util'
+import c from 'picocolors' // or chalk, kolorist
+import k from 'kleur'
+
+const s1 = `I like ${s(['underline', 'bold', 'red'], 'pizza')}`
+const s2 = `I like ${c.underline(c.bold(c.red('pizza')))}`
+const s3 = `I like ${k.underline().bold().red('pizza')}`
+```
+
+Instead, `styleText`'s array of strings syntax gets in the way when reading the entire template string because it gets highlighted the same in IDEs. (Green in the example above)
 
 It's not clear why it needs to be this way, and while API styles are subjective, there's also a big reason why the most adopted libraries all have a similar API design (because it's good). It would also be a lot easier for the ecosystem to rely on one less dependency if all it takes to migrate is to modify an import statement.
 
