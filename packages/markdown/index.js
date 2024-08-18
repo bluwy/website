@@ -31,6 +31,7 @@ export function createMarkdownProcessor() {
         'ini',
         'xml',
         'svelte',
+        'json',
         'bash'
       ],
       addLanguageClass: true,

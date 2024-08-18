@@ -70,7 +70,17 @@ On surface, it seems simple enough, but after [migrating the Astro codebase](htt
    | --test-force-exit   | --exit                           |
    | --test-only         | (not needed)                     |
 
-   To run a single test with mocha, you can simply type `-g "pizza"` instead of `--test-name-pattern "pizza"`. And if you'd think to create a script command to avoid typing it, you can't because `"test:match": "node --test \"./test.js\" --test-name-pattern"` and `pnpm test:match "pizza"` does not work: `Could not find '/Users/bjorn/my/project/--test-name-pattern'`.
+   To run a single test with mocha, you can simply type `-g "pizza"` instead of `--test-name-pattern "pizza"`. And if you'd think to create a script command to avoid typing it, you can't, because with:
+
+   ```json
+   {
+     "scripts": {
+       "test:match": "node --test \"./test.js\" --test-name-pattern"
+     }
+   }
+   ```
+
+   And running `pnpm test:match "pizza"`, you get: `Could not find '/Users/bjorn/my/project/--test-name-pattern'`. (You can create a similar script for mocha and it would work)
 
 4. The test output is hard to read. If you have `.skip` and `.only` tests, here's how they look like:
 
