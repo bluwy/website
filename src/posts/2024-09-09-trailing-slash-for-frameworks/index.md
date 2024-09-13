@@ -1,5 +1,6 @@
 ---
 title: Trailing Slash for Frameworks
+updated: '2024-09-13'
 ---
 
 It turns out that putting a `/` at the end of a URL can be a big deal. Should you put it? Or should you not? Or should you simply make both work? Why is this even a problem in the first place?!
@@ -151,7 +152,7 @@ The section below takes data from https://github.com/slorber/trailing-slash-guid
 
 ### Hosting providers
 
-<div id="hosting-providers">
+<div id="big-table">
 
 | Host                  | Settings                                         | Url                                                                       | /file                                                                              | /file/                                                                            | /file.html                                                                             | /folder                                                                            | /folder/                                                                              | /folder/index.html                                                                                 | /both                                                                            | /both/                                                                            | /both.html                                                                             | /both/index.html                                                                               |
 | --------------------- | ------------------------------------------------ | ------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
@@ -170,7 +171,7 @@ The section below takes data from https://github.com/slorber/trailing-slash-guid
 
 </div>
 
-> Dimmed cells indicate that the path may lead to relative references issues or returns the incorrect content.
+> Dimmed cells indicate that the path may lead to relative references issues or they return an unexpected content.
 
 As a framework, ideally it should able to support all of the hosting providers, which is possible but with many edge cases to keep in mind. Note that the data above focuses on static file serving only.
 
@@ -197,6 +198,35 @@ As a framework, ideally it should able to support all of the hosting providers, 
 To be fair to Vercel, their configuration works best if the respective framework used to deploy also supports a `trailingSlash: boolean` option. But if you're using a framework without the option, or if you're uploading mixed `file.html` and `folder/index.html` files manually, it's easy to get into the wrong configuration that messes with your site.
 
 For server-rendered pages, as long as your server followed the guide above regarding relative references and redirects, you're good to go. However, keep in mind that some hosting providers, like Vercel, may rewrite the paths before reaching your server (in Vercel's case, the `trailingSlash` option affects it). And for providers that also support hosting your server, in most cases, its static file serving will take a higher priority before hitting your server, which can also sometimes be configurable.
+
+### Servers
+
+<div id="big-table">
+
+| Server                | /file    | /file/ | /file.html | /folder     | /folder/ | /folder/index.html | /both       | /both/ | /both.html | /both/index.html |
+| --------------------- | -------- | ------ | ---------- | ----------- | -------- | ------------------ | ----------- | ------ | ---------- | ---------------- |
+| express               | _💢 404_ | 💢 404 | ✅         | ➡️ /folder/ | ✅       | ✅                 | _➡️ /both/_ | ✅     | ✅         | ✅               |
+| sirv                  | ✅       | _✅_   | ✅         | _✅_        | ✅       | ✅                 | ✅          | _✅_   | ✅         | ✅               |
+| http-server           | ✅       | 💢 404 | ✅         | ➡️ /folder/ | ✅       | ✅                 | _✅_        | ✅     | ✅         | ✅               |
+| deno (file-server)    | _💢 404_ | 💢 404 | ✅         | ➡️ /folder/ | ✅       | ✅                 | _➡️ /both/_ | ✅     | ✅         | ✅               |
+| python -m http.server | _💢 404_ | 💢 404 | ✅         | ➡️ /folder/ | ✅       | ✅                 | _➡️ /both/_ | ✅     | ✅         | ✅               |
+| httpd (apache)        | _💢 404_ | 💢 404 | ✅         | ➡️ /folder/ | ✅       | ✅                 | _➡️ /both/_ | ✅     | ✅         | ✅               |
+| nginx                 | _💢 404_ | 💢 404 | ✅         | ➡️ /folder/ | ✅       | ✅                 | _➡️ /both/_ | ✅     | ✅         | ✅               |
+
+</div>
+
+> Dimmed cells indicate that the path may lead to relative references issues or they return an unexpected content.
+
+If the user chooses to deploy on their own server, they may be using one of these to serve the HTML files. Note that none of the cells have clickable links (as they're tedious to deploy), but you can run the tests yourself at https://github.com/bluwy/trailing-slash-servers.
+
+1. There's a consistent and equal behaviour among `express`, `deno (file-server)`, `python -m http.server`, `httpd (apache)`, and `nginx`.
+   - They are able to serve all files correctly without causing relative references issues.
+   - However, they don't serve the same file with a pretty URL, nor handle `/file` as an alias of `/file.html`.
+   - Due to not supporting the `/file` alias, it'll not recognize `/both` as `/both.html` and performs a redirect to `/both/` instead.
+2. `sirv` serves all files very leniently and exposes risks to relative references issues if accessed from the incorrect path.
+3. `http-server` works quite similar to express and others, with a plus that it supports `/file`. But for `/both`, it returns the `/both/index.html` file instead.
+4. If we ignore the `both` tests since they're rare, then:
+   - All servers are fairly decent, except `sirv` which exposes risks to relative references issues if accessed from the incorrect path.
 
 ### Frameworks
 
@@ -232,16 +262,16 @@ And that's it! May you deal with trailing slash once and never again.
     overflow-wrap: anywhere;
   }
 
-  #hosting-providers {
+  #big-table {
     overflow-x: auto;
   }
-  #hosting-providers table {
+  #big-table table {
     margin-bottom: 0;
   }
-  #hosting-providers table td {
+  #big-table table td {
     overflow-wrap: unset;
   }
-  #hosting-providers table td em {
+  #big-table table td em {
     opacity: 0.5;
   }
 
