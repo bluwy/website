@@ -29,9 +29,7 @@
     "typescript": "^5.6.2",
     "unocss": "^0.62.3",
     "vite": "^5.4.5",
-    "vite-plugin-cloudflare-redirect": "^0.1.2",
-    "vite-plugin-windicss": "^1.9.3",
-    "windicss": "^3.5.6"
+    "vite-plugin-cloudflare-redirect": "^0.1.2"
   },
   "packageManager": "pnpm@9.10.0",
   "pnpm": {
