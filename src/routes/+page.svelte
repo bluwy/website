@@ -122,7 +122,7 @@
       <a href="https://github.com/sponsors/bluwy">GitHub Sponsors</a>!
     </p>
     <object
-      class="w-full"
+      class="w-full max-w-xl mx-auto"
       data="/sponsors.svg"
       type="image/svg+xml"
       title="Sponsors"

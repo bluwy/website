@@ -1,22 +1,38 @@
 <script>
   import { talks } from '$data/talks'
   import Head from '$lib/Head.svelte'
+
+  /**
+   * @param {string} url
+   */
+  function inferUrlTtitle(url) {
+    if (url.includes('youtube.com')) {
+      return 'YouTube'
+    } else if (url.includes('podrocket.logrocket.com')) {
+      return 'PodRocket'
+    } else {
+      throw new Error('Unknown URL')
+    }
+  }
 </script>
 
 <Head title="Talks" />
 
 <div class="container">
   <h1 class="m-0 text-center">Talks</h1>
-  <section class="markdown">
-    <h2>Giving talks</h2>
-    <p>
-      Hi, I'm Bjorn Lu. I like to present topics that are unique and
-      resourceful, especially around things you can't find on the web. Feel free
-      to reach out to me on <a href="https://twitter.com/bluwyoo">Twitter</a> or
-      <a href="https://m.webtoo.ls/@bluwy">Mastodon</a> if you'd like me to give
-      a talk!
-    </p>
-    <p>About me:</p>
+  <section>
+    <div class="markdown">
+      <h2>Giving talks</h2>
+      <p>
+        Hi, I'm Bjorn Lu. I like to present topics that are unique and
+        resourceful, especially around things you can't find on the web. Feel
+        free to reach out to me on
+        <a href="https://twitter.com/bluwyoo">Twitter</a> or
+        <a href="https://m.webtoo.ls/@bluwy">Mastodon</a> if you'd like me to give
+        a talk!
+      </p>
+      <p>About me:</p>
+    </div>
     <table class="info-table">
       <tr>
         <td>Name</td>
@@ -72,27 +88,27 @@
     </table>
   </section>
   <section>
-    <h2>Past talks</h2>
+    <h2>Past talks and events</h2>
     <div class="space-y-5 sm:-mx-4">
       {#each talks as talk}
         <a class="block card" href={talk.url} target="_blank">
           <span class="flex justify-between">
             <span>{talk.title}</span>
             <span class="text-sm flex opacity-50">
-              YouTube
+              {inferUrlTtitle(talk.url)}
               <!-- prettier-ignore -->
               <svg class="ml-0.5" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"><path fill="currentColor" d="M6.4 18L5 16.6L14.6 7H6V5h12v12h-2V8.4L6.4 18Z"/></svg>
             </span>
           </span>
           <span class="opacity-60 flex items-center">
             {talk.venue}
-            {#if talk.online}
+            {#each talk.type as type}
               <div
                 class="border rounded-md text-xs transition-colors duration-200 inline-block px-1 ml-2"
               >
-                online
+                {type}
               </div>
-            {/if}
+            {/each}
           </span>
         </a>
       {/each}

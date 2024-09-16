@@ -2,6 +2,7 @@
 title: Colorblind
 desc: Simulate color blindness
 icon: npm.svg
+created: '2020-06-28'
 links:
   - label: GitHub
     link: https://github.com/bluwy/colorblind

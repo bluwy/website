@@ -2,6 +2,7 @@
 title: Material Shadow Preview
 desc: Visualize Material Design elevations
 icon: material-design.svg
+created: '2019-07-21'
 links:
   - label: GitHub
     link: https://github.com/bluwy/material-shadow-preview

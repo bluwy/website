@@ -30,7 +30,9 @@ export function createMarkdownProcessor() {
         'typescript',
         'ini',
         'xml',
-        'svelte'
+        'svelte',
+        'json',
+        'bash'
       ],
       addLanguageClass: true,
       transformers: [transformerMetaHighlight()]

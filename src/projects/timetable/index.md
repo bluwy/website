@@ -2,6 +2,7 @@
 title: Timetable
 desc: A personal class scheduler
 icon: timetable.svg
+created: '2020-03-23'
 links:
   - label: GitHub
     link: https://github.com/bluwy/timetable

@@ -2,6 +2,7 @@
 title: Cheetah Job Sheet
 desc: Job sheet management tool
 icon: timetable.svg
+created: '2020-02-04'
 links:
   - label: GitHub
     link: https://github.com/bluwy/cheetah-server

@@ -2,6 +2,7 @@
 title: Substitute String
 desc: Substitute strings in GitHub Actions
 icon: github-action.svg
+created: '2020-03-14'
 links:
   - label: GitHub
     link: https://github.com/bluwy/substitute-string-action

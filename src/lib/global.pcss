@@ -15,6 +15,7 @@ code {
 :not(pre) > code {
   padding: 0.1em 0.3em;
   border-radius: 0.3em;
+  white-space: pre-wrap;
 }
 
 /* prism compat end */
@@ -72,6 +73,10 @@ p {
   @apply text-lg mb-6 text-gray-700 @dark:text-gray-300;
 }
 
+ul ~ p {
+  @apply mt-6;
+}
+
 /* Inline code */
 code {
   @apply font-mono text-lg;
@@ -116,6 +121,10 @@ details {
 
 details > summary {
   @apply text-lg text-gray-700 @dark:text-gray-300;
+}
+
+blockquote > details {
+  @apply my-0;
 }
 
 button,
@@ -167,7 +176,7 @@ button:focus,
 }
 
 .shiki {
-  @apply rounded-lg my-5 overflow-auto m-0 p-4;
+  @apply rounded-lg my-5 overflow-auto mx-0 p-4;
 }
 
 .shiki code {
@@ -228,7 +237,7 @@ button:focus,
 }
 
 .markdown li > p:last-child {
-  @apply m-0;
+  @apply mx-0 mb-0;
 }
 
 .markdown blockquote {
@@ -237,6 +246,21 @@ button:focus,
 
 .markdown blockquote p:last-child {
   @apply m-0;
+}
+
+.markdown table {
+  @apply my-4 border-1 border-gray-600;
+}
+.markdown table thead {
+  @apply border-b-2 border-gray-600;
+}
+.markdown table th,
+.markdown table td {
+  @apply pl-2 pr-4 py-1;
+}
+.markdown table thead tr,
+.markdown table tr:nth-child(2n) {
+  @apply bg-gray-300 @dark:bg-gray-800;
 }
 
 .markdown .toc p {

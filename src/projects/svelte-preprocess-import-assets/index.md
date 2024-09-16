@@ -2,10 +2,13 @@
 title: svelte-preprocess-import-assets
 desc: Import assets directly in you markup
 icon: svelte.svg
+created: '2021-04-27'
 featured: true
 links:
   - label: GitHub
     link: https://github.com/bluwy/svelte-preprocess-import-assets
+  - label: NPM
+    link: https://www.npmjs.com/package/svelte-preprocess-import-assets
 tags:
   - Svelte
 ---

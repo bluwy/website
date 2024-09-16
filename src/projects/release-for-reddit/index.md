@@ -2,6 +2,7 @@
 title: Release for Reddit
 desc: Automate Reddit release post
 icon: github-action.svg
+created: '2020-03-17'
 links:
   - label: GitHub
     link: https://github.com/bluwy/release-for-reddit-action
