@@ -1,7 +1,8 @@
-import { defineConfig, presetWind } from 'unocss'
+import presetWind from '@unocss/preset-wind'
 import extractorSvelte from '@unocss/extractor-svelte'
 
-export default defineConfig({
+/** @type {import('@unocss/core').UserConfig<import('@unocss/preset-wind').Theme>} */
+export default {
   extractors: [extractorSvelte()],
   presets: [presetWind()],
   theme: {
@@ -44,4 +45,4 @@ export default defineConfig({
       mono: ['"Ubuntu Mono"', 'monospace']
     }
   }
-})
+}

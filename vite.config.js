@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 import { sveltekit } from '@sveltejs/kit/vite'
-import unocss from 'unocss/vite'
+import unocss from '@unocss/vite'
 import markdown from '@bjornlu/rollup-plugin-markdown'
 import { cloudflareRedirect } from 'vite-plugin-cloudflare-redirect'
 
