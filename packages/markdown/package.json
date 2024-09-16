@@ -7,8 +7,8 @@
   "type": "module",
   "exports": "./index.js",
   "dependencies": {
-    "@shikijs/rehype": "^1.16.2",
-    "@shikijs/transformers": "^1.16.2",
+    "@shikijs/rehype": "^1.17.7",
+    "@shikijs/transformers": "^1.17.7",
     "fenceparser": "^2.2.0",
     "js-yaml": "^4.1.0",
     "mdast-util-to-string": "^4.0.0",
