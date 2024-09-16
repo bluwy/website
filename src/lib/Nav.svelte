@@ -52,13 +52,6 @@
   }
 
   .shrink {
-    height: 56px;
-    transition:
-      height 200ms ease-out,
-      background-color 150ms 200ms ease-out;
-  }
-
-  .shrink {
     @apply bg-gray-100 h-14 h-[56px] shadow text-gray-900 @dark:bg-gray-800 @dark:shadow-none @dark:text-gray-100;
     transition:
       height 200ms ease-out,
