@@ -1,6 +1,6 @@
 # My website
 
-The [site](https://bjornlu.com) is built with [SvelteKit](https://kit.svelte.dev), [WindiCSS](https://windicss.org/), and [Remark](https://github.com/remarkjs/remark)/[Rehype](https://github.com/rehypejs/rehype)/[Unified](https://github.com/unifiedjs/unified).
+The [site](https://bjornlu.com) is built with [SvelteKit](https://kit.svelte.dev), [UnoCSS](https://unocss.dev/), and [Remark](https://github.com/remarkjs/remark)/[Rehype](https://github.com/rehypejs/rehype)/[Unified](https://github.com/unifiedjs/unified).
 
 ## Development
 
