@@ -13,7 +13,8 @@ export default {
         sm: '16px',
         md: '32px',
         lg: '120px',
-        xl: '240px'
+        xl: '240px',
+        '2xl': '240px'
       }
     },
     colors: {
