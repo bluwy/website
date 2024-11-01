@@ -1,5 +1,5 @@
 {
-  "name": "@bjornlu/rollup-plugin-markdown",
+  "name": "@bluwy/rollup-plugin-markdown",
   "version": "0.0.1",
   "private": true,
   "author": "Bjorn Lu",
@@ -7,6 +7,6 @@
   "type": "module",
   "exports": "./index.js",
   "dependencies": {
-    "@bjornlu/markdown": "workspace:*"
+    "@bluwy/markdown": "workspace:*"
   }
 }

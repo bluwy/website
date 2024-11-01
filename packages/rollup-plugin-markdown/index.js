@@ -1,4 +1,4 @@
-import { createMarkdownProcessor } from '@bjornlu/markdown'
+import { createMarkdownProcessor } from '@bluwy/markdown'
 
 /**
  * @returns {{

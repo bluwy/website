@@ -1,4 +1,4 @@
-import { createMarkdownProcessor } from '@bjornlu/markdown'
+import { createMarkdownProcessor } from '@bluwy/markdown'
 
 export default function sveltePreprocessMarkdown() {
   const markdownProcessor = createMarkdownProcessor()
