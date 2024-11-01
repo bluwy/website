@@ -1,5 +1,11 @@
 export const talks = [
   {
+    title: 'Performance! Performance! Performance!',
+    url: 'https://www.youtube.com/watch?v=6OjbCdrJZWY',
+    venue: 'ViteConf 2024',
+    type: ['talk', 'online']
+  },
+  {
     title: 'Vite 5',
     url: 'https://podrocket.logrocket.com/vite-5-bjorn-lu',
     venue: 'PodRocket',
