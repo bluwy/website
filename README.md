@@ -29,4 +29,7 @@ $ pnpm format
 
 ## License
 
-MIT
+- MIT: for code
+- CC BY-NC-SA 4.0: for words and assets
+
+See [LICENSE](LICENSE) for details.
