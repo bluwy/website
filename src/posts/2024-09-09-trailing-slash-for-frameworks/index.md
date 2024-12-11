@@ -1,6 +1,6 @@
 ---
 title: Trailing Slash for Frameworks
-updated: '2024-09-13'
+updated: '2024-12-11'
 ---
 
 It turns out that putting a `/` at the end of a URL can be a big deal. Should you put it? Or should you not? Or should you simply make both work? Why is this even a problem in the first place?!
@@ -231,7 +231,7 @@ If the user chooses to deploy on their own server, they may be using one of thes
 ### Frameworks
 
 - Next. Default: `'/path.html'`. [Configurable](https://nextjs.org/docs/app/api-reference/next-config-js/trailingSlash).
-- Nuxt. Default: `'/path/index.html'`. [Non-configurable](https://github.com/nuxt/nuxt/issues/15462).
+- Nuxt. Default: `'/path/index.html'`. [Configurable](https://nuxt.com/docs/api/nuxt-config#nitro) ([`nitro.prerender.autoSubfolderIndex`](https://nitro.build/config#prerender)).
 - SvelteKit. Default: `'/path.html'`. [Configurable](https://kit.svelte.dev/docs/page-options#trailingslash).
 - Astro. Default: `'/path/index.html'`. [Configurable](https://docs.astro.build/en/reference/configuration-reference/#buildformat).
 - Docusaurus. Default: `'/path/index.html'`. [Configurable](https://docusaurus.io/docs/docusaurus.config.js#trailing-slash).
@@ -256,6 +256,7 @@ And that's it! May you deal with trailing slash once and never again.
 - https://developers.google.com/search/blog/2010/04/to-slash-or-not-to-slash
 - https://www.seroundtable.com/google-trailing-slashes-url-24943.html
 - https://ahrefs.com/blog/trailing-slash/
+- https://www.zachleat.com/web/trailing-slash/
 
 <style>
   .markdown table td {
