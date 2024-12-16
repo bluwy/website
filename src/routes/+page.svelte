@@ -16,29 +16,28 @@
   <Hero />
   <section class="container mt-20 mb-10 markdown">
     <p>
-      Hi, I'm Bjorn. I work in open source for the web! I'm an
-      <a href="https://astro.build">Astro</a>
-      core resident, <a href="https://svelte.dev">Svelte</a> and
-      <a href="https://vitejs.dev">Vite</a> core team member. Currently
-      maintaining
+      Hi, I'm Bjorn. I work in open source for the web! I'm part of the
+      <a href="https://vitejs.dev">Vite</a>,
+      <a href="https://astro.build">Astro</a>, and
+      <a href="https://svelte.dev">Svelte</a> core team. Currently maintaining
       <a href="https://github.com/sveltejs/vite-plugin-svelte">
         vite-plugin-svelte
       </a>,
       <a href="https://vitejs.dev">Vite</a>,
-      <a href="https://astro.build">Astro</a> and sometimes
-      <a href="https://kit.svelte.dev">SvelteKit</a>.
+      <a href="https://astro.build">Astro</a> and
+      <a href="https://publint.dev">publint</a>.
     </p>
   </section>
 
   <section class="container my-10 flex justify-center items-center gap-12">
-    <a href="https://svelte.dev">
-      <img src={svelteLogo} alt="svelte" class="w-12" />
-    </a>
     <a href="https://vitejs.dev">
       <img src={viteLogo} alt="vite" class="w-13" />
     </a>
     <a href="https://astro.build">
       <img src={astroLogo} alt="astro" class="w-10 astro-logo" />
+    </a>
+    <a href="https://svelte.dev">
+      <img src={svelteLogo} alt="svelte" class="w-12" />
     </a>
   </section>
 
