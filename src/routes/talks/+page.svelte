@@ -77,8 +77,8 @@
       <tr>
         <td>Bio</td>
         <td class="max-w-100">
-          I work in open source for the web! I'm an Astro core resident, Svelte
-          and Vite core team member.
+          I work in open source for the web! I'm part of the Vite, Astro, and
+          Svelte core team.
         </td>
       </tr>
       <tr>
