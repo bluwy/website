@@ -82,10 +82,20 @@
         </td>
       </tr>
       <tr>
+        <td>Company</td>
+        <td>N/A</td>
+      </tr>
+      <tr>
         <td>Location</td>
         <td>Kuching, Sarawak, Malaysia</td>
       </tr>
     </table>
+    <div class="markdown">
+      <blockquote>
+        NOTE: I usually use "Avatar 1" everywhere online, but if a head shot is
+        preferred, "Avatar 2" can be used instead.
+      </blockquote>
+    </div>
   </section>
   <section>
     <h2>Past talks and events</h2>
