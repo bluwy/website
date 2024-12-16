@@ -89,6 +89,13 @@
         <td>Location</td>
         <td>Kuching, Sarawak, Malaysia</td>
       </tr>
+      <tr>
+        <td>Socials</td>
+        <td class="markdown">
+          Bluesky (<a href="https://bsky.app/profile/bluwy.me">@bluwy.me</a>),
+          Twitter/X (<a href="https://twitter.com/bluwyoo">@bluwyoo</a>)
+        </td>
+      </tr>
     </table>
     <div class="markdown">
       <blockquote>
