@@ -27,8 +27,8 @@
         Hi, I'm Bjorn Lu. I like to present topics that are unique and
         resourceful, especially around things you can't find on the web. Feel
         free to reach out to me on
-        <a href="https://twitter.com/bluwyoo">Twitter</a> or
-        <a href="https://m.webtoo.ls/@bluwy">Mastodon</a> if you'd like me to give
+        <a href="https://bsky.app/profile/bluwy.me">Bluesky</a> or
+        <a href="https://twitter.com/bluwyoo">Twitter</a> if you'd like me to give
         a talk!
       </p>
       <p>About me:</p>
