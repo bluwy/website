@@ -3,10 +3,10 @@
   import logo from '$assets/images/logo.svg'
   import { links } from '$data/nav'
 
-  let scrollY = 0
+  let scrollY = $state(0)
 
-  $: shrink = scrollY > 0
-  $: isHero = $page.url.pathname === '/'
+  let shrink = $derived(scrollY > 0)
+  let isHero = $derived($page.url.pathname === '/')
 </script>
 
 <svelte:window bind:scrollY />

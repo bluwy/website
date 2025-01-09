@@ -1,10 +1,14 @@
 <script>
   import ToggleTag from './ToggleTag.svelte'
 
-  /** @type {string[]} */
-  export let tags = []
-  /** @type {string[]} */
-  export let selected = []
+  /**
+   * @typedef {Object} Props
+   * @property {string[]} [tags]
+   * @property {string[]} [selected]
+   */
+
+  /** @type {Props} */
+  let { tags = [], selected = $bindable([]) } = $props()
 
   function handleTagChange(e) {
     const tag = e.target.value
@@ -23,7 +27,7 @@
       <ToggleTag
         value={tag}
         checked={selected.includes(tag)}
-        on:change={handleTagChange}
+        onchange={handleTagChange}
       >
         {tag}
       </ToggleTag>

@@ -6,8 +6,13 @@
   import viteLogo from '$assets/images/oss-icons/vite.svg'
   import astroLogo from '$assets/images/oss-icons/astro.svg'
 
-  /** @type {import('./$types').PageData} */
-  export let data
+  /**
+   * @typedef {Object} Props
+   * @property {import('./$types').PageData} data
+   */
+
+  /** @type {Props} */
+  let { data } = $props()
 </script>
 
 <Head />
@@ -68,7 +73,7 @@
               {:else}
                 <div
                   class="rounded-lg bg-gray-200 h-12 mr-3 w-12 @dark:bg-gray-800"
-                />
+                ></div>
               {/if}
             </div>
             <div>
@@ -126,7 +131,7 @@
       type="image/svg+xml"
       title="Sponsors"
       style="color-scheme: normal"
-    />
+    ></object>
   </section>
 </article>
 

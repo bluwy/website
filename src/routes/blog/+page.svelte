@@ -2,8 +2,13 @@
   import Head from '$lib/Head.svelte'
   import { formatDate } from '$lib/utils'
 
-  /** @type {import('./$types').PageData} */
-  export let data
+  /**
+   * @typedef {Object} Props
+   * @property {import('./$types').PageData} data
+   */
+
+  /** @type {Props} */
+  let { data } = $props()
 </script>
 
 <Head title="Blog" />

@@ -13,8 +13,8 @@
 <section class="h-screen bg-gray-900 w-screen">
   <div class="background">
     <div class="hero">
-      <div class="heroCircle1" />
-      <div class="heroCircle2" />
+      <div class="heroCircle1"></div>
+      <div class="heroCircle2"></div>
       <div class="heroText">
         <div class="heroTextHello">Hello, I'm</div>
         <div class="heroTextName" data-name="Bjorn Lu">Bjorn Lu</div>
@@ -36,7 +36,7 @@
   </div>
 </section>
 
-<div class="border-b-6 border-primary-900" />
+<div class="border-b-6 border-primary-900"></div>
 
 <style>
   .background {
@@ -166,6 +166,7 @@
   }
 
   .socialIcon {
+    display: inline-block;
     mix-blend-mode: screen;
     color: #cbfdff;
     filter: drop-shadow(0 0 2px #2df5ff) drop-shadow(0 0 10px #2df5ff)

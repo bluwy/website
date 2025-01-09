@@ -1,22 +1,25 @@
 <script>
-  /** @type {'prev' | 'next'} */
-  export let type
-  /** @type {string} */
-  export let label
-  /** @type {string} */
-  export let href
+  /**
+   * @typedef {Object} Props
+   * @property {'prev' | 'next'} type
+   * @property {string} label
+   * @property {string} href
+   */
 
-  $: isPrev = type === 'prev'
+  /** @type {Props} */
+  let { type, label, href } = $props()
+
+  let isPrev = $derived(type === 'prev')
 </script>
 
 <a class="group block card h-full {isPrev ? 'text-left' : 'text-right'}" {href}>
   <div class="font-semibold text-sm mb-1 opacity-70 group-hover:opacity-90">
     {#if isPrev}
-      <span class="mr-2 arrow arrow-left" />
+      <span class="mr-2 arrow arrow-left"></span>
       <span>PREVIOUS</span>
     {:else}
       <span>NEXT</span>
-      <span class="ml-2 arrow arrow-right" />
+      <span class="ml-2 arrow arrow-right"></span>
     {/if}
   </div>
   <p class="font-medium m-0 text-lg text-gray-800 @dark:text-gray-100">

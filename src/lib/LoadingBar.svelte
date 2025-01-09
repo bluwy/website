@@ -2,8 +2,8 @@
   import { onMount } from 'svelte'
   import { fade } from 'svelte/transition'
 
-  let show = false
-  let p = 0
+  let show = $state(false)
+  let p = $state(0)
   let t
 
   onMount(() => {
@@ -27,9 +27,9 @@
   <div
     in:fade={{ duration: 200 }}
     out:fade={{ duration: 200, delay: 150 }}
-    on:outrostart={handleOutroStart}
+    onoutrostart={handleOutroStart}
     class="h-1 w-full z-50 top-0 left-0 fixed bg-primary-600 @dark:bg-primary-400 origin-top-left transition-transform ease-linear"
     style:transform="scaleX({p})"
     style:transition-duration="{p >= 1 ? 200 : 500}ms"
-  />
+  ></div>
 {/if}

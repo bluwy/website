@@ -6,7 +6,7 @@ import { cloudflareRedirect } from 'vite-plugin-cloudflare-redirect'
 
 export default defineConfig({
   plugins: [
-    unocss(),
+    unocss({ inspector: false }),
     sveltekit(),
     markdown(),
     cloudflareRedirect(),

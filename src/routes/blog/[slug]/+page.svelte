@@ -3,12 +3,16 @@
   import PaginationCard from '$lib/PaginationCard.svelte'
   import { formatDate } from '$lib/utils'
 
-  /** @type {import('./$types').PageData} */
-  export let data
+  /**
+   * @typedef {Object} Props
+   * @property {import('./$types').PageData} data
+   */
 
-  $: rawHtml = data.thisPost.markdownHtml.replace(
-    '<!-- toc -->',
-    data.thisPost.tocHtml
+  /** @type {Props} */
+  let { data } = $props()
+
+  let rawHtml = $derived(
+    data.thisPost.markdownHtml.replace('<!-- toc -->', data.thisPost.tocHtml)
   )
 </script>
 

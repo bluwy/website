@@ -1,8 +1,22 @@
 <script>
-  /** @type {any} */
-  export let value
-  export let checked = false
-  export let readonly = false
+  /**
+   * @typedef {Object} Props
+   * @property {any} value
+   * @property {boolean} [checked]
+   * @property {boolean} [readonly]
+   * @property {Function} [onchange]
+   * @property {import('svelte').Snippet} [children]
+   */
+
+  /** @type {Props & { [key: string]: any }} */
+  let {
+    value,
+    checked = $bindable(false),
+    readonly = false,
+    onchange,
+    children,
+    ...rest
+  } = $props()
 </script>
 
 <label
@@ -15,13 +29,13 @@
   "
 >
   <input
-    {...$$restProps}
+    {...rest}
     type="checkbox"
     class="hidden"
     {value}
     bind:checked
     {readonly}
-    on:change
+    {onchange}
   />
-  <slot />
+  {@render children?.()}
 </label>

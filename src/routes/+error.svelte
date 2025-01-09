@@ -15,11 +15,11 @@
     `end`
   ]
 
-  let sentenceIndex = 0
+  let sentenceIndex = $state(0)
   let clickBuffer = 8
 
-  $: currentSentence = sentences[sentenceIndex]
-  $: noMoreSentence = sentenceIndex >= sentences.length - 1
+  let currentSentence = $derived(sentences[sentenceIndex])
+  let noMoreSentence = $derived(sentenceIndex >= sentences.length - 1)
 
   function clickNextSentence() {
     if (clickBuffer > 0) {
@@ -39,9 +39,9 @@
     <p>Play.</p>
   {:else}
     <h1 class="text-7xl">404</h1>
-    <!-- svelte-ignore a11y-click-events-have-key-events -->
-    <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-    <p type="button" on:click={clickNextSentence}>{currentSentence}</p>
+    <!-- svelte-ignore a11y_click_events_have_key_events -->
+    <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+    <p type="button" onclick={clickNextSentence}>{currentSentence}</p>
     <p class="markdown">
       Take me <a href="/">home</a>.
     </p>

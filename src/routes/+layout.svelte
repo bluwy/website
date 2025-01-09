@@ -8,14 +8,21 @@
   import 'virtual:uno.css'
   import '$lib/global.pcss'
   import '$data/assets'
+  /**
+   * @typedef {Object} Props
+   * @property {import('svelte').Snippet} [children]
+   */
 
-  $: isHero = $page.url.pathname === '/'
+  /** @type {Props} */
+  let { children } = $props()
+
+  let isHero = $derived($page.url.pathname === '/')
 </script>
 
 <Icons />
 <Nav />
 <main class:pt-24={!isHero}>
-  <slot />
+  {@render children?.()}
 </main>
 <Footer />
 {#if $navigating}

@@ -1,13 +1,19 @@
 <script>
-  export let description = ''
-  export let title = ''
+  /**
+   * @typedef {Object} Props
+   * @property {string} [description]
+   * @property {string} [title]
+   */
+
+  /** @type {Props} */
+  let { description = '', title = '' } = $props()
 
   const siteAuthor = 'Bjorn Lu'
   const siteDescription =
     'Bjorn Lu is a frontend web developer and open-source enthusiast'
 
-  $: finalTitle = title ? `${title} - ${siteAuthor}` : siteAuthor
-  $: finalDescription = description || siteDescription
+  let finalTitle = $derived(title ? `${title} - ${siteAuthor}` : siteAuthor)
+  let finalDescription = $derived(description || siteDescription)
 </script>
 
 <svelte:head>

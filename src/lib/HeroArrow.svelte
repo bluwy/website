@@ -1,6 +1,11 @@
 <script>
-  /** @type {'pink' | 'blue'} */
-  export let glowColor
+  /**
+   * @typedef {Object} Props
+   * @property {'pink' | 'blue'} glowColor
+   */
+
+  /** @type {Props} */
+  let { glowColor } = $props()
 </script>
 
 <svg

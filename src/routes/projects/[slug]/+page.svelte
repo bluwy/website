@@ -2,12 +2,19 @@
   import Head from '$lib/Head.svelte'
   import PaginationCard from '$lib/PaginationCard.svelte'
 
-  /** @type {import('./$types').PageData} */
-  export let data
+  /**
+   * @typedef {Object} Props
+   * @property {import('./$types').PageData} data
+   */
 
-  $: rawHtml = data.thisProject.markdownHtml.replace(
-    '<!-- toc -->',
-    data.thisProject.tocHtml
+  /** @type {Props} */
+  let { data } = $props()
+
+  let rawHtml = $derived(
+    data.thisProject.markdownHtml.replace(
+      '<!-- toc -->',
+      data.thisProject.tocHtml
+    )
   )
 </script>
 

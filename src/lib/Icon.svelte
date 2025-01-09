@@ -1,6 +1,11 @@
 <script>
-  /** @type {string} */
-  export let svg
+  /**
+   * @typedef {Object} Props
+   * @property {string} svg
+   */
+
+  /** @type {Props} */
+  let { svg } = $props()
 </script>
 
 <i class="h-[1em] inline-block overflow-visible align-[-0.125em]">

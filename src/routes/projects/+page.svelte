@@ -3,29 +3,36 @@
   import ToggleTag from '$lib/ToggleTag.svelte'
   import ToggleTagSelect from '$lib/ToggleTagSelect.svelte'
 
-  /** @type {import('./$types').PageData} */
-  export let data
+  /**
+   * @typedef {Object} Props
+   * @property {import('./$types').PageData} data
+   */
+
+  /** @type {Props} */
+  let { data } = $props()
 
   /** @type {string} */
-  let search = ''
+  let search = $state('')
   /** @type {string[]} */
-  let filterTags = []
+  let filterTags = $state([])
 
-  $: allProjectTags = [
-    ...new Set(data.allProjects.flatMap((v) => v.tags))
-  ].sort()
+  let allProjectTags = $derived(
+    [...new Set(data.allProjects.flatMap((v) => v.tags))].sort()
+  )
 
-  $: filteredProjects = data.allProjects.filter((project) => {
-    const titleMatch = project.title
-      .toLowerCase()
-      .includes(search.toLowerCase())
+  let filteredProjects = $derived(
+    data.allProjects.filter((project) => {
+      const titleMatch = project.title
+        .toLowerCase()
+        .includes(search.toLowerCase())
 
-    const tagsMatch = filterTags.every((tag) => {
-      return project.tags.includes(tag)
+      const tagsMatch = filterTags.every((tag) => {
+        return project.tags.includes(tag)
+      })
+
+      return titleMatch && tagsMatch
     })
-
-    return titleMatch && tagsMatch
-  })
+  )
 </script>
 
 <Head title="Projects" />
@@ -56,7 +63,7 @@
           {:else}
             <div
               class="rounded-lg bg-gray-200 h-32 mr-4 w-32 @dark:bg-gray-800"
-            />
+            ></div>
           {/if}
         </div>
         <div class="flex flex-col justify-between">

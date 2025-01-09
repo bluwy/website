@@ -34,68 +34,70 @@
       <p>About me:</p>
     </div>
     <table class="info-table">
-      <tr>
-        <td>Name</td>
-        <td>Bjorn Lu</td>
-      </tr>
-      <tr>
-        <td>Legal name</td>
-        <td>Bjorn Lu We-Yon</td>
-      </tr>
-      <tr>
-        <td>Chinese name</td>
-        <td>卢威荣</td>
-      </tr>
-      <tr>
-        <td>Avatar 1</td>
-        <td>
-          <img
-            class="rounded inline mr-2"
-            src="/avatar-1.jpg"
-            alt="avatar 1"
-            width="40"
-          />
-          <a class="whitespace-nowrap" href="/avatar-1.jpg">
-            https://bjornlu.com/avatar-1.jpg
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td>Avatar 2</td>
-        <td>
-          <img
-            class="rounded inline mr-2"
-            src="/avatar-2.jpg"
-            alt="avatar 2"
-            width="40"
-          />
-          <a class="whitespace-nowrap" href="/avatar-2.jpg">
-            https://bjornlu.com/avatar-2.jpg
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td>Bio</td>
-        <td class="max-w-100">
-          I work in open source for the web! I'm part of the Vite, Astro, and
-          Svelte core team.
-        </td>
-      </tr>
-      <tr>
-        <td>Company</td>
-        <td>N/A</td>
-      </tr>
-      <tr>
-        <td>Location</td>
-        <td>Kuching, Sarawak, Malaysia</td>
-      </tr>
-      <tr>
-        <td>Socials</td>
-        <td class="markdown">
-          Bluesky (<a href="https://bsky.app/profile/bluwy.me">@bluwy.me</a>),
-          Twitter/X (<a href="https://twitter.com/bluwyoo">@bluwyoo</a>)
-        </td>
-      </tr>
+      <tbody>
+        <tr>
+          <td>Name</td>
+          <td>Bjorn Lu</td>
+        </tr>
+        <tr>
+          <td>Legal name</td>
+          <td>Bjorn Lu We-Yon</td>
+        </tr>
+        <tr>
+          <td>Chinese name</td>
+          <td>卢威荣</td>
+        </tr>
+        <tr>
+          <td>Avatar 1</td>
+          <td>
+            <img
+              class="rounded inline mr-2"
+              src="/avatar-1.jpg"
+              alt="avatar 1"
+              width="40"
+            />
+            <a class="whitespace-nowrap" href="/avatar-1.jpg">
+              https://bjornlu.com/avatar-1.jpg
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td>Avatar 2</td>
+          <td>
+            <img
+              class="rounded inline mr-2"
+              src="/avatar-2.jpg"
+              alt="avatar 2"
+              width="40"
+            />
+            <a class="whitespace-nowrap" href="/avatar-2.jpg">
+              https://bjornlu.com/avatar-2.jpg
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td>Bio</td>
+          <td class="max-w-100">
+            I work in open source for the web! I'm part of the Vite, Astro, and
+            Svelte core team.
+          </td>
+        </tr>
+        <tr>
+          <td>Company</td>
+          <td>N/A</td>
+        </tr>
+        <tr>
+          <td>Location</td>
+          <td>Kuching, Sarawak, Malaysia</td>
+        </tr>
+        <tr>
+          <td>Socials</td>
+          <td class="markdown">
+            Bluesky (<a href="https://bsky.app/profile/bluwy.me">@bluwy.me</a>),
+            Twitter/X (<a href="https://twitter.com/bluwyoo">@bluwyoo</a>)
+          </td>
+        </tr>
+      </tbody>
     </table>
     <div class="markdown">
       <blockquote>
