@@ -1,12 +1,12 @@
 <script>
-  import { page } from '$app/stores'
+  import { page } from '$app/state'
   import logo from '$assets/images/logo.svg'
   import { links } from '$data/nav'
 
   let scrollY = $state(0)
 
   let shrink = $derived(scrollY > 0)
-  let isHero = $derived($page.url.pathname === '/')
+  let isHero = $derived(page.url.pathname === '/')
 </script>
 
 <svelte:window bind:scrollY />
@@ -26,7 +26,7 @@
         {#each links as link (link.title)}
           <li class="my-2 mx-3 text-lg inline-block sm:mx-4">
             <a
-              class:font-semibold={$page.url.pathname.startsWith(link.to)}
+              class:font-semibold={page.url.pathname.startsWith(link.to)}
               href={link.to}
               rel={link.external ? 'external' : undefined}
               data-sveltekit-preload-code="tap"

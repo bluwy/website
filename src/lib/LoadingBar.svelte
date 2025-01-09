@@ -11,7 +11,7 @@
       show = true
       p += 0.1
       const remaining = 1 - p
-      if (remaining > 0.15) t = setTimeout(next, 100 / remaining)
+      if (remaining > 0.1) t = setTimeout(next, 100 / remaining)
     }
     t = setTimeout(next, 500)
     return () => clearTimeout(t)

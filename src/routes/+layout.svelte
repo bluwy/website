@@ -1,5 +1,5 @@
 <script>
-  import { navigating, page } from '$app/stores'
+  import { navigating, page } from '$app/state'
   import Icons from '$lib/Icons.svelte'
   import Nav from '$lib/Nav.svelte'
   import Footer from '$lib/Footer.svelte'
@@ -16,7 +16,7 @@
   /** @type {Props} */
   let { children } = $props()
 
-  let isHero = $derived($page.url.pathname === '/')
+  let isHero = $derived(page.url.pathname === '/')
 </script>
 
 <Icons />
@@ -25,6 +25,6 @@
   {@render children?.()}
 </main>
 <Footer />
-{#if $navigating}
+{#if navigating.to}
   <LoadingBar />
 {/if}
