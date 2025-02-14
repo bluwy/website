@@ -1,5 +1,6 @@
 ---
 title: Hot Module Replacement is Easy
+updated: '2025-02-14'
 ---
 
 If you've built projects with Vite, chances are you've also used Hot Module Replacement (HMR). HMR allows you to update your code without having to refresh the page, such as editing a component markup or adjusting styles, the changes are immediately reflected in the browser, which enables faster code iteration and improved developer experience.
@@ -146,8 +147,6 @@ if (import.meta.hot) {
 
 The [Vite HMR documentation](https://vitejs.dev/guide/api-hmr.html) covers many more APIs. However, they are not crucial to understanding how HMR works fundamentally so we'll skip them for now, but we'll return to them when we discuss about the [HMR client](#the-hmr-client) later.
 
-If you're interested in how they can be useful in some cases, give the [documentation](https://vitejs.dev/guide/api-hmr.html) a quick read!
-
 ## From the start
 
 We've learned about the HMR APIs and how they allow us to replace and manage modules. But there's still a missing piece: How do we know when to replace a module? HMR usually happens after editing a file, but what comes after that?
@@ -213,7 +212,7 @@ function globalCssPlugin() {
 
 ### Module invalidation
 
-Just before HMR propagation, we eagerly invalidate the final array of updated modules and its importers recursively. Each modules' transformed code will be removed, and an invalidation timestamp will be attached to it. The timestamp will be used to fetch the new modules on the client-side on the next request.
+Next, we eagerly invalidate the final array of updated modules and its importers recursively. Each modules' transformed code will be removed, and an invalidation timestamp will be attached to it. The timestamp will be used to fetch the new modules on the client-side on the next request.
 
 ### HMR propagation
 
@@ -281,7 +280,7 @@ But how does this HMR client work anyways?
 
 ## The HMR client
 
-In a Vite app, you might notice a special script added in the HTML that requests `/@vite/client`. This contains the HMR client!
+In a Vite app, you might notice a special script added in the HTML that requests `/@vite/client`. This script contains the HMR client!
 
 The HMR client is responsible for:
 
@@ -336,7 +335,7 @@ if (import.meta.hot) {
 
 The URL string passed to `createHotContext()` (also known as an "owner path") helps identify which module is able to accept changes. Internally, `createHotContext` will assign the registered HMR callbacks to a singleton of maps of "owner path to accept callbacks, dispose callback, and prune callback". We'll also get to that below!
 
-And that's pretty much how modules are able to interact with the HMR client and execute the HMR changes.
+This setup is the basis that allows modules to interact with the HMR client and execute HMR changes.
 
 ### Handling payloads from the server
 
@@ -599,7 +598,7 @@ HMR is usually implemented by JS frameworks with the concept of "components", wh
 
 - React: [Fast Refresh](https://github.com/facebook/react/tree/main/packages/react-refresh) and [`@vitejs/plugin-react`](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/src/fast-refresh.ts)
 - Vue: [`@vue/runtime-core`](https://github.com/vuejs/core/blob/main/packages/runtime-core/src/hmr.ts) and [`@vitejs/plugin-vue`](https://github.com/vitejs/vite-plugin-vue/blob/main/packages/plugin-vue/src/main.ts)
-- Svelte: [`svelte-hmr`](https://github.com/sveltejs/svelte-hmr/tree/master/packages/svelte-hmr) and [`@vitejs/plugin-svelte`](https://github.com/sveltejs/vite-plugin-svelte/blob/main/packages/vite-plugin-svelte/src/utils/compile.js)
+- Svelte: [Svelte HMR](https://github.com/sveltejs/svelte/blob/main/packages/svelte/src/internal/client/dev/hmr.js) and [`@vitejs/plugin-svelte`](https://github.com/sveltejs/vite-plugin-svelte/blob/main/packages/vite-plugin-svelte/src/utils/compile.js)
 
 ### How does Vite's implementation differ from Webpack and others?
 
@@ -609,9 +608,11 @@ This difference has the benefit that the HMR API can be used more dynamically, w
 
 ### How does HMR work in server-side rendering?
 
-At the time of writing (Vite 5.0), HMR in SSR isn't supported yet, but will [land as an experimental feature](https://github.com/vitejs/vite/pull/12165) for Vite 5.1. Even though without HMR in SSR, you'd still get HMR in the client-side for JS frameworks like Vue and Svelte.
+From Vite 6 onwards, HMR in SSR works similarly to what's described here. Instead of interacting with a browser and a HMR client, the server-side is handled using a [`ModuleRunner`](https://vite.dev/guide/api-environment-runtimes.html#modulerunner) that is able to load and update modules directly.
 
-Changes to the server-side code requires re-execution of the SSR entrypoint entirely, which can be triggered by HMR propagation (which also works in SSR). But often HMR propagation of server-side code will lead to a full page reload, which is perfect for the client to re-sent the request to the server, which will then perform the re-execution.
+In Vite 5 and before, HMR in SSR wasn't supported so changes to server-side code often triggers a full page reload instead, as in practice, no SSR modules are able to accept changes to create HMR boundaries. The full page reload re-sends the request to the server, which will then re-executes the SSR entrypoint to retrieve the new changes.
+
+Some frameworks still rely on the full page reload behavior for Vite 6, which is no longer triggered as HMR between client and SSR are now isolated, so the next question is often what they do for now.
 
 ### How can I trigger a page reload in `handleHotUpdate()`?
 
@@ -648,11 +649,13 @@ function reloadPlugin() {
 }
 ```
 
+Note that in Vite 6, you may also want to use the [`hotUpdate`](https://vite.dev/guide/api-environment-plugins.html#the-hotupdate-hook) hook instead. Here's [an example](https://v6.vite.dev/guide/migration.html#:~:text=Click%20to%20expand%20example) with the hook.
+
 ### Is there any specification for the HMR API?
 
 The only specification I'm aware of is https://github.com/FredKSchott/esm-hmr, which had been archived. Vite had implemented the specification when it started, but had since diverged slightly, e.g. `import.meta.hot.decline()` is not implemented.
 
-If you're interested in implementing your own HMR API, you may have to pick a flavour between Vite or Webpack etc. But at its core, the terminology for accepting and invalidating changes will stay the same.
+If you're interested in implementing your own HMR API, you may have to pick a flavour between Vite or Webpack etc. But at its core, the terminology for accepting and invalidating changes should stay the same.
 
 ### Are there any other resources to learn HMR?
 
@@ -662,6 +665,6 @@ Besides the [Vite](https://vitejs.dev/guide/api-hmr.html), [Webpack](https://web
 
 ## Closing notes
 
-Turns out, hot module replacement is not that easy and the title was mostly written as tongue in cheek. But I got you to read and I hope it's easier to comprehend now. If you have any other questions about HMR, feel free to hop into the [Vite `#contributing` channel](https://chat.vitejs.dev) to learn more!
+Turns out, hot module replacement is a little complex, but I hope it's easier to comprehend now. If you have any other questions about HMR, feel free to hop into the [Vite `#contributing` channel](https://chat.vitejs.dev)!
 
 I'd also like to thank [@\_ArnaudBarre](https://twitter.com/_ArnaudBarre) for reviewing this blog.
