@@ -11,7 +11,7 @@ import { projects } from '$data/projects'
  */
 
 /** @type {import('./$types').PageServerLoad} */
-export async function load({ setHeaders }) {
+export async function load() {
   /** @type {MainProject[]} */
   const allProjects = projects.map((v) => ({
     slug: v.slug,
@@ -20,10 +20,6 @@ export async function load({ setHeaders }) {
     title: v.frontmatter.title,
     tags: v.frontmatter.tags
   }))
-
-  setHeaders({
-    'cache-control': 'public, maxage=3600'
-  })
 
   return {
     allProjects

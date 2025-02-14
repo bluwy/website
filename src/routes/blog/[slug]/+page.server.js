@@ -21,7 +21,7 @@ import { posts } from '$data/posts'
  */
 
 /** @type {import('./$types').PageServerLoad} */
-export async function load({ params, setHeaders }) {
+export async function load({ params }) {
   const { slug } = params
 
   const postIndex = posts.findIndex((v) => v.slug.endsWith(slug))
@@ -57,10 +57,6 @@ export async function load({ params, setHeaders }) {
           title: posts[postIndex + 1].frontmatter.title
         }
       : null
-
-  setHeaders({
-    'cache-control': 'public, maxage=3600'
-  })
 
   return {
     thisPost,

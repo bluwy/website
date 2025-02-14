@@ -20,7 +20,7 @@ import { projects } from '$data/projects'
  */
 
 /** @type {import('./$types').PageLoad} */
-export async function load({ setHeaders }) {
+export async function load() {
   /** @type {IndexProject[]} */
   const featuredProjects = projects
     .filter((v) => v.frontmatter.featured)
@@ -40,10 +40,6 @@ export async function load({ setHeaders }) {
       readingTime: v.readingTime
     }))
     .slice(0, 4)
-
-  setHeaders({
-    'cache-control': 'public, maxage=3600'
-  })
 
   return {
     featuredProjects,

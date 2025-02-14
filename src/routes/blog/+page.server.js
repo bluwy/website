@@ -11,7 +11,7 @@ import { posts } from '$data/posts'
  */
 
 /** @type {import('./$types').PageServerLoad} */
-export async function load({ setHeaders }) {
+export async function load() {
   /** @type {MainPost[]} */
   const allPosts = posts
     .filter((v) => (import.meta.env.PROD ? !v.isDraft : true))
@@ -22,10 +22,6 @@ export async function load({ setHeaders }) {
       date: v.frontmatter.date,
       readingTime: v.readingTime
     }))
-
-  setHeaders({
-    'cache-control': 'public, maxage=3600'
-  })
 
   return {
     allPosts

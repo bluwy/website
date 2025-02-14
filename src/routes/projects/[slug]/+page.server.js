@@ -18,7 +18,7 @@ import { projects } from '$data/projects'
  */
 
 /** @type {import('./$types').PageServerLoad} */
-export async function load({ params, setHeaders }) {
+export async function load({ params }) {
   const { slug } = params
 
   const projectIndex = projects.findIndex((v) => v.slug.endsWith(slug))
@@ -51,10 +51,6 @@ export async function load({ params, setHeaders }) {
           title: projects[projectIndex + 1].frontmatter.title
         }
       : null
-
-  setHeaders({
-    'cache-control': 'public, maxage=3600'
-  })
 
   return {
     thisProject,
