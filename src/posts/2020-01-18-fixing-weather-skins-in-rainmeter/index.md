@@ -148,7 +148,7 @@ From the XML, here are the values we need to get:
 
 1. Temperature unit: `metric` from the `<temperature unit="">` tag
 2. Location: `London` from the `<city name="">` tag
-3. Temperature: `7` fromt the `<temperature value="">` tag
+3. Temperature: `7` from the `<temperature value="">` tag
 4. Weather condition: `mist` from the `<weather value="">` tag
 5. Icon: `50d` from the `<weather icon="">` tag
 

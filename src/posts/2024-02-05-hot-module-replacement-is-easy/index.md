@@ -2,9 +2,9 @@
 title: Hot Module Replacement is Easy
 ---
 
-If you've built projects with Vite, chances are you've also used Hot Module Replacement (HMR). HMR allows you to update your code without having to refresh the page, such as editing a component markup or adjusting styles, the changes are immediately reflected in the browser, which enables faster code interation and improved developer experience.
+If you've built projects with Vite, chances are you've also used Hot Module Replacement (HMR). HMR allows you to update your code without having to refresh the page, such as editing a component markup or adjusting styles, the changes are immediately reflected in the browser, which enables faster code iteration and improved developer experience.
 
-While HMR is also a feature in other bundlers like Webpack and Parcel, in this blog we'll dig deeper into how it works in Vite specfically. Generally other bundlers should also work similarly.
+While HMR is also a feature in other bundlers like Webpack and Parcel, in this blog we'll dig deeper into how it works in Vite specifically. Generally other bundlers should also work similarly.
 
 To preface, HMR is _not_ easy and certain topics may require some time to digest, but I hope to have piqued your interest! On this page, you'll learn:
 
@@ -93,7 +93,7 @@ if (import.meta.hot) {
 }
 ```
 
-<!-- NOTE: There's a weird behaviour where `dispose()` is only called for the accepted module, or the module that's directly accepted by its importer. If there's a deep import chain and you updated a leaf module, all modules's `dispose()` callback will not be called. Only the accepted module, or the module that's directly accepted by its importer works. -->
+<!-- NOTE: There's a weird behavior where `dispose()` is only called for the accepted module, or the module that's directly accepted by its importer. If there's a deep import chain and you updated a leaf module, all modules's `dispose()` callback will not be called. Only the accepted module, or the module that's directly accepted by its importer works. -->
 
 ### `import.meta.hot.prune()`
 
@@ -242,7 +242,7 @@ To better understand how it works, let's go through this example in a case-by-ca
 
 - **Scenario 4**: If `utils.js` is updated, propagation will look at its importers recursively again. At first, we'll find `app.jsx` as the accepted module and will stop its propagation there (assuming **Scenario 1 (a)**). Then, we'll step on `other.js` and its importers recursively too, but there are no accepted modules and we'll reach the "root" `index.html` file. If there's at least one case that doesn't have an accepted module, a full page reload will be triggered.
 
-If you'd like to understand some more advanced scenarious that involves multiple HMR boundaries, click on the collapsed section below:
+If you'd like to understand some more advanced scenarios that involves multiple HMR boundaries, click on the collapsed section below:
 
 <details>
 <summary><strong>Toggle advanced scenarios</strong></summary>
@@ -526,7 +526,7 @@ When the Vite server receives this, it'll execute [HMR propagation](#hmr-propaga
 
 ### HMR events
 
-While not necessary for HMR, the HMR client can also emit events in the runtime when certain payloads are received. [`import.meta.hot.on`](https://vitejs.dev/guide/api-hmr.html#hot-on-event-cb) and [`import.meta.hot.off`](https://vitejs.dev/guide/api-hmr.html#hot-off-event-cb) can be used to listen and unlisten to these events.
+While not necessary for HMR, the HMR client can also emit events in the runtime when certain payloads are received. [`import.meta.hot.on`](https://vitejs.dev/guide/api-hmr.html#hot-on-event-cb) and [`import.meta.hot.off`](https://vitejs.dev/guide/api-hmr.html#hot-off-event-cb) can be used to listen and un-listen to these events.
 
 ```js
 if (import.meta.hot) {
@@ -611,7 +611,7 @@ This difference has the benefit that the HMR API can be used more dynamically, w
 
 At the time of writing (Vite 5.0), HMR in SSR isn't supported yet, but will [land as an experimental feature](https://github.com/vitejs/vite/pull/12165) for Vite 5.1. Even though without HMR in SSR, you'd still get HMR in the client-side for JS frameworks like Vue and Svelte.
 
-Changes to the server-side code requires re-execution of the SSR entrypoint entirely, which can be triggerred by HMR propagation (which also works in SSR). But often HMR propagation of server-side code will lead to a full page reload, which is perfect for the client to re-sent the request to the server, which will then perform the re-execution.
+Changes to the server-side code requires re-execution of the SSR entrypoint entirely, which can be triggered by HMR propagation (which also works in SSR). But often HMR propagation of server-side code will lead to a full page reload, which is perfect for the client to re-sent the request to the server, which will then perform the re-execution.
 
 ### How can I trigger a page reload in `handleHotUpdate()`?
 

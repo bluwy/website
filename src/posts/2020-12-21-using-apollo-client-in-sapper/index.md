@@ -40,7 +40,7 @@ The trick here is to use the `onDestroy()` callback, which is called after the a
 // ...
 sapper.middleware({
   session: () => ({
-    // Instantiate client, but can't serialze? No problem, we'll fix this later
+    // Instantiate client, but can't serialize? No problem, we'll fix this later
     apollo: new ApolloClient({
       // Make sure queries run once
       ssrMode: true,

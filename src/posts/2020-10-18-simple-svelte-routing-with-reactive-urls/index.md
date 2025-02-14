@@ -7,7 +7,7 @@ If you're not using [SvelteKit](https://kit.svelte.dev), and you need a router i
 
 <!-- endexcerpt -->
 
-Here's a sneak-peak of what we'll acheive:
+Here's a sneak-peak of what we'll achieve:
 
 ```svelte
 {#if $url.pathname === '/'}

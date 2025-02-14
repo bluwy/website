@@ -28,7 +28,7 @@ There's 4 ways to handle trailing slashes, but is there a superior option?
 
 Among these 4 options, all of them are equally good except for no4. Choosing either no1, no2, or no3 is a matter of preference, and frameworks could choose either as the default as long as the file output path or request handling are correct, which we'll discuss later.
 
-If you're a framework author who would not like to have a `trailingSlash` option, no3 is perfect as you can use the directory structure to depict the trailing slash behaviour. If you'd like to put less emphasis on the directory structure, a `trailingSlash: 'never' | 'always'` option would be needed to make things explicit, whether it's applied to all routes by default (no1 or no2) or on a per-route basis (no3).
+If you're a framework author who would not like to have a `trailingSlash` option, no3 is perfect as you can use the directory structure to depict the trailing slash behavior. If you'd like to put less emphasis on the directory structure, a `trailingSlash: 'never' | 'always'` option would be needed to make things explicit, whether it's applied to all routes by default (no1 or no2) or on a per-route basis (no3).
 
 The reason why no4 isn't recommended is because a path with or without a trailing slash is considered as two distinct paths, even if they have the same content. The downsides include:
 
@@ -57,7 +57,7 @@ It's shorter, cleaner, and much more memorable. It's a simple rule that servers 
 
 As you may notice, the directory structure of the full URLs depict the pretty URLs and whether it requires a trailing slash or not, similar to option no3 as discussed in the [Which is better?](#which-is-better) section.
 
-The basis of this mapping is **important** to later understand how links are resolved, especially for relative references. Even though servers today may not have the actual HTML file physically on the filesystem (e.g. server-rendered pages), it's easier to reason about certain behaviours when you treat it as if it were. And of course futureproofing yourself if you decide to prerender the page later on.
+The basis of this mapping is **important** to later understand how links are resolved, especially for relative references. Even though servers today may not have the actual HTML file physically on the filesystem (e.g. server-rendered pages), it's easier to reason about certain behaviors when you treat it as if it were. And of course futureproofing yourself if you decide to prerender the page later on.
 
 ### Relative references
 
@@ -142,7 +142,7 @@ This way if you have links to the incorrect path, or if the user manually types 
 
 ### Development and production consistency
 
-Last but not least, make sure that any trailing slash behaviour and configuration applies to both development and production environments.
+Last but not least, make sure that any trailing slash behavior and configuration applies to both development and production environments.
 
 For example, if a page will be prerendered in production, but dynamically rendered in development, you should ensure that the URL the users can access from is the same as in production. If you can access `localhost:3000/folder` in development, but only `example.com/folder/` in production, users will be bound to hitting relative references issues.
 
@@ -219,7 +219,7 @@ For server-rendered pages, as long as your server followed the guide above regar
 
 If the user chooses to deploy on their own server, they may be using one of these to serve the HTML files. Note that none of the cells have clickable links (as they're tedious to deploy), but you can run the tests yourself at https://github.com/bluwy/trailing-slash-servers.
 
-1. There's a consistent and equal behaviour among `express`, `deno (file-server)`, `python -m http.server`, `httpd (apache)`, and `nginx`.
+1. There's a consistent and equal behavior among `express`, `deno (file-server)`, `python -m http.server`, `httpd (apache)`, and `nginx`.
    - They are able to serve all files correctly without causing relative references issues.
    - However, they don't serve the same file with a pretty URL, nor handle `/file` as an alias of `/file.html`.
    - Due to not supporting the `/file` alias, it'll not recognize `/both` as `/both.html` and performs a redirect to `/both/` instead.
@@ -246,7 +246,7 @@ For a final recap:
 2. Ensure relative references in a HTML file is correct depending on whether the file is served with or without a trailing slash (inferred from the rules of pretty URLs).
 3. If you decide to support both trailing slash and no trailing slash for a route, make sure that relative references still work, and inform users of the caveats.
 4. Where possible, return a 301 redirect to the correct path instead of a 404 not found for incorrect paths.
-5. Make sure to test against hosting providers if you're unsure how certain routes interact. Certain providers may have unique behaviours or configurations that allow you to achieve what you want.
+5. Make sure to test against hosting providers if you're unsure how certain routes interact. Certain providers may have unique behaviors or configurations that allow you to achieve what you want.
 
 And that's it! May you deal with trailing slash once and never again.
 

@@ -10,7 +10,7 @@ Node.js has been releasing some neat APIs for common downstream usecases lately.
 - [`parseArgs`](https://nodejs.org/api/util.html#utilparseargsconfig) - A CLI argument parser, like [minimist](https://github.com/minimistjs/minimist), [yargs-parser](https://github.com/yargs/yargs-parser), [mri](https://github.com/lukeed/mri), etc.
 - [`styleText`](https://nodejs.org/api/util.html#utilstyletextformat-text) - An ANSI color formatter, like [picocolors](https://github.com/alexeyraspopov/picocolors), [chalk](https://github.com/chalk/chalk), [kleur](https://github.com/lukeed/kleur), [kolorist](https://github.com/marvinhagemeister/kolorist), etc.
 
-I've been using them recently, but I noticed a recurring theme: **They like to do it differently**. As in diverging from the well-established design patterns of the alternative libaries above, for what it feels like, very little gain. But let me explain:
+I've been using them recently, but I noticed a recurring theme: **They like to do it differently**. As in diverging from the well-established design patterns of the alternative libraries above, for what it feels like, very little gain. But let me explain:
 
 ## Table of Contents
 
@@ -283,7 +283,7 @@ It's not clear why it needs to be this way, and while API styles are subjective,
 
 ## Thoughts and Hope
 
-I'll still be using these APIs for my projects if it helps reduce dependencies for the ecosystem, but it feels like Node is missing a lot of big opportunites here to make a significant impact on the JS ecosystem.
+I'll still be using these APIs for my projects if it helps reduce dependencies for the ecosystem, but it feels like Node is missing a lot of big opportunities here to make a significant impact on the JS ecosystem.
 
 Some are bugs or feature requests that should be reported, but at the same time it's hard to tell whether it's intentional design due to how intentionally different they compare to other well-established libraries. Fixing these takes time too as it goes through the Node.js release cycle. It's easy to be compelled to hop on to a different library instead.
 
