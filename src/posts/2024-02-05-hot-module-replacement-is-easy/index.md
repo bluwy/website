@@ -17,10 +17,10 @@ In essence, HMR is about replacing modules on the fly while your app is running.
 
 A module usually has access to HMR lifecycle APIs to handle when the old module gets thrown away, and when the new module comes in place. In Vite, you have:
 
-- [`import.meta.hot.accept()`](https://vitejs.dev/guide/api-hmr.html#hot-accept-cb)
-- [`import.meta.hot.dispose()`](https://vitejs.dev/guide/api-hmr.html#hot-dispose-cb)
-- [`import.meta.hot.prune()`](https://vitejs.dev/guide/api-hmr.html#hot-prune-cb)
-- [`import.meta.hot.invalidate()`](https://vitejs.dev/guide/api-hmr.html#hot-invalidate-message-string)
+- [`import.meta.hot.accept()`](https://vite.dev/guide/api-hmr.html#hot-accept-cb)
+- [`import.meta.hot.dispose()`](https://vite.dev/guide/api-hmr.html#hot-dispose-cb)
+- [`import.meta.hot.prune()`](https://vite.dev/guide/api-hmr.html#hot-prune-cb)
+- [`import.meta.hot.invalidate()`](https://vite.dev/guide/api-hmr.html#hot-invalidate-message-string)
 
 On a high-level, they work like this:
 
@@ -145,7 +145,7 @@ if (import.meta.hot) {
 
 ### Other HMR APIs
 
-The [Vite HMR documentation](https://vitejs.dev/guide/api-hmr.html) covers many more APIs. However, they are not crucial to understanding how HMR works fundamentally so we'll skip them for now, but we'll return to them when we discuss about the [HMR client](#the-hmr-client) later.
+The [Vite HMR documentation](https://vite.dev/guide/api-hmr.html) covers many more APIs. However, they are not crucial to understanding how HMR works fundamentally so we'll skip them for now, but we'll return to them when we discuss about the [HMR client](#the-hmr-client) later.
 
 ## From the start
 
@@ -525,7 +525,7 @@ When the Vite server receives this, it'll execute [HMR propagation](#hmr-propaga
 
 ### HMR events
 
-While not necessary for HMR, the HMR client can also emit events in the runtime when certain payloads are received. [`import.meta.hot.on`](https://vitejs.dev/guide/api-hmr.html#hot-on-event-cb) and [`import.meta.hot.off`](https://vitejs.dev/guide/api-hmr.html#hot-off-event-cb) can be used to listen and un-listen to these events.
+While not necessary for HMR, the HMR client can also emit events in the runtime when certain payloads are received. [`import.meta.hot.on`](https://vite.dev/guide/api-hmr.html#hot-on-event-cb) and [`import.meta.hot.off`](https://vite.dev/guide/api-hmr.html#hot-off-event-cb) can be used to listen and un-listen to these events.
 
 ```js
 if (import.meta.hot) {
@@ -555,7 +555,7 @@ function handleInvalidate(ownerPath: string) {
 
 ### HMR data
 
-Lastly, the HMR client also provides a way to store data to be shared between HMR APIs using [`import.meta.hot.data`](https://vitejs.dev/guide/api-hmr.html#hot-data). This data can be seen passed to the HMR callbacks for `import.meta.hot.dispose()` and `import.meta.hot.prune()` too.
+Lastly, the HMR client also provides a way to store data to be shared between HMR APIs using [`import.meta.hot.data`](https://vite.dev/guide/api-hmr.html#hot-data). This data can be seen passed to the HMR callbacks for `import.meta.hot.dispose()` and `import.meta.hot.prune()` too.
 
 Keeping the data is also similar to how we track the HMR callbacks. Taking the [HMR pruning](#hmr-pruning) code as example:
 
@@ -659,12 +659,12 @@ If you're interested in implementing your own HMR API, you may have to pick a fl
 
 ### Are there any other resources to learn HMR?
 
-Besides the [Vite](https://vitejs.dev/guide/api-hmr.html), [Webpack](https://webpack.js.org/concepts/hot-module-replacement/) and [Parcel](https://parceljs.org/features/development/#hot-reloading) documentations about HMR, there's not a lot of resources out there that goes in-depth into understanding how HMR really works. However, these are the few that I've found helpful:
+Besides the [Vite](https://vite.dev/guide/api-hmr.html), [Webpack](https://webpack.js.org/concepts/hot-module-replacement/) and [Parcel](https://parceljs.org/features/development/#hot-reloading) documentations about HMR, there's not a lot of resources out there that goes in-depth into understanding how HMR really works. However, these are the few that I've found helpful:
 
 - [What the heck is HMR anyway? - Pedro Cattori (YouTube)](https://youtu.be/e5M_5jKPaL4)
 
 ## Closing notes
 
-Turns out, hot module replacement is a little complex, but I hope it's easier to comprehend now. If you have any other questions about HMR, feel free to hop into the [Vite `#contributing` channel](https://chat.vitejs.dev)!
+Turns out, hot module replacement is a little complex, but I hope it's easier to comprehend now. If you have any other questions about HMR, feel free to hop into the [Vite `#contributing` channel](https://chat.vite.dev)!
 
 I'd also like to thank [@\_ArnaudBarre](https://twitter.com/_ArnaudBarre) for reviewing this blog.

@@ -12,7 +12,7 @@ The ever-so-lonely year, but an important one.
 - Full-time remote work
 - Dabbled with open-source
   - Maintainer of [vite-plugin-svelte](https://github.com/sveltejs/vite-plugin-svelte)
-  - Triage and contributor for [Vite](http://vitejs.dev)
+  - Triage and contributor for [Vite](http://vite.dev)
   - Contributor for [SvelteKit](https://kit.svelte.dev)
   - Joined the [Svelte](https://svelte.dev) team
 - Recorded a talk for Svelte Summit
