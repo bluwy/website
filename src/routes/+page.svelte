@@ -2,9 +2,6 @@
   import Hero from '$lib/Hero.svelte'
   import { formatDate } from '$lib/utils'
   import Head from '$lib/Head.svelte'
-  import svelteLogo from '$assets/images/oss-icons/svelte.svg'
-  import viteLogo from '$assets/images/oss-icons/vite.svg'
-  import astroLogo from '$assets/images/oss-icons/astro.svg'
 
   /**
    * @typedef {Object} Props
@@ -21,29 +18,12 @@
   <Hero />
   <section class="container mt-20 mb-10 markdown">
     <p>
-      Hi, I'm Bjorn. I work in open source for the web! I'm part of the
-      <a href="https://vite.dev">Vite</a>,
-      <a href="https://astro.build">Astro</a>, and
-      <a href="https://svelte.dev">Svelte</a> core team. Currently maintaining
-      <a href="https://github.com/sveltejs/vite-plugin-svelte">
-        vite-plugin-svelte
-      </a>,
-      <a href="https://vite.dev">Vite</a>,
-      <a href="https://astro.build">Astro</a> and
-      <a href="https://publint.dev">publint</a>.
+      Hi, I'm Bjorn. I work in open source for the web! I'm a
+      <a href="https://vite.dev">Vite</a> core team member, and have previously
+      contributed to the <a href="https://svelte.dev">Svelte</a> and
+      <a href="https://astro.build">Astro</a> ecosystem. I also work on projects
+      on the side, such as <a href="https://publint.dev">publint</a>.
     </p>
-  </section>
-
-  <section class="container my-10 flex justify-center items-center gap-12">
-    <a href="https://vite.dev">
-      <img src={viteLogo} alt="vite" class="w-13" />
-    </a>
-    <a href="https://astro.build">
-      <img src={astroLogo} alt="astro" class="w-10 astro-logo" />
-    </a>
-    <a href="https://svelte.dev">
-      <img src={svelteLogo} alt="svelte" class="w-12" />
-    </a>
   </section>
 
   <section class="container mt-20">
