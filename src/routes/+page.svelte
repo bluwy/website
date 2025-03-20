@@ -114,13 +114,3 @@
     ></object>
   </section>
 </article>
-
-<style>
-  @media (prefers-color-scheme: light) {
-    .astro-logo {
-      /* transform to #17191E */
-      filter: brightness(0) invert(9%) sepia(10%) saturate(832%)
-        hue-rotate(185deg) brightness(93%) contrast(97%);
-    }
-  }
-</style>
