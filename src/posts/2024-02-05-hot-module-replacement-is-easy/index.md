@@ -11,6 +11,8 @@ To preface, HMR is _not_ easy and certain topics may require some time to digest
 
 <!-- toc -->
 
+> A quick summary in video form is also available [here](https://gitnation.com/contents/hot-module-replacement-is-easy).
+
 ## What it takes to replace modules
 
 In essence, HMR is about replacing modules on the fly while your app is running. Most bundlers use ECMAScript modules (ESM) as the _module_ because it's easier to analyze the imports and exports, which helps to inform how a replacement in one module will affect other related modules.

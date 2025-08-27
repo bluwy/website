@@ -1,5 +1,11 @@
 export const talks = [
   {
+    title: 'Hot Module Replacement is Easy',
+    url: 'https://gitnation.com/contents/hot-module-replacement-is-easy',
+    venue: 'JSNation 2025',
+    type: ['talk', 'online']
+  },
+  {
     title: 'Performance! Performance! Performance!',
     url: 'https://www.youtube.com/watch?v=6OjbCdrJZWY',
     venue: 'ViteConf 2024',

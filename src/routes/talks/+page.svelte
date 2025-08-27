@@ -10,6 +10,8 @@
       return 'YouTube'
     } else if (url.includes('podrocket.logrocket.com')) {
       return 'PodRocket'
+    } else if (url.includes('gitnation.com')) {
+      return 'GitNation'
     } else {
       throw new Error('Unknown URL')
     }
