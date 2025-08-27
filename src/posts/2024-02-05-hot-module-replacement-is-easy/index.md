@@ -227,7 +227,6 @@ To better understand how it works, let's go through this example in a case-by-ca
 <p/>
 
 - **Scenario 1**: If `stuff.js` is updated, propagation will look at its importers recursively to find an accepted module. In this case, we'll find that `app.jsx` is an accepted module. But before we end the propagation, we need to determine if `app.jsx` can accept the change from `stuff.js`. This will depend on [how the `import.meta.hot.accept()` is called](#importmetahotaccept).
-
   - **Scenario 1 (a)**: If `app.jsx` is self-accepting, or it accepts the changes from `stuff.js`, we can stop the propagation here as there's no other importers from `stuff.js`. The HMR client will then inform `app.jsx` to perform HMR.
 
   - **Scenario 1 (b)**: If `app.jsx` does not accept this change, we'll continue propagating upwards to find an accepted module. But since there are no other accepted modules, we'll reach the "root" `index.html` file. A full page reload will be triggered.
@@ -235,7 +234,6 @@ To better understand how it works, let's go through this example in a case-by-ca
 - **Scenario 2**: If `main.js` or `other.js` is updated, propagation will look at its importers recursively again. However, there's no accepted module and we'll reach the "root" `index.html` file. As such, a full page reload will be triggered.
 
 - **Scenario 3**: If `app.jsx` is updated, we immediately find that it's an accepted module. However, some modules may or may not be able to updated changes to itself. We are able to determine if they can update itself by checking whether they are a self-accepted module.
-
   - **Scenario 3 (a)**: If `app.jsx` is self-accepting, we can stop here and have the HMR client inform it to perform HMR.
   - **Scenario 3 (b)**: If `app.jsx` is not self-accepting, we'll continue propagating upwards to find an accepted module. But since they're none and we'll reach the "root" `index.html` file, a full page reload will be triggered.
 
@@ -253,7 +251,6 @@ Let's take this different example that involves 3 HMR boundaries from the 3 `.js
 <p/>
 
 - **Scenario 5**: If `stuff.js` is updated, propagation will look at its importers recursively to find an accepted module. We'll find that `comp.jsx` is an accepted module and handle this the same way as **Scenario 1**. To re-iterate:
-
   - **Scenario 5 (a)**: If `comp.jsx` is self-accepting, or it accepts the changes from `stuff.js`, we can stop propagation there. The HMR client will then inform `comp.jsx` to perform HMR.
   - **Scenario 5 (b)**: If `comp.jsx` does not accept this change, we'll continue propagating upwards to find an accepted module. We'll find `app.jsx` as the accepted module and handle this the same way as this scenario (**Scenario 5**) again! We keep doing this until we find modules that can accept the changes, or if we reach the "root" index.html and a full page reload is needed.
 
@@ -262,7 +259,6 @@ Let's take this different example that involves 3 HMR boundaries from the 3 `.js
 - **Scenario 7**: If `utils.js` is updated, propagation will look at its importers recursively again and find all its direct importers `comp.jsx`, `alert.jsx`, and `app.jsx` as accepted modules. We'll also handle these three modules the same way as **Scenario 5**. Assuming the best case where all accepted modules matches **Scenario 5 (a)**, even though `comp.jsx` is also part of the HMR boundary of `app.jsx`, the HMR client will inform all three of them to perform HMR. _(In the future, Vite could detect this and only inform `app.jsx` and `alert.jsx`, but this is mostly an implementation detail!)_
 
 - **Scenario 8**: If `comp.jsx` is updated, we immediately find that it's an accepted module. Similar to **Scenario 3**, we need to check whether `comp.jsx` is a self-accepting module first.
-
   - **Scenario 8 (a)**: If `comp.jsx` is self-accepting, we can stop here and have the HMR client inform it to perform HMR.
   - **Scenario 8 (b)**: If `comp.jsx` is not self-accepting, we can handle this the same way as **Scenario 5 (b)**.
 

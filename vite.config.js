@@ -9,7 +9,8 @@ export default defineConfig({
     unocss({ inspector: false }),
     sveltekit(),
     markdown(),
-    cloudflareRedirect(),
+    // SvelteKit forces it to be in the project root
+    cloudflareRedirect({ redirectsFile: './_redirects' }),
     workaroundSvelteKitSafariBug()
   ]
 })

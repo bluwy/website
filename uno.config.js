@@ -1,7 +1,7 @@
-import presetWind from '@unocss/preset-wind'
+import presetWind from '@unocss/preset-wind3'
 import extractorSvelte from '@unocss/extractor-svelte'
 
-/** @type {import('@unocss/core').UserConfig<import('@unocss/preset-wind').Theme>} */
+/** @type {import('@unocss/core').UserConfig<import('@unocss/preset-wind3').Theme>} */
 export default {
   extractors: [extractorSvelte()],
   presets: [presetWind()],
