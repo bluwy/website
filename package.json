@@ -30,7 +30,7 @@
     "satori-html": "^0.3.2",
     "svelte": "^5.55.7",
     "typescript": "^6.0.2",
-    "vite": "^8.0.5",
+    "vite": "^8.0.16",
     "vite-plugin-cloudflare-redirect": "^1.0.3",
     "wrangler": "^4.80.0"
   },
