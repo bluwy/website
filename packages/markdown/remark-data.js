@@ -3,7 +3,7 @@ import remarkParse from 'remark-parse'
 import remarkHtml from 'remark-html'
 import { toc } from 'mdast-util-toc'
 import { toString } from 'mdast-util-to-string'
-import { load as yamlParse } from 'js-yaml'
+import * as yaml from 'yaml'
 import readingTime from 'reading-time'
 
 const DEFAULT_EXCERPT_LENGTH = 140
@@ -28,7 +28,7 @@ export function remarkData() {
         : undefined
 
     if (frontmatterNode) {
-      file.data.frontmatter = yamlParse(frontmatterNode.value)
+      file.data.frontmatter = yaml.parse(frontmatterNode.value)
     }
 
     const plainString = toString(tree)

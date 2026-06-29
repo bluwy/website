@@ -1,2 +1,9 @@
 packages:
   - packages/*
+
+allowBuilds:
+  'esbuild': true
+  'sharp': true
+  'workerd': true
+patchedDependencies:
+  'fenceparser@2.2.0': 'patches/fenceparser@2.2.0.patch'
