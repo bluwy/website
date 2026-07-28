@@ -16,7 +16,7 @@
     "@bluwy/rollup-plugin-markdown": "workspace:*",
     "@resvg/resvg-js": "^2.6.2",
     "@sveltejs/adapter-cloudflare": "^7.2.9",
-    "@sveltejs/kit": "^2.68.0",
+    "@sveltejs/kit": "^2.69.1",
     "@sveltejs/vite-plugin-svelte": "^7.1.2",
     "@unocss/core": "^66.7.3",
     "@unocss/extractor-svelte": "^66.7.3",
